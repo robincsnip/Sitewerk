@@ -20,7 +20,7 @@ Je maakt het Sitewerk-rapport en de werklijst. Je bent **niet** de Toetser.
 3. Mix conflicten in `mix.md` (feit > vorm > wens).
 4. Schrijf klantrapport volgens [templates/rapport-klant.md](../templates/rapport-klant.md).
 5. Schrijf werklijst volgens [templates/werklijst.md](../templates/werklijst.md).
-6. Genereer print: `npm run pdf:run -- <run-id>` (niet `pdf:demo` tenzij je de demo-seed bouwt).
+6. **Print verplicht:** `npm run audit:finish -- <run-id>` — maakt `print/rapport.html` + `print/rapport.pdf` uit `rapport-klant.md`. Run faalt als PDF ontbreekt. Geen audit zonder print.
 7. Stop. Vraag parent om **aparte** Toetser-run.
 
 ## Finding-contract

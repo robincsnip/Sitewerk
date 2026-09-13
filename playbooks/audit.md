@@ -51,4 +51,10 @@ afhankelijk_van: F-###[] | []
 
 ## Output
 
-Zie [docs/PIJPLIJN.md](../docs/PIJPLIJN.md). Daarna: aparte Toetser-run ([toets.md](toets.md)).
+Zie [docs/PIJPLIJN.md](../docs/PIJPLIJN.md). Na `rapport-klant.md` + `werklijst.md`:
+
+```bash
+npm run audit:finish -- <run-id>
+```
+
+Dat is verplicht: `print/rapport.html` en `print/rapport.pdf` horen bij elke audit-run. Daarna: aparte Toetser-run ([toets.md](toets.md)).
