@@ -105,15 +105,15 @@ Zie `werklijst.md` in deze run. Samenvatting:
 | --- | --- | --- | --- |
 | 1 | NL-telling + BE/DE uit NL-sitemap | jullie besluit, wij bouwen | home = /plaatsen = sitemap-NL |
 | 2 | Listing-template gast-eerst | wij + jullie copy | Kampen-template herhaald |
-| 3 | Cache headers + /plaatsen verlichten | wij | public cache + < 500 kB of paginering |
+| 3 | Regio-filter → provincie-hub | wij | Drenthe-filter op /provincie/drenthe |
 
 ### Maand twee / drie
 
 | # | Wat | Wie | Klaar als |
 | --- | --- | --- | --- |
-| 4 | JSON-LD geo + priceRange | wij | Rich Results Test groen |
-| 5 | Provincie-hub intern linken | gedeeld | steekproef Drenthe herhaald |
-| 6 | Nameting baseline | aparte run | GSC of steekproef vastgelegd |
+| 4 | Cache public + /plaatsen verlichten | wij | public cache listing; /plaatsen paginering |
+| 5 | JSON-LD geo + priceRange + amenities | wij | Rich Results Test |
+| 6 | Hub Drenthe intern versterken | gedeeld | steekproef herhalen |
 
 **Buiten scope deze ronde:** linkdisavow, GBP, live deploy, mail naar eigenaren, %-trafficbelofte.
 
