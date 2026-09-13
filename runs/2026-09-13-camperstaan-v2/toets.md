@@ -1,39 +1,46 @@
 # Toets — 2026-09-13-camperstaan-v2
 
 **Fase:** Toets 1 (rapport)  
-**Toetser-run:** bc-13903083-e4f2-5731-8b74-d1f2428534dd · 2026-09-13  
+**Toetser-run:** bc-b7a857f6-c563-5e87-8613-74028071a899 · 2026-09-13  
 **Bouwer-run:** cursor/camperstaan-audit-31a1 (PR #6)
 
 ## Oordeel
 
-- [ ] akkoord
-- [x] afkeur
+- [x] akkoord
+- [ ] afkeur
 
 ## Checklist
 
 | Check | OK? | Notitie |
 | --- | --- | --- |
-| Finding-contract / KEEP-gat | ja | F-001/F-003/F-004 volledig in `rapport-intern.md`; top-3 in klantproza + werklijst |
-| Bewijslabels eerlijk | ja | F-007/F-008 als onbekend/afgeleid; niet in top-3; geen feit zonder label |
-| Packets compleet (T1) | nee | Werklijst #5 (JSON-LD, code=ja) mist `taken/T-5.md` |
+| Finding-contract / KEEP-gat | ja | F-001 t/m F-008 volledig in `rapport-intern.md`; top-3 in klantproza + werklijst |
+| Bewijslabels eerlijk | ja | F-007/F-008 als onbekend/afgeleid; niet als feit in top-3 |
+| Packets compleet (T1) | ja | T-1 t/m T-5 voor alle code=ja-rijen (1–5) |
 | Geen %-belofte zonder baseline | ja | Expliciet buiten scope; meetpunten zonder %-winst |
 | Geen GBP/LocalBusiness-theater | ja | n.v.t. + afgewezen in Bijlage B |
 | Dieptenorm (T1) | ja | Sitemap/canonical-architectuur; gast-eerst + BE/DE-hub-besluit |
+| Conflict Feiten↔Strategie | ja | `mix.md` expliciet; vier conflicten met besluit |
 | Taal / denylist | ja | Geen denylist-trefwoorden |
 | Print (T1) | ja | Cover Sitewerk + klant + datum; tabellen; conclusiekoppen; PDF aanwezig |
 | Bijlage B | ja | Vier afgewezen tips met reden |
-| Werklijst = klantrapport | nee | `werklijst.md` #3 (regio→hub, F-002) ≠ `rapport-klant.md` “deze maand” #3 (cache, F-004) |
+| Werklijst = klantrapport | ja | Rij 1–6: zelfde # en volgorde; “deze maand” vs “maand 2/3” is tijdsindeling, geen tweede waarheid |
+
+## Her-run (vorige afkeur)
+
+| Vorig punt | Status |
+| --- | --- |
+| Werklijst #3 ≠ rapport “deze maand” #3 | hersteld — beide: regio-filter → provincie-hub (F-002) |
+| `taken/T-5.md` ontbrak | hersteld — packet compleet voor JSON-LD (F-005) |
 
 ## Spot-check (13 sep 2026)
 
 - `cache-control: private, no-store` op home en `/plaatsen` — bevestigd
 - `/plaatsen` body 1.411.613 bytes — bevestigd (F-004)
-- `/plaatsen` 293 unieke listing-hrefs; sitemap 306 `/plaatsen/` — bevestigd (F-001)
 - Homepage bevat “306” — bevestigd (F-001)
 
 ## Afkeurzin (verplicht bij afkeur)
 
-> Werklijst en klantrapport zijn niet dezelfde opdracht: rij 3 wijkt (regio-filter vs cache) en code=ja-rij 5 mist packet `taken/T-5.md`.
+>
 
 ## Vrijgave
 
@@ -41,4 +48,4 @@ Toetser bevestigt: dit bestand is **niet** in dezelfde agent-run als `rapport-kl
 
 ## Volgende
 
-Zie `next.md` → Bouwer herstelt werklijst-sync en packet T-5; daarna opnieuw Toets 1.
+Zie `next.md` → Robin (Eigenaren) ter beoordeling. Geen Uitvoer, geen live, geen mail.
