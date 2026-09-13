@@ -1,0 +1,14 @@
+{
+  "name": "sitewerk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sitewerk SEO machine — personal lab (robincsnip/Sitewerk)",
+  "scripts": {
+    "html:demo": "node scripts/md-to-html.js runs/demo-2026-09-13/rapport-klant.md",
+    "pdf:demo": "npm run html:demo && node scripts/html-to-pdf.js runs/demo-2026-09-13/print/rapport.html",
+    "build:demo": "npm run pdf:demo"
+  },
+  "dependencies": {
+    "playwright-core": "^1.55.0"
+  }
+}

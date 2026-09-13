@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo Bakkerij Noord — wat er speelt online, en wat we eerst doen</title>
+  <style>
+/* Sitewerk rapport theme — print-first A4, no AI-slop look */
+
+/* Print-safe: system stacks first; optional webfonts when online */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+:root {
+  --ink: #1a1f1c;
+  --muted: #5a635c;
+  --paper: #f3f6f4;
+  --panel: #ffffff;
+  --line: #c9d2cc;
+  --accent: #0f5c4c;
+  --accent-soft: #e4efe9;
+  --warn: #8a4b12;
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --body: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 11.5pt;
+  line-height: 1.45;
+}
+
+.cover {
+  padding: 28mm 8mm 14mm;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 10mm;
+  background:
+    linear-gradient(180deg, #eef5f1 0%, var(--paper) 70%);
+}
+
+.brand {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10pt;
+  color: var(--accent);
+  margin: 0 0 8mm;
+}
+
+.cover h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 28pt;
+  line-height: 1.15;
+  margin: 0 0 4mm;
+  max-width: 28ch;
+}
+
+.meta {
+  color: var(--muted);
+  margin: 0;
+  font-size: 10.5pt;
+}
+
+.report {
+  padding: 0 8mm 16mm;
+  max-width: 180mm;
+}
+
+.report h1,
+.report h2,
+.report h3 {
+  font-family: var(--display);
+  font-weight: 560;
+  line-height: 1.2;
+  page-break-after: avoid;
+}
+
+.report h1 {
+  font-size: 18pt;
+  margin: 0 0 6mm;
+}
+
+.report h2 {
+  font-size: 14pt;
+  margin: 9mm 0 3mm;
+  padding-top: 2mm;
+  border-top: 1px solid var(--line);
+}
+
+.report h3 {
+  font-size: 12.5pt;
+  margin: 6mm 0 2mm;
+  color: var(--accent);
+}
+
+.report p {
+  margin: 0 0 3mm;
+}
+
+.report ul,
+.report ol {
+  margin: 0 0 4mm;
+  padding-left: 5mm;
+}
+
+.report li {
+  margin-bottom: 1.5mm;
+}
+
+.report strong {
+  font-weight: 600;
+}
+
+.report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3mm 0 5mm;
+  font-size: 10pt;
+  background: var(--panel);
+  break-inside: avoid;
+}
+
+.report th,
+.report td {
+  border: 1px solid var(--line);
+  padding: 2.2mm 2.5mm;
+  text-align: left;
+  vertical-align: top;
+}
+
+.report th {
+  background: var(--accent-soft);
+  font-family: var(--display);
+  font-weight: 560;
+}
+
+.report blockquote {
+  margin: 4mm 0;
+  padding: 3mm 4mm;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.report hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 8mm 0;
+}
+
+.colophon {
+  padding: 4mm 8mm 10mm;
+  color: var(--muted);
+  font-size: 9pt;
+  border-top: 1px solid var(--line);
+}
+
+@media print {
+  html,
+  body {
+    background: white;
+  }
+
+  .cover {
+    background: white;
+  }
+
+  .report h2 {
+    break-before: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+  </style>
+  <!-- linked theme kept for browser preview of the template -->
+  <link rel="stylesheet" href="../../../assets/rapport-theme.css" />
+</head>
+<body>
+  <header class="cover">
+    <p class="brand">Sitewerk</p>
+    <h1>Demo Bakkerij Noord</h1>
+    <p class="meta">13 september 2026 · concept — niets live gezet</p>
+  </header>
+  <main class="report">
+<p><strong>Peildatum:</strong> 13 september 2026 <strong>Status:</strong> concept — er is nog niets live gezet <strong>Opgesteld door:</strong> Sitewerk</p>
+<hr />
+<h2>In het kort</h2>
+<p>Bakkerij Noord heeft een nette one-pager, maar Google ziet vooral een adrespagina zonder duidelijke dienstenstructuur. Wie zoekt op “desembrood Utrecht” landt sneller bij concurrenten met aparte productpagina’s. Op mobiel is bellen begraven onder een lang verhaal. Reviews staan wel op Maps, maar de site verwijst er niet naar — vertrouwen blijft op Maps hangen.</p>
+<p><strong>Eerste besluit dat we vragen:</strong> akkoord op drie acties hieronder (hubpagina’s, belbaar boven de vouw, reviewbrug), daarna bouwen we week 1.</p>
+<h3>Drie dingen die het meeste opleveren</h3>
+<ol>
+<li><strong>Drie dienstpagina’s</strong> (desembrood, taarten, lunch) — zoekers en Google krijgen een duidelijke plek per intentie — klaar als elke pagina unieke titel, H1 en interne link vanaf home heeft.</li>
+<li><strong>Belknop boven de vouw op mobiel</strong> — belletjes gaan nu via Maps of niet — klaar als <code>tel:</code>-knop zichtbaar is zonder scrollen op een iPhone-breedte.</li>
+<li><strong>Reviewbrug naar Maps</strong> — sociale bewijskracht blijft nu buiten de site — klaar als home én contact een duidelijke link naar het Google-profiel tonen (zonder sterren te verzinnen).</li>
+</ol>
+<h3>Wat al goed staat (niet kapotmaken)</h3>
+<ul>
+<li>NAP op de site komt overeen met Maps</li>
+<li>HTTPS en canonical op home zijn in orde</li>
+<li>Openingstijden op de site kloppen met het profiel</li>
+</ul>
+<hr />
+<h2>Wat we hebben bekeken</h2>
+<p>Openbare site + Maps-profiel. Geen Search Console-export in deze demo. Geen crawler-login.</p>
+<table><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; indexatie</td><td>bekeken</td><td>Home indexeerbaar; geen sitemap gevonden</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>Bijna alles op één URL</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Breed verhaal, weinig intentie-pagina’s</td></tr><tr><td>Snelheid op kernpagina’s</td><td>deels</td><td>Geen CrUX; lab-steekproef OK</td></tr><tr><td>Google-bedrijfsprofiel</td><td>relevant</td><td>Sterk; site koppelt zwak terug</td></tr><tr><td>Reviews &amp; reputatie</td><td>bekeken</td><td>Reviews op Maps, niet op site</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>steekproef</td><td>Concurrenten met dienst-URL’s</td></tr><tr><td>AI-vindbaarheid</td><td>steekproef</td><td>Merk genoemd bij generieke prompt; diensten zwak</td></tr></tbody></table>
+<hr />
+<h2>Het verhaal op één lijn</h2>
+<h3>Eén pagina probeert drie zoekintenties tegelijk</h3>
+<p>Home mengt brood, taarten en lunch. Concurrenten ranken met aparte URL’s per dienst. Gevolg: jullie verhaal is warm, maar moeilijk te matchen op een specifieke zoekvraag. Keuze: drie dunne maar eerlijke dienstpagina’s, geen blogfabriek.</p>
+<h3>Vertrouwen leeft op Maps, niet op de site</h3>
+<p>Het profiel heeft recente reviews. De site noemt dat niet. Bezoekers die via Google de site openen, missen het bewijs dat op Maps wél staat. Geen nepreviews op de site — wel een brug.</p>
+<hr />
+<h2>Keuzes (wij geven een voorkeur)</h2>
+<h3>Keuze 1 — Eerst dienstenstructuur of eerst visuele redesign?</h3>
+<p><strong>Voorstel:</strong> structuur en belbaarheid eerst; redesign alleen als jullie de hele site willen vernieuwen (apart Atelier-besluit). <strong>Waarom:</strong> zonder URL-structuur blijft een mooiere homepage dezelfde zoekmatch missen. <strong>Alternatief:</strong> alleen GBP-posts en reviewvragen, site laten. <strong>Opnieuw bekijken als:</strong> jullie binnen 30 dagen sowieso een nieuwe site willen.</p>
+<hr />
+<h2>Werklijst — eerste 90 dagen</h2>
+<p>Zie <code>werklijst.md</code> in deze run.</p>
+<h3>Deze maand</h3>
+<table><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>Drie dienstpagina’s + interne links</td><td>wij</td><td>live op preview</td></tr><tr><td>2</td><td>Belknop boven de vouw</td><td>wij</td><td>getest op 390px breed</td></tr><tr><td>3</td><td>Maps-reviewbrug</td><td>wij</td><td>links op home + contact</td></tr></tbody></table>
+<h3>Maand twee / drie</h3>
+<ul>
+<li>Titel/meta per dienstpagina aanscherpen met echte zoektermen uit Search Console (zodra toegang)</li>
+<li>Eén seizoenslandingspagina (kerst/taart) alleen met echte productiecapaciteit</li>
+</ul>
+<p><strong>Buiten scope deze ronde:</strong> complete rebrand, betaalde ads, review-aankoop, LocalBusiness-spam op niet-bestaande locaties.</p>
+<hr />
+<h2>Hoe we weten of het werkt</h2>
+<ul>
+<li><strong>Nu bekend:</strong> home staat in de index; Maps-profiel actief</li>
+<li><strong>Nog niet bekend:</strong> zoekverkeer per dienst (geen GSC)</li>
+<li><strong>Over 30 dagen:</strong> impressies op de drie nieuwe URL’s (GSC) + bel-taps indien analytics</li>
+<li><strong>Over 90 dagen:</strong> organische landingen op dienstpagina’s t.o.v. alleen home</li>
+</ul>
+<hr />
+<h2>Bijlage A — Bewijs</h2>
+<table><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>Geen aparte dienst-URL’s</td><td>steekproef site-navigatie 13 sep</td><td>gemeten</td></tr><tr><td>F-002</td><td>Geen <code>tel:</code> boven de vouw op smalle viewport</td><td>manuele check 390px</td><td>gemeten</td></tr><tr><td>F-003</td><td>Reviews op Maps, geen brug op site</td><td>Maps-profiel + site-footer</td><td>gemeten</td></tr><tr><td>F-004</td><td>Geen XML-sitemap bereikbaar</td><td><code>/sitemap.xml</code> 404</td><td>gemeten</td></tr></tbody></table>
+<h2>Bijlage B — Afgewezen automatische tips</h2>
+<table><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>AggregateRating met verzonnen sterren op de site</td><td>Geen dossierbewijs; misleidend</td></tr><tr><td>Tien blogposts “voor SEO”</td><td>Geen capaciteit; lost intentie-match niet op</td></tr><tr><td>Extra vestiging in schema</td><td>Er is één winkel</td></tr></tbody></table>
+  </main>
+  <footer class="colophon">
+    <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>
+  </footer>
+</body>
+</html>
