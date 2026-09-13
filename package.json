@@ -4,8 +4,9 @@
   "private": true,
   "description": "Sitewerk SEO machine — personal lab (robincsnip/Sitewerk)",
   "scripts": {
-    "html:demo": "node scripts/md-to-html.js runs/demo-2026-09-13/rapport-klant.md",
-    "pdf:demo": "npm run html:demo && node scripts/html-to-pdf.js runs/demo-2026-09-13/print/rapport.html",
+    "audit:finish": "node scripts/finish-audit.js",
+    "pdf:run": "node scripts/build-run.js",
+    "pdf:demo": "npm run audit:finish -- demo-2026-09-13",
     "build:demo": "npm run pdf:demo"
   },
   "dependencies": {

@@ -6,10 +6,21 @@
 
 ## Pipeline
 
+**Bouwer (standaard, verplicht na elke audit):**
+
 ```bash
-node scripts/md-to-html.js runs/<id>/rapport-klant.md
-node scripts/html-to-pdf.js runs/<id>/print/rapport.html
+npm run audit:finish -- <run-id>
 ```
+
+`md-to-html.js` schrijft HTML en triggert daarna automatisch PDF. `audit:finish` controleert dat beide bestanden bestaan.
+
+**Opnieuw bouwen** (na handmatige edits aan `rapport-klant.md`):
+
+```bash
+npm run pdf:run -- <run-id>
+```
+
+`pdf:run` roept dezelfde finish-hook aan. Alleen `--html-only` op `md-to-html.js` slaat PDF over (niet gebruiken in Bouwer-runs).
 
 Theme: [assets/rapport-theme.css](../assets/rapport-theme.css).  
 Print-skelet: [templates/rapport-print.html](../templates/rapport-print.html).

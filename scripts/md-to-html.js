@@ -3,12 +3,15 @@
  * Minimal Markdown → HTML for Sitewerk reports.
  * Supports headings, paragraphs, lists, tables, hr, bold/italic, blockquotes.
  */
+const { spawnSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const mdPath = process.argv[2];
+const args = process.argv.slice(2);
+const htmlOnly = args.includes("--html-only");
+const mdPath = args.find((arg) => !arg.startsWith("-"));
 if (!mdPath) {
-  console.error("Usage: node scripts/md-to-html.js <rapport-klant.md>");
+  console.error("Usage: node scripts/md-to-html.js <rapport-klant.md> [--html-only]");
   process.exit(1);
 }
 
@@ -217,3 +220,14 @@ ${body}
 const outPath = path.join(printDir, "rapport.html");
 fs.writeFileSync(outPath, html, "utf8");
 console.log(`Wrote ${outPath}`);
+
+if (!htmlOnly) {
+  const pdfResult = spawnSync(
+    process.execPath,
+    [path.join(__dirname, "html-to-pdf.js"), outPath],
+    { cwd: repoRoot, stdio: "inherit" },
+  );
+  if (pdfResult.status !== 0) {
+    process.exit(pdfResult.status ?? 1);
+  }
+}

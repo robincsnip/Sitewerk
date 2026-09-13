@@ -5,7 +5,7 @@ Persoonlijk lab voor de Sitewerk SEO-machine (Visionairs).
 
 ## Wat dit is
 
-Eén voordeur: brief in → rapport + werklijst + (optioneel) PDF uit.
+Eén voordeur: brief in → rapport + werklijst + PDF uit.
 
 | Rol | Taak |
 | --- | --- |
@@ -19,15 +19,16 @@ Eén voordeur: brief in → rapport + werklijst + (optioneel) PDF uit.
 ## Snel starten
 
 ```bash
-# Demo-PDF (Chrome headless)
-npm run pdf:demo
+# Bouwer: verplicht na rapport-klant.md (md → html → pdf)
+npm run audit:finish -- <run-id>
 
-# Of handmatig
-node scripts/md-to-html.js runs/demo-2026-09-13/rapport-klant.md
-node scripts/html-to-pdf.js runs/demo-2026-09-13/print/rapport.html
+# Opnieuw bouwen na edits
+npm run pdf:run -- <run-id>
 ```
 
-Output: `runs/demo-2026-09-13/print/rapport.pdf`
+Output: `runs/<run-id>/print/rapport.pdf` (automatisch via `audit:finish`)
+
+Pijplijn- en run-wijzigingen staan op feature-branches tot merge. Een agent die vanaf `main` start ziet alleen `runs/demo-2026-09-13/` — niet de draft-PR’s (#2–#4).
 
 ## Structuur
 
