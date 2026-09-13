@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maickels Broodjes — wat er speelt online, en wat we eerst doen</title>
+  <style>
+/* Sitewerk rapport theme — print-first A4, no AI-slop look */
+
+/* Print-safe: system stacks first; optional webfonts when online */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+:root {
+  --ink: #1a1f1c;
+  --muted: #5a635c;
+  --paper: #f3f6f4;
+  --panel: #ffffff;
+  --line: #c9d2cc;
+  --accent: #0f5c4c;
+  --accent-soft: #e4efe9;
+  --warn: #8a4b12;
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --body: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 11.5pt;
+  line-height: 1.45;
+}
+
+.cover {
+  padding: 28mm 8mm 14mm;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 10mm;
+  background:
+    linear-gradient(180deg, #eef5f1 0%, var(--paper) 70%);
+}
+
+.brand {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10pt;
+  color: var(--accent);
+  margin: 0 0 8mm;
+}
+
+.cover h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 28pt;
+  line-height: 1.15;
+  margin: 0 0 4mm;
+  max-width: 28ch;
+}
+
+.meta {
+  color: var(--muted);
+  margin: 0;
+  font-size: 10.5pt;
+}
+
+.report {
+  padding: 0 8mm 16mm;
+  max-width: 180mm;
+}
+
+.report h1,
+.report h2,
+.report h3 {
+  font-family: var(--display);
+  font-weight: 560;
+  line-height: 1.2;
+  page-break-after: avoid;
+}
+
+.report h1 {
+  font-size: 18pt;
+  margin: 0 0 6mm;
+}
+
+.report h2 {
+  font-size: 14pt;
+  margin: 9mm 0 3mm;
+  padding-top: 2mm;
+  border-top: 1px solid var(--line);
+}
+
+.report h3 {
+  font-size: 12.5pt;
+  margin: 6mm 0 2mm;
+  color: var(--accent);
+}
+
+.report p {
+  margin: 0 0 3mm;
+}
+
+.report ul,
+.report ol {
+  margin: 0 0 4mm;
+  padding-left: 5mm;
+}
+
+.report li {
+  margin-bottom: 1.5mm;
+}
+
+.report strong {
+  font-weight: 600;
+}
+
+.report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3mm 0 5mm;
+  font-size: 10pt;
+  background: var(--panel);
+  break-inside: avoid;
+}
+
+.report th,
+.report td {
+  border: 1px solid var(--line);
+  padding: 2.2mm 2.5mm;
+  text-align: left;
+  vertical-align: top;
+}
+
+.report th {
+  background: var(--accent-soft);
+  font-family: var(--display);
+  font-weight: 560;
+}
+
+.report blockquote {
+  margin: 4mm 0;
+  padding: 3mm 4mm;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.report hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 8mm 0;
+}
+
+.colophon {
+  padding: 4mm 8mm 10mm;
+  color: var(--muted);
+  font-size: 9pt;
+  border-top: 1px solid var(--line);
+}
+
+@media print {
+  html,
+  body {
+    background: white;
+  }
+
+  .cover {
+    background: white;
+  }
+
+  .report h2 {
+    break-before: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+  </style>
+  <!-- linked theme kept for browser preview of the template -->
+  <link rel="stylesheet" href="../../../assets/rapport-theme.css" />
+</head>
+<body>
+  <header class="cover">
+    <p class="brand">Sitewerk</p>
+    <h1>Maickels Broodjes</h1>
+    <p class="meta">13 september 2026 · concept — niets live gezet</p>
+  </header>
+  <main class="report">
+<p><strong>Peildatum:</strong> 13 september 2026 <strong>Status:</strong> concept — er is nog niets live gezet <strong>Opgesteld door:</strong> Sitewerk</p>
+<hr />
+<h2>In het kort</h2>
+<p>Maickels Broodjes heeft één nette Next-pagina: hero, sauzen, een schemasectie en contact. Apex wijst naar www, HTTPS/HSTS staat. Dat is een basis.</p>
+<p>Google krijgt desondanks weinig om te matchen. De title tag is alleen de merknaam. De meta is een persoonlijke bio, geen “broodjes in Beek en Donk, hier staan we, zo boek je”. Er is geen canonical, geen robots.txt, geen sitemap. Schema-tijden laden in de browser (“Schema laden…”); een eerste fetch ziet geen rooster. Bellen kan niet via een <code>tel:</code>-link. Extra paden zoals <code>/locaties</code> of <code>/menu</code> bestaan niet.</p>
+<p>Dit is een lokale zaak. Een Google-bedrijfsprofiel hoort erbij — we hebben het in deze run niet ingelogd nagemeten, dus we verzinnen geen reviews of posities.</p>
+<p><strong>Eerste besluit dat we vragen:</strong> eerst handelen en plaats in de HTML (NAP, bel, rooster), daarna pas extra URL’s.</p>
+<h3>Drie dingen die het meeste opleveren</h3>
+<ol>
+<li><strong>Plaats + aanbod in titel, H1 en meta</strong> — de bio mag op de pagina, niet als enige snippet — klaar als title/H1 “broodjes” én “Beek en Donk” (of de echte standplaats) noemen.</li>
+<li><strong>Rooster, adres en belnummer in de HTML</strong> — nu is het schema JS en ontbreekt <code>tel:</code> — klaar als view-source tijden/plek en een klikbaar nummer toont.</li>
+<li><strong>GBP-check + GSC + robots/sitemap</strong> — lokale zoekers komen via kaart en Google, niet via <code>/menu</code> — klaar als NAP op site en profiel gelijk lopen, GSC property bestaat, <code>/robots.txt</code> en <code>/sitemap.xml</code> 200 zijn.</li>
+</ol>
+<h3>Wat al goed staat (niet kapotmaken)</h3>
+<ul>
+<li>HTTPS, www-canonical host in de praktijk, HSTS</li>
+<li>Duidelijke H1 over verse broodjes</li>
+<li>OG-beeld aanwezig</li>
+<li>Eén merk, geen wirwar aan domeinen</li>
+</ul>
+<hr />
+<h2>Wat we hebben bekeken</h2>
+<p>Openbare HTML van www. Geen GSC. Geen Maps-dashboard.</p>
+<table><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; indexatie</td><td>bekeken</td><td>Geen robots/sitemap; geen canonical-tag</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>Alleen home; overige paden 404</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Bio in meta; aanbod in H1</td></tr><tr><td>Snelheid op kernpagina’s</td><td>niet gemeten</td><td>Kleine HTML (~21 kB); schema via JS</td></tr><tr><td>Google-bedrijfsprofiel</td><td>relevant, niet ingezien</td><td>Geen sterren/cijfers</td></tr><tr><td>Reviews &amp; reputatie</td><td>niet gemeten</td><td>Alleen social links gezien</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>niet gemeten</td><td>—</td></tr><tr><td>AI-vindbaarheid</td><td>niet gedaan</td><td>Eerst lokale basis</td></tr></tbody></table>
+<hr />
+<h2>Het verhaal op één lijn</h2>
+<h3>Een kar zonder plaats in de zoeksnippet</h3>
+<p>Beek en Donk staat in de meta als woonplaats van Maickel, niet als waar je een broodje haalt. De H1 is goed (“vaste plekken in de stad”) maar de title tag helpt Google niet. Gevolg: de pagina is te herkennen voor wie het merk al kent, te zwak voor wie “broodje Beek en Donk” typt.</p>
+<h3>De praktische info hangt in JavaScript</h3>
+<p>“Schema laden…” betekent: de crawler en een deel van de previews zien geen rooster. Zonder bel-link en zonder tweede URL is de site een poster. Voor een lokale zaak is de poster het begin; de kaart en het nummer doen de rest.</p>
+<hr />
+<h2>Keuzes (wij geven een voorkeur)</h2>
+<h3>Keuze 1 — Eén sterke home of meteen locatie-URL’s?</h3>
+<p><strong>Voorstel:</strong> eerst home compleet (NAP, tel, rooster in HTML, titel). Locatie-URL’s alleen als er meerdere vaste plekken met eigen zoekvraag zijn. <strong>Waarom:</strong> 404 op <code>/locaties</code> is nu geen gemis als home de feiten draagt. <strong>Alternatief:</strong> meteen <code>/beek-en-donk</code> + catering-URL. <strong>Opnieuw bekijken als:</strong> er twee+ wekelijkse standplaatsen zijn met eigen namen.</p>
+<h3>Keuze 2 — Atelier (nieuwe site) nu?</h3>
+<p><strong>Voorstel:</strong> nee. Eerst vindbaarheid. <strong>Waarom:</strong> de vorm is al een productpagina; de gaten zijn inhoud en local. <strong>Alternatief:</strong> redesign als jullie merkwijziging willen (eigenaren-gate). <strong>Opnieuw bekijken als:</strong> de huidige stack het rooster niet server-side kan tonen.</p>
+<hr />
+<h2>Werklijst — eerste 90 dagen</h2>
+<p>Zie <code>werklijst.md</code> in deze run.</p>
+<h3>Deze maand</h3>
+<table><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>Titel/meta/H1 met broodjes + plaats</td><td>wij</td><td>view-source</td></tr><tr><td>2</td><td><code>tel:</code> + NAP + rooster in HTML</td><td>wij / jullie</td><td>view-source, geen “laden…” als enige</td></tr><tr><td>3</td><td>robots.txt + sitemap.xml + canonical</td><td>wij</td><td>200 + 1 URL</td></tr><tr><td>4</td><td>GBP-NAP-check (geen live wijziging zonder ja)</td><td>gedeeld</td><td>schriftelijke diff site vs Maps</td></tr></tbody></table>
+<h3>Maand twee / drie</h3>
+<ul>
+<li>GSC queries 28 dagen</li>
+<li>Eventueel catering/boekings-URL als dat een echte dienst is</li>
+<li>Food-schema alleen met echte naam, adres, opening (geen sterren)</li>
+</ul>
+<p><strong>Buiten scope:</strong> ads, review-aankoop, extra vestigingen, blogreeks.</p>
+<hr />
+<h2>Hoe we weten of het werkt</h2>
+<ul>
+<li><strong>Nu bekend:</strong> één indexeerbare home, zonder sitemap/robots</li>
+<li><strong>Nog niet bekend:</strong> Maps-positie, GSC, of het rooster geïndexeerd wordt</li>
+<li><strong>Over 30 dagen:</strong> GSC op home; tel-taps als analytics aan staat</li>
+<li><strong>Over 90 dagen:</strong> impressies op merk + plaatsnamen (geen %-doel zonder baseline)</li>
+</ul>
+<hr />
+<h2>Bijlage A — Bewijs</h2>
+<table><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>Geen robots.txt, geen sitemap</td><td>fetch 404 13 sep</td><td>gemeten</td></tr><tr><td>F-002</td><td>Geen canonical-tag</td><td>HTML head</td><td>gemeten</td></tr><tr><td>F-003</td><td>Title alleen merknaam; meta = bio</td><td><code>&lt;title&gt;</code> + description</td><td>gemeten</td></tr><tr><td>F-004</td><td>Extra paden 404</td><td><code>/menu</code> <code>/locaties</code> <code>/contact</code></td><td>gemeten</td></tr><tr><td>F-005</td><td>Schema-sectie “Schema laden…”</td><td>HTML/H2 + WebFetch-tekst</td><td>gemeten</td></tr><tr><td>F-006</td><td>Geen <code>tel:</code></td><td>HTML-links</td><td>gemeten</td></tr><tr><td>F-007</td><td>Geen JSON-LD</td><td>HTML</td><td>gemeten</td></tr><tr><td>F-008</td><td>GBP niet ingezien</td><td>deze run</td><td>onbekend (profielcijfers)</td></tr></tbody></table>
+<h2>Bijlage B — Afgewezen automatische tips</h2>
+<table><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>AggregateRating / sterren op de site</td><td>Geen dossier</td></tr><tr><td>Tien blogposts over broodjes</td><td>Lost NAP/tel/rooster niet op</td></tr><tr><td>Tweede vestiging in schema</td><td>Eén zaak in dit dossier</td></tr><tr><td>LocalBusiness weglaten “want Camperstaan ook niet”</td><td>Dit ís een lokale zaak; Camperstaan is een directory</td></tr></tbody></table>
+  </main>
+  <footer class="colophon">
+    <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>
+  </footer>
+</body>
+</html>
