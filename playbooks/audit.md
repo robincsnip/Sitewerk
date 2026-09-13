@@ -2,7 +2,8 @@
 
 ## Doel
 
-Eén Sitewerk-audit: feiten → strategie → kader → mix → klantrapport + werklijst.
+SKU **Audit**: feiten → strategie → kader → mix → klantrapport + werklijst + packets.  
+Dit is één SKU in [docs/PIJPLIJN.md](../docs/PIJPLIJN.md), niet de hele zaaklijn.
 
 ## Onderzoeksvolgorde (rapporteren in deze volgorde)
 
@@ -46,15 +47,10 @@ afhankelijk_van: F-###[] | []
 - ≥1 architectuur- of template-inzicht  
 - ≥1 content-besluit: prune / merge / rewrite / hub  
 - Conflict Feiten↔Strategie expliciet in `mix.md`  
-- Top 3 acties gekoppeld aan gevolg voor de zaak  
+- Top 3 acties gekoppeld aan gevolg voor de zaak; niet alleen `onbekend`  
 - Bijlage B: afgewezen scanner-tips  
+- Elke Uitvoer-kandidaat (code=ja) heeft een packet: URL, huidige/gewenste staat, herstel, acceptatie  
 
 ## Output
 
-Zie [docs/PIJPLIJN.md](../docs/PIJPLIJN.md). Na `rapport-klant.md` + `werklijst.md`:
-
-```bash
-npm run audit:finish -- <run-id>
-```
-
-Dat is verplicht: `print/rapport.html` en `print/rapport.pdf` horen bij elke audit-run. Daarna: aparte Toetser-run ([toets.md](toets.md)).
+Zie [docs/PIJPLIJN.md](../docs/PIJPLIJN.md). Verplicht: `next.md` → Toetser ([toets.md](toets.md)). Bouwer stopt; de pijplijn niet.
