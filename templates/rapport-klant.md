@@ -64,9 +64,19 @@
 
 ---
 
+## Keuze — bestaande site of nieuw
+
+Alleen invullen als de brief beide open laat. Anders weglaten.
+
+**Voorstel:** Uitvoer / Nieuw  
+**Waarom:** …  
+**Alternatief:** …
+
+---
+
 ## Werklijst — eerste 90 dagen
 
-Zie `werklijst.md` in deze run. Samenvatting:
+Dit is de opdracht. Packets: `taken/T-<n>.md`. `werklijst.md` is dezelfde lijst, geen tweede waarheid.
 
 ### Deze maand
 

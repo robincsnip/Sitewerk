@@ -1,6 +1,6 @@
 # Feedback — {{RUN_ID}}
 
-toets: 1 | 2  
+toets: 0 | 1 | 2 | 3  
 oordeel: afkeur | deels | akkoord  
 
 ## wat_mis

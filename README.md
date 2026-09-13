@@ -1,19 +1,21 @@
 # Sitewerk
 
-Persoonlijk lab voor de Sitewerk SEO-machine (Visionairs).  
+Persoonlijk lab voor de Sitewerk-zaaklijn (Visionairs).  
 **Dit is nog niet de productvoordeur van de Visionairs-org** — migratie volgt pas na eigenaren-akkoord.
 
 ## Wat dit is
 
-Eén voordeur: brief in → rapport + werklijst + (optioneel) PDF uit.
+Eén zaak: brief (SKU’s) in → Scout (optioneel) → Audit → Toets-lus → Uitvoer **of** Nieuw → Nameting.
 
 | Rol | Taak |
 | --- | --- |
-| **Bouwer** | Schrijft rapport, werklijst, print |
-| **Toetser** | Aparte QC-run; mag niet in dezelfde run als Bouwer “akkoord” zetten |
-| **Uitvoer** | PRs/taken ná Toets 1 akkoord |
-| **Naslag** | Leert van afkeur/metingen (append-only) |
-| **Atelier** | Optioneel webdesign ná redesign-gate |
+| **Scout** | Optioneel KEEP ja/nee |
+| **Bouwer** | Rapport, werklijst, packets, print — sluit de lijn niet af |
+| **Toetser** | Aparte run; Toets 0–3 |
+| **Uitvoer** | Packets ná Toets 1 |
+| **Nameting** | Zelfde finding-IDs, voor/na |
+| **Naslag** | Afkeur / meting / orchestratie-breuk |
+| **Atelier** | SKU Nieuw |
 | **Eigenaren** | Live / mail / geld |
 
 ## Snel starten
@@ -32,27 +34,20 @@ Output: `runs/demo-2026-09-13/print/rapport.pdf`
 ## Structuur
 
 ```text
-AGENTS.md                 # enige voordeur
+AGENTS.md
 docs/PIJPLIJN.md
+playbooks/orchestratie.md   # harde overdracht
 agents/bouwer.md
 agents/toetser.md
-playbooks/                # audit, toets, naslag, uitvoer, atelier, rapport-pdf
-templates/
-assets/rapport-theme.css
-scripts/                  # md→html→pdf
-lessons/
+playbooks/                  # scout, audit, toets, uitvoer, nameting, naslag, atelier, rapport-pdf
+templates/                  # o.a. brief, taak, next, scout, nameting
 runs/<id>/
 ```
 
 ## Isolatieregel (hard)
 
-`toets.md` met oordeel `akkoord` is **ongeldig** als die in dezelfde agent-run is geschreven als `rapport-klant.md` of `werklijst.md`. Parent lanceert Toetser als aparte run.
+`toets.md` met oordeel `akkoord` is **ongeldig** in dezelfde agent-run als het gekeurde artefact. Parent lanceert Toetser als aparte run. “Door de pijplijn” zonder die lus is ongeldig.
 
 ## Locked acties
 
 Zonder expliciet ja van de eigenaren: geen live, geen externe mail, geen geld, geen publiceren. Stilte ≠ ja.
-
-## Remote
-
-Persoonlijke repo: [`robincsnip/Sitewerk`](https://github.com/robincsnip/Sitewerk).  
-Push/PR vanaf deze Cloud Agent kan geblokkeerd zijn door ontbrekende Cursor-app-rechten op het persoonlijke account — zie [`PUSH-BLOCKER.md`](PUSH-BLOCKER.md).

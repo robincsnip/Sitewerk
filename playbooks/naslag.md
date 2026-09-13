@@ -2,9 +2,10 @@
 
 ## Triggers
 
-- Toets 1 of 2 afkeur  
-- 30/60/90-dagen meting  
+- Toets 0–3 afkeur  
+- Nameting (Toets 3)  
 - Uitvoer lost finding op of breekt iets  
+- Orchestratie-breuk: pijplijn “klaar” zonder Toets-lus  
 
 ## Stappen
 
