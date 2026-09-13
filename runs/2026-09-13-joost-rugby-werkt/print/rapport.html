@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rugby Werkt / Nature Sports — wat er speelt online, en wat we eerst doen</title>
+  <style>
+/* Sitewerk rapport theme — print-first A4, no AI-slop look */
+
+/* Print-safe: system stacks first; optional webfonts when online */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+:root {
+  --ink: #1a1f1c;
+  --muted: #5a635c;
+  --paper: #f3f6f4;
+  --panel: #ffffff;
+  --line: #c9d2cc;
+  --accent: #0f5c4c;
+  --accent-soft: #e4efe9;
+  --warn: #8a4b12;
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --body: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 11.5pt;
+  line-height: 1.45;
+}
+
+.cover {
+  padding: 28mm 8mm 14mm;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 10mm;
+  background:
+    linear-gradient(180deg, #eef5f1 0%, var(--paper) 70%);
+}
+
+.brand {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10pt;
+  color: var(--accent);
+  margin: 0 0 8mm;
+}
+
+.cover h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 28pt;
+  line-height: 1.15;
+  margin: 0 0 4mm;
+  max-width: 28ch;
+}
+
+.meta {
+  color: var(--muted);
+  margin: 0;
+  font-size: 10.5pt;
+}
+
+.report {
+  padding: 0 8mm 16mm;
+  max-width: 180mm;
+}
+
+.report h1,
+.report h2,
+.report h3 {
+  font-family: var(--display);
+  font-weight: 560;
+  line-height: 1.2;
+  page-break-after: avoid;
+}
+
+.report h1 {
+  font-size: 18pt;
+  margin: 0 0 6mm;
+}
+
+.report h2 {
+  font-size: 14pt;
+  margin: 9mm 0 3mm;
+  padding-top: 2mm;
+  border-top: 1px solid var(--line);
+}
+
+.report h3 {
+  font-size: 12.5pt;
+  margin: 6mm 0 2mm;
+  color: var(--accent);
+}
+
+.report p {
+  margin: 0 0 3mm;
+}
+
+.report ul,
+.report ol {
+  margin: 0 0 4mm;
+  padding-left: 5mm;
+}
+
+.report li {
+  margin-bottom: 1.5mm;
+}
+
+.report strong {
+  font-weight: 600;
+}
+
+.report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3mm 0 5mm;
+  font-size: 10pt;
+  background: var(--panel);
+  break-inside: avoid;
+}
+
+.report th,
+.report td {
+  border: 1px solid var(--line);
+  padding: 2.2mm 2.5mm;
+  text-align: left;
+  vertical-align: top;
+}
+
+.report th {
+  background: var(--accent-soft);
+  font-family: var(--display);
+  font-weight: 560;
+}
+
+.report blockquote {
+  margin: 4mm 0;
+  padding: 3mm 4mm;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.report hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 8mm 0;
+}
+
+.colophon {
+  padding: 4mm 8mm 10mm;
+  color: var(--muted);
+  font-size: 9pt;
+  border-top: 1px solid var(--line);
+}
+
+@media print {
+  html,
+  body {
+    background: white;
+  }
+
+  .cover {
+    background: white;
+  }
+
+  .report h2 {
+    break-before: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+  </style>
+  <!-- linked theme kept for browser preview of the template -->
+  <link rel="stylesheet" href="../../../assets/rapport-theme.css" />
+</head>
+<body>
+  <header class="cover">
+    <p class="brand">Sitewerk</p>
+    <h1>Rugby Werkt / Nature Sports</h1>
+    <p class="meta">13 september 2026 (live site) · dossierposities: citaat 25–27 augustus 2026 · concept — niets live gezet</p>
+  </header>
+  <main class="report">
+<p><strong>Peildatum:</strong> 13 september 2026 (live site) · dossierposities: citaat 25–27 augustus 2026 <strong>Status:</strong> concept — er is nog niets live gezet <strong>Opgesteld door:</strong> Sitewerk <strong>Voor:</strong> Joost (en Frank) Kuppens — Rugby Werkt + Nature Sports</p>
+<hr />
+<h2>In het kort</h2>
+<p>Joost heeft twee merken die offline werken. Online zijn het twee losse one-pagers die Google slecht kan verdelen.</p>
+<p><strong>Rugby Werkt</strong> is WordPress. De diensten (clinic, haka, Scrum College, TOPrugby) zijn koppen op één URL. De XML-sitemap voor pagina’s bevat alleen home. Er is geen H1 en geen meta description. Het telefoonnummer staat in tekst, niet als bel-link. Twee “nieuws”-stukken bestaan; één hangt nog aan de slug <code>voorbeeld-artikel-2</code> terwijl de titel “Clinic APG” is.</p>
+<p><strong>Nature Sports</strong> is een Canva-site. In de HTML die een crawler eerst ziet, zitten vrijwel geen woorden, geen H1, geen canonical, geen interne links. <code>robots.txt</code> ontbreekt. De sitemap is één URL. Nieuwe landingspagina’s hierop stapelen heeft geen zin tot die HTML crawlbaar is.</p>
+<p><strong>Eerste besluit dat we vragen:</strong> Nature Sports eerst crawl-vast maken; Rugby Werkt vier dienst-URL’s + H1/meta; geen derde merk (MRC) in deze ronde.</p>
+<h3>Drie dingen die het meeste opleveren</h3>
+<ol>
+<li><strong>Nature Sports: H1, canonical, robots.txt, tekst in de HTML</strong> — Google ziet nu bijna een lege schil — klaar als de eerste fetch een H1, canonical en meer dan een handvol woorden bevat (deny-gate voor extra URL’s).</li>
+<li><strong>Rugby Werkt: vier dienstpagina’s + offerte</strong> (<code>/rugbyclinic</code>, <code>/haka-workshop</code>, <code>/scrum-college</code>, <code>/bedrijfsuitje</code> of TOPrugby) — concurrenten hebben die URL’s, deze sitemap niet — klaar als elke dienst een eigen H1, titel en interne link vanaf home heeft.</li>
+<li><strong>Search Console op beide domeinen + slug APG repareren</strong> — zonder GSC blijven augustus-posities een snapshot; de APG-case is nu een “voorbeeld-artikel” — klaar als beide properties bestaan en <code>/clinic-apg/</code> (of gelijk) 301 is vanaf de oude slug.</li>
+</ol>
+<h3>Wat al goed staat (niet kapotmaken)</h3>
+<ul>
+<li>Rugby Werkt heeft echte cases (APG, Nsecure) — die niet wissen, wel netjes URL’en</li>
+<li>Nature Sports-meta noemt al Maastricht en diensten (die boodschap moet in de HTML, niet alleen in een tag)</li>
+<li>Twee merken hebben een logische splitsing: B2B landelijk vs. terrein Maastricht</li>
+</ul>
+<hr />
+<h2>Wat we hebben bekeken</h2>
+<p>Live fetch beide domeinen + ScrumCollege-home + Notion-dossier 27 aug (geen nieuwe SERP, geen GSC).</p>
+<table><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; indexatie</td><td>bekeken</td><td>RW: WP-sitemap. NS: robots 404, 1 sitemap-URL, JS-schil</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>RW: één page-URL. NS: geen interne links in HTML</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Diensten als sectie, niet als pagina</td></tr><tr><td>Snelheid op kernpagina’s</td><td>deels</td><td>Geen CrUX; eerdere scans noemden zware hero-video (niet herberekend)</td></tr><tr><td>Google-bedrijfsprofiel</td><td>Nature Sports relevant; RW geen winkel</td><td>NS-paneel ontbrak in aug-dossier</td></tr><tr><td>Reviews &amp; reputatie</td><td>niet gemeten</td><td>Cases wel; sterren niet</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>citaat aug</td><td>RW afwezig op kernzinnen in die snapshot</td></tr><tr><td>AI-vindbaarheid</td><td>niet gedaan</td><td>Eerst 1–8</td></tr></tbody></table>
+<hr />
+<h2>Het verhaal op één lijn</h2>
+<h3>Rugby Werkt verkoopt vier producten op één adres</h3>
+<p>Wie “haka workshop” of “rugby clinic bedrijven” zoekt, krijgt bij concurrenten een URL. Bij jullie krijgt Google één homepage met herhaalde H2’s (onder meer drie keer “top rugby”). Gevolg: de site is een brochure, geen keuzemenu. Eén nette home mag blijven — als die naar vier echte dienstpagina’s wijst.</p>
+<h3>Nature Sports is voor Google bijna onzichtbaar als pagina</h3>
+<p>Canva levert een schil. De eerste HTML heeft geen H1 en vier zichtbare woorden. Titel en meta beloven Maastricht-outdoor, de body in de fetch niet. Extra pagina’s in dat CMS zijn de tweede stap, niet de eerste. Local pack / GBP hoort hier wél (lokale zaak), anders dan bij Camperstaan.</p>
+<hr />
+<h2>Keuzes (wij geven een voorkeur)</h2>
+<h3>Keuze 1 — Eerst Rugby Werkt-URL’s of eerst Nature Sports crawl-fix?</h3>
+<p><strong>Voorstel:</strong> parallel, maar Nature Sports-landings blijven op slot tot de HTML crawlbaar is. Rugby Werkt mag wél dienst-URL’s in WordPress. <strong>Waarom:</strong> RW is technisch gewoon WP; NS is een render-muur. <strong>Alternatief:</strong> alleen RW deze 90 dagen. <strong>Opnieuw bekijken als:</strong> Canva binnen twee weken niet server-HTML kan leveren — dan CMS-wissel voor NS (eigenaren-gate).</p>
+<h3>Keuze 2 — Scrum College eigen site houden?</h3>
+<p><strong>Voorstel:</strong> één verkoop-URL op rugbywerkt.nl; <code>scrumcollege.nl</code> laat canonical of 301 naar die pagina, of wordt een dunne merkredirect. <strong>Waarom:</strong> twee domeinen, één workshop. <strong>Alternatief:</strong> ScrumCollege.nl als enige agile-URL, RW linkt alleen. <strong>Opnieuw bekijken als:</strong> Scrum een andere koper/merkclaim heeft dan clinics.</p>
+<hr />
+<h2>Werklijst — eerste 90 dagen</h2>
+<p>Zie <code>werklijst.md</code> in deze run.</p>
+<h3>Deze maand</h3>
+<table><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>NS: H1 + canonical + robots + tekst in HTML</td><td>wij / jullie CMS</td><td>eerste fetch toont H1 + bodytekst</td></tr><tr><td>2</td><td>RW: H1 + meta description op home</td><td>wij</td><td>view-source toont beide</td></tr><tr><td>3</td><td>RW: vier dienst-URL’s + offerteformulier</td><td>wij</td><td>4 URL’s in sitemap-pages</td></tr><tr><td>4</td><td>GSC beide domeinen, editor-toegang</td><td>jullie</td><td>property + uitnodiging</td></tr></tbody></table>
+<h3>Maand twee / drie</h3>
+<ul>
+<li>APG-slug 301, Nsecure-case als landings/case-template</li>
+<li>NS: GBP-audit (categorie, uren, foto’s) ná crawl-fix — geen live zonder eigenaren</li>
+<li>Dienstcopy RW (clinic, haka, scrum, TOP) zonder volumes te verzinnen</li>
+</ul>
+<p><strong>Buiten scope:</strong> MRC, Monkey Moves, paid, Canva-landings vóór deny-gate.</p>
+<hr />
+<h2>Hoe we weten of het werkt</h2>
+<ul>
+<li><strong>Nu bekend:</strong> RW heeft 1 page-URL in de sitemap; NS HTML is vrijwel leeg</li>
+<li><strong>Nog niet bekend:</strong> GSC-queries, GBP-inzichten, verse SERP</li>
+<li><strong>Over 30 dagen:</strong> indexstatus NS-home; RW-dienst-URL’s in GSC</li>
+<li><strong>Over 90 dagen:</strong> impressies op de vier RW-URL’s; NS alleen beoordelen als crawl-fix gedaan is</li>
+</ul>
+<hr />
+<h2>Bijlage A — Bewijs</h2>
+<table><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>RW: 0 H1, geen meta description</td><td>HTML home 13 sep</td><td>gemeten</td></tr><tr><td>F-002</td><td>RW sitemap pages = alleen home</td><td><code>wp-sitemap-posts-page-1.xml</code></td><td>gemeten</td></tr><tr><td>F-003</td><td>RW posts: voorbeeld-artikel-2 (titel Clinic APG) + clinic-nsecure</td><td>post-sitemap + page titles</td><td>gemeten</td></tr><tr><td>F-004</td><td>Geen tel:/mailto op RW</td><td>HTML-links home</td><td>gemeten</td></tr><tr><td>F-005</td><td>NS: ~4 zichtbare woorden, 0 H1, 0 canonical, 0 interne links</td><td>HTML 13 sep</td><td>gemeten</td></tr><tr><td>F-006</td><td>NS robots.txt 404; sitemap 1 URL</td><td>fetch 13 sep</td><td>gemeten</td></tr><tr><td>F-007</td><td>Canva-export in HTML (<code>export_website</code>)</td><td>meta app-name</td><td>gemeten</td></tr><tr><td>F-008</td><td>ScrumCollege.nl eigen titel/site</td><td>fetch www.scrumcollege.nl</td><td>gemeten</td></tr><tr><td>F-009</td><td>Aug-SERP RW niet top-20 op clinic-termen</td><td>dossier 25–27 aug, citaat</td><td>afgeleid (niet herberekend)</td></tr></tbody></table>
+<h2>Bijlage B — Afgewezen automatische tips</h2>
+<table><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>Nature Sports nu zes landings in Canva</td><td>Deny-gate: HTML is niet crawlbaar</td></tr><tr><td>LocalBusiness op Rugby Werkt als winkel</td><td>Landelijke B2B-aanbieder, geen vestiging-shop</td></tr><tr><td>Tien blogs “rugby tips”</td><td>Lost ontbrekende dienst-URL’s niet op</td></tr><tr><td>Rankings of volumes noemen als feit</td><td>Geen GSC; aug-tabel is snapshot</td></tr></tbody></table>
+  </main>
+  <footer class="colophon">
+    <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>
+  </footer>
+</body>
+</html>

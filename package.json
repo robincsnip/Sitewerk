@@ -6,7 +6,14 @@
   "scripts": {
     "html:demo": "node scripts/md-to-html.js runs/demo-2026-09-13/rapport-klant.md",
     "pdf:demo": "npm run html:demo && node scripts/html-to-pdf.js runs/demo-2026-09-13/print/rapport.html",
-    "build:demo": "npm run pdf:demo"
+    "build:demo": "npm run pdf:demo",
+    "html:camperstaan": "node scripts/md-to-html.js runs/2026-09-13-camperstaan/rapport-klant.md",
+    "pdf:camperstaan": "npm run html:camperstaan && node scripts/html-to-pdf.js runs/2026-09-13-camperstaan/print/rapport.html",
+    "html:joost": "node scripts/md-to-html.js runs/2026-09-13-joost-rugby-werkt/rapport-klant.md",
+    "pdf:joost": "npm run html:joost && node scripts/html-to-pdf.js runs/2026-09-13-joost-rugby-werkt/print/rapport.html",
+    "html:maickel": "node scripts/md-to-html.js runs/2026-09-13-maickelsbroodjes/rapport-klant.md",
+    "pdf:maickel": "npm run html:maickel && node scripts/html-to-pdf.js runs/2026-09-13-maickelsbroodjes/print/rapport.html",
+    "build:drie-runs": "npm run pdf:camperstaan && npm run pdf:joost && npm run pdf:maickel"
   },
   "dependencies": {
     "playwright-core": "^1.55.0"

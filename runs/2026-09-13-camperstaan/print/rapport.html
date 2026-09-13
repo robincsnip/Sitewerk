@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Camperstaan — wat er speelt online, en wat we eerst doen</title>
+  <style>
+/* Sitewerk rapport theme — print-first A4, no AI-slop look */
+
+/* Print-safe: system stacks first; optional webfonts when online */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+:root {
+  --ink: #1a1f1c;
+  --muted: #5a635c;
+  --paper: #f3f6f4;
+  --panel: #ffffff;
+  --line: #c9d2cc;
+  --accent: #0f5c4c;
+  --accent-soft: #e4efe9;
+  --warn: #8a4b12;
+  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --body: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 11.5pt;
+  line-height: 1.45;
+}
+
+.cover {
+  padding: 28mm 8mm 14mm;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 10mm;
+  background:
+    linear-gradient(180deg, #eef5f1 0%, var(--paper) 70%);
+}
+
+.brand {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10pt;
+  color: var(--accent);
+  margin: 0 0 8mm;
+}
+
+.cover h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 28pt;
+  line-height: 1.15;
+  margin: 0 0 4mm;
+  max-width: 28ch;
+}
+
+.meta {
+  color: var(--muted);
+  margin: 0;
+  font-size: 10.5pt;
+}
+
+.report {
+  padding: 0 8mm 16mm;
+  max-width: 180mm;
+}
+
+.report h1,
+.report h2,
+.report h3 {
+  font-family: var(--display);
+  font-weight: 560;
+  line-height: 1.2;
+  page-break-after: avoid;
+}
+
+.report h1 {
+  font-size: 18pt;
+  margin: 0 0 6mm;
+}
+
+.report h2 {
+  font-size: 14pt;
+  margin: 9mm 0 3mm;
+  padding-top: 2mm;
+  border-top: 1px solid var(--line);
+}
+
+.report h3 {
+  font-size: 12.5pt;
+  margin: 6mm 0 2mm;
+  color: var(--accent);
+}
+
+.report p {
+  margin: 0 0 3mm;
+}
+
+.report ul,
+.report ol {
+  margin: 0 0 4mm;
+  padding-left: 5mm;
+}
+
+.report li {
+  margin-bottom: 1.5mm;
+}
+
+.report strong {
+  font-weight: 600;
+}
+
+.report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3mm 0 5mm;
+  font-size: 10pt;
+  background: var(--panel);
+  break-inside: avoid;
+}
+
+.report th,
+.report td {
+  border: 1px solid var(--line);
+  padding: 2.2mm 2.5mm;
+  text-align: left;
+  vertical-align: top;
+}
+
+.report th {
+  background: var(--accent-soft);
+  font-family: var(--display);
+  font-weight: 560;
+}
+
+.report blockquote {
+  margin: 4mm 0;
+  padding: 3mm 4mm;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.report hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 8mm 0;
+}
+
+.colophon {
+  padding: 4mm 8mm 10mm;
+  color: var(--muted);
+  font-size: 9pt;
+  border-top: 1px solid var(--line);
+}
+
+@media print {
+  html,
+  body {
+    background: white;
+  }
+
+  .cover {
+    background: white;
+  }
+
+  .report h2 {
+    break-before: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+  </style>
+  <!-- linked theme kept for browser preview of the template -->
+  <link rel="stylesheet" href="../../../assets/rapport-theme.css" />
+</head>
+<body>
+  <header class="cover">
+    <p class="brand">Sitewerk</p>
+    <h1>Camperstaan</h1>
+    <p class="meta">13 september 2026 · concept — niets live gezet</p>
+  </header>
+  <main class="report">
+<p><strong>Peildatum:</strong> 13 september 2026 <strong>Status:</strong> concept — er is nog niets live gezet <strong>Opgesteld door:</strong> Sitewerk</p>
+<hr />
+<h2>In het kort</h2>
+<p>Camperstaan is al een directory, geen visitekaartje. Apex verwijst naar www, robots en sitemap staan, en 306 plekpagina’s hebben een eigen URL plus een <code>Campground</code>-schema met bronlink naar gemeente of eigenaar. Dat moeten we niet ombouwen tot een “lokaal winkeltje”.</p>
+<p>Het risico zit in de <strong>drie lagen erbovenop</strong>: plek, stad (<code>/plaats/…</code>, 253 URL’s) en provincie (12). Die titels lijken op elkaar (“Camperplaatsen in Kampen” naast “Camperplaatsen in Limburg”). Zonder unieke taak per laag gaan stadshubs elkaar en de provincie in de weg zitten.</p>
+<p>We hebben geen Search Console. We beloven dus geen verkeer. Eerste besluit: architectuur helder maken en meten welke template Google echt opneemt.</p>
+<p><strong>Eerste besluit dat we vragen:</strong> akkoord op “platform blijven, geen GBP op Camperstaan” plus een plan voor stadshubs (unieke keuzehulp of dunne steden mergen/prunen).</p>
+<h3>Drie dingen die het meeste opleveren</h3>
+<ol>
+<li><strong>Stadshubs een eigen job geven of dunne steden prunen</strong> — anders concurreren 253 bijna-identieke titels met provincies en plekken — klaar als elke gehouden <code>/plaats/{stad}</code> uitlegt waarom jíj die stad kiest, met links naar de plekken, of is samengevoegd.</li>
+<li><strong>Plektemplate laten zoals het is (Campground + bron), wel steekproef op dunne plekken</strong> — de directory-waarde is de plek-URL — klaar als we 10 plekken hebben nagelopen op unieke H1, bronlink en geen winkel-schema.</li>
+<li><strong>Search Console op het www-domein</strong> — zonder indexdekking per template is de rest giswerk — klaar als er een property is en een export van geïndexeerde vs. uitgesloten URL’s per pad (<code>/plaatsen/</code>, <code>/plaats/</code>, <code>/provincie/</code>).</li>
+</ol>
+<h3>Wat al goed staat (niet kapotmaken)</h3>
+<ul>
+<li>306 plek-URL’s, in lijn met de claim “306 plekken”</li>
+<li><code>Campground</code> op de plek, <code>WebSite</code> op home — geen LocalBusiness-theater</li>
+<li>robots.txt houdt dashboard/inloggen/API buiten de index</li>
+<li>HSTS aan, canonieke host www</li>
+</ul>
+<hr />
+<h2>Wat we hebben bekeken</h2>
+<p>Openbare HTML, robots, sitemap en steekproef van plek-, stads- en provinciepagina. Geen GSC. Geen CrUX-dataset in deze run.</p>
+<table><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; indexatie</td><td>bekeken</td><td>Sitemap 577 URL’s; dashboard geblokkeerd</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>Drie publieke templates + plekdetail</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Home en plek helder; stadshubs template-achtig</td></tr><tr><td>Snelheid op kernpagina’s</td><td>niet gemeten</td><td>Geen lab-run / CrUX</td></tr><tr><td>Google-bedrijfsprofiel</td><td>n.v.t.</td><td>Directory, geen winkel</td></tr><tr><td>Reviews &amp; reputatie</td><td>n.v.t. op platformniveau</td><td>Plekken verwijzen naar bron</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>niet opnieuw gemeten</td><td>Gemeente- en toerismepagina’s zijn de bron</td></tr><tr><td>AI-vindbaarheid</td><td>steekproef</td><td>Merk + “camperplaatsen Nederland” is uitlegbaar; stadslaag is ruis</td></tr></tbody></table>
+<hr />
+<h2>Het verhaal op één lijn</h2>
+<h3>De directory staat. De hubs kunnen hem verzwakken.</h3>
+<p>Plekpagina’s zijn het product: één URL, één H1, een bron. Stadshubs herhalen het patroon “Camperplaatsen in {naam}”. Dat is een geldige hub als de stad iets toevoegt (welke plekken, voor wie, hoe kiezen). Als de pagina alleen de lijst herhaalt, is het een tweede kopie van dezelfde intentie. Gevolg: Google moet kiezen tussen stad, provincie en plek — en kiest vaak de verkeerde of geen.</p>
+<h3>Dit is geen kapsalon. Schema moet dat blijven zeggen.</h3>
+<p>Een automatische scan zal LocalBusiness of GBP eisen. Dat botst met wat de site is. Listings zijn overnachtingsplekken van anderen. Wij houden <code>Campground</code> + <code>sameAs</code> naar de bron. Geen bedrijfsprofiel “Camperstaan Maastricht” verzinnen.</p>
+<hr />
+<h2>Keuzes (wij geven een voorkeur)</h2>
+<h3>Keuze 1 — Stadshubs houden of saneren?</h3>
+<p><strong>Voorstel:</strong> houden voor steden met meerdere plekken en eigen intro; dunne één-plek-steden laten redirecten of noindex tot de copy uniek is. <strong>Waarom:</strong> 253 extra URL’s zonder unieke taak is kannibalisatie, geen dekking. <strong>Alternatief:</strong> alle stadshubs noindex, alleen provincie + plek. <strong>Opnieuw bekijken als:</strong> GSC toont dat stadshubs al impressies trekken op stad+camperplaats.</p>
+<h3>Keuze 2 — GBP voor Camperstaan als merk?</h3>
+<p><strong>Voorstel:</strong> nee, niet als SEO-hoofdactie. <strong>Waarom:</strong> zoekers willen een plek, geen kantoor van de directory. <strong>Alternatief:</strong> één merkprofiel puur voor support, los van listings. <strong>Opnieuw bekijken als:</strong> jullie een fysiek kantoor met bezoek willen ranken.</p>
+<hr />
+<h2>Werklijst — eerste 90 dagen</h2>
+<p>Zie <code>werklijst.md</code> in deze run.</p>
+<h3>Deze maand</h3>
+<table><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>GSC www.camperstaan.nl + export per template</td><td>gedeeld</td><td>property + spreadsheet paden</td></tr><tr><td>2</td><td>Regel stadshubs: uniek / merge / noindex</td><td>wij</td><td>schriftelijke regel + 10 voorbeelden</td></tr><tr><td>3</td><td>Steekproef 10 plekken: H1, bron, schema</td><td>wij</td><td>checklist afgevinkt</td></tr></tbody></table>
+<h3>Maand twee / drie</h3>
+<ul>
+<li>Copy op de 20 stadshubs met de meeste plekken</li>
+<li>Interne links home → provincie → stad → plek nalopen</li>
+<li>Pas daarna eventuele nieuwe filters/landings</li>
+</ul>
+<p><strong>Buiten scope deze ronde:</strong> ads, dashboard-SEO, LocalBusiness op listings, Atelier-redesign.</p>
+<hr />
+<h2>Hoe we weten of het werkt</h2>
+<ul>
+<li><strong>Nu bekend:</strong> sitemap-aantallen, template-typen, schema-type op een plek</li>
+<li><strong>Nog niet bekend:</strong> welke template Google indexeert of toont</li>
+<li><strong>Over 30 dagen:</strong> GSC: geïndexeerd vs. uitgesloten per pad</li>
+<li><strong>Over 90 dagen:</strong> impressies op <code>/plaatsen/<em></code> vs <code>/plaats/</em></code> vs <code>/provincie/*</code> (geen %-belofte vooraf)</li>
+</ul>
+<hr />
+<h2>Bijlage A — Bewijs</h2>
+<table><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>Sitemap 577 URL’s; 306 plek-slugs</td><td><code>https://www.camperstaan.nl/sitemap.xml</code> 13 sep</td><td>gemeten</td></tr><tr><td>F-002</td><td>Apex naar www; HSTS aan</td><td>fetch <code>camperstaan.nl</code> → www; response header</td><td>gemeten</td></tr><tr><td>F-003</td><td>253 stadshubs naast 12 provincies en 306 plekken</td><td>sitemap-paden <code>/plaats/</code> vs <code>/plaatsen/</code> vs <code>/provincie/</code></td><td>gemeten</td></tr><tr><td>F-004</td><td>Plek = Campground + sameAs bron, geen LocalBusiness</td><td>JSON-LD Kampen-plek 13 sep</td><td>gemeten</td></tr><tr><td>F-005</td><td>robots blokkeert dashboard/inloggen/API</td><td><code>https://www.camperstaan.nl/robots.txt</code></td><td>gemeten</td></tr><tr><td>F-006</td><td>Geen GSC in deze run</td><td>geen export in dossier</td><td>onbekend (verkeer)</td></tr></tbody></table>
+<h2>Bijlage B — Afgewezen automatische tips</h2>
+<table><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>LocalBusiness / GBP verplicht op Camperstaan</td><td>Directory; kader + bestaande Campground-les</td></tr><tr><td>“Voeg 500 blogposts over camperen toe”</td><td>Lost template-kannibalisatie niet op</td></tr><tr><td>Sterren/aggregateRating op plekken</td><td>Geen reviews in dit dossier; misleidend</td></tr><tr><td>Alles noindex behalve home</td><td>306 plekken zijn het product</td></tr></tbody></table>
+  </main>
+  <footer class="colophon">
+    <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>
+  </footer>
+</body>
+</html>
