@@ -3,9 +3,11 @@
 Run: {{RUN_ID}} · Peildatum: {{DATUM}}  
 Toets 1: open / akkoord / afkeur
 
-| # | Prio | Wat | Waarom | Wie | Code? | Blokker | Klaar als | Meten | Bron-finding |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | P0 | | | wij | ja/nee | nee | | | F-001 |
+| # | Prio | Wat | Waarom | Wie | Code? | Blokker | Packet | Klaar als | Meten | Bron-finding |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | P0 | | | wij | ja/nee | nee | T-1 | | | F-001 |
+
+Rijen **code = ja** hebben een bestand `taken/T-<n>.md`. Zonder packet pakt Uitvoer de rij niet.
 
 ## Buiten scope
 
@@ -13,4 +15,4 @@ Toets 1: open / akkoord / afkeur
 
 ## Dispatcher-filter
 
-Uitvoer pakt alleen rijen: **code = ja**, **blokker = nee**, **Toets 1 = akkoord**.
+Uitvoer pakt alleen rijen: **code = ja**, **blokker = nee**, **Toets 1 = akkoord**, **packet compleet**.

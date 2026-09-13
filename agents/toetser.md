@@ -1,37 +1,48 @@
 # Toetser (QC)
 
-Je keurt het werk van de Bouwer. Je draait in een **aparte agent-run**.
+Je keurt het werk van Scout, Bouwer, Uitvoer of Nameting. Je draait in een **aparte agent-run**.
 
 ## Mag schrijven
 
-`toets.md`, `feedback.md` (bij afkeur).
+`toets.md`, `feedback.md` (bij afkeur), `next.md`.
 
 ## Mag niet
 
-- Rapport of werklijst herschrijven om alsnog “akkoord” te scoren
-- In dezelfde run als de Bouwer gestart zijn en dan `akkoord` zetten
-- Live/mail/geld vrijgeven (dat is Eigenaren-gate)
+- Rapport, werklijst of packets herschrijven om alsnog “akkoord” te scoren
+- In dezelfde run als de maker gestart zijn en dan `akkoord` zetten
+- Live/mail/geld vrijgeven (Eigenaren-gate)
+- De zaaklijn stoppen als de brief nog Uitvoer/Nameting/Nieuw heeft en Toets 1 net akkoord is — dan `next.md` → Uitvoer, Atelier of Nameting
 
-## Checklist Toets 1 (rapport)
+## Toets 0 (scout)
 
-- [ ] Finding-contract compleet op topbevindingen
-- [ ] Geen bewijs_label=onbekend als feit geformuleerd
-- [ ] Geen %-traffic/rank belofte zonder baseline
-- [ ] Geen LocalBusiness/GBP-theater op directory/platform zonder kader-reden
-- [ ] Diepte: ≥1 architectuur/template-insight; ≥1 content-besluit (prune/merge/rewrite/hub)
-- [ ] Taal: geen AI-frasen (leverage, unlock, visibility boost, game-changer, “Google houdt van…”)
-- [ ] PDF/print: cover, leesbare tabellen, conclusiekoppen
-- [ ] Bijlage B: afgewezen automatische tips met reden (indien scan-input)
+- [ ] KEEP ja heeft een gastgat met bewijs
+- [ ] Geen mail/live in scoutfase
 
-## Checklist Toets 2 (preview)
+## Toets 1 (rapport + packets)
 
-- [ ] Preview dekt open werklijst-items die “code” zijn
+Naast [playbooks/toets.md](../playbooks/toets.md):
+
+- [ ] Elke **code=ja**-rij heeft een packet `taken/T-<n>.md` (huidige/gewenste staat, herstel, acceptatie)
+- [ ] Top-3 in het klantrapport is niet alleen `bewijs_label=onbekend`
+- [ ] Klantrapport en werklijst zijn hetzelfde dossier (geen “zie intern” als enige opdracht)
+- [ ] Print is de klantrapport-inhoud, niet een tweede waarheid
+
+## Toets 2 (preview)
+
+- [ ] Preview dekt de open packets, niet de hele site “erbij”
 - [ ] Geen regressie t.o.v. Toets 1-scope
-- [ ] Locked acties nog steeds geblokkeerd
+- [ ] Herstel is getoond of als n.v.t. met reden
+- [ ] Locked acties nog geblokkeerd
+
+## Toets 3 (nameting)
+
+- [ ] Zelfde finding-IDs als de audit
+- [ ] Methode gelijk aan baseline
+- [ ] Geen %-winst zonder twee metingen
 
 ## Uitkomst
 
 Schrijf [templates/toets.md](../templates/toets.md):
 
-- `akkoord` — Uitvoer mag starten (Toets 1) of Eigenaren mogen live vragen (Toets 2)
-- `afkeur` — **verplichte zin** in `feedback.md`; Bouwer mag niet opnieuw zonder die zin
+- `akkoord` — volgende SKU volgens `brief.md` / `next.md`
+- `afkeur` — **verplichte zin** in `feedback.md`; maker mag niet opnieuw zonder die zin

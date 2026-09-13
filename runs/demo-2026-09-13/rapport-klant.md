@@ -68,7 +68,7 @@ Het profiel heeft recente reviews. De site noemt dat niet. Bezoekers die via Goo
 
 ## Werklijst — eerste 90 dagen
 
-Zie `werklijst.md` in deze run.
+Dit is de opdracht. Packets: `taken/T-1.md` t/m `T-4.md`. `werklijst.md` is dezelfde lijst.
 
 ### Deze maand
 
