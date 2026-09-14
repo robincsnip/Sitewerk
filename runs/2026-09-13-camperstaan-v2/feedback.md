@@ -2,18 +2,18 @@
 
 toets: 1  
 oordeel: akkoord  
-toetser_run: bc-6c28ca47-bd3a-5555-86d2-5d10eea8a300  
-bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, huisstijl C 9dea00d)
+toetser_run: bc-9f3f8324-eb8a-5a48-b13d-697977b61f0f  
+bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, paginering ad362f6)
 
 ## her-run
 
-Toets 1 op Papier (huisstijl C): tokens, cover met KPI op p.1, typografie. Bouw op eerdere klanttaal- en grafische print-akkoorden (700e3b3, 2f4d3ae); deze run controleert huisstijl C + dossier-sync.
+Toets 1 her-run na paginering-fix (ad362f6): report-section chapter breaks, break-inside avoid op kaarten/tabellen, koppen gekoppeld aan volgend blok. Bouwt voort op Papier-akkoord (9dea00d) en eerdere klanttaal-/print-runs.
 
 ## wat_goed
 
-- **Huisstijl C:** cover met belofte + KPI-tabel (3/6/577/4) op pagina 1; geen interne termen op cover; Libre Baskerville/Literata/Libre Franklin; Papier-palet.
-- **Grafische print:** prio-cards, good-grid, finding-cards met P0/P1/P2-badges, decision-cards en measure-cards; PDF gegenereerd.
-- **Single-telling:** cijfers 306/293/13 in mini-KPI binnen bevinding 1; lead zonder herhaalde metingen.
+- **Paginering:** PDF 11 pag.; Bevindingen/Beslissingen/Werklijst/Bijlagen starten bovenaan pagina; geen finding-titel over pagina gesplitst; P0-kaart met mini-KPI intact op p.5.
+- **Huisstijl C:** cover KPI 3/6/577/4; Libre Baskerville/Literata/Franklin; Papier-palet; geen interne termen op cover.
+- **Single-telling:** cijfers 306/293/13 alleen in mini-KPI binnen bevinding 1.
 - **Print = bron:** HTML/PDF volgen `rapport-klant.md`; geen tweede waarheid.
 - **Werklijst-sync:** rijen 1–6 identiek aan `werklijst.md` (naslag-lesson gehaald).
 - **Packets:** T-1 t/m T-5 compleet voor code=ja.
@@ -21,9 +21,9 @@ Toets 1 op Papier (huisstijl C): tokens, cover met KPI op p.1, typografie. Bouw 
 
 ## kleine_aandacht (geen afkeur)
 
-- Callout p.2 noemt nog "Toets" (interne pipeline-term); cover is schoon — bij volgende redactie: "daarna controleren we op een preview".
-- Bevinding 6 en Bijlage A gebruiken nog "hub"/"SERP" — acceptabel in bewijscontext.
-- Werklijst-sectie verwijst naar `werklijst.md` — intern pad; overweeg "zie bijlage werklijst" voor klant.
+- Callout p.2 noemt nog "Toets" (interne pipeline-term); cover is schoon — bij redactie: "daarna controleren we op een preview".
+- Werklijst-sectie in print verwijst naar `werklijst.md` — intern pad; overweeg klantvriendelijke verwijzing.
+- Good-grid loopt van p.2 naar p.3 tussen items (geen item-split); acceptabel.
 
 ## regel_kandidaat
 
@@ -35,7 +35,7 @@ Toets 1 op Papier (huisstijl C): tokens, cover met KPI op p.1, typografie. Bouw 
 
 ## tag
 
-huisstijl-c-papier
+paginering-papier
 
 ## eigenaar_initialen
 
