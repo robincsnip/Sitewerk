@@ -48,6 +48,8 @@ afhankelijk_van: F-###[] | []
 - ≥1 content-besluit: prune / merge / rewrite / hub  
 - Conflict Feiten↔Strategie expliciet in `mix.md`  
 - Top 3 acties gekoppeld aan gevolg voor de zaak; niet alleen `onbekend`  
+- **Markt & concurrenten:** compacte tabel (5–8 spelers max.) — rol, gap, bewijs-label, **Actie** (`#n` of `Geen actie: …`). Geen volledige crawl-dump (geen 500+ URL-lijst).  
+- **Zoektermen:** compacte query-tabel — intentie, zichtbaarheid Camperstaan/klant, bewijs-label per rij. Geen posities of klikken zonder GSC-export; label `onbekend` waar niet gemeten.  
 - Bijlage B: afgewezen scanner-tips  
 - Elke Uitvoer-kandidaat (code=ja) heeft een packet: URL, huidige/gewenste staat, herstel, acceptatie  
 
@@ -66,3 +68,35 @@ Bron: eigenaar-feedback Camperstaan v2. Skill: [skills/klanttaal/SKILL.md](../sk
 **Werklijst-sync:** `werklijst.md` en `rapport-klant.md` (werklijst-sectie) delen dezelfde rijen (#, Wat, Wie, Klaar als). Geen herordenen op tijdlijn die rijnummers verschuift (zie Naslag Camperstaan).
 
 **Verboden in klantproza:** onverklaarde sitemap/canonical/cache/JSON-LD/SERP; legacy-generatornamen; %-beloften zonder baseline.
+
+## Amend — Marktcontext & zoektermen (sep 2026)
+
+Bron: eigenaar-akkoord (Robin, sep 14) — Webregie-breedte zonder Webregie-proza.
+
+**Plaats in rapport:** na `## Wat we hebben bekeken`, vóór `## Bevindingen`.
+
+| Sectie | Inhoud | Regels |
+| --- | --- | --- |
+| **Markt & concurrenten** | Wie concurreert op dezelfde zoekintentie | Max. ~8 rijen; kolom **Actie** verplicht (zie onder) |
+| **Zoektermen die ertoe doen** | Queries die de zaak raken | Intentie + zichtbaarheid (ja/nee/niet nagekeken); label per rij |
+
+**Bewijs-label (elke rij):** `gemeten` (steekproef/crawl deze run) · `afgeleid` (logisch uit feiten of marktcontext, geen positie-cijfer) · `onbekend` (niet nagekeken — expliciet zeggen).
+
+**Single-telling:** concurrenten en zoektermen hier in tabelvorm; bevindingen verwijzen (“zie markttabel”) zonder dezelfde namen drie keer uit te schrijven.
+
+**Niet:** 575-URL dumps, ranking-posities verzinnen, droge consultancy-proza (“deterministische crawl”).
+
+## Amend — Concurrentie → actie (sep 2026)
+
+Bron: eigenaar-feedback Robin — markttabel is **FYI**, geen decoratie.
+
+**Elke concurrentenrij met een gap** (kolom “Gap t.o.v. jullie” ≠ leeg en ≠ “—”) krijgt in kolom **Actie**:
+
+- **`#n` — korte actienaam** — verwijst naar werklijst-rij `#n` met dezelfde *Wat* en *Klaar als* in `werklijst.md` en rapport (1:1), **of**
+- **`Geen actie: …`** — één zin waarom niet (buiten scope, geen data, lagere prio, al gedekt door andere rij).
+
+Eigen positie (de klant): `—` of “Geen actie: behoud …”.
+
+**Hard:** geen gap zonder Actie-cel. Meerdere concurrenten mogen naar dezelfde `#n` wijzen. Nieuwe gap → nieuwe werklijst-rij + bevinding (of uitbreiding bestaande finding) vóór Toetser.
+
+**Packets:** nieuwe rij met `code=ja` krijgt `taken/T-<n>.md` zoals altijd.

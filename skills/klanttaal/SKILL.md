@@ -59,11 +59,13 @@ Zie [playbooks/rapport-pdf.md](../playbooks/rapport-pdf.md) voor print/CSS.
 2. Drie prioriteiten (klaar-als, geen herhaling)  
 3. Wat al goed staat  
 4. Wat we hebben bekeken (scope-tabel)  
-5. Bevindingen (één subkop per thema)  
-6. Beslissingen (keuzes)  
-7. Werklijst (1:1 met `werklijst.md`)  
-8. Hoe we meten  
-9. Bijlage A — Bewijs · Bijlage B — Afgewezen tips  
+5. Markt & concurrenten (gap + Actie per rij: `#n` of `Geen actie: …`; 1:1 met werklijst)  
+6. Zoektermen die ertoe doen (query-tabel, bewijs-label per rij)  
+7. Bevindingen (één subkop per thema)  
+8. Beslissingen (keuzes)  
+9. Werklijst (1:1 met `werklijst.md`)  
+10. Hoe we meten  
+11. Bijlage A — Bewijs · Bijlage B — Afgewezen tips  
 
 ## Copywriter-skill (eigenaar)
 

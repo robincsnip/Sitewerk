@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Camperstaan — wat er speelt online, en wat we eerst doen</title>
+  <style>
+/* Sitewerk — Richting C: Papier (typography) */
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap");
+
+:root {
+  --font-display: "Libre Baskerville", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-body: "Literata", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-ui: "Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-xs: 8pt;
+  --text-sm: 9pt;
+  --text-base: 10.5pt;
+  --text-lg: 12pt;
+  --text-xl: 14pt;
+  --text-2xl: 18pt;
+  --text-3xl: 28pt;
+}
+
+/* Sitewerk — Richting C: Papier (colors) */
+
+:root {
+  --ink: #1c1917;
+  --paper: #faf8f5;
+  --panel: #ffffff;
+  --muted: #78716c;
+  --line: #d6d3d1;
+  --accent: #2d5a4a;
+  --accent-soft: #e8e4dc;
+  --accent-muted: #c9c4bb;
+  --warn: #9a5b14;
+  --warn-soft: #f5efe6;
+  --danger: #9b3d32;
+  --danger-soft: #f8ecea;
+  --ok: #2d5a4a;
+  --ok-soft: #e8efe9;
+}
+
+/* Sitewerk — Richting C: Papier (spacing) */
+
+:root {
+  --space-1: 1.5mm;
+  --space-2: 2.5mm;
+  --space-3: 4mm;
+  --space-4: 6mm;
+  --space-5: 8mm;
+  --space-6: 10mm;
+  --space-7: 14mm;
+  --space-8: 18mm;
+
+  --radius: 4px;
+  --radius-sm: 2px;
+  --shadow: 0 1px 0 rgba(28, 25, 23, 0.04);
+  --measure: 68ch;
+}
+
+/* Sitewerk — Richting C: Papier (shared component hooks) */
+
+:root {
+  --display: var(--font-display);
+  --body: var(--font-body);
+  --sans: var(--font-ui);
+}
+
+/* Sitewerk rapport theme — Richting C: Papier (print-first A4) */
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 14mm 12mm 16mm 12mm;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Cover (Papier) ──────────────────────────────────── */
+
+.cover {
+  position: relative;
+  min-height: 250mm;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  page-break-after: always;
+}
+
+.cover-rule {
+  height: 2px;
+  background: var(--accent);
+  width: 100%;
+}
+
+.cover-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(250mm - 2px);
+  padding: var(--space-7) var(--space-8) var(--space-8);
+}
+
+.brand {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 auto;
+}
+
+.cover-center {
+  text-align: center;
+  margin: auto 0;
+  padding: var(--space-6) 0;
+}
+
+.cover h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
+  color: var(--ink);
+}
+
+.cover-date {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--space-4);
+}
+
+.cover-belofte {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--muted);
+  margin: 0;
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.45;
+}
+
+.cover-kpi {
+  width: 100%;
+  max-width: 150mm;
+  margin: auto 0 0;
+  border-collapse: collapse;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.cover-kpi td {
+  text-align: center;
+  padding: var(--space-3) var(--space-2);
+  border: 0;
+  vertical-align: top;
+}
+
+.cover-kpi-values td {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--accent);
+  padding-bottom: var(--space-1);
+}
+
+.cover-kpi-labels td {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding-top: 0;
+}
+
+.cover-kpi-notes td {
+  font-family: var(--font-body);
+  font-size: 7.5pt;
+  color: var(--muted);
+  font-style: italic;
+  padding-top: 0;
+}
+
+/* ── Report body ─────────────────────────────────────── */
+
+.report {
+  padding: 0 var(--space-5) var(--space-6);
+}
+
+.report-section {
+  margin: 0 0 var(--space-4);
+}
+
+.report h2.section-head {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin: var(--space-6) 0 var(--space-3);
+  padding: 0 0 var(--space-2);
+  border-bottom: 1px solid var(--line);
+  border-top: 0;
+  line-height: 1.2;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.report-section > h2.section-head:first-child {
+  margin-top: var(--space-4);
+}
+
+.report h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  margin: var(--space-4) 0 var(--space-2);
+  color: var(--accent);
+  font-weight: 700;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.report p {
+  margin: 0 0 var(--space-2);
+  max-width: var(--measure);
+  orphans: 3;
+  widows: 3;
+}
+
+.report hr.section-break {
+  border: 0;
+  height: 0;
+  margin: var(--space-5) 0;
+}
+
+.lead-block {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.lead-block p {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.55;
+}
+
+.section-intro {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  margin: 0 0 var(--space-3) !important;
+}
+
+/* ── Priority cards ──────────────────────────────────── */
+
+.prio-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.prio-card {
+  display: grid;
+  grid-template-columns: 11mm 1fr;
+  gap: var(--space-3);
+  align-items: start;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.prio-card:last-child {
+  margin-bottom: 0;
+}
+
+.prio-num {
+  width: 9mm;
+  height: 9mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.prio-title {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: var(--space-1);
+}
+
+.prio-done {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  padding: var(--space-2);
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Good-grid ───────────────────────────────────────── */
+
+.good-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+  column-count: 2;
+  column-gap: var(--space-3);
+}
+
+.good-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--ok-soft);
+  border: 1px solid var(--accent-muted);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.35;
+  margin-bottom: var(--space-2);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ── Finding cards ───────────────────────────────────── */
+
+.prio-shell,
+.measure-shell {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.good-shell {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-shell,
+.werklijst-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  display: block;
+  width: 100%;
+}
+
+.finding-card {
+  display: block;
+  margin: 0 0 var(--space-3);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 1mm 2.5mm;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+}
+
+.finding-p0 .finding-badge {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.finding-p1 .finding-badge {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.finding-p2 .finding-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.finding-content h3 {
+  margin-top: 0;
+}
+
+.finding-content p {
+  font-size: var(--text-base);
+}
+
+.mini-kpi-row {
+  display: flex;
+  gap: var(--space-3);
+  margin: var(--space-2) 0 var(--space-1);
+  flex-wrap: wrap;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.mini-kpi {
+  flex: 1;
+  min-width: 20mm;
+  text-align: center;
+  padding: var(--space-2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.mini-kpi-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--danger);
+  line-height: 1.1;
+}
+
+.mini-kpi-label {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Callout & decisions ─────────────────────────────── */
+
+/* ── GSC charts (SVG) ─────────────────────────────────── */
+
+.gsc-chart-shell {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.gsc-chart-head {
+  margin-bottom: var(--space-2);
+}
+
+.gsc-chart-title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin: 0 0 var(--space-1);
+  color: var(--ink);
+}
+
+.gsc-chart-sub {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.gsc-chart-note {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  color: var(--muted);
+  font-style: italic;
+  margin: var(--space-2) 0 0;
+  text-align: right;
+}
+
+.gsc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 7.5pt;
+  color: var(--muted);
+}
+
+.gsc-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5mm;
+}
+
+.gsc-legend-swatch {
+  display: inline-block;
+  width: 4mm;
+  height: 1.5mm;
+  border-radius: 1mm;
+}
+
+.swatch-clicks,
+.gsc-bar-clicks {
+  fill: var(--accent);
+}
+
+.swatch-impressions,
+.gsc-line-impressions,
+.gsc-dot-impressions {
+  stroke: #6b5b95;
+  fill: #6b5b95;
+}
+
+.gsc-line-impressions {
+  fill: none;
+  stroke-width: 2;
+}
+
+.gsc-dot-impressions {
+  stroke: none;
+}
+
+.swatch-ctr,
+.gsc-line-ctr {
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+.swatch-position,
+.gsc-line-position {
+  stroke: var(--warn);
+  fill: none;
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+.swatch-period-0 {
+  background: color-mix(in srgb, var(--accent) 45%, var(--paper));
+}
+
+.swatch-period-1 {
+  background: color-mix(in srgb, var(--accent) 72%, var(--paper));
+}
+
+.swatch-period-2 {
+  background: var(--accent);
+}
+
+.gsc-bar-compare {
+  fill: var(--accent);
+}
+
+.gsc-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gsc-grid {
+  stroke: var(--line);
+  stroke-width: 0.5;
+}
+
+.gsc-axis {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.gsc-axis-label,
+.gsc-axis-tick,
+.gsc-compare-label,
+.gsc-bar-value {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  fill: var(--muted);
+}
+
+.gsc-bar-value {
+  font-size: 6pt;
+  fill: var(--ink);
+  font-weight: 600;
+}
+
+.gsc-axis-title {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  fill: var(--muted);
+}
+
+.gsc-axis-tick-right,
+.gsc-axis-title-right {
+  fill: var(--muted);
+}
+
+.baseline-chart-shell {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr 14mm;
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.chart-row:last-child {
+  margin-bottom: 0;
+}
+
+.chart-label {
+  color: var(--ink);
+}
+
+.chart-bar {
+  height: 3mm;
+  background: var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.chart-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.chart-value {
+  text-align: right;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.callout-fictief {
+  margin: var(--space-3) 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--warn-soft);
+  border: 1px solid var(--warn);
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.callout-fictief p {
+  margin: 0;
+}
+
+.callout-decision {
+  margin: var(--space-4) 0 var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.callout-decision p {
+  margin: 0;
+  font-size: var(--text-base);
+}
+
+.decision-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.decision-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.decision-card:last-child {
+  margin-bottom: 0;
+}
+
+.decision-card h3 {
+  margin-top: 0;
+  font-size: var(--text-base);
+}
+
+.decision-card p {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+/* ── Measure timeline ────────────────────────────────── */
+
+.measure-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+  column-count: 2;
+  column-gap: var(--space-3);
+}
+
+.measure-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.measure-when {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: var(--space-1);
+}
+
+.measure-label {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.measure-text {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+/* ── GSC report tables ───────────────────────────────── */
+
+.gsc-shell {
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.gsc-shell .gsc-meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0 0 var(--space-2);
+}
+
+.gsc-shell table,
+.report table.gsc-table {
+  font-size: 8pt;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.gsc-shell table thead,
+.report table.gsc-table thead {
+  display: table-header-group;
+}
+
+.gsc-shell table th,
+.report table.gsc-table th {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gsc-shell h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+
+.report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-3) 0 var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.report table.scope-table,
+.report table.context-table,
+.report table.werklijst-table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.report table.scope-table thead,
+.report table.context-table thead,
+.report table.werklijst-table thead {
+  display: table-header-group;
+}
+
+.report table.scope-table tr,
+.report table.context-table tr,
+.report table.werklijst-table tr,
+.report table.appendix-table tr,
+.report table.gsc-table tr,
+.gsc-shell table tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.report table.appendix-table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.report table.appendix-table thead {
+  display: table-header-group;
+}
+
+.report th,
+.report td {
+  border-bottom: 1px solid var(--line);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  vertical-align: top;
+}
+
+.report th {
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.report tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.scope-table td:nth-child(2) {
+  font-weight: 600;
+}
+
+.werklijst-table td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  width: 8mm;
+}
+
+.appendix-table {
+  font-size: 7pt;
+}
+
+.appendix-table th,
+.appendix-table td {
+  padding: 1.5mm 2mm;
+}
+
+.appendix-table th {
+  background: var(--accent-soft);
+}
+
+.report strong {
+  font-weight: 600;
+}
+
+.report ul,
+.report ol {
+  margin: var(--space-2) 0 var(--space-3);
+  padding-left: 5mm;
+  max-width: var(--measure);
+}
+
+.colophon {
+  padding: var(--space-3) var(--space-5) var(--space-6);
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  border-top: 1px solid var(--line);
+  margin-top: var(--space-5);
+}
+
+@media print {
+  html,
+  body {
+    background: var(--paper);
+    font-size: var(--text-base);
+  }
+
+  .cover {
+    background: var(--paper) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cover-kpi {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .report hr.section-break {
+    display: none;
+    margin: 0;
+    height: 0;
+  }
+
+  .report h2.section-head {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .report h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Keep headings with the block that follows */
+  .report h2.section-head + *,
+  .report h3 + * {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .report-section > h2.section-head:first-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .report-section--appendix {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .report-section--appendix + .report-section--appendix {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  .good-shell,
+  .finding-shell,
+  .werklijst-block,
+  .prio-shell,
+  .measure-shell,
+  .prio-card,
+  .finding-card,
+  .decision-card,
+  .measure-card,
+  .callout-decision,
+  .callout-fictief,
+  .gsc-shell,
+  .gsc-chart-shell,
+  .lead-block {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .prio-grid,
+  .decision-grid,
+  .good-grid,
+  .measure-grid {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .prio-card,
+  .finding-card,
+  .decision-card,
+  .measure-card {
+    display: table;
+    width: 100%;
+  }
+
+  .good-grid {
+    display: block;
+  }
+
+  .good-item {
+    display: block;
+    width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .measure-grid {
+    display: block;
+    column-count: 2;
+    column-gap: var(--space-3);
+  }
+
+  .measure-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    column-break-inside: avoid;
+  }
+
+  .report table.scope-table tr,
+  .report table.appendix-table tr,
+  .report table.werklijst-table tr,
+  .report table.werklijst-tabel tr,
+  .report table.gsc-table tr,
+  .gsc-shell table tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .table-shell {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/rapport-theme.css" />
+</head>
+<body>
+  <header class="cover cover-papier">
+    <div class="cover-rule" aria-hidden="true"></div>
+    <div class="cover-inner">
+      <p class="brand">Sitewerk</p>
+      <div class="cover-center">
+        <h1>Camperstaan</h1>
+        <p class="cover-date">14 september 2026</p>
+        <p class="cover-belofte">wat er speelt online, en wat we eerst doen</p>
+      </div>
+      <table class="cover-kpi"><tr class="cover-kpi-values"><td>3</td><td>7</td><td>577</td><td>4</td></tr><tr class="cover-kpi-labels"><td>Prioriteiten</td><td>Acties</td><td>Pagina's</td><td>Urgent</td></tr><tr class="cover-kpi-notes"><td>deze maand</td><td>90 dagen</td><td>in overzicht</td><td>bevindingen</td></tr></table>
+    </div>
+  </header>
+  <main class="report">
+<section class="report-section"><p><strong>Peildatum:</strong> 14 september 2026 <strong>Status:</strong> concept — er is nog niets live gezet <strong>Opgesteld door:</strong> Sitewerk</p>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">In het kort</h2>
+<div class="lead-block"><p>Camperstaan is al een echte plekkengids: honderden plekpagina's, stadspagina's en provinciepagina's, elk met een bronlink. Dat is sterker dan een simpele brochure-site. We zien vier punten die bezoekers en vindbaarheid in Google nu remmen, plus twee verbeteringen die minder urgent zijn.</p></div>
+<div class="callout-decision"><p><strong>Besluit dat we vragen:</strong> akkoord op de drie prioriteiten hieronder. Daarna Toets, dan pas bouwen op een preview — nog niets live.</p></div>
+<h3>Drie prioriteiten</h3>
+<div class="prio-shell"><div class="prio-grid"><div class="prio-card"><div class="prio-num">1</div><div class="prio-body"><div class="prio-title">Eén aantal plekken, één land in het Nederlandse overzicht</div><div class="prio-done">Klaar als: homepage, zoekpagina en het Nederlandse pagina-overzicht voor Google hetzelfde aantal Nederlandse plekken tonen, en Belgische/Duitse plekken daar niet tussen staan (of pas als er landpagina's zijn).</div></div></div><div class="prio-card"><div class="prio-num">2</div><div class="prio-body"><div class="prio-title">Plekpagina eerst voor de reiziger</div><div class="prio-done">Klaar als: prijs, maximaal aantal nachten, voorzieningen, bron en kaart boven het claimformulier staan.</div></div></div><div class="prio-card"><div class="prio-num">3</div><div class="prio-body"><div class="prio-title">Provincie-keuze leidt naar de provinciepagina</div><div class="prio-done">Klaar als: iemand op Drenthe filtert en op de Drenthe-overzichtspagina landt (niet op een algemene zoekpagina die Google als hoofdpagina ziet).</div></div></div></div></div>
+<h3>Wat al goed staat (niet kapotmaken)</h3>
+<div class="good-shell"><div class="good-grid"><div class="good-item">Bezoekers komen automatisch op www terecht</div><div class="good-item">Inloggen, betalen en dashboard staan buiten Google</div><div class="good-item">Pagina's die niet bestaan worden niet geïndexeerd</div><div class="good-item">Plekpagina's hebben een vaste hoofdadres in Google</div><div class="good-item">Bronlink naar gemeente of eigenaar op de plekpagina</div><div class="good-item">Provincie- en stadspagina's tonen echte aantallen</div><div class="good-item">Plektekst staat in de pagina zelf (niet alleen via JavaScript)</div><div class="good-item">Zoeken op Camperstaan toont homepage en zoekpagina</div></div></div>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Wat we hebben bekeken</h2>
+<p class="section-intro">Openbare pagina's, technische koppen, robots-bestand, pagina-overzicht voor Google, drie plekpagina's, een provincie, een stad, de over-pagina en een steekproef in Google. Geen Search Console-export. Geen betaalde linkdata.</p>
+<table class="data-table scope-table"><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; vindbaarheid</td><td>bekeken</td><td>Pagina-overzicht met 577 adressen; tellingen botsen; pagina's niet tussen opgeslagen</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>Structuur klopt; plekpagina richt zich nu op de eigenaar</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Overzichtspagina's bestaan; plekpagina's zijn dun t.o.v. de bron</td></tr><tr><td>Snelheid</td><td>deels</td><td>Geen Lighthouse; zoekpagina weegt 1,41 MB</td></tr><tr><td>Google-bedrijfsprofiel</td><td>n.v.t.</td><td>Landelijke gids, geen lokale winkel</td></tr><tr><td>Reviews &amp; reputatie</td><td>n.v.t. hier</td><td>Geen sterren verzinnen; Campercontact wint reviews</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>steekproef</td><td>Gemeente, Visit, Campercontact, Park4Night</td></tr><tr><td>AI-vindbaarheid</td><td>steekproef</td><td>Categorie-bronnen noemen Camperstaan niet</td></tr></tbody></table>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Markt &amp; concurrenten</h2>
+<p class="section-intro">Wie concurreert op dezelfde zoekintentie — steekproef 13 september plus marktcontext. Elke gap hieronder staat op de werklijst of heeft een reden waarom niet.</p>
+<div class="table-shell"><table class="data-table context-table"><thead><tr><th>Speler</th><th>Rol</th><th>Gap t.o.v. jullie</th><th>Label</th><th>Actie</th></tr></thead><tbody><tr><td>Campercontact</td><td>Community-gids en app</td><td>Reviews en merk; wint op "camperplaats Kampen"</td><td>afgeleid</td><td>#2 — plekpagina gast-eerst</td></tr><tr><td>ANWB</td><td>Routes en camperinformatie</td><td>Merkvertrouwen; landelijke dekking</td><td>afgeleid</td><td>Geen actie: routes/merkbudget buiten scope; eerst #2 en #6</td></tr><tr><td>KampeerHub</td><td>Thema-gids (water, gratis)</td><td>Themapagina's op water en gratis</td><td>afgeleid</td><td>#7 — thema-overzichten water + gratis</td></tr><tr><td>Gemeente / bron</td><td>Officiële plekinfo</td><td>Autoriteit per plek; bovenaan bij plaats-zoek</td><td>gemeten</td><td>#2 — plekpagina gast-eerst</td></tr><tr><td>Visit / toerisme</td><td>Stad- of regiomarketing</td><td>Lokale vindbaarheid (bijv. Kampen)</td><td>gemeten</td><td>#2 — plekpagina gast-eerst</td></tr><tr><td>Park4Night</td><td>Internationale community-app</td><td>Buitenland zichtbaar; crowd/reviews</td><td>gemeten</td><td>#1 — NL-telling; geen actie op reviews/app</td></tr><tr><td>Camperstaan</td><td>Jullie gids</td><td>—</td><td>gemeten</td><td>Geen actie: structuur en bronlinks behouden</td></tr></tbody></table></div>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Zoektermen die ertoe doen</h2>
+<p class="section-intro">Openbare zoeksteekproef 13 september (zelfde dag als technische metingen). Geen Search Console — dus geen klikken of exacte posities.</p>
+<div class="table-shell"><table class="data-table context-table"><thead><tr><th>Zoekopdracht</th><th>Wat de zoeker wil</th><th>Zichtbaar voor jullie?</th><th>Label</th></tr></thead><tbody><tr><td>Camperstaan</td><td>Merk vinden</td><td>Ja — home en /plaatsen in de hits</td><td>gemeten</td></tr><tr><td>camperplaats Kampen</td><td>Concrete plek boeken</td><td>Nee — listing niet in de getoonde hits</td><td>gemeten</td></tr><tr><td>camperplaatsen in Drenthe</td><td>Regio-overzicht</td><td>Nee — /provincie/drenthe niet in steekproef</td><td>gemeten</td></tr><tr><td>site:www.camperstaan.nl camperplaats Kampen</td><td>Diagnostiek (wat Google indexeert)</td><td>Deels — home en /plaatsen, geen listing-URL</td><td>gemeten</td></tr><tr><td>gratis camperplaats Nederland</td><td>Thema / inspiratie</td><td>Niet nagekeken deze run</td><td>onbekend</td></tr></tbody></table></div>
+<hr class="section-break" />
+</section>
+<section class="report-section report-section--chapter"><h2 class="section-head">Bevindingen</h2>
+<div class="finding-shell"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><div class="mini-kpi-row"><div class="mini-kpi"><div class="mini-kpi-value">306</div><div class="mini-kpi-label">Homepage</div></div><div class="mini-kpi"><div class="mini-kpi-value">293</div><div class="mini-kpi-label">Zoekpagina NL</div></div><div class="mini-kpi"><div class="mini-kpi-value">13</div><div class="mini-kpi-label">BE/DE extra</div></div></div><h3>1. Homepage en zoekpagina tellen verschillend — en er staan buitenlandse plekken tussen</h3>
+<p>Het verschil zit in dertien plekken in België en Duitsland die live staan en in het pagina-overzicht voor Google, maar niet op de Nederlandse zoekpagina. Jullie copy zegt nog dat België en Duitsland "later" komen.</p>
+<p><strong>Gevolg:</strong> bezoekers en Google zien niet hetzelfde aanbod. Google kan buitenlandse plekken tonen alsof ze bij "camperplaatsen in Nederland" horen.</p>
+<p><strong>Voorstel:</strong> één telling voor Nederland; buitenlandse plekken uit het Nederlandse overzicht tot er landpagina's zijn — of die landpagina's nu serieus maken.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><h3>2. De plekpagina helpt de reiziger te weinig</h3>
+<p>Wie "camperplaats Kampen" zoekt, vindt vooral de gemeente, Visit Kampen of Campercontact — niet jullie plekpagina. Logisch: zij zijn de bron.</p>
+<p>Op jullie Kampen-pagina is het claimformulier (€ 99) het grootste blok. De reiziger krijgt één korte alinea met chips — ongeveer 132 woorden in het hoofdblok.</p>
+<p><strong>Gevolg:</strong> weinig reden om jullie pagina te openen in plaats van kampen.nl.</p>
+<p><strong>Voorstel:</strong> prijs (2026), max 72 uur, voorzieningen, bronlink en kaart bovenaan; claim onderaan of op een aparte URL.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>3. Provincie-filter wijst Google naar de verkeerde pagina</h3>
+<p>Filter je op Drenthe op de zoekpagina, dan heet de pagina "Camperplaatsen in Drenthe". Google ziet als hoofdadres nog steeds de algemene zoekpagina — niet <code>/provincie/drenthe</code>.</p>
+<p><strong>Gevolg:</strong> bij "camperplaatsen in Drenthe" verschijnt jullie Drenthe-overzichtspagina niet in onze steekproef.</p>
+<p><strong>Voorstel:</strong> provincie-filter stuurt door naar de provinciepagina (bijv. <code>/provincie/drenthe</code>).</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>4. Zoekpagina is zwaar; pagina's worden niet tussen opgeslagen</h3>
+<p>Elke HTML-pagina wordt met "niet opslaan" geleverd: elke bezoeker haalt alles opnieuw van de server. De zoekpagina weegt <strong>1,41 MB</strong> omdat alle 293 kaarten in één pagina staan.</p>
+<p><strong>Gevolg:</strong> onnodig zwaar voor een catalogus die grotendeels hetzelfde blijft.</p>
+<p><strong>Voorstel:</strong> anonieme pagina's mogen tussen opgeslagen worden; zoekpagina verlichten (bijv. paginering) zonder plekken uit het overzicht te halen.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>5. Google mist locatie en prijs op de plekpagina</h3>
+<p>Op Kampen staan coördinaten en prijs in de pagina, maar niet in de extra gegevens die Google leest (gestructureerde data).</p>
+<p><strong>Voorstel:</strong> locatie, prijsklasse en voorzieningen toevoegen aan die gegevens — velden bestaan al in jullie systeem.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>6. Drenthe-overzichtspagina wint nog niet op zoekintentie</h3>
+<p>De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "camperplaatsen in Drenthe".</p>
+<p><strong>Voorstel:</strong> intern versterken (tekst, links) en steekproef herhalen — gedeeld jullie en wij.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>7. KampeerHub wint op themazoek — jullie hebben nog geen thema-overzichten</h3>
+<p>Concurrent KampeerHub rankt met pagina's over water en gratis camperplaatsen. Camperstaan heeft provincie- en plekpagina's, maar geen vergelijkbare thema-landings.</p>
+<p><strong>Gevolg:</strong> zoekers met een thema-intentie (gratis, aan het water) vinden KampeerHub eerder dan jullie overzicht.</p>
+<p><strong>Voorstel:</strong> twee thema-overzichten (water + gratis) met echte plekken uit jullie database — geen lege SEO-pagina's. Zie werklijst #7.</p></div></div></div>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Beslissingen die we van jullie nodig hebben</h2>
+<div class="decision-grid"><div class="decision-card"><h3>Beslissing 1 — Buitenlandse plekken in het Nederlandse overzicht?</h3><p><strong>Voorstel:</strong> eruit tot <code>/belgie</code> en <code>/duitsland</code> (of gelijkwaardig) bestaan en de homepage per land telt. <strong>Alternatief:</strong> nu landpagina's maken en 306 uitleggen als NL+BE+DE. <strong>Opnieuw bekijken als:</strong> jullie BE/DE deze maand actief willen claimen.</p></div><div class="decision-card"><h3>Beslissing 2 — Claimen op de plekpagina of apart?</h3><p><strong>Voorstel:</strong> gastinformatie bovenaan; claim onderaan of op <code>/plaatsen/{slug}/claim</code>. <strong>Alternatief:</strong> claim blijft, maar ingeklapt tot "Beheer je deze plek?" <strong>Opnieuw bekijken als:</strong> claim-conversie vs. bezoekers per plek gemeten is.</p></div><div class="decision-card"><h3>Beslissing 3 — Provincie-filter of direct naar provinciepagina?</h3><p><strong>Voorstel:</strong> filter op provincie leidt naar <code>/provincie/{slug}</code>. <strong>Alternatief:</strong> filter op zoekpagina houden, maar dan moet Google de juiste URL zien per provincie. <strong>Opnieuw bekijken als:</strong> filter-ervaring belangrijker is dan provincie-ranking.</p></div></div>
+<hr class="section-break" />
+</section>
+<section class="report-section report-section--chapter"><h2 class="section-head">Werklijst — eerste 90 dagen</h2>
+<p class="section-intro">Zie <code>werklijst.md</code> in deze run. Zelfde lijst, geen tweede waarheid.</p>
+<div class="werklijst-block"><h3>Deze maand</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>NL-telling harmoniseren; BE/DE uit NL-sitemap</td><td>jullie</td><td>home = /plaatsen = sitemap-NL count</td></tr><tr><td>2</td><td>Listing-template gast-eerst</td><td>wij</td><td>prijs/voorzieningen/bron boven claim</td></tr><tr><td>3</td><td>Regio-filter → provincie-hub</td><td>wij</td><td>Drenthe-filter op /provincie/drenthe</td></tr></tbody></table></div></div>
+<div class="werklijst-block"><h3>Maand twee / drie</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>4</td><td>Cache public + /plaatsen verlichten</td><td>wij</td><td>public cache listing; /plaatsen paginering</td></tr><tr><td>5</td><td>JSON-LD geo + priceRange + amenities</td><td>wij</td><td>Rich Results Test</td></tr><tr><td>6</td><td>Hub Drenthe intern versterken</td><td>gedeeld</td><td>steekproef herhalen</td></tr><tr><td>7</td><td>Thema-overzichten water + gratis</td><td>gedeeld</td><td>/thema/water en /thema/gratis in sitemap; elk min. 3 interne links</td></tr></tbody></table></div></div>
+<p><strong>Buiten scope deze ronde:</strong> linkdisavow, Google-bedrijfsprofiel, live deploy, mail naar eigenaren, %-trafficbelofte.</p>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Hoe we weten of het werkt</h2>
+<div class="measure-shell"><div class="measure-grid"><div class="measure-card"><div class="measure-when">Nu bekend</div><div class="measure-label">Baseline</div><div class="measure-text">tellingen, technische koppen, pagina-overzicht, steekproef Kampen/Drenthe, gewicht zoekpagina</div></div><div class="measure-card"><div class="measure-when">Nog niet bekend</div><div class="measure-label">Open</div><div class="measure-text">Search Console per paginatype, inkomende links, claim-conversie</div></div><div class="measure-card"><div class="measure-when">30 dagen</div><div class="measure-label">Hercontrole</div><div class="measure-text">steekproef Kampen; gewicht zoekpagina; cache op plekpagina's</div></div><div class="measure-card"><div class="measure-when">90 dagen</div><div class="measure-label">Nameting</div><div class="measure-text">provincie-zoekopdracht; nameting-run met baseline</div></div></div></div>
+<hr class="section-break" />
+</section>
+<section class="report-section report-section--appendix"><h2 class="section-head">Bijlage A — Bewijs</h2>
+<table class="data-table appendix-table"><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>306 vs 293 vs 13 BE/DE</td><td>home, /plaatsen, sitemap</td><td>gemeten</td></tr><tr><td>F-002</td><td>Filter canonical /plaatsen</td><td>/plaatsen?regio=Drenthe</td><td>gemeten</td></tr><tr><td>F-003</td><td>Listing dun + claim dominant</td><td>Kampen listing + zoeksteekproef</td><td>gemeten</td></tr><tr><td>F-004</td><td>no-store + 1,41 MB</td><td>curl headers + size</td><td>gemeten</td></tr><tr><td>F-005</td><td>Schema zonder geo/prijs</td><td>Kampen JSON-LD</td><td>gemeten</td></tr><tr><td>F-006</td><td>Drenthe-hub niet in SERP</td><td>zoeksteekproef</td><td>afgeleid</td></tr><tr><td>F-007</td><td>Links onbekend</td><td>—</td><td>onbekend</td></tr><tr><td>F-008</td><td>AI categorie gap</td><td>steekproef</td><td>afgeleid</td></tr><tr><td>F-009</td><td>Concurrenten Kampen/Drenthe</td><td>zoeksteekproef 13 sep</td><td>gemeten</td></tr><tr><td>F-010</td><td>ANWB/KampeerHub marktcontext</td><td>vergelijkingsdossier, geen eigen steekproef</td><td>afgeleid</td></tr><tr><td>F-011</td><td>KampeerHub thema-gap</td><td>markttabel + vergelijkingsdossier</td><td>afgeleid</td></tr></tbody></table>
+</section>
+<section class="report-section report-section--appendix"><h2 class="section-head">Bijlage B — Afgewezen automatische tips</h2>
+<table class="data-table appendix-table"><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>FAQ schema op elke listing</td><td>Geen echte FAQ-content</td></tr><tr><td>LocalBusiness voor Camperstaan</td><td>Geen fysieke zaak</td></tr><tr><td>2000 woorden per provincie</td><td>Bulk zonder unieke info</td></tr><tr><td>Disavow zonder linkdata</td><td>Geen export deze run</td></tr></tbody></table></section>
+  </main>
+  <footer class="colophon">
+    <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>
+  </footer>
+</body>
+</html>

@@ -338,6 +338,7 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
       const { html, next } = parseTable(lines, i);
       let tableClass = "data-table";
       if (lastH2.includes("bekeken")) tableClass += " scope-table";
+      else if (/Markt|Zoektermen/i.test(lastH2)) tableClass += " context-table";
       else if (lastH2.includes("Werklijst")) tableClass += " werklijst-table";
       else if (lastH2.includes("Bijlage")) tableClass += " appendix-table";
       else if (/Search Console/i.test(lastH2)) tableClass += " gsc-table";
@@ -345,7 +346,7 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
       if (tableClass.includes("werklijst-table") && pendingWerklijstH3) {
         out.push(`<div class="werklijst-block">${pendingWerklijstH3}<div class="table-shell">${tableHtml}</div></div>`);
         pendingWerklijstH3 = null;
-      } else if (tableClass.includes("werklijst-table")) {
+      } else if (tableClass.includes("werklijst-table") || tableClass.includes("context-table")) {
         out.push(`<div class="table-shell">${tableHtml}</div>`);
       } else {
         out.push(tableHtml);

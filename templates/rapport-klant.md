@@ -43,6 +43,32 @@ Geen herhaling van cijfers of techniek hier — die staan één keer onder Bevin
 
 ---
 
+## Markt & concurrenten
+
+:::section-intro
+{{KORT_WIE_VERGELIJKEN_GEEN_CRAWL_DUMP}}
+:::
+
+| Speler | Rol | Gap t.o.v. jullie | Label | Actie |
+| --- | --- | --- | --- | --- |
+| {{NAAM}} | {{ROL}} | {{GAP}} | gemeten / afgeleid / onbekend | #n — korte actienaam **of** Geen actie: … |
+
+Elke gap staat op de werklijst (zelfde #, Wat, Klaar als) of heeft een reden waarom niet. Geen posities zonder Search Console.
+
+---
+
+## Zoektermen die ertoe doen
+
+:::section-intro
+{{KORT_WELKE_QUERIES_STEEKPROEF_OF_GSC}}
+:::
+
+| Zoekopdracht | Wat de zoeker wil | Zichtbaar voor jullie? | Label |
+| --- | --- | --- | --- |
+| {{QUERY}} | {{INTENTIE}} | ja / nee / niet nagekeken | gemeten / afgeleid / onbekend |
+
+---
+
 ## Bevindingen
 
 Elke bevinding **één keer**: observatie → gevolg → voorstel. Zie [skills/klanttaal/SKILL.md](../skills/klanttaal/SKILL.md).
