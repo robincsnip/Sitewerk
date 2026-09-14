@@ -2,31 +2,31 @@
 
 toets: 1  
 oordeel: akkoord  
-toetser_run: bc-c4d9db19-62fa-5467-b319-19d492f30e5e  
-bouwer_run: cursor/audit-depth-camperstaan-816d (PR #10, commit e356a87)
+toetser_run: bc-b5096606-0cca-5b1a-864b-6142f754a2e4  
+bouwer_run: cursor/audit-depth-camperstaan-816d (PR #10, commit cc4e0c5)
 
 ## her-run
 
-Toets 1 her-run na competitor-gaps → werklijst (e356a87): Actie-kolom markttabel, bevinding #7, werklijst #7, F-011. Vorige akkoord (dd10b36) gold vóór deze wijziging.
+Toets 1 her-run na P-badge bevinding 6 `p2` → `p1` (Drenthe-hub), zodat rapport = werklijst #6 = intern F-006. Vorige akkoord (cb35eec) gold vóór deze telling-fix.
+
+## wat_mis
+
+—
 
 ## wat_goed
 
-- **Concurrent-gaps gekoppeld:** markttabel met Actie per speler (#n of “Geen actie:” + reden); intro belooft 1:1 met werklijst.
-- **Werklijst #7:** thema-overzichten water + gratis; 1:1 met rapport (rij 7) en KampeerHub-actie in markttabel.
-- **Bevinding 7 + F-011:** thema-gap uitgewerkt; bijlage A compleet.
-- **Werklijst-sync:** rijen 1–7 identiek (#, Wat, Wie, Klaar als); KPI “7 acties” bijgewerkt.
-- **Packets:** T-1 t/m T-5 compleet voor code=ja; rij 7 code=deels — geen packet vereist.
-- **Bewijslabels:** top-3 op gemeten; F-011/F-010 afgeleid eerlijk; F-007 onbekend op stop-rij #8.
-- **Playbook:** mix.md-conflicten, diepte, Bijlage B, geen GBP-theater, geen denylist, geen %-belofte.
-- **Print/PDF:** aanwezig; nieuwe bevinding en werklijstrij in HTML/PDF.
+- **P-badge 1:1:** bevinding 6 P1 in klantrapport, werklijst #6 en F-006.
+- **P2-telling:** bevindingen 5 en 7; lead “twee minder urgente” klopt.
+- **Werklijst-sync:** rijen 1–7 identiek (#, Wat, Wie, Klaar als).
+- **Packets:** T-1 t/m T-5 compleet voor code=ja; #6/#7 code=deels.
+- **Playbook:** mix.md, diepte, Bijlage B, geen GBP-theater, geen denylist, geen %-belofte.
+- **Print/PDF:** `print/rapport.pdf` aanwezig; cover Sitewerk + Camperstaan + peildatum; badge P1 in HTML.
 
 ## kleine_aandacht (geen afkeur)
 
-- Lead “In het kort” noemt nog “twee verbeteringen die minder urgent” — nu drie P2-bevindingen (5–7).
-- `mix.md`, `rapport-intern.md`, packets verwijzen nog naar run-id `2026-09-13-camperstaan-v2` (peildatum 13 sep in metadata vs 14 sep in rapport).
-- Werklijst #8 (linkdata, code=nee) niet in klantrapport-tabel — stop-rij; consistent met eerdere runs.
-- Callout noemt nog “Toets”; werklijst-sectie verwijst naar `werklijst.md`.
-- Paginatie-gate niet herhaald in Toetser-omgeving (Playwright ontbreekt).
+- Cover-KPI “4 urgent” telt bevindingen 1–4, niet de extra P1 op #6 (code=deels). Lead “vier punten” volgt diezelfde definitie.
+- Callout noemt “Toets”; werklijst-sectie verwijst naar `werklijst.md`.
+- `mix.md` / intern / packets: run-id nog `2026-09-13-camperstaan-v2`.
 
 ## regel_kandidaat
 
@@ -38,6 +38,6 @@ Toets 1 her-run na competitor-gaps → werklijst (e356a87): Actie-kolom markttab
 
 ## tag
 
-competitor-gaps-werklijst
+p-badge-telling
 
 ## eigenaar_initialen
