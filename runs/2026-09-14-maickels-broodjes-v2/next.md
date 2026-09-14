@@ -1,10 +1,7 @@
-# next — 2026-09-14-maickels-broodjes-v2
-
-klaar_fase: audit
-volgende_rol: Toetser
-toets_run_id:
-reden_stop:
+klaar_fase: toets-1
+volgende_rol: Eigenaren
+toets_run_id: bc-f1d34560-f522-5523-aa1e-d67e53d3fbf3
 
 ## Notitie
 
-Bouwer-run: verse live-audit Maickels Broodjes (niet PR #2 hergebruikt). Print staat klaar voor **Toets 1** in een **nieuwe** agent-run. Geen Uitvoer, geen live, geen mail. Parent start de Toetser.
+Toets 1 **akkoord** op Maickels Broodjes v2 (PR #12, bae07c6). Rapport, werklijst (rijen 1–7), packets T-1..T-7 en print/PDF (12 pag., gate OK) zijn in orde. Brief heeft nog Uitvoer + Nameting: Robin beoordeelt of en wanneer Uitvoer start. Deze Toetser-run start geen Uitvoer. Geen live, mail of geld zonder eigenaren-ja.
