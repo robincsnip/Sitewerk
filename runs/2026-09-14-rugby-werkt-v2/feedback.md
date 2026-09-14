@@ -1,32 +1,33 @@
 # Feedback — 2026-09-14-rugby-werkt-v2
 
 toets: 1  
-oordeel: afkeur  
-toetser_run: bc-e30e6d94-8ba7-5818-8e3c-a9cc58856db4  
-bouwer_run: cursor/rugby-werkt-audit-6ad5 (PR #9, commit fe05c0d)
+oordeel: akkoord  
+toetser_run: bc-7ebb3e07-56e7-546e-bedd-1e12548c1e98  
+bouwer_run: cursor/rugby-werkt-audit-6ad5 (PR #9, commit 91bf70d)
 
 ## wat_mis
 
-Werklijst en klantrapport zijn niet 1:1: alle zeven rijen hebben afwijkende `Wat`-tekst en rij 5 mist `besluit +` in `Klaar als`.
+(vorige afkeur opgelost) Werklijst-sync was niet 1:1; Bouwer heeft `#`, `Wat`, `Wie`, `Klaar als` letterlijk gekopieerd en print geregenereerd.
 
 ## wat_goed
 
-- **Post-PR-#8 product:** Papier-print, bijlagen achteraan, paginatie-gate OK (8 pag.; 0 failures).
-- **Packets:** T-1 t/m T-7 compleet voor code=ja-rijen — naslag-lesson T-5 niet herhaald.
-- **Finding-contract:** F-001–F-012 volledig; top-3 op gemeten bevindingen, niet op `onbekend`.
+- **Werklijst-sync:** alle 7 rijen 1:1 in `rapport-klant.md` en `print/rapport.html` — naslag-lesson Camperstaan occurrence 2 afgehandeld.
+- **Post-PR-#8 product:** Papier-print, bijlagen achteraan, cover schoon.
+- **Packets:** T-1 t/m T-7 compleet voor code=ja-rijen.
+- **Finding-contract:** F-001–F-012 volledig; top-3 op gemeten bevindingen.
 - **Diepte:** deny-gate Nature Sports; sitemap/anker-architectuur; Scrum College + dienst-URL-besluiten.
 - **mix.md:** vier Feiten↔Strategie-conflicten expliciet.
-- **Klanttaal bevindingen:** gewone taal, jargon vertaald waar nodig; geen denylist.
+- **Klanttaal:** gewone taal in bevindingen; geen denylist.
 - **Bijlage B:** vijf afgewezen tips met reden; geen GBP-theater; geen %-belofte.
-- **PDF:** `print/rapport.pdf` aanwezig; cover schoon (Sitewerk + klant + datum).
+- **PDF:** `print/rapport.pdf` aanwezig.
 
 ## regel_kandidaat
 
-Werklijst-tabel in `rapport-klant.md` moet `#`, `Wat`, `Wie`, `Klaar als` letterlijk kopiëren uit `werklijst.md` — geen afkorting voor print-breedte (naslag Camperstaan, occurrence 2).
+Werklijst-tabel in `rapport-klant.md` moet `#`, `Wat`, `Wie`, `Klaar als` letterlijk kopiëren uit `werklijst.md` — geen afkorting (naslag Camperstaan, occurrence 2 — nu gehaald in her-run).
 
 ## herhaling_count
 
-2
+2 (opgelost)
 
 ## tag
 

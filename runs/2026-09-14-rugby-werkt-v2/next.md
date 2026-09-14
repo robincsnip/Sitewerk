@@ -1,14 +1,10 @@
 # next — 2026-09-14-rugby-werkt-v2
 
-klaar_fase: audit
-volgende_rol: Bouwer
-toets_run_id: bc-e30e6d94-8ba7-5818-8e3c-a9cc58856db4
-reden_stop: Toets 1 afkeur — werklijst-sync
+klaar_fase: toets-1
+volgende_rol: Eigenaren
+toets_run_id: bc-7ebb3e07-56e7-546e-bedd-1e12548c1e98
+reden_stop:
 
 ## Notitie
 
-<<<<<<< HEAD
-Toets 1 afkeur (14 sep 2026). Werklijst-tabel in `rapport-klant.md` wijkt op alle 7 rijen af in `Wat`; rij 5 `Klaar als` mist `besluit +`. Packets T-1..T-7 OK; print/paginatie OK. Bouwer: kopieer `#`, `Wat`, `Wie`, `Klaar als` 1:1 uit `werklijst.md`, regenereer print, adresseer `feedback.md`-zin. Daarna opnieuw Toets 1 in aparte run. Geen Uitvoer, geen live, geen mail.
-=======
-Bouwer-run afgerond op post-PR-#8 product (Papier, klanttaal, paginatie-gate). Toets 1 afkeur: werklijst-sync gefixt — rapport-klant rijen 1–7 nu 1:1 met werklijst.md (Wat, Wie, Klaar als). Print opnieuw gegenereerd. Toetser opnieuw in aparte run. Geen live, GBP, mail of GSC-grafieken.
->>>>>>> 420cb94 (Fix Toets 1 afkeur: werklijst 1:1 sync in rapport-klant)
+Toets 1 akkoord (14 sep 2026). Werklijst-sync hersteld: rijen 1–7 in `rapport-klant.md` en print 1:1 met `werklijst.md`. Packets T-1..T-7, mix.md, Bijlage B, deny-gate en klanttaal in orde. Rapport ter beoordeling door Robin — geen Uitvoer, geen live, geen mail tot eigenaren-akkoord. Brief bevat Uitvoer + Nameting als vervolg-SKU's ná eigenaren.

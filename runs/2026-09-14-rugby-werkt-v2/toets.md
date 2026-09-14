@@ -1,13 +1,13 @@
 # Toets — 2026-09-14-rugby-werkt-v2
 
 **Fase:** Toets 1 (rapport)  
-**Toetser-run:** bc-e30e6d94-8ba7-5818-8e3c-a9cc58856db4 · 2026-09-14  
-**Bouwer-run:** cursor/rugby-werkt-audit-6ad5 (PR #9, commit fe05c0d)
+**Toetser-run:** bc-7ebb3e07-56e7-546e-bedd-1e12548c1e98 · 2026-09-14  
+**Bouwer-run:** cursor/rugby-werkt-audit-6ad5 (PR #9, commit 91bf70d)
 
 ## Oordeel
 
-- [ ] akkoord
-- [x] afkeur
+- [x] akkoord
+- [ ] afkeur
 
 ## Checklist
 
@@ -21,43 +21,43 @@
 | Dieptenorm (T1) | ja | Deny-gate + sitemap/anker-architectuur; Scrum-pad + dienst-URL-besluit |
 | Conflict Feiten↔Strategie | ja | `mix.md` expliciet; vier conflicten met besluit |
 | Taal / denylist | ja | Geen denylist-trefwoorden |
-| Klanttaal / single-telling | gedeeltelijk | Bevindingen in gewone taal; werklijst-tabel wijkt af (zie sync) |
-| Print / bijlagen (T1) | ja | Bijlage A/B achteraan; paginatie-gate OK — 8 pag.; 0 split failures |
+| Klanttaal / single-telling | ja | Bevindingen in gewone taal; prioriteiten verwijzen niet dubbel uit |
+| Print / bijlagen (T1) | ja | Bijlage A/B achteraan; cover Sitewerk + Joost + datum; PDF aanwezig |
 | Bijlage B | ja | Vijf afgewezen tips met reden |
-| Werklijst = klantrapport | nee | Alle 7 rijen: `Wat` afgekort t.o.v. `werklijst.md`; rij 5 `Klaar als` mist `besluit +` |
+| Werklijst = klantrapport | ja | Alle 7 rijen `#`, `Wat`, `Wie`, `Klaar als` 1:1 met `werklijst.md`; print gelijk |
 
 ## Werklijst-sync (spot-check 14 sep 2026)
 
-| # | Veld | `werklijst.md` | `rapport-klant.md` | Match |
+| # | Veld | `werklijst.md` | `rapport-klant.md` / print | Match |
 | --- | --- | --- | --- | --- |
-| 1 | Wat | Nature Sports crawlbaar maken | Nature Sports crawlbaar | nee |
-| 2 | Wat | Vier Rugby Werkt dienst-URL's | Vier Rugby dienst-URL's | nee |
-| 3 | Wat | H1 + meta + koppen home Rugby | H1 + meta home Rugby | nee |
-| 4 | Wat | Klikbaar contact Rugby Werkt | Klikbaar contact Rugby | nee |
-| 5 | Wat | Scrum College één verkooppad | Scrum College één pad | nee |
-| 5 | Klaar als | besluit + één primaire URL | één primaire URL in sitemap | nee |
-| 6 | Wat | Alt-teksten + Organization schema | Alt + Organization schema | nee |
-| 7 | Wat | APG-case slug opruimen | APG-case slug | nee |
+| 1 | Wat | Nature Sports crawlbaar maken | Nature Sports crawlbaar maken | ja |
+| 2 | Wat | Vier Rugby Werkt dienst-URL's | Vier Rugby Werkt dienst-URL's | ja |
+| 3 | Wat | H1 + meta + koppen home Rugby | H1 + meta + koppen home Rugby | ja |
+| 4 | Wat | Klikbaar contact Rugby Werkt | Klikbaar contact Rugby Werkt | ja |
+| 5 | Wat | Scrum College één verkooppad | Scrum College één verkooppad | ja |
+| 5 | Klaar als | besluit + één primaire URL | besluit + één primaire URL | ja |
+| 6 | Wat | Alt-teksten + Organization schema | Alt-teksten + Organization schema | ja |
+| 7 | Wat | APG-case slug opruimen | APG-case slug opruimen | ja |
 
-Wie en overige `Klaar als`-velden (rij 1–4, 6–7): wel gelijk.
+Wie en overige `Klaar als`-velden: gelijk op alle rijen.
 
 ## Naslag-lesson (Camperstaan PR #6)
 
 | Vorig punt | Status |
 | --- | --- |
-| Werklijst #3 ≠ rapport | **herhaald** — alle rijen `Wat` afgekort; rij 5 `Klaar als` inhoudelijk anders |
+| Werklijst ≠ rapport (alle rijen `Wat` afgekort; rij 5 `Klaar als`) | **opgelost** — commit 91bf70d; print geregenereerd |
 | `taken/T-5.md` ontbrak | niet herhaald — packet compleet |
 
 ## Spot-check
 
 - Packets T-1..T-7: alle aanwezig voor code=ja
-- Cover HTML: geen Bouwer/Toets/SKU/klanttaal/werklijst.md op cover
-- Pagination gate: `node scripts/check-pagination.js` → OK (8 pages)
-- PDF aanwezig: `print/rapport.pdf`
+- Cover HTML: Sitewerk + Joost + 14 september 2026; geen interne termen op cover
+- PDF aanwezig: `print/rapport.pdf` (545 KB)
+- Vorige afkeurzin geadresseerd: werklijst-sync 1:1
 
 ## Afkeurzin (verplicht bij afkeur)
 
-> Werklijst en klantrapport zijn niet 1:1: alle zeven rijen hebben afwijkende `Wat`-tekst en rij 5 mist `besluit +` in `Klaar als`.
+>
 
 ## Vrijgave
 
@@ -65,4 +65,4 @@ Toetser bevestigt: dit bestand is **niet** in dezelfde agent-run als `rapport-kl
 
 ## Volgende
 
-Zie `next.md` → Bouwer herstelt werklijst-sync; daarna opnieuw Toets 1. Geen Uitvoer, geen live, geen mail.
+Zie `next.md` → Robin ter beoordeling. Geen Uitvoer, geen live, geen mail.
