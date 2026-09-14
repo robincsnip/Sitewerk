@@ -1,8 +1,8 @@
 # Toets — 2026-09-13-camperstaan-v2
 
 **Fase:** Toets 1 (rapport)  
-**Toetser-run:** bc-c13ba213-019d-542a-b377-647acb0f5e7b · 2026-09-14  
-**Bouwer-run:** cursor/klanttaal-camperstaan-2ee8 (PR #8, commit 2f4d3ae grafische print)
+**Toetser-run:** bc-6c28ca47-bd3a-5555-86d2-5d10eea8a300 · 2026-09-14  
+**Bouwer-run:** cursor/klanttaal-camperstaan-2ee8 (PR #8, commit 9dea00d huisstijl C Papier)
 
 ## Oordeel
 
@@ -21,21 +21,23 @@
 | Dieptenorm (T1) | ja | Pagina-overzicht/canonical-architectuur; gast-eerst listing + BE/DE-besluit |
 | Conflict Feiten↔Strategie | ja | `mix.md` expliciet; vier conflicten met besluit |
 | Taal / denylist | ja | Geen denylist-trefwoorden |
-| Klanttaal / single-telling | ja | 306/293/13 in mini-KPI binnen bevinding 1; lead + KPI-rij zonder herhaalde metingen |
-| Print (T1) | ja | Cover Sitewerk + klant + datum; KPI-kaarten, prio-cards, severity-badges; HTML/PDF = `rapport-klant.md` |
+| Klanttaal / single-telling | ja | 306/293/13 in mini-KPI binnen bevinding 1; lead zonder herhaalde metingen |
+| Print (T1) | ja | Huisstijl C Papier; cover zonder interne termen; KPI op p.1; HTML/PDF = `rapport-klant.md` |
 | Bijlage B | ja | Vier afgewezen tips met reden |
-| Werklijst = klantrapport | ja | Rij 1–6: zelfde #, Wat, Wie, Klaar als (script-check) |
+| Werklijst = klantrapport | ja | Rij 1–6: zelfde #, Wat, Wie, Klaar als |
 
-## Grafische print-laag (her-run na 2f4d3ae)
+## Huisstijl C — Papier (commit 9dea00d)
 
 | Punt | Status |
 | --- | --- |
-| KPI-rij (3/6/577/4) consistent met dossier | akkoord |
-| Prio-cards, good-grid, decision-cards, measure-cards | akkoord |
-| Severity-badges P0/P1/P2 op bevindingen | akkoord |
-| Mini-KPI @kpi in bevinding 1 (306/293/13) | akkoord — cijfers binnen bevinding, niet in lead |
+| Cover: merk + klant + datum + belofte + KPI-tabel | akkoord |
+| Cover vrij van klanttaal / Bouwer / Toets / SKU | akkoord (spot-check cover HTML) |
+| Typografie Libre Baskerville + Literata + Libre Franklin | akkoord |
+| Papier-palet (crème, groen accent) | akkoord |
+| KPI 3/6/577/4 consistent met dossier | akkoord |
+| Prio-cards, good-grid, finding-badges, decision/measure-cards | akkoord |
 | Print geen tweede waarheid t.o.v. markdown | akkoord |
-| PDF aanwezig en gegenereerd (862 kB) | akkoord |
+| PDF aanwezig (510 kB) | akkoord |
 
 ## Naslag-lesson (PR #6)
 
@@ -46,9 +48,9 @@
 
 ## Spot-check (14 sep 2026)
 
-- `print/rapport.html`: kpi-row, prio-grid, finding-badge P0/P1/P2, mini-kpi, measure-grid aanwezig
-- Werklijst-sync: 6/6 rijen identiek (Python-vergelijking)
-- Geen wijziging in `werklijst.md` of `taken/` bij grafische commit
+- `print/rapport.html`: cover-kpi op p.1, cover-papier, prio-grid, finding-badge P0/P1/P2, measure-grid
+- Werklijst-sync: 6/6 rijen identiek (#, Wat, Wie, Klaar als)
+- Cover grep: geen klanttaal/Bouwer/Toets/SKU op cover-elementen
 
 ## Afkeurzin (verplicht bij afkeur)
 
@@ -56,7 +58,7 @@
 
 ## Vrijgave
 
-Toetser bevestigt: dit bestand is **niet** in dezelfde agent-run als `rapport-klant.md` / grafische print geschreven.
+Toetser bevestigt: dit bestand is **niet** in dezelfde agent-run als `rapport-klant.md` / huisstijl C-print geschreven.
 
 ## Volgende
 
