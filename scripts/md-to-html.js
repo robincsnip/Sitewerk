@@ -101,6 +101,26 @@ function renderGoodGrid(lines) {
   return `<div class="good-shell"><div class="good-grid">${items.join("")}</div></div>`;
 }
 
+function renderBaselineChart(lines) {
+  const items = lines
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const [value, label, max = ""] = line.split("|").map((s) => s.trim());
+      const num = parseFloat(value.replace(/[^\d.]/g, "")) || 0;
+      const maxNum = max ? parseFloat(max.replace(/[^\d.]/g, "")) : num;
+      const pct = maxNum > 0 ? Math.min(100, Math.round((num / maxNum) * 100)) : 100;
+      return { value, label, pct };
+    });
+  const rows = items
+    .map(
+      (item) =>
+        `<div class="chart-row"><span class="chart-label">${inlineFormat(item.label)}</span><div class="chart-bar" aria-hidden="true"><div class="chart-fill" style="width:${item.pct}%"></div></div><span class="chart-value">${inlineFormat(item.value)}</span></div>`,
+    )
+    .join("");
+  return `<div class="baseline-chart-shell">${rows}</div>`;
+}
+
 function renderMeasureRow(lines) {
   const items = lines
     .map((line) => line.trim())
@@ -157,6 +177,7 @@ function renderFence(type, inner, renderFragment) {
   const kind = type.trim().toLowerCase();
 
   if (kind === "kpi") return renderKpiRow(lines);
+  if (kind === "chart") return renderBaselineChart(lines);
   if (kind === "prio-cards") return renderPrioCards(lines);
   if (kind === "good-grid") return renderGoodGrid(lines);
   if (kind === "measure") return renderMeasureRow(lines);
@@ -171,6 +192,9 @@ function renderFence(type, inner, renderFragment) {
   }
   if (kind === "callout-decision") {
     return `<div class="callout-decision">${renderFragment(inner)}</div>`;
+  }
+  if (kind === "callout-fictief") {
+    return `<div class="callout-fictief">${renderFragment(inner)}</div>`;
   }
   if (kind === "section-intro") {
     return `<p class="section-intro">${inlineFormat(inner.trim())}</p>`;
@@ -392,10 +416,16 @@ function sectionClass(part) {
   return "report-section";
 }
 
+function isAppendixPart(part) {
+  return /Bijlage/.test(part.slice(0, 200));
+}
+
 function wrapReportSections(html) {
   const parts = html.split(/(?=<h2 class="section-head">)/).filter((p) => p.trim());
   if (parts.length <= 1) return html;
-  return parts
+  const main = parts.filter((part) => !isAppendixPart(part));
+  const appendices = parts.filter((part) => isAppendixPart(part));
+  return [...main, ...appendices]
     .map((part) => `<section class="${sectionClass(part)}">${part}</section>`)
     .join("\n");
 }

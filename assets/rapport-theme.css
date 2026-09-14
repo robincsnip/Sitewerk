@@ -394,6 +394,70 @@ body {
 
 /* ── Callout & decisions ─────────────────────────────── */
 
+.baseline-chart-shell {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr 14mm;
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.chart-row:last-child {
+  margin-bottom: 0;
+}
+
+.chart-label {
+  color: var(--ink);
+}
+
+.chart-bar {
+  height: 3mm;
+  background: var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.chart-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.chart-value {
+  text-align: right;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.callout-fictief {
+  margin: var(--space-3) 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--warn-soft);
+  border: 1px solid var(--warn);
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.callout-fictief p {
+  margin: 0;
+}
+
 .callout-decision {
   margin: var(--space-4) 0 var(--space-5);
   padding: var(--space-3) var(--space-4);
@@ -632,6 +696,16 @@ body {
     page-break-after: avoid;
   }
 
+  .report-section--appendix {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .report-section--appendix + .report-section--appendix {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
   .good-shell,
   .finding-shell,
   .werklijst-block,
@@ -642,6 +716,8 @@ body {
   .decision-card,
   .measure-card,
   .callout-decision,
+  .callout-fictief,
+  .baseline-chart-shell,
   .lead-block {
     break-inside: avoid !important;
     page-break-inside: avoid !important;

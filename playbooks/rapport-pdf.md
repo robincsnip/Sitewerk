@@ -62,6 +62,7 @@ Na CSS-wijziging: altijd `npm run audit:finish -- <run-id>` en visueel controler
 - Besluitkaarten (`decision-card`) staan in één grid; geen verplichte pagina per kaart.
 - Koppen: `break-after: avoid` + direct volgend blok `break-before: avoid`.
 - Tabellen: rijniveau `break-inside: avoid` (scope, bijlage, werklijst); werklijst h3 + tabel in één `werklijst-block`.
+- Bijlagen (`Bijlage A/B`): altijd achteraan in het PDF (`md-to-html` verplaatst ze na alle andere secties); eerste bijlage `break-before: page`, A+B mogen samen op één pagina.
 - `hr.section-break` verborgen in print; `preferCSSPageSize: true` in html-to-pdf.
 
 ## Paginatie-gate (hard — sep 2026)
