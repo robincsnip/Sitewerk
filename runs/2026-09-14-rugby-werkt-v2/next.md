@@ -1,10 +1,10 @@
 # next — 2026-09-14-rugby-werkt-v2
 
 klaar_fase: audit
-volgende_rol: Toetser
-toets_run_id:
-reden_stop:
+volgende_rol: Bouwer
+toets_run_id: bc-e30e6d94-8ba7-5818-8e3c-a9cc58856db4
+reden_stop: Toets 1 afkeur — werklijst-sync
 
 ## Notitie
 
-Bouwer-run afgerond op post-PR-#8 product (Papier, klanttaal, paginatie-gate). Verse live meting 14 sep 2026; augustus-posities alleen als dossier-citaat. Geen toets.md — Toetser start in aparte run (Toets 1). Geen live, GBP, mail of GSC-grafieken.
+Toets 1 afkeur (14 sep 2026). Werklijst-tabel in `rapport-klant.md` wijkt op alle 7 rijen af in `Wat`; rij 5 `Klaar als` mist `besluit +`. Packets T-1..T-7 OK; print/paginatie OK. Bouwer: kopieer `#`, `Wat`, `Wie`, `Klaar als` 1:1 uit `werklijst.md`, regenereer print, adresseer `feedback.md`-zin. Daarna opnieuw Toets 1 in aparte run. Geen Uitvoer, geen live, geen mail.
