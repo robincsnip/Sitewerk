@@ -2,27 +2,28 @@
 
 toets: 1  
 oordeel: akkoord  
-toetser_run: bc-7b99c357-fbe4-548d-a1eb-14297ea74f2f  
-bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, pagination gate 248feaf)
+toetser_run: bc-0013d2b0-0f0e-562d-a862-a893c0365dea  
+bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, layout-flow 0614d00)
 
 ## her-run
 
-Toets 1 her-run na pagination pre-check in `audit:finish` (commit 248feaf) en print-break fix (ad362f6). Bouwt voort op Papier-akkoord (9dea00d) en eerdere klanttaal-/werklijst-herstel.
+Toets 1 her-run na layout-tweaks: Beslissingen niet meer op eigen pagina; Bijlage A+B starten op dezelfde pagina; vinkjes verwijderd uit “Wat al goed staat”. Bouwt voort op pagination gate (248feaf) en Papier-akkoord.
 
 ## wat_goed
 
-- **Pagination gate:** `npm run audit:finish` + `check-pagination.js` geslaagd — 11 pag., 0 split failures.
-- **Huisstijl C:** cover KPI 3/6/577/4; Libre Baskerville/Literata/Franklin; Papier-palet; geen interne termen op cover.
+- **Layout-flow:** Beslissingen deelt p6 met einde bevindingen + werklijst; geen geforceerde chapter-break meer op Beslissingen/bijlagen.
+- **Bijlagen:** Bijlage A en B beide op p7; laatste rij B loopt door naar p8 (tabeloverflow, geen geforceerde sectie-einde).
+- **Good-grid:** Geen `good-icon`/vinkjes; platte tekstitems.
+- **Pagination gate:** `check-pagination.js` OK — 8 pag., 0 split failures.
 - **Single-telling:** cijfers 306/293/13 alleen in mini-KPI binnen bevinding 1.
-- **Print = bron:** HTML/PDF volgen `rapport-klant.md`; geen tweede waarheid.
 - **Werklijst-sync:** rijen 1–6 identiek aan `werklijst.md` (naslag-lesson gehaald).
 - **Packets:** T-1 t/m T-5 compleet voor code=ja.
 - **Playbook:** mix.md-conflicten, diepte, Bijlage B, geen GBP-theater, geen AI-frasen, geen %-belofte.
 
 ## kleine_aandacht (geen afkeur)
 
-- Callout p.2 noemt nog "Toets" (interne pipeline-term); cover is schoon — bij redactie: "daarna controleren we op een preview".
-- Werklijst-sectie in print verwijst naar `werklijst.md` — intern pad; overweeg klantvriendelijke verwijzing.
+- Callout p.2 noemt nog "Toets" (interne pipeline-term); cover is schoon.
+- Werklijst-sectie in print verwijst naar `werklijst.md` — intern pad.
 - Good-grid loopt van p.2 naar p.3 tussen items (geen item-split); acceptabel.
 
 ## regel_kandidaat
@@ -35,7 +36,7 @@ Toets 1 her-run na pagination pre-check in `audit:finish` (commit 248feaf) en pr
 
 ## tag
 
-paginering-papier
+layout-flow-papier
 
 ## eigenaar_initialen
 
