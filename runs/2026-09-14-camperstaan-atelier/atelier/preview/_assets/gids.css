@@ -134,6 +134,85 @@ input:focus-visible {
   padding: var(--space-2) var(--space-3);
 }
 
+.find {
+  margin: 0 0 var(--space-6);
+}
+
+.find label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2);
+}
+
+.find-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+  max-width: 32rem;
+}
+
+.find input[type="search"] {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  border: 0;
+  border-bottom: 2px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 0.55rem 0;
+}
+
+.find button {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--accent);
+  border: 0;
+  padding: 0.65rem 0.95rem;
+  cursor: pointer;
+}
+
+.find-status {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  margin: var(--space-2) 0 0;
+}
+
+.find-hits {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0 0;
+}
+
+.find-hits li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  border-bottom: 1px dotted var(--line);
+  padding: var(--space-2) 0;
+}
+
+.find-hits a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.find-hits span {
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -162,7 +241,7 @@ input:focus-visible {
 }
 
 
-/* Variant gids — Obys type/grid, geen kaarten */
+/* Variant gids — Obys type/grid, geen kaarten; zoekveld verplicht */
 
 body[data-atelier-variant="gids"] {
   font-size: 1rem;
@@ -217,6 +296,31 @@ body[data-atelier-variant="gids"] .rail nav a[aria-current="page"] {
 
 body[data-atelier-variant="gids"] .canvas {
   padding: var(--space-5) var(--space-6) var(--space-8);
+}
+
+body[data-atelier-variant="gids"] .find {
+  margin: 0 0 var(--space-6);
+  max-width: 40rem;
+}
+
+body[data-atelier-variant="gids"] .find-row {
+  max-width: none;
+}
+
+body[data-atelier-variant="gids"] .find input[type="search"] {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  border-bottom-width: 1px;
+}
+
+body[data-atelier-variant="gids"] .find-hits li {
+  border-bottom: 1px solid var(--ink);
+  padding: var(--space-3) 0;
+}
+
+body[data-atelier-variant="gids"] .find-hits a {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
 }
 
 body[data-atelier-variant="gids"] h1 {

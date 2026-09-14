@@ -9,8 +9,9 @@ Toets 2: open
 | 1 | P0 | Drie templates in de mal | Inventaris: 0 sitetemplates | wij | ja | nee | T-D-1 | redactie/gids/compact openen, andere IA | visueel + `test:atelier` | atelier-capability |
 | 2 | P0 | Generator + lokale preview | Geen npm-pad voor sites | wij | ja | nee | T-D-2 | `atelier:build` + `atelier:preview` | scripts | playbook |
 | 3 | P0 | Camperstaan-feiten vullen | Specimen, geen verzinsels | wij | ja | nee | T-D-3 | naam/diensten/hubs in alle drie | HTML bevat 293, Drenthe 19, Kampen; geen tel: | feiten v3 |
-| 4 | P1 | Banner + noindex | Mag niet als live gelezen worden | wij | ja | nee | T-D-4 | elke pagina banner + robots noindex | view-source | gate |
-| 5 | P2 | Toets 2-overdracht | Maker ≠ Toetser | wij | nee | nee | — | `next.md` → Toetser | aanwezig | isolatie |
+| 4 | P0 | Zoekveld + resultaten | Directory-job niet optioneel | wij | ja | nee | T-D-5 | Kampen en Drenthe vindbaar op elke huid | typ «kampen» → plek; geen verzinsels | job-first |
+| 5 | P1 | Banner + noindex | Mag niet als live gelezen worden | wij | ja | nee | T-D-4 | elke pagina banner + robots noindex | view-source | gate |
+| 6 | P2 | Toets 2-overdracht | Maker ≠ Toetser | wij | nee | nee | — | `next.md` → Toetser | aanwezig | isolatie |
 
 ## Packets
 
@@ -52,6 +53,19 @@ Toets 2: open
 | Herstel | `feiten.json` + preview wissen |
 | Acceptatie | Geen `tel:`; Kampen + Drenthe 19 + 293 in alle drie; claim onder reizigersinfo |
 | Werkspiegel vs productie | demo-preview, geen vervanging |
+
+### T-D-5 — Zoeken
+
+| Veld | Inhoud |
+| --- | --- |
+| URL(s) | `/redactie/`, `/gids/`, `/compact/` + `plaatsen.html` |
+| Platform | atelier-html |
+| Huidige staat | Huiden zonder zoekveld (gids had expliciet geen zoek-UI) |
+| Gewenste staat | Zichtbaar zoekveld + resultaten op elke huid; index uit dossier (Kampen, Drenthe, 293) |
+| Buiten scope | 293 verzonnen listings; TypeUI; mail; live |
+| Herstel | `search.js` + generator-widget terugdraaien |
+| Acceptatie | «kampen» → Camperplaats Kampen; «drenthe» → 19 plekken; lege query geen extra listings |
+| Werkspiegel vs productie | demo-preview |
 
 ### T-D-4 — Gate-banner
 

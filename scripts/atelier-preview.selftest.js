@@ -87,7 +87,19 @@ function main() {
     assert(redactie.includes("class=\"masthead\""));
     assert(gids.includes("class=\"shell\""));
     assert(compact.includes("class=\"topbar\""));
-    assert(!gids.includes("class=\"find\""), "gids mag geen zoek-UI (product)");
+    for (const html of [redactie, gids, compact]) {
+      assert(html.includes('role="search"'), "directory-job: zoekveld op elke huid");
+      assert(html.includes('type="search"'));
+      assert(html.includes("data-find-index"));
+      assert(html.includes("../_assets/search.js"));
+    }
+    const { match } = require(path.join(ROOT, "assets", "atelier", "search.js"));
+    const hits = match(
+      [{ title: "Camperplaats Kampen", meta: "Kampen, Overijssel", terms: ["kampen"] }],
+      "kam",
+    );
+    assert(hits.length === 1 && hits[0].title === "Camperplaats Kampen");
+    assert(match([{ title: "Drenthe", meta: "19 plekken", terms: ["drenthe"] }], "xyz").length === 0);
     assert(!/min-height:\s*8\.5rem/.test(fs.readFileSync(path.join(out, "_assets", "gids.css"), "utf8")));
     const cssBundle = ["redactie", "gids", "compact", "chooser"]
       .map((n) => fs.readFileSync(path.join(out, "_assets", `${n}.css`), "utf8"))
@@ -116,6 +128,7 @@ function main() {
       if (!isChooser) {
         assert(!forbidden.test(html), `interne copy in ${file}`);
         assert(!/<title>[^<]*— (redactie|gids|compact)/.test(html), `variant in title: ${file}`);
+        assert(html.includes('role="search"'), `${file} mist zoekveld`);
       }
     }
 

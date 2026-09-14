@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Camperstaan</title>
   <link rel="stylesheet" href="../_assets/redactie.css">
+  <script src="../_assets/search.js" defer></script>
   <script src="../_assets/typewriter.js" defer></script>
 </head>
 <body data-atelier-variant="redactie" data-atelier-skin="terras" data-atelier-page="index">
@@ -21,10 +22,20 @@
   </nav>
 </header>
 <main id="inhoud">
+<form class="find" role="search" action="plaatsen.html" method="get" data-find>
+  <label for="zoek">Zoek een plek</label>
+  <div class="find-row">
+    <input id="zoek" type="search" name="q" placeholder="Plek of provincie" autocomplete="off" enterkeyhint="search">
+    <button type="submit">Zoeken</button>
+  </div>
+  <p class="find-status" data-find-status role="status" hidden></p>
+  <ul class="find-hits" data-find-hits></ul>
+</form>
+<script type="application/json" data-find-index>[{"title":"Camperplaats Kampen","meta":"Kampen, Overijssel","href":"plek-kampen.html","terms":["Camperplaats Kampen","Kampen","Kampen","Overijssel","camperplaats"]},{"title":"Camperplaatsen in Drenthe","meta":"19 plekken","href":"provincie-drenthe.html","terms":["Drenthe","drenthe","provincie"]},{"title":"Plekken in Nederland","meta":"293 plekken","href":"plaatsen.html","terms":["nederland","nederlandse","overzicht","293"]}]</script>
 <p class="kicker">Gids</p>
 <h1>Gids voor camperplaatsen in Nederland</h1>
 <p class="lead typewriter" data-typewriter="293 plekken in Nederland, 12 provincie-overzichten, stadspagina’s en plekpagina’s met een bronlink."></p>
-<p class="only-cta"><a class="cta" href="provincie-drenthe.html">Open de gids</a></p>
+<p class="only-cta"><a class="cta" href="plaatsen.html">Alle plekken</a></p>
 <div class="drop">
   <p>Camperstaan is een overzicht van camperplaatsen in Nederland: plekken, steden en provincies, met een bronlink per plek.</p>
 </div>

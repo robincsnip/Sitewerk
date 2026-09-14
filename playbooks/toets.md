@@ -46,6 +46,7 @@ Atelier (lab of klant):
 - [ ] Geen `tel:` of GBP zonder dossier
 - [ ] Nav klikbaar (niet alleen screenshot)
 - [ ] Huid-pagina’s zonder interne labels; `/redactie/` `/gids/` `/compact/` = 200
+- [ ] Directory-job: zoekveld + resultaten op elke huid (“kan ik een plek vinden?”)
 
 ## Checklist Toets 3 (nameting)
 

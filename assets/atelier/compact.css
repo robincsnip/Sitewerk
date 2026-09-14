@@ -137,6 +137,22 @@ body[data-atelier-variant="compact"] main.narrow h1 {
   margin-top: 0;
 }
 
+body[data-atelier-variant="compact"] .find {
+  padding: var(--space-4) var(--space-5) 0;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+body[data-atelier-variant="compact"] .find-row {
+  max-width: 28rem;
+}
+
+body[data-atelier-variant="compact"] main.narrow .find {
+  padding: 0;
+  margin: 0 0 var(--space-5);
+  border-bottom: 0;
+}
+
 @media (max-width: 760px) {
   body[data-atelier-variant="compact"] .hero,
   body[data-atelier-variant="compact"] .strip {

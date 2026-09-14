@@ -36,14 +36,14 @@ Hard (website-craft): één primary style, max één accent; content → static 
 | Id | Huid | Maker (één) | Layout |
 | --- | --- | --- | --- |
 | `redactie` | terras | Immersive Garden (sfeer) | Full-bleed masthead, typewriter, één CTA |
-| `gids` | keuken | Obys (type/grid) | Rail + typografische index — geen kaarten, geen zoek-UI |
+| `gids` | keuken | Obys (type/grid) | Rail + typografische index + zoekveld — geen kaarten |
 | `compact` | allday | Build in Amsterdam | Stroken + één CTA; geen WebGL; geen `tel:` zonder dossier |
 
 Chooser = scène 0 (Gavelia: atelier, typewriter). Lab-copy mag op de chooser. **Klant-UI van de drie huiden:** geen mal, specimen, dossier, hubbesluit, «Niet verzonnen», audit-filtercopy, variantnamen in `<title>`. Enige interne merkteken op die pagina’s: de preview-banner. Preview-server: `/redactie/`, `/gids/`, `/compact/` (trailing slash) = 200.
 
 ## Flow
 
-1. `runs/<id>/design-brief.md` — stijl + rationale + gate-checkboxes  
+1. `runs/<id>/design-brief.md` — **eerst functies** (type + jobs), dan stijl + rationale + gate-checkboxes  
 2. IA volgt hubbesluiten uit het rapport (of brief als geen audit)  
 3. `runs/<id>/werklijst-design.md` — dezelfde packetvelden als Uitvoer (`templates/taak.md`)  
 4. Feiten in `runs/<id>/atelier/feiten.json` (geen audit-proza in de mal)  
@@ -88,3 +88,7 @@ Mac mini, niet Notion. Harvest in de project-store (`docs/atelier-voorbeelden.md
 ## Amend — Toets 2 afkeur (sep 2026)
 
 Afkeurzin: interne atelier-/audit-taal uit de drie huiden; `/redactie/`, `/gids/`, `/compact/` als directory-index (200). Chooser mag lab-copy. Geen skill; herhaling_count 1.
+
+## Amend — job-first directory (sep 2026)
+
+Directory-job (zoeken/vinden) is **niet optioneel**. Elke huid heeft een zichtbaar zoekveld + resultaten. Een huid mag die job niet weglaten — ook niet om card-soup of website-craft te volgen. Eén sterke huid eerst; varianten houden dezelfde jobs. Geen skill (occurrence 1).

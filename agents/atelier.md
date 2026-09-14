@@ -21,7 +21,7 @@ Lees [playbooks/atelier.md](../playbooks/atelier.md). Tokens: [docs in store hui
 
 1. Gate-check in `design-brief.md` (klant vs lab-preview).  
 2. Feitenvloer in `atelier/feiten.json` — ontbrekende velden `null`, niet weglaten-en-verzinnen.  
-3. Drie huiden (Floryn-patroon): `redactie` (terras), `gids` (keuken), `compact` (allday). Zelfde feiten. Geen product-UI van een bestaande Next-app nabootsen. Geen WebGL.  
+3. Drie huiden (Floryn-patroon): `redactie` (terras), `gids` (keuken), `compact` (allday). Zelfde feiten. **Eerst de job** (directory: zoekveld + resultaten), dan stijl. Geen product-UI van een bestaande Next-app nabootsen. Geen WebGL.  
 4. `npm run atelier:build -- <run-id>` en lokaal previewen.  
 5. `werklijst-design.md` 1:1 met wat de preview toont.  
 6. `next.md`: `klaar_fase: atelier`, `volgende_rol: Toetser` (Toets 2). Stop.
@@ -30,5 +30,6 @@ Lees [playbooks/atelier.md](../playbooks/atelier.md). Tokens: [docs in store hui
 
 - Drie previews openen via `npm run atelier:preview`
 - Zelfde naam/diensten/hubs in alle drie
+- Zoekveld + resultaten op elke huid
 - Banner + `noindex` op elke pagina
 - Toetser kan navigeren (niet alleen een screenshot)

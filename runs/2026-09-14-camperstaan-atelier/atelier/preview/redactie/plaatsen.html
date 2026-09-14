@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Plekken · Camperstaan</title>
   <link rel="stylesheet" href="../_assets/redactie.css">
+  <script src="../_assets/search.js" defer></script>
 </head>
 <body data-atelier-variant="redactie" data-atelier-skin="terras" data-atelier-page="plaatsen">
 <div class="preview-banner">Sitewerk-preview · niet live · geen publicatie · geen mail</div>
@@ -20,6 +21,16 @@
   </nav>
 </header>
 <main id="inhoud">
+<form class="find" role="search" action="plaatsen.html" method="get" data-find>
+  <label for="zoek">Zoek een plek</label>
+  <div class="find-row">
+    <input id="zoek" type="search" name="q" placeholder="Plek of provincie" autocomplete="off" enterkeyhint="search">
+    <button type="submit">Zoeken</button>
+  </div>
+  <p class="find-status" data-find-status role="status" hidden></p>
+  <ul class="find-hits" data-find-hits></ul>
+</form>
+<script type="application/json" data-find-index>[{"title":"Camperplaats Kampen","meta":"Kampen, Overijssel","href":"plek-kampen.html","terms":["Camperplaats Kampen","Kampen","Kampen","Overijssel","camperplaats"]},{"title":"Camperplaatsen in Drenthe","meta":"19 plekken","href":"provincie-drenthe.html","terms":["Drenthe","drenthe","provincie"]},{"title":"Plekken in Nederland","meta":"293 plekken","href":"plaatsen.html","terms":["nederland","nederlandse","overzicht","293"]}]</script>
 <p class="crumb"><a href="index.html">Home</a> / Plekken</p>
 <h1>Plekken in Nederland</h1>
 <p>293 plekken in het Nederlandse overzicht. Belgische en Duitse plekken horen niet in dit overzicht tot er landpagina’s zijn.</p>

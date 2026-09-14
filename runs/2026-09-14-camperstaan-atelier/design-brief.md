@@ -19,6 +19,19 @@ Lab-preview (geen live):
 - [x] Bestaande sterke site wordt **niet** vervangen  
 - [x] Feitenvloer uit dossier (geen verzinsels)
 
+## Functies (vóór stijl)
+
+Type: **directory**. Bezoeker-job (niet optioneel): een plek **zoeken en vinden**.
+
+| Job | In de preview |
+| --- | --- |
+| Zoekveld | Zichtbaar op elke huid (redactie, gids, compact) |
+| Resultaten | Filter uit dossierfeiten: Kampen, Drenthe (19), Nederland 293 |
+| Plek-detail | Camperplaats Kampen; claim «Dit is van mij» € 99 onder de plekfeiten |
+| Contact | Geen tel/adres/mail; geen live |
+
+Geen verzinsels. Ontbreekt een veld: leeg. Skills ná deze jobs: statische HTML + `search.js` (geen TypeUI, geen cmdk-library).
+
 ## Feitenvloer
 
 | Veld | Bron | Waarde of `onbekend` |
@@ -35,19 +48,19 @@ Lab-preview (geen live):
 
 ## Stijlrichting
 
-- Doelgevoel (één zin): redactionele gids op papier — rust, geen dashboard, geen listing-product-UI.
-- Wat we níet willen: Inter/Roboto, card-soup, WebGL vóór CTA, stock, Camperstaan-app nabootsen.
-- Typografie / kleur: Papier-tokens (Libre Baskerville, Literata, Libre Franklin).
+- Doelgevoel (één zin): redactionele gids op papier — rust, **zoeken blijft zichtbaar**, geen dashboard, geen listing-product-UI.
+- Wat we níet willen: Inter/Roboto, card-soup, WebGL vóór CTA, stock, Camperstaan-app nabootsen, zoekveld weghalen “voor rust”.
+- Typografie / kleur: Papier-tokens (Libre Baskerville, Literata, Libre Franklin). Eén primary, max één accent.
 
-Second-brain (Mac mini, niet in deze VM): Floryn drie skins; Gavelia scène 0 typewriter; Tanis geen WebGL; Camperstaan-repo = product-UI, niet nabootsen. `website-craft` niet gekopieerd (geen nieuwe skill).
+Second-brain (Mac mini, niet in deze VM): Floryn drie skins; Gavelia scène 0 typewriter; Tanis geen WebGL; Camperstaan-repo = product-UI, niet nabootsen. `website-craft` ná functies (job wint van craft). Geen TypeUI.
 
 ## Drie varianten
 
 | Id | Huid | Maker (één) | IA-verschil | Zelfde feiten |
 | --- | --- | --- | --- | --- |
-| redactie | terras | Immersive Garden | Full-bleed, typewriter, één CTA | ja |
-| gids | keuken | Obys | Type/grid-index, geen kaarten, geen zoek-UI | ja |
-| compact | allday | Build in Amsterdam | Stroken + één sticky CTA | ja |
+| redactie | terras | Immersive Garden | Full-bleed, typewriter, **zoeken**, één CTA | ja |
+| gids | keuken | Obys | Type/grid-index + **zoekveld**, geen kaarten | ja |
+| compact | allday | Build in Amsterdam | Stroken + **zoeken** + één sticky CTA | ja |
 
 ## IA volgt SEO
 
@@ -62,5 +75,6 @@ Hubbesluiten uit Camperstaan-rapport (niet de live URL-structuur 1:1 kopiëren, 
 ## Klaar als
 
 - Preview dekt `werklijst-design.md`
+- Zoekveld + resultaten op elke huid (Kampen / Drenthe te vinden)
 - Toets 2 op gecombineerde preview (drie varianten)
 - Geen publiceren, geen mail

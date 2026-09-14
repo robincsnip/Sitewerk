@@ -72,10 +72,13 @@ function skipLink() {
   return `<a class="skip" href="#inhoud">Naar inhoud</a>`;
 }
 
-function documentShell({ facts, variant, title, current, body, script }) {
+function documentShell({ facts, variant, title, current, body, scripts }) {
   const cssHref = "../_assets/" + (variant === "chooser" ? "chooser.css" : `${variant}.css`);
   const skin = SKINS[variant] || "";
-  const extra = script ? `\n  <script src="${script}" defer></script>` : "";
+  const extra = (scripts || [])
+    .filter(Boolean)
+    .map((src) => `\n  <script src="${src}" defer></script>`)
+    .join("");
   return `<!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -158,6 +161,52 @@ function servicesList(facts) {
   return `<ul>${facts.services.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>`;
 }
 
+function searchItems(facts) {
+  const place = facts.specimen_place;
+  const items = [];
+  if (place) {
+    items.push({
+      title: place.listing,
+      meta: `${place.city}, ${place.province}`,
+      href: href("plek-kampen"),
+      terms: [place.listing, place.name, place.city, place.province, "camperplaats"],
+    });
+  }
+  for (const hub of facts.hubs || []) {
+    if (hub.slug !== "drenthe") continue;
+    items.push({
+      title: `Camperplaatsen in ${hub.name}`,
+      meta: hub.count != null ? `${hub.count} plekken` : hub.name,
+      href: href("provincie-drenthe"),
+      terms: [hub.name, hub.slug, "provincie"],
+    });
+  }
+  if (facts.listings_nl != null) {
+    items.push({
+      title: "Plekken in Nederland",
+      meta: `${facts.listings_nl} plekken`,
+      href: href("plaatsen"),
+      terms: ["nederland", "nederlandse", "overzicht", String(facts.listings_nl)],
+    });
+  }
+  return items;
+}
+
+function findWidget(facts) {
+  const json = JSON.stringify(searchItems(facts)).replace(/</g, "\\u003c");
+  return `
+<form class="find" role="search" action="${href("plaatsen")}" method="get" data-find>
+  <label for="zoek">Zoek een plek</label>
+  <div class="find-row">
+    <input id="zoek" type="search" name="q" placeholder="Plek of provincie" autocomplete="off" enterkeyhint="search">
+    <button type="submit">Zoeken</button>
+  </div>
+  <p class="find-status" data-find-status role="status" hidden></p>
+  <ul class="find-hits" data-find-hits></ul>
+</form>
+<script type="application/json" data-find-index>${json}</script>`;
+}
+
 function pageTitle(facts, page) {
   const drenthe = facts.hubs.find((h) => h.slug === "drenthe");
   const place = facts.specimen_place;
@@ -181,7 +230,7 @@ function pageBodies(facts) {
 <p class="kicker">Gids</p>
 <h1>${escapeHtml(facts.tagline)}</h1>
 <p class="lead typewriter" data-typewriter="${escapeHtml(String(facts.listings_nl))} plekken in Nederland, ${escapeHtml(String(facts.province_hubs))} provincie-overzichten, stadspagina’s en plekpagina’s met een bronlink."></p>
-<p class="only-cta"><a class="cta" href="${href("provincie-drenthe")}">Open de gids</a></p>
+<p class="only-cta"><a class="cta" href="${href("plaatsen")}">Alle plekken</a></p>
 <div class="drop">
   <p>${escapeHtml(facts.name)} is een overzicht van camperplaatsen in Nederland: plekken, steden en provincies, met een bronlink per plek.</p>
 </div>
@@ -202,7 +251,7 @@ function pageBodies(facts) {
 <p class="crumb"><a href="${href("index")}">Gids</a> / ${escapeHtml(drenthe.name)}</p>
 <h1>Camperplaatsen in ${escapeHtml(drenthe.name)}</h1>
 <p class="lead">${escapeHtml(String(drenthe.count))} plekken in dit provincie-overzicht.</p>
-<p>Wie ${escapeHtml(drenthe.name)} zoekt, komt op deze provinciepagina — niet op een algemene zoekpagina.</p>
+<p>Zoek ${escapeHtml(drenthe.name)} of blader verder in het Nederlandse overzicht.</p>
 <p><a href="${href("plaatsen")}">Naar het Nederlandse overzicht</a></p>`,
       "plek-kampen": `
 <p class="crumb"><a href="${href("plaatsen")}">Plekken</a> / <a href="${href("index")}">${escapeHtml(place.province)}</a> / ${escapeHtml(place.city)}</p>
@@ -307,16 +356,17 @@ ${servicesList(facts)}`,
 }
 
 function wrap(facts, variant, page, inner) {
-  if (variant === "redactie") return redactieChrome(facts, page, inner);
-  if (variant === "gids") return gidsChrome(facts, page, inner);
+  const find = findWidget(facts);
+  if (variant === "redactie") return redactieChrome(facts, page, `${find}${inner}`);
+  if (variant === "gids") return gidsChrome(facts, page, `${find}${inner}`);
   if (page === "index") {
-    return compactChrome(facts, page, `<div id="inhoud">${inner}</div>`);
+    return compactChrome(facts, page, `<div id="inhoud">${find}${inner}</div>`);
   }
-  return compactChrome(facts, page, inner);
+  return compactChrome(facts, page, inner.replace('id="inhoud">', `id="inhoud">${find}`));
 }
 
 function chooserPage(facts) {
-  const line = "Drie huiden. Dezelfde feiten. Niet live.";
+  const line = "Drie huiden. Zoeken op elke huid. Dezelfde feiten. Niet live.";
   return `<!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -334,9 +384,9 @@ ${banner(facts)}
   <h1>${escapeHtml(facts.name)}</h1>
   <p class="lead typewriter" data-typewriter="${escapeHtml(line)}"></p>
   <div class="variants">
-    <a href="redactie/"><strong>Redactie</strong><span>Huid terras — magazine, typewriter, één CTA de gids in.</span></a>
-    <a href="gids/"><strong>Gids</strong><span>Huid keuken — type/grid, geen kaarten.</span></a>
-    <a href="compact/"><strong>Compact</strong><span>Huid allday — één CTA, geen WebGL, geen verzonnen belknop.</span></a>
+    <a href="redactie/"><strong>Redactie</strong><span>Huid terras — magazine, typewriter, zoeken, één CTA.</span></a>
+    <a href="gids/"><strong>Gids</strong><span>Huid keuken — type/grid, zoeken, geen kaarten.</span></a>
+    <a href="compact/"><strong>Compact</strong><span>Huid allday — stroken, zoeken, geen WebGL, geen verzonnen belknop.</span></a>
   </div>
   <p class="note">Papier-tokens. Geen publicatie, geen mail. Bron: ${escapeHtml(facts.bron)} · ${escapeHtml(facts.peildatum)}. <code>npm run atelier:preview -- ${escapeHtml(facts.run_id || "")}</code></p>
 </main>
@@ -365,6 +415,10 @@ function writePreview(runId, facts) {
     path.join(ROOT, "assets", "atelier", "typewriter.js"),
     path.join(assetDir, "typewriter.js"),
   );
+  fs.copyFileSync(
+    path.join(ROOT, "assets", "atelier", "search.js"),
+    path.join(assetDir, "search.js"),
+  );
 
   const bodies = pageBodies(facts);
   for (const variant of VARIANTS) {
@@ -380,7 +434,10 @@ function writePreview(runId, facts) {
         title,
         current: page,
         body: wrap(facts, variant, page, inner),
-        script: variant === "redactie" && page === "index" ? "../_assets/typewriter.js" : "",
+        scripts: [
+          "../_assets/search.js",
+          variant === "redactie" && page === "index" ? "../_assets/typewriter.js" : "",
+        ],
       });
       fs.writeFileSync(path.join(dir, `${page}.html`), html);
     }
@@ -398,7 +455,7 @@ function main() {
   console.log(`atelier-build: ${out}`);
 }
 
-module.exports = { VARIANTS, SKINS, PAGES, loadFacts, writePreview, pageTitle };
+module.exports = { VARIANTS, SKINS, PAGES, loadFacts, writePreview, pageTitle, searchItems };
 
 if (require.main === module) {
   main();

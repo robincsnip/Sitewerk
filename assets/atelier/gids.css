@@ -1,4 +1,4 @@
-/* Variant gids — Obys type/grid, geen kaarten */
+/* Variant gids — Obys type/grid, geen kaarten; zoekveld verplicht */
 
 body[data-atelier-variant="gids"] {
   font-size: 1rem;
@@ -53,6 +53,31 @@ body[data-atelier-variant="gids"] .rail nav a[aria-current="page"] {
 
 body[data-atelier-variant="gids"] .canvas {
   padding: var(--space-5) var(--space-6) var(--space-8);
+}
+
+body[data-atelier-variant="gids"] .find {
+  margin: 0 0 var(--space-6);
+  max-width: 40rem;
+}
+
+body[data-atelier-variant="gids"] .find-row {
+  max-width: none;
+}
+
+body[data-atelier-variant="gids"] .find input[type="search"] {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  border-bottom-width: 1px;
+}
+
+body[data-atelier-variant="gids"] .find-hits li {
+  border-bottom: 1px solid var(--ink);
+  padding: var(--space-3) 0;
+}
+
+body[data-atelier-variant="gids"] .find-hits a {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
 }
 
 body[data-atelier-variant="gids"] h1 {

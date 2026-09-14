@@ -9,6 +9,7 @@ templates/atelier/
 assets/atelier/
   screen.css             # pt/mm → rem (rapport-tokens blijven print)
   preview-banner.css
+  search.js              # directory-job: filter op dossierfeiten
   redactie.css
   gids.css
   compact.css
