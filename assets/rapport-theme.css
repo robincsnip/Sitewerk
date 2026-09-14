@@ -757,17 +757,20 @@ body {
 }
 
 .report table.scope-table,
+.report table.context-table,
 .report table.werklijst-table {
   break-inside: auto;
   page-break-inside: auto;
 }
 
 .report table.scope-table thead,
+.report table.context-table thead,
 .report table.werklijst-table thead {
   display: table-header-group;
 }
 
 .report table.scope-table tr,
+.report table.context-table tr,
 .report table.werklijst-table tr,
 .report table.appendix-table tr,
 .report table.gsc-table tr,

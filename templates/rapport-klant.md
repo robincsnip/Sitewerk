@@ -43,6 +43,32 @@ Geen herhaling van cijfers of techniek hier — die staan één keer onder Bevin
 
 ---
 
+## Markt & concurrenten
+
+:::section-intro
+{{KORT_WIE_VERGELIJKEN_GEEN_CRAWL_DUMP}}
+:::
+
+| Speler | Rol | Waar zij sterk zijn t.o.v. jullie | Label |
+| --- | --- | --- | --- |
+| {{NAAM}} | {{ROL}} | {{STERKTE}} | gemeten / afgeleid / onbekend |
+
+Geen posities of verkeercijfers zonder Search Console — zie zoektermen hieronder.
+
+---
+
+## Zoektermen die ertoe doen
+
+:::section-intro
+{{KORT_WELKE_QUERIES_STEEKPROEF_OF_GSC}}
+:::
+
+| Zoekopdracht | Wat de zoeker wil | Zichtbaar voor jullie? | Label |
+| --- | --- | --- | --- |
+| {{QUERY}} | {{INTENTIE}} | ja / nee / niet nagekeken | gemeten / afgeleid / onbekend |
+
+---
+
 ## Bevindingen
 
 Elke bevinding **één keer**: observatie → gevolg → voorstel. Zie [skills/klanttaal/SKILL.md](../skills/klanttaal/SKILL.md).
