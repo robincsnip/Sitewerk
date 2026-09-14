@@ -714,12 +714,6 @@ body {
     page-break-before: avoid;
   }
 
-  .report-section--chapter,
-  .report-section--appendix {
-    break-before: page;
-    page-break-before: always;
-  }
-
   .report-section > h2.section-head:first-child {
     break-after: avoid;
     page-break-after: avoid;
@@ -740,11 +734,6 @@ body {
     page-break-inside: avoid !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-  }
-
-  .decision-card + .decision-card {
-    break-before: page;
-    page-break-before: always;
   }
 
   .prio-grid,
@@ -832,7 +821,7 @@ body {
 <h3>Drie prioriteiten</h3>
 <div class="prio-shell"><div class="prio-grid"><div class="prio-card"><div class="prio-num">1</div><div class="prio-body"><div class="prio-title">Eén aantal plekken, één land in het Nederlandse overzicht</div><div class="prio-done">Klaar als: homepage, zoekpagina en het Nederlandse pagina-overzicht voor Google hetzelfde aantal Nederlandse plekken tonen, en Belgische/Duitse plekken daar niet tussen staan (of pas als er landpagina's zijn).</div></div></div><div class="prio-card"><div class="prio-num">2</div><div class="prio-body"><div class="prio-title">Plekpagina eerst voor de reiziger</div><div class="prio-done">Klaar als: prijs, maximaal aantal nachten, voorzieningen, bron en kaart boven het claimformulier staan.</div></div></div><div class="prio-card"><div class="prio-num">3</div><div class="prio-body"><div class="prio-title">Provincie-keuze leidt naar de provinciepagina</div><div class="prio-done">Klaar als: iemand op Drenthe filtert en op de Drenthe-overzichtspagina landt (niet op een algemene zoekpagina die Google als hoofdpagina ziet).</div></div></div></div></div>
 <h3>Wat al goed staat (niet kapotmaken)</h3>
-<div class="good-shell"><div class="good-grid"><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Bezoekers komen automatisch op www terecht</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Inloggen, betalen en dashboard staan buiten Google</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Pagina's die niet bestaan worden niet geïndexeerd</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Plekpagina's hebben een vaste hoofdadres in Google</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Bronlink naar gemeente of eigenaar op de plekpagina</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Provincie- en stadspagina's tonen echte aantallen</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Plektekst staat in de pagina zelf (niet alleen via JavaScript)</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Zoeken op Camperstaan toont homepage en zoekpagina</span></div></div></div>
+<div class="good-shell"><div class="good-grid"><div class="good-item">Bezoekers komen automatisch op www terecht</div><div class="good-item">Inloggen, betalen en dashboard staan buiten Google</div><div class="good-item">Pagina's die niet bestaan worden niet geïndexeerd</div><div class="good-item">Plekpagina's hebben een vaste hoofdadres in Google</div><div class="good-item">Bronlink naar gemeente of eigenaar op de plekpagina</div><div class="good-item">Provincie- en stadspagina's tonen echte aantallen</div><div class="good-item">Plektekst staat in de pagina zelf (niet alleen via JavaScript)</div><div class="good-item">Zoeken op Camperstaan toont homepage en zoekpagina</div></div></div>
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Wat we hebben bekeken</h2>
@@ -866,7 +855,7 @@ body {
 <p><strong>Voorstel:</strong> intern versterken (tekst, links) en steekproef herhalen — gedeeld jullie en wij.</p></div></div></div>
 <hr class="section-break" />
 </section>
-<section class="report-section report-section--chapter"><h2 class="section-head">Beslissingen die we van jullie nodig hebben</h2>
+<section class="report-section"><h2 class="section-head">Beslissingen die we van jullie nodig hebben</h2>
 <div class="decision-grid"><div class="decision-card"><h3>Beslissing 1 — Buitenlandse plekken in het Nederlandse overzicht?</h3><p><strong>Voorstel:</strong> eruit tot <code>/belgie</code> en <code>/duitsland</code> (of gelijkwaardig) bestaan en de homepage per land telt. <strong>Alternatief:</strong> nu landpagina's maken en 306 uitleggen als NL+BE+DE. <strong>Opnieuw bekijken als:</strong> jullie BE/DE deze maand actief willen claimen.</p></div><div class="decision-card"><h3>Beslissing 2 — Claimen op de plekpagina of apart?</h3><p><strong>Voorstel:</strong> gastinformatie bovenaan; claim onderaan of op <code>/plaatsen/{slug}/claim</code>. <strong>Alternatief:</strong> claim blijft, maar ingeklapt tot "Beheer je deze plek?" <strong>Opnieuw bekijken als:</strong> claim-conversie vs. bezoekers per plek gemeten is.</p></div><div class="decision-card"><h3>Beslissing 3 — Provincie-filter of direct naar provinciepagina?</h3><p><strong>Voorstel:</strong> filter op provincie leidt naar <code>/provincie/{slug}</code>. <strong>Alternatief:</strong> filter op zoekpagina houden, maar dan moet Google de juiste URL zien per provincie. <strong>Opnieuw bekijken als:</strong> filter-ervaring belangrijker is dan provincie-ranking.</p></div></div>
 <hr class="section-break" />
 </section>

@@ -97,7 +97,7 @@ function renderGoodGrid(lines) {
   const items = lines
     .map((line) => line.trim())
     .filter(Boolean)
-    .map((line) => `<div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>${inlineFormat(line.replace(/^[-*]\s+/, ""))}</span></div>`);
+    .map((line) => `<div class="good-item">${inlineFormat(line.replace(/^[-*]\s+/, ""))}</div>`);
   return `<div class="good-shell"><div class="good-grid">${items.join("")}</div></div>`;
 }
 
@@ -388,7 +388,7 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
 function sectionClass(part) {
   const head = part.slice(0, 160);
   if (/Bijlage/.test(head)) return "report-section report-section--appendix";
-  if (/Bevindingen|Beslissingen|Werklijst/.test(head)) return "report-section report-section--chapter";
+  if (/Bevindingen|Werklijst/.test(head)) return "report-section report-section--chapter";
   return "report-section";
 }
 

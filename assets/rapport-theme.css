@@ -291,28 +291,6 @@ body {
   page-break-inside: avoid;
 }
 
-.good-icon {
-  flex-shrink: 0;
-  width: 3.5mm;
-  height: 3.5mm;
-  margin-top: 0.5mm;
-  border-radius: 50%;
-  background: var(--ok);
-  position: relative;
-}
-
-.good-icon::after {
-  content: "";
-  position: absolute;
-  left: 1mm;
-  top: 0.4mm;
-  width: 1mm;
-  height: 1.8mm;
-  border: solid var(--paper);
-  border-width: 0 0.6mm 0.6mm 0;
-  transform: rotate(45deg);
-}
-
 /* ── Finding cards ───────────────────────────────────── */
 
 .prio-shell,
@@ -649,12 +627,6 @@ body {
     page-break-before: avoid;
   }
 
-  .report-section--chapter,
-  .report-section--appendix {
-    break-before: page;
-    page-break-before: always;
-  }
-
   .report-section > h2.section-head:first-child {
     break-after: avoid;
     page-break-after: avoid;
@@ -675,11 +647,6 @@ body {
     page-break-inside: avoid !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-  }
-
-  .decision-card + .decision-card {
-    break-before: page;
-    page-break-before: always;
   }
 
   .prio-grid,

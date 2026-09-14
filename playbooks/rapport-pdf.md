@@ -56,10 +56,10 @@ Na CSS-wijziging: altijd `npm run audit:finish -- <run-id>` en visueel controler
 
 ## Amend — Paginering (sep 2026)
 
-- Hoofdstuk-secties (`report-section--chapter`, bijlagen) starten op nieuwe pagina; “In het kort” + scope mogen samen doorlopen.
+- Geen verplichte pagina-einde per hoofdstuk; secties (inclusief Beslissingen, bijlagen) mogen doorlopen als er ruimte is. Paginatie-gate vangt echte splits (kaart/kop).
 - Atomische blokken (`finding-shell`, `werklijst-block`, `prio-shell`, `good-shell`, `decision-card`, `measure-card`, `table-shell`): `break-inside: avoid`; geen grid-split in print (grids → block/columns).
 - Meerdere bevindingen in één hoofdstuk mogen op dezelfde pagina doorlopen zolang het blok niet splitst.
-- Besluitkaarten na elkaar: `break-before: page` op `decision-card + decision-card`.
+- Besluitkaarten (`decision-card`) staan in één grid; geen verplichte pagina per kaart.
 - Koppen: `break-after: avoid` + direct volgend blok `break-before: avoid`.
 - Tabellen: rijniveau `break-inside: avoid` (scope, bijlage, werklijst); werklijst h3 + tabel in één `werklijst-block`.
 - `hr.section-break` verborgen in print; `preferCSSPageSize: true` in html-to-pdf.
