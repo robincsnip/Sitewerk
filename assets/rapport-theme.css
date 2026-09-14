@@ -312,6 +312,13 @@ body {
   width: 100%;
 }
 
+/* Heading + intro + first following block stay together in print */
+.heading-keep {
+  display: block;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
 .finding-card {
   display: block;
   margin: 0 0 var(--space-3);
@@ -895,7 +902,27 @@ body {
     page-break-before: avoid;
   }
 
-  .report-section > h2.section-head:first-child {
+  .heading-keep {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    display: block;
+  }
+
+  .heading-keep > h2.section-head,
+  .heading-keep > h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .heading-keep > h2.section-head + *,
+  .heading-keep > h3 + *,
+  .heading-keep > .section-intro + * {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .report-section > h2.section-head:first-child,
+  .heading-keep > h2.section-head:first-child {
     break-after: avoid;
     page-break-after: avoid;
   }
@@ -923,7 +950,9 @@ body {
   .callout-fictief,
   .gsc-shell,
   .gsc-chart-shell,
-  .lead-block {
+  .lead-block,
+  .table-shell,
+  .heading-keep {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
     -webkit-print-color-adjust: exact;
@@ -971,18 +1000,20 @@ body {
   }
 
   .report table.scope-table tr,
+  .report table.context-table tr,
   .report table.appendix-table tr,
   .report table.werklijst-table tr,
   .report table.werklijst-tabel tr,
   .report table.gsc-table tr,
-  .gsc-shell table tr {
+  .gsc-shell table tr,
+  .table-shell tr {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
   .table-shell {
-    break-inside: avoid;
-    page-break-inside: avoid;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   a {

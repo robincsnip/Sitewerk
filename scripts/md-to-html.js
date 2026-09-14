@@ -343,13 +343,12 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
       else if (lastH2.includes("Bijlage")) tableClass += " appendix-table";
       else if (/Search Console/i.test(lastH2)) tableClass += " gsc-table";
       const tableHtml = html.replace("<table>", `<table class="${tableClass}">`);
+      const shelled = `<div class="table-shell">${tableHtml}</div>`;
       if (tableClass.includes("werklijst-table") && pendingWerklijstH3) {
-        out.push(`<div class="werklijst-block">${pendingWerklijstH3}<div class="table-shell">${tableHtml}</div></div>`);
+        out.push(`<div class="werklijst-block">${pendingWerklijstH3}${shelled}</div>`);
         pendingWerklijstH3 = null;
-      } else if (tableClass.includes("werklijst-table") || tableClass.includes("context-table")) {
-        out.push(`<div class="table-shell">${tableHtml}</div>`);
       } else {
-        out.push(tableHtml);
+        out.push(shelled);
       }
       i = next;
       continue;
@@ -445,11 +444,121 @@ function wrapReportSections(html) {
     .join("\n");
 }
 
+const VOID_TAGS = new Set(["hr", "br", "img", "input", "meta", "link"]);
+
+function splitTopElements(html) {
+  const parts = [];
+  let i = 0;
+  const s = html;
+  while (i < s.length) {
+    if (s[i] !== "<") {
+      const next = s.indexOf("<", i);
+      const text = s.slice(i, next === -1 ? s.length : next);
+      if (text.trim()) parts.push(text);
+      i = next === -1 ? s.length : next;
+      continue;
+    }
+    const open = /^<\/?([a-zA-Z][a-zA-Z0-9-]*)\b/.exec(s.slice(i));
+    if (!open || open[0].startsWith("</")) {
+      parts.push(s.slice(i));
+      break;
+    }
+    const tag = open[1].toLowerCase();
+    const tagEnd = s.indexOf(">", i);
+    if (tagEnd === -1) {
+      parts.push(s.slice(i));
+      break;
+    }
+    const openTok = s.slice(i, tagEnd + 1);
+    if (VOID_TAGS.has(tag) || /\/\s*>$/.test(openTok)) {
+      parts.push(openTok);
+      i = tagEnd + 1;
+      continue;
+    }
+    let depth = 1;
+    let j = tagEnd + 1;
+    while (j < s.length && depth > 0) {
+      const rest = s.slice(j);
+      const openRe = new RegExp(`<${tag}\\b[^>]*>`, "i");
+      const closeRe = new RegExp(`</${tag}\\s*>`, "i");
+      const om = openRe.exec(rest);
+      const cm = closeRe.exec(rest);
+      const oAt = om ? om.index : Infinity;
+      const cAt = cm ? cm.index : Infinity;
+      if (cAt === Infinity && oAt === Infinity) {
+        j = s.length;
+        break;
+      }
+      if (oAt < cAt) {
+        const tok = om[0];
+        if (/\/\s*>$/.test(tok) || VOID_TAGS.has(tag)) {
+          j += om.index + tok.length;
+          continue;
+        }
+        depth++;
+        j += om.index + tok.length;
+      } else {
+        depth--;
+        j += cm.index + cm[0].length;
+      }
+    }
+    parts.push(s.slice(i, j));
+    i = j;
+  }
+  return parts;
+}
+
+function isHeadingEl(html) {
+  return /^<h[23]\b/i.test(html.trim());
+}
+
+function isHrEl(html) {
+  return /^<hr\b/i.test(html.trim());
+}
+
+function isThinLead(html) {
+  return /class="[^"]*\bsection-intro\b[^"]*"/.test(html);
+}
+
+function wrapHeadingKeeps(inner) {
+  const parts = splitTopElements(inner);
+  const out = [];
+  for (let i = 0; i < parts.length; i++) {
+    if (!isHeadingEl(parts[i])) {
+      out.push(parts[i]);
+      continue;
+    }
+    const keep = [parts[i]];
+    let j = i + 1;
+    while (j < parts.length && isThinLead(parts[j])) {
+      keep.push(parts[j]);
+      j++;
+    }
+    if (j < parts.length && !isHeadingEl(parts[j]) && !isHrEl(parts[j])) {
+      keep.push(parts[j]);
+      j++;
+    }
+    if (keep.length === 1) {
+      out.push(parts[i]);
+    } else {
+      out.push(`<div class="heading-keep">\n${keep.join("\n")}\n</div>`);
+    }
+    i = j - 1;
+  }
+  return out.join("\n");
+}
+
+function wrapHeadingKeepsInDocument(html) {
+  return html.replace(/<section class="([^"]+)">([\s\S]*?)<\/section>/g, (_, cls, inner) => {
+    return `<section class="${cls}">${wrapHeadingKeeps(inner)}</section>`;
+  });
+}
+
 function mdToHtml(src, { skipFirstH1 = false } = {}) {
   const { stripped, placeholders } = extractFences(src);
   const fragment = (inner) => renderMarkdown(inner, { rendered: new Map() });
   const rendered = materializeFences(placeholders, fragment);
-  return wrapReportSections(renderMarkdown(stripped, { skipFirstH1, rendered }));
+  return wrapHeadingKeepsInDocument(wrapReportSections(renderMarkdown(stripped, { skipFirstH1, rendered })));
 }
 
 function extractCoverKpis(src) {

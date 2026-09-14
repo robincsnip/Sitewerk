@@ -71,11 +71,24 @@ Na CSS-wijziging: altijd `npm run audit:finish -- <run-id>` en visueel controler
 
 | Code | Wat |
 | --- | --- |
-| `split-block` | Atomair blok (finding-shell, prio-shell, decision-card, …) over 2+ pagina's |
+| `split-block` | Atomair blok (finding-shell, prio-shell, decision-card, table-shell, …) over 2+ pagina's |
 | `split-table-row` | Tabelrij over 2+ pagina's |
-| `orphan-heading` | h2/h3 op andere pagina dan direct volgend blok (start/end-snippet op verschillende pagina's) |
+| `orphan-heading` | h2/h3 op andere pagina dan het eerste inhoudelijke blok erna (intro telt niet als body) |
 
-Werking: Playwright rendert print-HTML naar PDF (`media: print`, zelfde marges als `html-to-pdf.js`); `pdf-parse` leest per-pagina tekst; start- en eind-snippet van elk atomair blok, tabelrij en kop+volgblok moeten op één pagina vallen. Bij mismatch: exit 1, geen “Audit print ready”. Geen stille success bij slechte paginering.
+Werking: Playwright rendert print-HTML naar PDF (`media: print`, zelfde marges als `html-to-pdf.js`). `pdf-parse` leest per-pagina tekst voor split-block/rij (`tbody tr` — herhaalde `thead` per pagina is geen fail). **Wees-koppen** worden gemeten op **PDF-geometrie** (pdf.js-tekstposities per pagina): de kopregel en de start van het volgende inhoudelijke blok (tabel/kaart, niet `section-intro`) moeten op dezelfde pagina liggen. Kop of body niet terug te vinden in de PDF = fail-closed. Bij mismatch: exit 1, geen “Audit print ready”. Geen stille success bij slechte paginering. Self-test: `npm run test:pagination`.
+
+## Amend — Wees-koppen (sep 2026)
+
+Kop mag niet onderaan een pagina sterven terwijl de inhoud op de volgende begint. Geen verplichte pagina per hoofdstuk; Beslissingen mag doorlopen; Bijlage A+B mogen een pagina delen.
+
+| Regel | Waar |
+| --- | --- |
+| `heading-keep` om h2/h3 + optionele `section-intro` + eerste inhoudelijke blok | `md-to-html.js` (elke run) |
+| `break-inside: avoid` op `.heading-keep`, kaarten, `table-shell` | `assets/rapport-theme.css` print |
+| `break-after: avoid` op de kop in `.heading-keep`; `break-before: avoid` op het blok erna | zelfde |
+| Gate meet PDF-geometrie, niet alleen HTML-heuristiek | `scripts/check-pagination.js` |
+
+Niet: elk hoofdstuk forceren op een eigen pagina. Niet: Camperstaan-only CSS. Na CSS-wijziging: `npm run audit:finish -- <run-id>` én de PDF zelf nalopen.
 
 ## Amend — Grafische modules (sep 2026)
 
