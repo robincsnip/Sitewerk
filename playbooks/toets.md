@@ -38,6 +38,7 @@ Orchestratie: [orchestratie.md](orchestratie.md).
 - [ ] Geen regressie t.o.v. Toets 1-scope
 - [ ] Herstel getoond of n.v.t. met reden
 - [ ] Locked acties nog steeds geblokkeerd
+- [ ] Bezoeker kan de **job** doen (niet alleen denylist/404). Job volgt uit functies-onderzoek: directory = zoeken/vinden; local-service = NAP/bellen; brand = verhaal+CTA; brochure = diensten+contact. Een huid mag die job niet weglaten.
 
 ## Checklist Toets 3 (nameting)
 
