@@ -156,7 +156,7 @@ Op Kampen staan coördinaten en prijs in de pagina, maar niet in de extra gegeve
 **Voorstel:** locatie, prijsklasse en voorzieningen toevoegen aan die gegevens — velden bestaan al in jullie systeem.
 :::
 
-:::finding p2
+:::finding p1
 ### 6. Drenthe-overzichtspagina wint nog niet op zoekintentie
 
 De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "camperplaatsen in Drenthe".
