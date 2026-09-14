@@ -1,0 +1,321 @@
+/* Sitewerk — Richting C: Papier (colors) */
+
+:root {
+  --ink: #1c1917;
+  --paper: #faf8f5;
+  --panel: #ffffff;
+  --muted: #78716c;
+  --line: #d6d3d1;
+  --accent: #2d5a4a;
+  --accent-soft: #e8e4dc;
+  --accent-muted: #c9c4bb;
+  --warn: #9a5b14;
+  --warn-soft: #f5efe6;
+  --danger: #9b3d32;
+  --danger-soft: #f8ecea;
+  --ok: #2d5a4a;
+  --ok-soft: #e8efe9;
+}
+
+
+/* Sitewerk — Richting C: Papier (typography) */
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap");
+
+:root {
+  --font-display: "Libre Baskerville", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-body: "Literata", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-ui: "Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-xs: 8pt;
+  --text-sm: 9pt;
+  --text-base: 10.5pt;
+  --text-lg: 12pt;
+  --text-xl: 14pt;
+  --text-2xl: 18pt;
+  --text-3xl: 28pt;
+}
+
+
+/* Sitewerk — Richting C: Papier (spacing) */
+
+:root {
+  --space-1: 1.5mm;
+  --space-2: 2.5mm;
+  --space-3: 4mm;
+  --space-4: 6mm;
+  --space-5: 8mm;
+  --space-6: 10mm;
+  --space-7: 14mm;
+  --space-8: 18mm;
+
+  --radius: 4px;
+  --radius-sm: 2px;
+  --shadow: 0 1px 0 rgba(28, 25, 23, 0.04);
+  --measure: 68ch;
+}
+
+
+/* Sitewerk — Richting C: Papier (shared component hooks) */
+
+:root {
+  --display: var(--font-display);
+  --body: var(--font-body);
+  --sans: var(--font-ui);
+}
+
+
+/* Atelier screen remap — Rapport-tokens blijven print (pt/mm). */
+
+:root {
+  --text-xs: 0.72rem;
+  --text-sm: 0.8rem;
+  --text-base: 1.05rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.55rem;
+  --text-2xl: 2.2rem;
+  --text-3xl: 3.05rem;
+  --space-1: 0.35rem;
+  --space-2: 0.65rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.15rem;
+  --space-6: 2.85rem;
+  --space-7: 3.75rem;
+  --space-8: 5rem;
+  --measure: 40rem;
+  --shadow: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+}
+
+.skip:focus {
+  left: var(--space-3);
+  top: var(--space-3);
+  z-index: 20;
+  background: var(--panel);
+  padding: var(--space-2) var(--space-3);
+}
+
+.meta-unknown {
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+
+.preview-banner {
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.55rem var(--space-3);
+}
+
+.preview-banner a {
+  color: inherit;
+}
+
+
+/* Variant redactie — magazine / één kolom */
+
+body[data-atelier-variant="redactie"] {
+  font-size: 1.08rem;
+}
+
+body[data-atelier-variant="redactie"] .masthead {
+  text-align: center;
+  padding: var(--space-7) var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+body[data-atelier-variant="redactie"] .masthead .mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+body[data-atelier-variant="redactie"] .masthead nav {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+body[data-atelier-variant="redactie"] .masthead nav a {
+  color: var(--ink);
+  text-decoration: none;
+  margin: 0 0.7rem;
+}
+
+body[data-atelier-variant="redactie"] .masthead nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+body[data-atelier-variant="redactie"] main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-4) var(--space-8);
+}
+
+body[data-atelier-variant="redactie"] .kicker {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--space-3);
+}
+
+body[data-atelier-variant="redactie"] h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  line-height: 1.15;
+  margin: 0 0 var(--space-4);
+}
+
+body[data-atelier-variant="redactie"] .lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 var(--space-4);
+  min-height: 3.4em;
+}
+
+body[data-atelier-variant="redactie"] .typewriter:not(.is-done)::after {
+  content: "▍";
+  color: var(--accent);
+}
+
+body[data-atelier-variant="redactie"] .only-cta {
+  margin: 0 0 var(--space-6);
+}
+
+body[data-atelier-variant="redactie"] .cta {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--accent);
+  text-decoration: none;
+  padding: 0.7rem 1.1rem;
+}
+
+body[data-atelier-variant="redactie"] .drop > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.4rem;
+  float: left;
+  line-height: 0.85;
+  padding: 0.12em 0.12em 0 0;
+  color: var(--accent);
+}
+
+body[data-atelier-variant="redactie"] .pull {
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--line);
+  margin: var(--space-6) 0;
+  padding: var(--space-4) 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-style: italic;
+}
+
+body[data-atelier-variant="redactie"] .toc {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0;
+}
+
+body[data-atelier-variant="redactie"] .toc li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  border-bottom: 1px dotted var(--line);
+  padding: var(--space-2) 0;
+}
+
+body[data-atelier-variant="redactie"] .toc a {
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-display);
+}
+
+body[data-atelier-variant="redactie"] .colophon {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-7);
+  border-top: 1px solid var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+body[data-atelier-variant="redactie"] .crumb {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--space-4);
+}
+
+@media (max-width: 720px) {
+  body[data-atelier-variant="redactie"] h1 {
+    font-size: 2.15rem;
+  }
+}

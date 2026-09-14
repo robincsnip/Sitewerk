@@ -12,7 +12,7 @@ Zie [docs/PIJPLIJN.md](docs/PIJPLIJN.md).
 | **Toetser** | [agents/toetser.md](agents/toetser.md) | Toets 1 (rapport) en Toets 2 (preview) — **aparte run** |
 | **Uitvoer** | [playbooks/uitvoer.md](playbooks/uitvoer.md) | Taken/PRs ná Toets 1 akkoord |
 | **Naslag** | [playbooks/naslag.md](playbooks/naslag.md) | Na afkeur of gemeten uitkomst |
-| **Atelier** | [playbooks/atelier.md](playbooks/atelier.md) | Alleen ná redesign-gate |
+| **Atelier** | [agents/atelier.md](agents/atelier.md) · [playbooks/atelier.md](playbooks/atelier.md) | Preview-spoor (drie huiden) of klant-Atelier ná redesign-gate |
 
 ## Isolatie (hard)
 

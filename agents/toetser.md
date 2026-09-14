@@ -33,6 +33,7 @@ Naast [playbooks/toets.md](../playbooks/toets.md):
 - [ ] Geen regressie t.o.v. Toets 1-scope
 - [ ] Herstel is getoond of als n.v.t. met reden
 - [ ] Locked acties nog geblokkeerd
+- [ ] Atelier: drie huiden, zelfde feiten, banner+noindex, nav klikbaar
 
 ## Toets 3 (nameting)
 

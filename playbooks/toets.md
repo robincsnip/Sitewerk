@@ -39,6 +39,13 @@ Orchestratie: [orchestratie.md](orchestratie.md).
 - [ ] Herstel getoond of n.v.t. met reden
 - [ ] Locked acties nog steeds geblokkeerd
 
+Atelier (lab of klant):
+
+- [ ] Drie huiden openen (redactie/gids/compact); zelfde feiten
+- [ ] Banner + `noindex`; geen live/mail
+- [ ] Geen `tel:` of GBP zonder dossier
+- [ ] Nav klikbaar (niet alleen screenshot)
+
 ## Checklist Toets 3 (nameting)
 
 - [ ] Zelfde finding-IDs als audit

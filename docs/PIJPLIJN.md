@@ -58,7 +58,7 @@ runs/<id>/
   print/rapport.pdf
   uitvoer/                 # diffs, preview-URL, herstelbewijs
   nameting.md
-  atelier/                 # alleen bij SKU Nieuw
+  atelier/                 # lab-preview of SKU Nieuw; niet live
 ```
 
 ## Conflictregel
