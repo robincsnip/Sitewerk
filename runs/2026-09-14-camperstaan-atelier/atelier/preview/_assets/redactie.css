@@ -249,12 +249,17 @@ body[data-atelier-variant="redactie"] {
 
 body[data-atelier-variant="redactie"] .masthead {
   text-align: left;
-  min-height: 52vh;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: var(--space-8) var(--space-5) var(--space-5);
+  padding: var(--space-5) var(--space-5) var(--space-4);
   border-bottom: 1px solid var(--ink);
+}
+
+body[data-atelier-variant="redactie"][data-atelier-page="index"] .masthead {
+  min-height: 36vh;
+  padding: var(--space-8) var(--space-5) var(--space-5);
 }
 
 body[data-atelier-variant="redactie"] .masthead .mark {
