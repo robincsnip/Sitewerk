@@ -822,17 +822,20 @@ body {
 }
 
 .report table.scope-table,
+.report table.context-table,
 .report table.werklijst-table {
   break-inside: auto;
   page-break-inside: auto;
 }
 
 .report table.scope-table thead,
+.report table.context-table thead,
 .report table.werklijst-table thead {
   display: table-header-group;
 }
 
 .report table.scope-table tr,
+.report table.context-table tr,
 .report table.werklijst-table tr,
 .report table.appendix-table tr,
 .report table.gsc-table tr,
@@ -1066,7 +1069,7 @@ body {
         <p class="cover-date">14 september 2026</p>
         <p class="cover-belofte">wat er speelt online, en wat we eerst doen</p>
       </div>
-      <table class="cover-kpi"><tr class="cover-kpi-values"><td>3</td><td>6</td><td>577</td><td>4</td></tr><tr class="cover-kpi-labels"><td>Prioriteiten</td><td>Acties</td><td>Pagina's</td><td>Urgent</td></tr><tr class="cover-kpi-notes"><td>deze maand</td><td>90 dagen</td><td>in overzicht</td><td>bevindingen</td></tr></table>
+      <table class="cover-kpi"><tr class="cover-kpi-values"><td>3</td><td>7</td><td>577</td><td>4</td></tr><tr class="cover-kpi-labels"><td>Prioriteiten</td><td>Acties</td><td>Pagina's</td><td>Urgent</td></tr><tr class="cover-kpi-notes"><td>deze maand</td><td>90 dagen</td><td>in overzicht</td><td>bevindingen</td></tr></table>
     </div>
   </header>
   <main class="report">
@@ -1088,9 +1091,8 @@ body {
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Markt &amp; concurrenten</h2>
-<p class="section-intro">Wie concurreert op dezelfde zoekintentie als Camperstaan — steekproef 13 september plus marktcontext uit eerdere vergelijkingen. Geen volledige crawl van alle 577 pagina's.</p>
-<div class="table-shell"><table class="data-table context-table"><thead><tr><th>Speler</th><th>Rol</th><th>Waar zij sterk zijn t.o.v. jullie</th><th>Label</th></tr></thead><tbody><tr><td>Campercontact</td><td>Community-gids en app</td><td>Reviews en merk; wint op "camperplaats Kampen"</td><td>afgeleid</td></tr><tr><td>ANWB</td><td>Routes en camperinformatie</td><td>Merkvertrouwen; landelijke dekking</td><td>afgeleid</td></tr><tr><td>KampeerHub</td><td>Thema-gids (water, gratis)</td><td>Themapagina's en SEO-breedte</td><td>afgeleid</td></tr><tr><td>Gemeente / bron</td><td>Officiële plekinfo</td><td>Autoriteit per plek; staat bovenaan bij plaats-zoek</td><td>gemeten</td></tr><tr><td>Visit / toerisme</td><td>Stad- of regiomarketing</td><td>Lokale vindbaarheid (bijv. Kampen)</td><td>gemeten</td></tr><tr><td>Park4Night</td><td>Internationale community-app</td><td>Buitenland en crowd-data</td><td>gemeten</td></tr><tr><td>Camperstaan</td><td>Jullie gids</td><td>577 plekken, bronlinks, provincie-structuur</td><td>gemeten</td></tr></tbody></table></div>
-<p>Geen posities of verkeercijfers zonder Search Console — zie zoektermen hieronder.</p>
+<p class="section-intro">Wie concurreert op dezelfde zoekintentie — steekproef 13 september plus marktcontext. Elke gap hieronder staat op de werklijst of heeft een reden waarom niet.</p>
+<div class="table-shell"><table class="data-table context-table"><thead><tr><th>Speler</th><th>Rol</th><th>Gap t.o.v. jullie</th><th>Label</th><th>Actie</th></tr></thead><tbody><tr><td>Campercontact</td><td>Community-gids en app</td><td>Reviews en merk; wint op "camperplaats Kampen"</td><td>afgeleid</td><td>#2 — plekpagina gast-eerst</td></tr><tr><td>ANWB</td><td>Routes en camperinformatie</td><td>Merkvertrouwen; landelijke dekking</td><td>afgeleid</td><td>Geen actie: routes/merkbudget buiten scope; eerst #2 en #6</td></tr><tr><td>KampeerHub</td><td>Thema-gids (water, gratis)</td><td>Themapagina's op water en gratis</td><td>afgeleid</td><td>#7 — thema-overzichten water + gratis</td></tr><tr><td>Gemeente / bron</td><td>Officiële plekinfo</td><td>Autoriteit per plek; bovenaan bij plaats-zoek</td><td>gemeten</td><td>#2 — plekpagina gast-eerst</td></tr><tr><td>Visit / toerisme</td><td>Stad- of regiomarketing</td><td>Lokale vindbaarheid (bijv. Kampen)</td><td>gemeten</td><td>#2 — plekpagina gast-eerst</td></tr><tr><td>Park4Night</td><td>Internationale community-app</td><td>Buitenland zichtbaar; crowd/reviews</td><td>gemeten</td><td>#1 — NL-telling; geen actie op reviews/app</td></tr><tr><td>Camperstaan</td><td>Jullie gids</td><td>—</td><td>gemeten</td><td>Geen actie: structuur en bronlinks behouden</td></tr></tbody></table></div>
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Zoektermen die ertoe doen</h2>
@@ -1122,6 +1124,10 @@ body {
 <div class="finding-shell"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>6. Drenthe-overzichtspagina wint nog niet op zoekintentie</h3>
 <p>De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "camperplaatsen in Drenthe".</p>
 <p><strong>Voorstel:</strong> intern versterken (tekst, links) en steekproef herhalen — gedeeld jullie en wij.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>7. KampeerHub wint op themazoek — jullie hebben nog geen thema-overzichten</h3>
+<p>Concurrent KampeerHub rankt met pagina's over water en gratis camperplaatsen. Camperstaan heeft provincie- en plekpagina's, maar geen vergelijkbare thema-landings.</p>
+<p><strong>Gevolg:</strong> zoekers met een thema-intentie (gratis, aan het water) vinden KampeerHub eerder dan jullie overzicht.</p>
+<p><strong>Voorstel:</strong> twee thema-overzichten (water + gratis) met echte plekken uit jullie database — geen lege SEO-pagina's. Zie werklijst #7.</p></div></div></div>
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Beslissingen die we van jullie nodig hebben</h2>
@@ -1131,7 +1137,7 @@ body {
 <section class="report-section report-section--chapter"><h2 class="section-head">Werklijst — eerste 90 dagen</h2>
 <p class="section-intro">Zie <code>werklijst.md</code> in deze run. Zelfde lijst, geen tweede waarheid.</p>
 <div class="werklijst-block"><h3>Deze maand</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>NL-telling harmoniseren; BE/DE uit NL-sitemap</td><td>jullie</td><td>home = /plaatsen = sitemap-NL count</td></tr><tr><td>2</td><td>Listing-template gast-eerst</td><td>wij</td><td>prijs/voorzieningen/bron boven claim</td></tr><tr><td>3</td><td>Regio-filter → provincie-hub</td><td>wij</td><td>Drenthe-filter op /provincie/drenthe</td></tr></tbody></table></div></div>
-<div class="werklijst-block"><h3>Maand twee / drie</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>4</td><td>Cache public + /plaatsen verlichten</td><td>wij</td><td>public cache listing; /plaatsen paginering</td></tr><tr><td>5</td><td>JSON-LD geo + priceRange + amenities</td><td>wij</td><td>Rich Results Test</td></tr><tr><td>6</td><td>Hub Drenthe intern versterken</td><td>gedeeld</td><td>steekproef herhalen</td></tr></tbody></table></div></div>
+<div class="werklijst-block"><h3>Maand twee / drie</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>4</td><td>Cache public + /plaatsen verlichten</td><td>wij</td><td>public cache listing; /plaatsen paginering</td></tr><tr><td>5</td><td>JSON-LD geo + priceRange + amenities</td><td>wij</td><td>Rich Results Test</td></tr><tr><td>6</td><td>Hub Drenthe intern versterken</td><td>gedeeld</td><td>steekproef herhalen</td></tr><tr><td>7</td><td>Thema-overzichten water + gratis</td><td>gedeeld</td><td>/thema/water en /thema/gratis in sitemap; elk min. 3 interne links</td></tr></tbody></table></div></div>
 <p><strong>Buiten scope deze ronde:</strong> linkdisavow, Google-bedrijfsprofiel, live deploy, mail naar eigenaren, %-trafficbelofte.</p>
 <hr class="section-break" />
 </section>
@@ -1140,7 +1146,7 @@ body {
 <hr class="section-break" />
 </section>
 <section class="report-section report-section--appendix"><h2 class="section-head">Bijlage A — Bewijs</h2>
-<table class="data-table appendix-table"><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>306 vs 293 vs 13 BE/DE</td><td>home, /plaatsen, sitemap</td><td>gemeten</td></tr><tr><td>F-002</td><td>Filter canonical /plaatsen</td><td>/plaatsen?regio=Drenthe</td><td>gemeten</td></tr><tr><td>F-003</td><td>Listing dun + claim dominant</td><td>Kampen listing + zoeksteekproef</td><td>gemeten</td></tr><tr><td>F-004</td><td>no-store + 1,41 MB</td><td>curl headers + size</td><td>gemeten</td></tr><tr><td>F-005</td><td>Schema zonder geo/prijs</td><td>Kampen JSON-LD</td><td>gemeten</td></tr><tr><td>F-006</td><td>Drenthe-hub niet in SERP</td><td>zoeksteekproef</td><td>afgeleid</td></tr><tr><td>F-007</td><td>Links onbekend</td><td>—</td><td>onbekend</td></tr><tr><td>F-008</td><td>AI categorie gap</td><td>steekproef</td><td>afgeleid</td></tr><tr><td>F-009</td><td>Concurrenten Kampen/Drenthe</td><td>zoeksteekproef 13 sep</td><td>gemeten</td></tr><tr><td>F-010</td><td>ANWB/KampeerHub marktcontext</td><td>vergelijkingsdossier, geen eigen steekproef</td><td>afgeleid</td></tr></tbody></table>
+<table class="data-table appendix-table"><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>306 vs 293 vs 13 BE/DE</td><td>home, /plaatsen, sitemap</td><td>gemeten</td></tr><tr><td>F-002</td><td>Filter canonical /plaatsen</td><td>/plaatsen?regio=Drenthe</td><td>gemeten</td></tr><tr><td>F-003</td><td>Listing dun + claim dominant</td><td>Kampen listing + zoeksteekproef</td><td>gemeten</td></tr><tr><td>F-004</td><td>no-store + 1,41 MB</td><td>curl headers + size</td><td>gemeten</td></tr><tr><td>F-005</td><td>Schema zonder geo/prijs</td><td>Kampen JSON-LD</td><td>gemeten</td></tr><tr><td>F-006</td><td>Drenthe-hub niet in SERP</td><td>zoeksteekproef</td><td>afgeleid</td></tr><tr><td>F-007</td><td>Links onbekend</td><td>—</td><td>onbekend</td></tr><tr><td>F-008</td><td>AI categorie gap</td><td>steekproef</td><td>afgeleid</td></tr><tr><td>F-009</td><td>Concurrenten Kampen/Drenthe</td><td>zoeksteekproef 13 sep</td><td>gemeten</td></tr><tr><td>F-010</td><td>ANWB/KampeerHub marktcontext</td><td>vergelijkingsdossier, geen eigen steekproef</td><td>afgeleid</td></tr><tr><td>F-011</td><td>KampeerHub thema-gap</td><td>markttabel + vergelijkingsdossier</td><td>afgeleid</td></tr></tbody></table>
 </section>
 <section class="report-section report-section--appendix"><h2 class="section-head">Bijlage B — Afgewezen automatische tips</h2>
 <table class="data-table appendix-table"><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>FAQ schema op elke listing</td><td>Geen echte FAQ-content</td></tr><tr><td>LocalBusiness voor Camperstaan</td><td>Geen fysieke zaak</td></tr><tr><td>2000 woorden per provincie</td><td>Bulk zonder unieke info</td></tr><tr><td>Disavow zonder linkdata</td><td>Geen export deze run</td></tr></tbody></table></section>

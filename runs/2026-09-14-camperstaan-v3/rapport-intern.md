@@ -154,6 +154,21 @@ meetpunt: geen zonder baseline
 afhankelijk_van: []
 ```
 
+```text
+id: F-011
+laag: 4
+observatie: KampeerHub heeft themapagina's (water, gratis); Camperstaan niet. Markttabel Actie → werklijst #7.
+bewijs: vergelijkingsdossier Webregie + marktcontext
+bewijs_label: afgeleid
+gevolg_zaak: Thema-intentie gaat naar concurrent.
+actie: Twee thema-overzichten met echte plekken uit database.
+eigenaar: gedeeld
+effort: M
+prio: P2
+meetpunt: steekproef thema-query na live
+afhankelijk_van: [F-001]
+```
+
 ## Afgewezen scanner-tips (Bijlage B bron)
 
 | Tip | Waarom niet |

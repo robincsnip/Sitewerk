@@ -59,7 +59,7 @@ Zie [playbooks/rapport-pdf.md](../playbooks/rapport-pdf.md) voor print/CSS.
 2. Drie prioriteiten (klaar-als, geen herhaling)  
 3. Wat al goed staat  
 4. Wat we hebben bekeken (scope-tabel)  
-5. Markt & concurrenten (compacte tabel, bewijs-label per rij)  
+5. Markt & concurrenten (gap + Actie per rij: `#n` of `Geen actie: …`; 1:1 met werklijst)  
 6. Zoektermen die ertoe doen (query-tabel, bewijs-label per rij)  
 7. Bevindingen (één subkop per thema)  
 8. Beslissingen (keuzes)  

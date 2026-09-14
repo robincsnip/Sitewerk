@@ -25,7 +25,7 @@ Lees [skills/klanttaal/SKILL.md](../skills/klanttaal/SKILL.md): gewone taal voor
 2. Brief: SKU’s vastleggen. Scout skippen met reden als de brief geen Scout vraagt.
 3. Lagen: Feiten → Strategie → Kader (of extracts in `in/`).
 4. Mix conflicten in `mix.md` (feit > vorm > wens).
-5. Klantrapport volgens [templates/rapport-klant.md](../templates/rapport-klant.md). Verplicht: **Markt & concurrenten** + **Zoektermen die ertoe doen** (tabellen met bewijs-label per rij; zie [playbooks/audit.md](../playbooks/audit.md)). Keuze Uitvoer vs Nieuw expliciet als beide open mogen.
+5. Klantrapport volgens [templates/rapport-klant.md](../templates/rapport-klant.md). Verplicht: **Markt & concurrenten** (kolom Actie: elke gap → `#n` of `Geen actie: …`) + **Zoektermen** (bewijs-label per rij). Werklijst 1:1 met rapport; concurrentie-gaps zonder actie zijn niet af. Keuze Uitvoer vs Nieuw expliciet als beide open mogen.
 6. Werklijst + **één packet** `taken/T-<n>.md` per code=ja-rij. Zonder huidige/gewenste staat is de rij geen Uitvoer-taak.
 7. Print HTML/PDF.
 8. Schrijf `next.md`: `volgende_rol: Toetser` (Toets 1). Stop. Parent start de Toetser-run.

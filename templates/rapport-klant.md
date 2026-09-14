@@ -49,11 +49,11 @@ Geen herhaling van cijfers of techniek hier — die staan één keer onder Bevin
 {{KORT_WIE_VERGELIJKEN_GEEN_CRAWL_DUMP}}
 :::
 
-| Speler | Rol | Waar zij sterk zijn t.o.v. jullie | Label |
-| --- | --- | --- | --- |
-| {{NAAM}} | {{ROL}} | {{STERKTE}} | gemeten / afgeleid / onbekend |
+| Speler | Rol | Gap t.o.v. jullie | Label | Actie |
+| --- | --- | --- | --- | --- |
+| {{NAAM}} | {{ROL}} | {{GAP}} | gemeten / afgeleid / onbekend | #n — korte actienaam **of** Geen actie: … |
 
-Geen posities of verkeercijfers zonder Search Console — zie zoektermen hieronder.
+Elke gap staat op de werklijst (zelfde #, Wat, Klaar als) of heeft een reden waarom niet. Geen posities zonder Search Console.
 
 ---
 

@@ -14,7 +14,7 @@ Camperstaan is al een echte plekkengids: honderden plekpagina's, stadspagina's e
 
 :::kpi
 3|Prioriteiten|deze maand
-6|Acties|90 dagen
+7|Acties|90 dagen
 577|Pagina's|in overzicht
 4|Urgent|bevindingen
 :::
@@ -68,20 +68,18 @@ Openbare pagina's, technische koppen, robots-bestand, pagina-overzicht voor Goog
 ## Markt & concurrenten
 
 :::section-intro
-Wie concurreert op dezelfde zoekintentie als Camperstaan — steekproef 13 september plus marktcontext uit eerdere vergelijkingen. Geen volledige crawl van alle 577 pagina's.
+Wie concurreert op dezelfde zoekintentie — steekproef 13 september plus marktcontext. Elke gap hieronder staat op de werklijst of heeft een reden waarom niet.
 :::
 
-| Speler | Rol | Waar zij sterk zijn t.o.v. jullie | Label |
-| --- | --- | --- | --- |
-| Campercontact | Community-gids en app | Reviews en merk; wint op "camperplaats Kampen" | afgeleid |
-| ANWB | Routes en camperinformatie | Merkvertrouwen; landelijke dekking | afgeleid |
-| KampeerHub | Thema-gids (water, gratis) | Themapagina's en SEO-breedte | afgeleid |
-| Gemeente / bron | Officiële plekinfo | Autoriteit per plek; staat bovenaan bij plaats-zoek | gemeten |
-| Visit / toerisme | Stad- of regiomarketing | Lokale vindbaarheid (bijv. Kampen) | gemeten |
-| Park4Night | Internationale community-app | Buitenland en crowd-data | gemeten |
-| Camperstaan | Jullie gids | 577 plekken, bronlinks, provincie-structuur | gemeten |
-
-Geen posities of verkeercijfers zonder Search Console — zie zoektermen hieronder.
+| Speler | Rol | Gap t.o.v. jullie | Label | Actie |
+| --- | --- | --- | --- | --- |
+| Campercontact | Community-gids en app | Reviews en merk; wint op "camperplaats Kampen" | afgeleid | #2 — plekpagina gast-eerst |
+| ANWB | Routes en camperinformatie | Merkvertrouwen; landelijke dekking | afgeleid | Geen actie: routes/merkbudget buiten scope; eerst #2 en #6 |
+| KampeerHub | Thema-gids (water, gratis) | Themapagina's op water en gratis | afgeleid | #7 — thema-overzichten water + gratis |
+| Gemeente / bron | Officiële plekinfo | Autoriteit per plek; bovenaan bij plaats-zoek | gemeten | #2 — plekpagina gast-eerst |
+| Visit / toerisme | Stad- of regiomarketing | Lokale vindbaarheid (bijv. Kampen) | gemeten | #2 — plekpagina gast-eerst |
+| Park4Night | Internationale community-app | Buitenland zichtbaar; crowd/reviews | gemeten | #1 — NL-telling; geen actie op reviews/app |
+| Camperstaan | Jullie gids | — | gemeten | Geen actie: structuur en bronlinks behouden |
 
 ---
 
@@ -166,6 +164,16 @@ De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "c
 **Voorstel:** intern versterken (tekst, links) en steekproef herhalen — gedeeld jullie en wij.
 :::
 
+:::finding p2
+### 7. KampeerHub wint op themazoek — jullie hebben nog geen thema-overzichten
+
+Concurrent KampeerHub rankt met pagina's over water en gratis camperplaatsen. Camperstaan heeft provincie- en plekpagina's, maar geen vergelijkbare thema-landings.
+
+**Gevolg:** zoekers met een thema-intentie (gratis, aan het water) vinden KampeerHub eerder dan jullie overzicht.
+
+**Voorstel:** twee thema-overzichten (water + gratis) met echte plekken uit jullie database — geen lege SEO-pagina's. Zie werklijst #7.
+:::
+
 ---
 
 ## Beslissingen die we van jullie nodig hebben
@@ -213,6 +221,7 @@ Zie `werklijst.md` in deze run. Zelfde lijst, geen tweede waarheid.
 | 4 | Cache public + /plaatsen verlichten | wij | public cache listing; /plaatsen paginering |
 | 5 | JSON-LD geo + priceRange + amenities | wij | Rich Results Test |
 | 6 | Hub Drenthe intern versterken | gedeeld | steekproef herhalen |
+| 7 | Thema-overzichten water + gratis | gedeeld | /thema/water en /thema/gratis in sitemap; elk min. 3 interne links |
 
 **Buiten scope deze ronde:** linkdisavow, Google-bedrijfsprofiel, live deploy, mail naar eigenaren, %-trafficbelofte.
 
@@ -243,6 +252,7 @@ Nog niet bekend|Open|Search Console per paginatype, inkomende links, claim-conve
 | F-008 | AI categorie gap | steekproef | afgeleid |
 | F-009 | Concurrenten Kampen/Drenthe | zoeksteekproef 13 sep | gemeten |
 | F-010 | ANWB/KampeerHub marktcontext | vergelijkingsdossier, geen eigen steekproef | afgeleid |
+| F-011 | KampeerHub thema-gap | markttabel + vergelijkingsdossier | afgeleid |
 
 ## Bijlage B — Afgewezen automatische tips
 
