@@ -34,6 +34,7 @@ Naast [playbooks/toets.md](../playbooks/toets.md):
 - [ ] Herstel is getoond of als n.v.t. met reden
 - [ ] Locked acties nog geblokkeerd
 - [ ] Atelier: drie huiden, zelfde feiten, banner+noindex, nav klikbaar
+- [ ] Atelier: huid-pagina’s zonder interne labels (mal, specimen, dossier, hubbesluit, «Niet verzonnen», variant in `<title>`); `/redactie/` `/gids/` `/compact/` = 200
 
 ## Toets 3 (nameting)
 

@@ -104,12 +104,25 @@ function main() {
     assert(chooser.includes('data-atelier-scene="0"'));
     assert(chooser.includes("data-typewriter"));
     assert(!/webgl|three\.js|react-three/i.test(redactie + gids + compact));
+    const forbidden =
+      /specimen|dossier|hubbesluit|Niet verzonnen|De mal |Provincie-hub|Hoort hier te landen|— redactie|— gids|— compact/;
     for (const file of htmlFiles) {
       const html = fs.readFileSync(file, "utf8");
       assert(html.includes("noindex"), `${file} mist noindex`);
       assert(html.includes("niet live"), `${file} mist preview-banner`);
       assert(!/tel:/i.test(html), `${file} bevat tel:`);
       assert(!/akkoord/.test(html), `${file} bevat toets-akkoord`);
+      const isChooser = path.basename(path.dirname(file)) === "preview" && path.basename(file) === "index.html";
+      if (!isChooser) {
+        assert(!forbidden.test(html), `interne copy in ${file}`);
+        assert(!/<title>[^<]*— (redactie|gids|compact)/.test(html), `variant in title: ${file}`);
+      }
+    }
+
+    const { resolvePreviewPath } = require("./atelier-serve");
+    for (const dir of ["redactie", "gids", "compact"]) {
+      const hit = resolvePreviewPath(out, `/${dir}/`);
+      assert(hit.file && hit.file.endsWith(`${path.sep}index.html`), `/${dir}/ moet index.html zijn`);
     }
   } finally {
     fs.rmSync(runDir, { recursive: true, force: true });

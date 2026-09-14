@@ -13,17 +13,27 @@ function fail(message) {
   process.exit(1);
 }
 
-const runId = process.argv[2];
-if (!runId) fail("gebruik: node scripts/atelier-serve.js <run-id>");
-
-const build = spawnSync(process.execPath, [path.join(__dirname, "atelier-build.js"), runId], {
-  stdio: "inherit",
-});
-if (build.status !== 0) process.exit(build.status || 1);
-
-const previewRoot = path.join(ROOT, "runs", runId, "atelier", "preview");
-const port = Number(process.env.ATELIER_PORT || 4173);
-const host = process.env.ATELIER_HOST || "127.0.0.1";
+function resolvePreviewPath(previewRoot, pathname) {
+  let rel = decodeURIComponent(pathname || "/");
+  if (!rel.startsWith("/")) rel = `/${rel}`;
+  if (rel.endsWith("/")) rel += "index.html";
+  const root = path.resolve(previewRoot);
+  const file = path.resolve(path.join(root, rel));
+  if (file !== root && !file.startsWith(`${root}${path.sep}`)) {
+    return { error: 403 };
+  }
+  try {
+    const st = fs.statSync(file);
+    if (st.isDirectory()) {
+      const index = path.join(file, "index.html");
+      if (fs.existsSync(index)) return { file: index };
+      return { error: 404 };
+    }
+    return { file };
+  } catch (_) {
+    return { error: 404 };
+  }
+}
 
 const types = {
   ".html": "text/html; charset=utf-8",
@@ -40,26 +50,43 @@ function send(res, status, body, type) {
   res.end(body);
 }
 
-const server = http.createServer((req, res) => {
-  const url = new URL(req.url, `http://${host}:${port}`);
-  let rel = decodeURIComponent(url.pathname);
-  if (rel === "/") rel = "/index.html";
-  const file = path.normalize(path.join(previewRoot, rel));
-  if (!file.startsWith(previewRoot)) {
-    send(res, 403, "forbidden");
-    return;
-  }
-  fs.readFile(file, (err, data) => {
-    if (err) {
-      send(res, 404, "niet gevonden");
+function startServer(previewRoot, host, port) {
+  const server = http.createServer((req, res) => {
+    const url = new URL(req.url, `http://${host}:${port}`);
+    const resolved = resolvePreviewPath(previewRoot, url.pathname);
+    if (resolved.error) {
+      send(res, resolved.error, resolved.error === 403 ? "forbidden" : "niet gevonden");
       return;
     }
-    const type = types[path.extname(file)] || "application/octet-stream";
-    send(res, 200, data, type);
+    fs.readFile(resolved.file, (err, data) => {
+      if (err) {
+        send(res, 404, "niet gevonden");
+        return;
+      }
+      const type = types[path.extname(resolved.file)] || "application/octet-stream";
+      send(res, 200, data, type);
+    });
   });
-});
+  return server;
+}
 
-server.listen(port, host, () => {
-  console.log(`atelier-preview: http://${host}:${port}/`);
-  console.log("niet publiceren — lokale preview");
-});
+module.exports = { resolvePreviewPath, startServer };
+
+if (require.main === module) {
+  const runId = process.argv[2];
+  if (!runId) fail("gebruik: node scripts/atelier-serve.js <run-id>");
+
+  const build = spawnSync(process.execPath, [path.join(__dirname, "atelier-build.js"), runId], {
+    stdio: "inherit",
+  });
+  if (build.status !== 0) process.exit(build.status || 1);
+
+  const previewRoot = path.join(ROOT, "runs", runId, "atelier", "preview");
+  const port = Number(process.env.ATELIER_PORT || 4173);
+  const host = process.env.ATELIER_HOST || "127.0.0.1";
+  const server = startServer(previewRoot, host, port);
+  server.listen(port, host, () => {
+    console.log(`atelier-preview: http://${host}:${port}/`);
+    console.log("niet publiceren — lokale preview");
+  });
+}

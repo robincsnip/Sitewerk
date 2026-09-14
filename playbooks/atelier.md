@@ -39,7 +39,7 @@ Hard (website-craft): één primary style, max één accent; content → static 
 | `gids` | keuken | Obys (type/grid) | Rail + typografische index — geen kaarten, geen zoek-UI |
 | `compact` | allday | Build in Amsterdam | Stroken + één CTA; geen WebGL; geen `tel:` zonder dossier |
 
-Chooser = scène 0 (Gavelia: atelier, typewriter). Geen R3F/WebGL (Biolune blijft referentie, niet dit spoor). Tap-to-call alleen als het dossier een telefoon heeft (Garage Tanis). Craft-skill `website-craft` leeft op de Mac mini-vault, niet in deze VM — niet kopiëren, geen nieuwe skill tot ≥3 echte herhalingen + test.
+Chooser = scène 0 (Gavelia: atelier, typewriter). Lab-copy mag op de chooser. **Klant-UI van de drie huiden:** geen mal, specimen, dossier, hubbesluit, «Niet verzonnen», audit-filtercopy, variantnamen in `<title>`. Enige interne merkteken op die pagina’s: de preview-banner. Preview-server: `/redactie/`, `/gids/`, `/compact/` (trailing slash) = 200.
 
 ## Flow
 
@@ -84,3 +84,7 @@ Mac mini, niet Notion. Harvest in de project-store (`docs/atelier-voorbeelden.md
 - Camperstaan-repo: product-UI, niet nabootsen als Sitewerk Papier
 - Makers (Immersive Garden, Obys, Lusion, Build in Amsterdam): craft-lat, geen kopie
 - TypeUI MCP / betaald design-MCP: **niet**. Robin: website-craft + Floryn-skins + gratis HTML.
+
+## Amend — Toets 2 afkeur (sep 2026)
+
+Afkeurzin: interne atelier-/audit-taal uit de drie huiden; `/redactie/`, `/gids/`, `/compact/` als directory-index (200). Chooser mag lab-copy. Geen skill; herhaling_count 1.

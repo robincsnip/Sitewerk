@@ -111,8 +111,8 @@ function redactieChrome(facts, current, inner) {
 </header>
 <main id="inhoud">${inner}</main>
 <footer class="colophon">
-  <p>${escapeHtml(n)} · ${escapeHtml(facts.domain)} · peildatum ${escapeHtml(facts.peildatum)}</p>
-  <p><a href="${href("contact")}">Contact</a> · adres, telefoon en uren: onbekend in dit dossier</p>
+  <p>${escapeHtml(n)} · ${escapeHtml(facts.domain)}</p>
+  <p><a href="${href("contact")}">Contact</a></p>
 </footer>`;
 }
 
@@ -149,7 +149,7 @@ function compactChrome(facts, current, inner, options = {}) {
 </header>
 ${inner}
 ${withEnd ? `<footer class="endbar">
-  <span>${escapeHtml(n)} · preview, niet live</span>
+  <span>${escapeHtml(n)}</span>
   <a href="${href("over")}">Over</a>
 </footer>` : ""}`;
 }
@@ -158,8 +158,16 @@ function servicesList(facts) {
   return `<ul>${facts.services.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>`;
 }
 
-function unknownNote() {
-  return `<p class="meta-unknown">Adres, telefoon, openingstijden en een Google-bedrijfsprofiel staan niet in het dossier. Niet verzonnen.</p>`;
+function pageTitle(facts, page) {
+  const drenthe = facts.hubs.find((h) => h.slug === "drenthe");
+  const place = facts.specimen_place;
+  if (page === "index") return facts.name;
+  if (page === "plaatsen") return `Plekken · ${facts.name}`;
+  if (page === "provincie-drenthe") return `${drenthe.name} · ${facts.name}`;
+  if (page === "plek-kampen") return `${place.listing} · ${facts.name}`;
+  if (page === "over") return `Over · ${facts.name}`;
+  if (page === "contact") return `Contact · ${facts.name}`;
+  return facts.name;
 }
 
 function pageBodies(facts) {
@@ -175,7 +183,7 @@ function pageBodies(facts) {
 <p class="lead typewriter" data-typewriter="${escapeHtml(String(facts.listings_nl))} plekken in Nederland, ${escapeHtml(String(facts.province_hubs))} provincie-overzichten, stadspagina’s en plekpagina’s met een bronlink."></p>
 <p class="only-cta"><a class="cta" href="${href("provincie-drenthe")}">Open de gids</a></p>
 <div class="drop">
-  <p>${escapeHtml(facts.name)} is een overzicht van camperplaatsen. Deze preview volgt de hubs uit het dossier: Nederlandse plekken, provinciepagina als overzicht, plekpagina eerst voor de reiziger. Geen vervanging van de live site.</p>
+  <p>${escapeHtml(facts.name)} is een overzicht van camperplaatsen in Nederland: plekken, steden en provincies, met een bronlink per plek.</p>
 </div>
 <blockquote class="pull">${escapeHtml(drenthe.name)}: ${escapeHtml(String(drenthe.count))} plekken in het overzicht.</blockquote>
 <ol class="toc">
@@ -186,43 +194,38 @@ function pageBodies(facts) {
       plaatsen: `
 <p class="crumb"><a href="${href("index")}">Home</a> / Plekken</p>
 <h1>Plekken in Nederland</h1>
-<p>${escapeHtml(facts.listings_nl)} unieke plekpagina’s in het Nederlandse overzicht (gemeten op ${escapeHtml(facts.peildatum)}). Belgische en Duitse plekken horen niet in dit overzicht tot er landpagina’s zijn.</p>
+<p>${escapeHtml(facts.listings_nl)} plekken in het Nederlandse overzicht. Belgische en Duitse plekken horen niet in dit overzicht tot er landpagina’s zijn.</p>
 <ul class="toc">
   <li><a href="${href("plek-kampen")}">${escapeHtml(place.listing)}</a><span>${escapeHtml(place.city)}, ${escapeHtml(place.province)}</span></li>
-</ul>
-<p>Deze preview toont één specimen-plek. De mal somt niet alle ${escapeHtml(String(facts.listings_nl))} kaarten na.</p>`,
+</ul>`,
       "provincie-drenthe": `
 <p class="crumb"><a href="${href("index")}">Gids</a> / ${escapeHtml(drenthe.name)}</p>
 <h1>Camperplaatsen in ${escapeHtml(drenthe.name)}</h1>
 <p class="lead">${escapeHtml(String(drenthe.count))} plekken in dit provincie-overzicht.</p>
-<p>Wie ${escapeHtml(drenthe.name)} zoekt, landt op deze pagina — niet op een algemene zoekpagina. Dat is het hubbesluit uit het dossier.</p>
+<p>Wie ${escapeHtml(drenthe.name)} zoekt, komt op deze provinciepagina — niet op een algemene zoekpagina.</p>
 <p><a href="${href("plaatsen")}">Naar het Nederlandse overzicht</a></p>`,
       "plek-kampen": `
 <p class="crumb"><a href="${href("plaatsen")}">Plekken</a> / <a href="${href("index")}">${escapeHtml(place.province)}</a> / ${escapeHtml(place.city)}</p>
 <h1>${escapeHtml(place.listing)}</h1>
 <p class="lead">${escapeHtml(place.city)}, ${escapeHtml(place.province)}.</p>
 <div class="drop">
-  <p>Op de live plekpagina staan een korte tekst, voorzieningen, een OpenStreetMap-kaart en een bronlink naar gemeente of eigenaar. Die cijfers en de kaartcoördinaten zijn hier niet overgenomen. Onder de reizigersinformatie volgt het claimen van de plek.</p>
+  <p>Voorzieningen, OpenStreetMap-kaart en een bronlink naar gemeente of eigenaar. Daarna kun je de plek claimen.</p>
 </div>
-<p>Claimen: «${escapeHtml(place.claim_label)}» (${escapeHtml(place.claim_price)} op de live pagina). In deze opzet staat dat onder de plekfeiten.</p>`,
+<p>Claimen: «${escapeHtml(place.claim_label)}» (${escapeHtml(place.claim_price)}). Dat staat onder de plekfeiten.</p>`,
       over: `
 <p class="kicker">Colofon</p>
 <h1>Over ${escapeHtml(facts.name)}</h1>
-<p>${escapeHtml(facts.name)} (${escapeHtml(facts.domain)}) is een gids met plek-, stad- en provinciepagina’s. Bekende diensten:</p>
-${servicesList(facts)}
-<p>Deze pagina’s bestaan in het dossier: home, plaatsen, over, contact, privacy, voorwaarden. Inloggen, betalen en dashboard blijven buiten deze preview.</p>
-${unknownNote()}`,
+<p>${escapeHtml(facts.name)} (${escapeHtml(facts.domain)}) is een gids met plek-, stad- en provinciepagina’s. Diensten:</p>
+${servicesList(facts)}`,
       contact: `
 <p class="kicker">Contact</p>
 <h1>Contact</h1>
-<p>Er is een contactpagina op ${escapeHtml(facts.domain)}. Telefoon, bezoekadres en uren staan niet in het dossier.</p>
-${unknownNote()}
-<p>Geen formulier met verzonnen velden. Geen mail vanuit deze preview.</p>`,
+<p>Telefoon en bezoekadres staan niet op deze pagina.</p>`,
     },
     gids: {
       index: `
 <h1>Camperplaatsen in Nederland</h1>
-<p>${escapeHtml(String(facts.listings_nl))} plekken · ${escapeHtml(String(facts.province_hubs))} provincie-overzichten. Geen zoekfilter: de provincie is de ingang.</p>
+<p>${escapeHtml(String(facts.listings_nl))} plekken · ${escapeHtml(String(facts.province_hubs))} provincie-overzichten. Kies een provincie.</p>
 <ul class="hubs">
   <li><a href="${href("provincie-drenthe")}"><span class="nr">01</span><strong>${escapeHtml(drenthe.name)}</strong><span>${escapeHtml(String(drenthe.count))}</span></a></li>
   <li><a href="${href("plek-kampen")}"><span class="nr">02</span><strong>${escapeHtml(overijssel.name)}</strong><span>${escapeHtml(place.city)}</span></a></li>
@@ -236,11 +239,9 @@ ${unknownNote()}
 </ul>`,
       "provincie-drenthe": `
 <h1>${escapeHtml(drenthe.name)}</h1>
-<p>Overzichtspagina voor de provincie. ${escapeHtml(String(drenthe.count))} plekken gemeten op ${escapeHtml(facts.peildatum)}.</p>
+<p>${escapeHtml(String(drenthe.count))} plekken in ${escapeHtml(drenthe.name)}.</p>
 <dl class="facts">
-  <dt>Type</dt><dd>Provincie-hub</dd>
   <dt>Plekken</dt><dd>${escapeHtml(String(drenthe.count))}</dd>
-  <dt>Filter</dt><dd>Hoort hier te landen, niet op /plaatsen</dd>
 </dl>
 <p><a href="${href("plaatsen")}">Terug naar alle plekken</a></p>`,
       "plek-kampen": `
@@ -248,20 +249,16 @@ ${unknownNote()}
 <dl class="facts">
   <dt>Plaats</dt><dd>${escapeHtml(place.city)}</dd>
   <dt>Provincie</dt><dd>${escapeHtml(place.province)}</dd>
-  <dt>Bron</dt><dd>Link naar gemeente of eigenaar (live pagina)</dd>
-  <dt>Kaart</dt><dd>OpenStreetMap op de live plekpagina; coördinaten niet overgenomen</dd>
-  <dt>Claim</dt><dd>${escapeHtml(place.claim_label)} · ${escapeHtml(place.claim_price)} — onder de reizigersinfo</dd>
-</dl>
-<p>Prijs voor overnachten en voorzieningen-chips staan in de live copy; geen cijfer hier zonder dossierregel.</p>`,
+  <dt>Bron</dt><dd>Gemeente of eigenaar</dd>
+  <dt>Kaart</dt><dd>OpenStreetMap</dd>
+  <dt>Claim</dt><dd>${escapeHtml(place.claim_label)} · ${escapeHtml(place.claim_price)}</dd>
+</dl>`,
       over: `
 <h1>Over ${escapeHtml(facts.name)}</h1>
-${servicesList(facts)}
-<p>Pagina’s in het dossier: ${facts.pages_known.map(escapeHtml).join(", ")}.</p>
-${unknownNote()}`,
+${servicesList(facts)}`,
       contact: `
 <h1>Contact</h1>
-<p>Contactpagina bestaat op ${escapeHtml(facts.domain)}.</p>
-${unknownNote()}`,
+<p>Telefoon en bezoekadres staan niet op deze pagina.</p>`,
     },
     compact: {
       index: `
@@ -280,32 +277,30 @@ ${unknownNote()}`,
       plaatsen: `
 <main class="narrow" id="inhoud">
   <h1>Plekken</h1>
-  <p>${escapeHtml(facts.listings_nl)} plekken in Nederland. Specimen:</p>
+  <p>${escapeHtml(facts.listings_nl)} plekken in Nederland.</p>
   <p><a href="${href("plek-kampen")}">${escapeHtml(place.listing)}</a> — ${escapeHtml(place.city)}, ${escapeHtml(place.province)}</p>
 </main>`,
       "provincie-drenthe": `
 <main class="narrow" id="inhoud">
   <h1>${escapeHtml(drenthe.name)}</h1>
-  <p>${escapeHtml(String(drenthe.count))} plekken in dit overzicht. Dit is de provincie-hub.</p>
+  <p>${escapeHtml(String(drenthe.count))} plekken in dit overzicht.</p>
 </main>`,
       "plek-kampen": `
 <main class="narrow" id="inhoud">
   <h1>${escapeHtml(place.listing)}</h1>
   <p>${escapeHtml(place.city)} · ${escapeHtml(place.province)}</p>
-  <p>Reiziger eerst: plekfeiten en bron, daarna claim «${escapeHtml(place.claim_label)}».</p>
-  <p><a class="cta" href="${href("plaatsen")}">Meer plekken</a></p>
+  <p>Voorzieningen en bron, daarna claim «${escapeHtml(place.claim_label)}» (${escapeHtml(place.claim_price)}).</p>
+  <p><a href="${href("plaatsen")}">Meer plekken</a></p>
 </main>`,
       over: `
 <main class="narrow" id="inhoud">
   <h1>Over</h1>
   ${servicesList(facts)}
-  ${unknownNote()}
 </main>`,
       contact: `
 <main class="narrow" id="inhoud">
   <h1>Contact</h1>
-  <p>Geen telefoon of adres in het dossier. Geen mail vanuit deze preview.</p>
-  ${unknownNote()}
+  <p>Telefoon en bezoekadres staan niet op deze pagina.</p>
 </main>`,
     },
   };
@@ -339,9 +334,9 @@ ${banner(facts)}
   <h1>${escapeHtml(facts.name)}</h1>
   <p class="lead typewriter" data-typewriter="${escapeHtml(line)}"></p>
   <div class="variants">
-    <a href="redactie/index.html"><strong>Redactie</strong><span>Huid terras — magazine, typewriter, één CTA de gids in.</span></a>
-    <a href="gids/index.html"><strong>Gids</strong><span>Huid keuken — type/grid, geen kaarten.</span></a>
-    <a href="compact/index.html"><strong>Compact</strong><span>Huid allday — één CTA, geen WebGL, geen verzonnen belknop.</span></a>
+    <a href="redactie/"><strong>Redactie</strong><span>Huid terras — magazine, typewriter, één CTA de gids in.</span></a>
+    <a href="gids/"><strong>Gids</strong><span>Huid keuken — type/grid, geen kaarten.</span></a>
+    <a href="compact/"><strong>Compact</strong><span>Huid allday — één CTA, geen WebGL, geen verzonnen belknop.</span></a>
   </div>
   <p class="note">Papier-tokens. Geen publicatie, geen mail. Bron: ${escapeHtml(facts.bron)} · ${escapeHtml(facts.peildatum)}. <code>npm run atelier:preview -- ${escapeHtml(facts.run_id || "")}</code></p>
 </main>
@@ -378,7 +373,7 @@ function writePreview(runId, facts) {
     for (const page of PAGES) {
       const inner = bodies[variant][page];
       if (!inner) fail(`geen body voor ${variant}/${page}`);
-      const title = `${facts.name} — ${variant}`;
+      const title = pageTitle(facts, page);
       const html = documentShell({
         facts,
         variant,
@@ -403,7 +398,7 @@ function main() {
   console.log(`atelier-build: ${out}`);
 }
 
-module.exports = { VARIANTS, SKINS, PAGES, loadFacts, writePreview };
+module.exports = { VARIANTS, SKINS, PAGES, loadFacts, writePreview, pageTitle };
 
 if (require.main === module) {
   main();

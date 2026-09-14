@@ -45,6 +45,7 @@ Atelier (lab of klant):
 - [ ] Banner + `noindex`; geen live/mail
 - [ ] Geen `tel:` of GBP zonder dossier
 - [ ] Nav klikbaar (niet alleen screenshot)
+- [ ] Huid-pagina’s zonder interne labels; `/redactie/` `/gids/` `/compact/` = 200
 
 ## Checklist Toets 3 (nameting)
 
