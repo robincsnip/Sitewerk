@@ -2,16 +2,16 @@
 
 toets: 1  
 oordeel: akkoord  
-toetser_run: bc-9f3f8324-eb8a-5a48-b13d-697977b61f0f  
-bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, paginering ad362f6)
+toetser_run: bc-7b99c357-fbe4-548d-a1eb-14297ea74f2f  
+bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, pagination gate 248feaf)
 
 ## her-run
 
-Toets 1 her-run na paginering-fix (ad362f6): report-section chapter breaks, break-inside avoid op kaarten/tabellen, koppen gekoppeld aan volgend blok. Bouwt voort op Papier-akkoord (9dea00d) en eerdere klanttaal-/print-runs.
+Toets 1 her-run na pagination pre-check in `audit:finish` (commit 248feaf) en print-break fix (ad362f6). Bouwt voort op Papier-akkoord (9dea00d) en eerdere klanttaal-/werklijst-herstel.
 
 ## wat_goed
 
-- **Paginering:** PDF 11 pag.; Bevindingen/Beslissingen/Werklijst/Bijlagen starten bovenaan pagina; geen finding-titel over pagina gesplitst; P0-kaart met mini-KPI intact op p.5.
+- **Pagination gate:** `npm run audit:finish` + `check-pagination.js` geslaagd — 11 pag., 0 split failures.
 - **Huisstijl C:** cover KPI 3/6/577/4; Libre Baskerville/Literata/Franklin; Papier-palet; geen interne termen op cover.
 - **Single-telling:** cijfers 306/293/13 alleen in mini-KPI binnen bevinding 1.
 - **Print = bron:** HTML/PDF volgen `rapport-klant.md`; geen tweede waarheid.
