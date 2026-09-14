@@ -2,26 +2,26 @@
 
 toets: 1  
 oordeel: akkoord  
-toetser_run: bc-a986d721-edbc-56ba-afd6-48fd1e81bc41  
-bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8)
+toetser_run: bc-c13ba213-019d-542a-b377-647acb0f5e7b  
+bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, grafische print 2f4d3ae)
 
 ## her-run
 
-Klanttaal-rewrite op PR #8. Naslag-lesson (werklijst 1:1 + packets) blijft gehaald.
+Her-run Toets 1 na grafische print-laag (KPI-kaarten, severity-badges, dashboard-layout). Eerdere akkoord op klanttaal-tekst (700e3b3); deze run controleert visuele laag + sync.
 
 ## wat_goed
 
-- **Klanttaal:** bevindingen en prioriteiten in gewone taal; vaktermen vertaald (pagina-overzicht, hoofdadres, tussen opslaan, gestructureerde data).
-- **Single-telling:** 306/293/1,41 MB alleen in bevindingen; “In het kort” en top-3 zonder herhaalde metingen.
-- **Werklijst-sync:** rijen 1–6 identiek aan `werklijst.md` (#, Wat, Wie, Klaar als).
+- **Grafische print:** KPI-rij, prio-cards, good-grid, finding-cards met P0/P1/P2-badges, decision-cards en measure-cards; cover Sitewerk + klant + datum; PDF gegenereerd.
+- **Single-telling:** cijfers 306/293/13 verplaatst naar mini-KPI binnen bevinding 1; lead en KPI-rij zonder herhaalde metingen.
+- **Print = bron:** HTML/PDF volgen `rapport-klant.md`; geen tweede waarheid door visuele samenvatting.
+- **Werklijst-sync:** rijen 1–6 identiek aan `werklijst.md` (naslag-lesson gehaald).
 - **Packets:** T-1 t/m T-5 compleet voor code=ja.
-- **Print:** HTML/PDF volgen `rapport-klant.md`; cover + leesbare structuur; geen tweede waarheid.
 - **Playbook:** mix.md-conflicten, diepte, Bijlage B, geen GBP-theater, geen AI-frasen, geen %-belofte.
 
 ## kleine_aandacht (geen afkeur)
 
-- Werklijst-tabel en Bijlage A houden bewuste technische labels (sync met `werklijst.md` / bewijs-IDs).
-- Bevinding 6 noemt nog “Drenthe-hub” — context maakt het leesbaar; overweeg “overzichtspagina” bij volgende redactie.
+- Bevinding 6 en Bijlage A gebruiken nog "hub"/"SERP" — acceptabel in bewijscontext; overweeg "overzichtspagina" bij volgende redactie.
+- Werklijst-kolom "Wat" houdt bewust technische labels (sync met `werklijst.md`).
 
 ## regel_kandidaat
 
@@ -33,7 +33,7 @@ Klanttaal-rewrite op PR #8. Naslag-lesson (werklijst 1:1 + packets) blijft gehaa
 
 ## tag
 
-klanttaal
+grafische-print
 
 ## eigenaar_initialen
 
