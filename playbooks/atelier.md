@@ -20,3 +20,13 @@ Gelijkwaardig aanbod naast Uitvoer, geen bijlage achter de audit.
 ## In klantrapport
 
 Atelier als **keuze** (Uitvoer vs Nieuw), niet als losse marketingzin. Weglaten als redesign-gate dicht is.
+
+## Amend — Functies → Stijl → Skills (sep 2026)
+
+Volgorde is **verplicht**. Niet omdraaien. Catalogus (geen Sitewerk-skill): project-store `docs/atelier-skill-stack.md`. Geen TypeUI. Geen nieuwe Sitewerk-skill tot ≥3 echte herhalingen + test.
+
+1. **Functies eerst** — onderzoek wat de bezoeker moet kunnen, vóór stijl en vóór skill-keuze. Type: directory | local-service | brand | brochure. Jobs uit dossier (zoeken/vinden, claim, NAP/`tel:`, diensten, contact). Geen verzinsels. Schrijf type + jobs in `atelier/design-brief.md`.
+2. **Dan stijl bij onderwerp** — één primary style, max één accent (`website-craft`). Stijl volgt het type (directory = ledger + zoek; local-service = NAP-first; brand = full-bleed; brochure = rustig).
+3. **Dan skills kiezen** — pas ná 1+2. Craft, shadcn of HyperUI mogen de job niet schrappen.
+
+**Huid mag de job niet weghalen** — ook niet om card-soup of website-craft te volgen. Directory: zoeken/vinden is niet optioneel. Eén sterke huid eerst; varianten houden dezelfde jobs. (Camperstaan-lab occurrence 1; geen herbouw.)
