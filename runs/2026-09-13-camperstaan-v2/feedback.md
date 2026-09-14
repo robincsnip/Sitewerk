@@ -2,29 +2,29 @@
 
 toets: 1  
 oordeel: akkoord  
-toetser_run: bc-0013d2b0-0f0e-562d-a862-a893c0365dea  
-bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, layout-flow 0614d00)
+toetser_run: bc-2e8f1650-852f-511c-943c-ce39fcfc2d6e  
+bouwer_run: cursor/klanttaal-camperstaan-2ee8 (PR #8, bijlagen-achteraan b280d55)
 
 ## her-run
 
-Toets 1 her-run na layout-tweaks: Beslissingen niet meer op eigen pagina; Bijlage A+B starten op dezelfde pagina; vinkjes verwijderd uit “Wat al goed staat”. Bouwt voort op pagination gate (248feaf) en Papier-akkoord.
+Toets 1 her-run na verplaatsing Bijlage A/B naar einde PDF (commit b280d55). Bouwt voort op klanttaal + layout-flow (PR #8).
 
 ## wat_goed
 
-- **Layout-flow:** Beslissingen deelt p6 met einde bevindingen + werklijst; geen geforceerde chapter-break meer op Beslissingen/bijlagen.
-- **Bijlagen:** Bijlage A en B beide op p7; laatste rij B loopt door naar p8 (tabeloverflow, geen geforceerde sectie-einde).
-- **Good-grid:** Geen `good-icon`/vinkjes; platte tekstitems.
-- **Pagination gate:** `check-pagination.js` OK — 8 pag., 0 split failures.
+- **Bijlagen achteraan:** hoofdtekst eindigt met “Hoe we weten of het werkt” (p7); Bijlage A + B op p8 met page-break vóór eerste bijlage.
+- **Paginatie-gate:** `check-pagination.js` OK — 8 pag.; 0 split failures.
 - **Single-telling:** cijfers 306/293/13 alleen in mini-KPI binnen bevinding 1.
 - **Werklijst-sync:** rijen 1–6 identiek aan `werklijst.md` (naslag-lesson gehaald).
 - **Packets:** T-1 t/m T-5 compleet voor code=ja.
-- **Playbook:** mix.md-conflicten, diepte, Bijlage B, geen GBP-theater, geen AI-frasen, geen %-belofte.
+- **Klanttaal:** bevindingen in gewone taal; scope-tabel vertaald; geen denylist.
+- **Playbook:** mix.md-conflicten, diepte, Bijlage B, geen GBP-theater, geen %-belofte.
+- **Fictieve runs:** 30d/90d apart en gelabeld fictief — niet als live resultaat behandeld.
 
 ## kleine_aandacht (geen afkeur)
 
-- Callout p.2 noemt nog "Toets" (interne pipeline-term); cover is schoon.
+- Callout p.2 noemt nog “Toets” (interne pipeline-term); cover is schoon.
 - Werklijst-sectie in print verwijst naar `werklijst.md` — intern pad.
-- Good-grid loopt van p.2 naar p.3 tussen items (geen item-split); acceptabel.
+- Werklijst-tabel en Bijlage A behouden technische labels (sitemap, JSON-LD) — sync met `werklijst.md` gaat voor klanttaal-vertaling.
 
 ## regel_kandidaat
 
@@ -36,7 +36,6 @@ Toets 1 her-run na layout-tweaks: Beslissingen niet meer op eigen pagina; Bijlag
 
 ## tag
 
-layout-flow-papier
+bijlagen-achteraan
 
 ## eigenaar_initialen
-
