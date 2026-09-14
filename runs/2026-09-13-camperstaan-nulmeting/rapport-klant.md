@@ -24,7 +24,21 @@ De **nulmeting** legt vast waar we later verandering meten: Search Console (hier
 ## Search Console — nulmeting (fictief / voorbeeld)
 
 :::callout-fictief
-**FICTIEF / VOORBEELD** — Geen echte GSC-export in de baseline-audit. Onderstaande tabellen tonen hoe we Search Console **zouden** presenteren na koppeling. Cijfers zijn verzonnen ter illustratie.
+**FICTIEF / VOORBEELD** — Geen echte GSC-export in de baseline-audit. Onderstaande grafieken en tabellen tonen hoe we Search Console **zouden** presenteren na koppeling. Cijfers zijn verzonnen ter illustratie.
+:::
+
+:::gsc-trend
+W1 16–22 aug|650|11.200
+W2 23–29 aug|698|11.850
+W3 30 aug–5 sep|720|12.100
+W4 6–13 sep|779|13.080
+:::
+
+:::gsc-metrics
+W1|5,7|25,1
+W2|5,8|24,9
+W3|5,9|24,6
+W4|6,0|24,4
 :::
 
 :::gsc

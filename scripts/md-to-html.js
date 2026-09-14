@@ -6,6 +6,12 @@
 const { spawnSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const {
+  renderGscTrendChart,
+  renderGscMetricsChart,
+  renderGscCompareQueries,
+  renderGscComparePages,
+} = require("./gsc-charts");
 
 const args = process.argv.slice(2);
 const htmlOnly = args.includes("--html-only");
@@ -178,6 +184,10 @@ function renderFence(type, inner, renderFragment) {
 
   if (kind === "kpi") return renderKpiRow(lines);
   if (kind === "chart") return renderBaselineChart(lines);
+  if (kind === "gsc-trend") return renderGscTrendChart(lines);
+  if (kind === "gsc-metrics") return renderGscMetricsChart(lines);
+  if (kind === "gsc-compare-queries") return renderGscCompareQueries(lines);
+  if (kind === "gsc-compare-pages") return renderGscComparePages(lines);
   if (kind === "prio-cards") return renderPrioCards(lines);
   if (kind === "good-grid") return renderGoodGrid(lines);
   if (kind === "measure") return renderMeasureRow(lines);

@@ -37,6 +37,36 @@ In GSC: stijging op `/provincie/drenthe` en `camperplaatsen in drenthe`; listing
 
 ## Search Console — 90 dagen vs nulmeting (fictief / voorbeeld)
 
+:::gsc-trend
+Sep|2.847|48.130
+Okt|3.124|51.800
+Nov|3.520|55.200
+Dec|3.890|58.400
+:::
+
+:::gsc-metrics
+Sep|5,9|24,4
+Okt|6,0|22,8
+Nov|6,4|21,2
+Dec|6,7|19,6
+:::
+
+:::gsc-compare-queries
+# periods: Nulmeting|30 dagen|90 dagen
+camperplaats kampen|0|14|52
+camperplaatsen in drenthe|2|4|38
+camperplaatsen nederland|186|198|224
+camperstaan|412|428|445
+:::
+
+:::gsc-compare-pages
+# periods: Nulmeting|30 dagen|90 dagen
+/|892|910|960
+/plaatsen|624|680|710
+/provincie/drenthe|3|6|86
+/listing Kampen|0|14|52
+:::
+
 :::gsc
 **Periode:** 14 november – 12 december 2026 (28 dagen) · **Property:** `https://www.camperstaan.nl/` · **Label:** fictief / voorbeeld
 

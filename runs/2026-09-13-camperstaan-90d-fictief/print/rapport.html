@@ -459,6 +459,165 @@ body {
 
 /* ── Callout & decisions ─────────────────────────────── */
 
+/* ── GSC charts (SVG) ─────────────────────────────────── */
+
+.gsc-chart-shell {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.gsc-chart-head {
+  margin-bottom: var(--space-2);
+}
+
+.gsc-chart-title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin: 0 0 var(--space-1);
+  color: var(--ink);
+}
+
+.gsc-chart-sub {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.gsc-chart-note {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  color: var(--muted);
+  font-style: italic;
+  margin: var(--space-2) 0 0;
+  text-align: right;
+}
+
+.gsc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 7.5pt;
+  color: var(--muted);
+}
+
+.gsc-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5mm;
+}
+
+.gsc-legend-swatch {
+  display: inline-block;
+  width: 4mm;
+  height: 1.5mm;
+  border-radius: 1mm;
+}
+
+.swatch-clicks,
+.gsc-bar-clicks {
+  fill: var(--accent);
+}
+
+.swatch-impressions,
+.gsc-line-impressions,
+.gsc-dot-impressions {
+  stroke: #6b5b95;
+  fill: #6b5b95;
+}
+
+.gsc-line-impressions {
+  fill: none;
+  stroke-width: 2;
+}
+
+.gsc-dot-impressions {
+  stroke: none;
+}
+
+.swatch-ctr,
+.gsc-line-ctr {
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+.swatch-position,
+.gsc-line-position {
+  stroke: var(--warn);
+  fill: none;
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+.swatch-period-0 {
+  background: color-mix(in srgb, var(--accent) 45%, var(--paper));
+}
+
+.swatch-period-1 {
+  background: color-mix(in srgb, var(--accent) 72%, var(--paper));
+}
+
+.swatch-period-2 {
+  background: var(--accent);
+}
+
+.gsc-bar-compare {
+  fill: var(--accent);
+}
+
+.gsc-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gsc-grid {
+  stroke: var(--line);
+  stroke-width: 0.5;
+}
+
+.gsc-axis {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.gsc-axis-label,
+.gsc-axis-tick,
+.gsc-compare-label,
+.gsc-bar-value {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  fill: var(--muted);
+}
+
+.gsc-bar-value {
+  font-size: 6pt;
+  fill: var(--ink);
+  font-weight: 600;
+}
+
+.gsc-axis-title {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  fill: var(--muted);
+}
+
+.gsc-axis-tick-right,
+.gsc-axis-title-right {
+  fill: var(--muted);
+}
+
 .baseline-chart-shell {
   margin: var(--space-3) 0 var(--space-4);
   padding: var(--space-3) var(--space-4);
@@ -825,6 +984,7 @@ body {
   .callout-decision,
   .callout-fictief,
   .gsc-shell,
+  .gsc-chart-shell,
   .lead-block {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
@@ -924,6 +1084,65 @@ body {
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Search Console — 90 dagen vs nulmeting (fictief / voorbeeld)</h2>
+<div class="gsc-chart-shell">
+  <div class="gsc-chart-head">
+    <h4 class="gsc-chart-title">Klikken en vertoningen over tijd</h4>
+    <p class="gsc-chart-sub">GSC Performance-patroon: staafdiagram klikken + lijn vertoningen (wekelijks)</p>
+  </div>
+  <div class="gsc-legend"><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-clicks"></span>Klikken</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-impressions"></span>Vertoningen</span></div>
+  <div class="gsc-chart-body"><svg class="gsc-svg" viewBox="0 0 520 210" role="img" aria-label="Klikken en vertoningen over tijd">
+    <text class="gsc-axis-tick" x="38" y="177.0" text-anchor="end">0</text><text class="gsc-axis-tick" x="38" y="141.7" text-anchor="end">1</text><line class="gsc-grid" x1="44" y1="138.7" x2="476.0" y2="138.7"/><text class="gsc-axis-tick" x="38" y="106.4" text-anchor="end">2</text><line class="gsc-grid" x1="44" y1="103.4" x2="476.0" y2="103.4"/><text class="gsc-axis-tick" x="38" y="71.0" text-anchor="end">3</text><line class="gsc-grid" x1="44" y1="68.0" x2="476.0" y2="68.0"/><text class="gsc-axis-tick" x="38" y="35.7" text-anchor="end">4</text><line class="gsc-grid" x1="44" y1="32.7" x2="476.0" y2="32.7"/>
+    <line class="gsc-axis" x1="44" y1="174" x2="476" y2="174"/>
+    <polyline class="gsc-line-impressions" points="98.0,60.8 206.0,52.1 314.0,44.1 422.0,36.6"/>
+    <circle class="gsc-dot-impressions" cx="98.0" cy="60.8" r="2.5"/><circle class="gsc-dot-impressions" cx="206.0" cy="52.1" r="2.5"/><circle class="gsc-dot-impressions" cx="314.0" cy="44.1" r="2.5"/><circle class="gsc-dot-impressions" cx="422.0" cy="36.6" r="2.5"/>
+    <rect class="gsc-bar-clicks" x="74.2" y="73.4" width="47.5" height="100.6" rx="1"/><text class="gsc-axis-label" x="98.0" y="202" text-anchor="middle">Sep</text><rect class="gsc-bar-clicks" x="182.2" y="63.7" width="47.5" height="110.3" rx="1"/><text class="gsc-axis-label" x="206.0" y="202" text-anchor="middle">Okt</text><rect class="gsc-bar-clicks" x="290.2" y="49.7" width="47.5" height="124.3" rx="1"/><text class="gsc-axis-label" x="314.0" y="202" text-anchor="middle">Nov</text><rect class="gsc-bar-clicks" x="398.2" y="36.6" width="47.5" height="137.4" rx="1"/><text class="gsc-axis-label" x="422.0" y="202" text-anchor="middle">Dec</text>
+    <text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="177.0" text-anchor="start">0</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="137.0" text-anchor="start">17</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="97.0" text-anchor="start">34</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="59.4" text-anchor="start">50</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="19.4" text-anchor="start">67</text>
+    <text class="gsc-axis-title" x="8" y="95.0" transform="rotate(-90 8 95.0)">Klikken</text>
+    <text class="gsc-axis-title gsc-axis-title-right" x="512" y="95.0" transform="rotate(90 512 95.0)">Vertoningen</text>
+  </svg></div>
+  <p class="gsc-chart-note">fictief / voorbeeld</p>
+</div>
+<div class="gsc-chart-shell">
+  <div class="gsc-chart-head">
+    <h4 class="gsc-chart-title">CTR en gemiddelde positie over tijd</h4>
+    <p class="gsc-chart-sub">Twee lijnen, dubbele as — zoals GSC metric-toggle en agency dashboards</p>
+  </div>
+  <div class="gsc-legend"><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-ctr"></span>CTR</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-position"></span>Gem. positie</span></div>
+  <div class="gsc-chart-body"><svg class="gsc-svg" viewBox="0 0 520 210" role="img" aria-label="CTR en gemiddelde positie over tijd">
+    <line class="gsc-grid" x1="44" y1="174.0" x2="476.0" y2="174.0"/><text class="gsc-axis-tick" x="38" y="177.0" text-anchor="end">0.0%</text><line class="gsc-grid" x1="44" y1="115.0" x2="476.0" y2="115.0"/><text class="gsc-axis-tick" x="38" y="118.0" text-anchor="end">3.0%</text><line class="gsc-grid" x1="44" y1="75.7" x2="476.0" y2="75.7"/><text class="gsc-axis-tick" x="38" y="78.7" text-anchor="end">5.0%</text><line class="gsc-grid" x1="44" y1="16.8" x2="476.0" y2="16.8"/><text class="gsc-axis-tick" x="38" y="19.8" text-anchor="end">8.0%</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="177.0" text-anchor="start">16.7</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="124.3" text-anchor="start">20.1</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="71.7" text-anchor="start">23.4</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="19.0" text-anchor="start">26.8</text>
+    <line class="gsc-axis" x1="44" y1="174" x2="476" y2="174"/>
+    <polyline class="gsc-line-ctr" points="98.0,58.1 206.0,56.1 314.0,48.2 422.0,42.3"/>
+    <polyline class="gsc-line-position" points="98.0,53.9 206.0,78.7 314.0,103.5 422.0,128.4"/>
+    <text class="gsc-axis-label" x="98.0" y="202" text-anchor="middle">Sep</text><text class="gsc-axis-label" x="206.0" y="202" text-anchor="middle">Okt</text><text class="gsc-axis-label" x="314.0" y="202" text-anchor="middle">Nov</text><text class="gsc-axis-label" x="422.0" y="202" text-anchor="middle">Dec</text>
+    <text class="gsc-axis-title" x="8" y="95.0" transform="rotate(-90 8 95.0)">CTR %</text>
+    <text class="gsc-axis-title gsc-axis-title-right" x="512" y="95.0" transform="rotate(90 512 95.0)">Gem. positie</text>
+  </svg></div>
+  <p class="gsc-chart-note">fictief / voorbeeld</p>
+</div>
+<div class="gsc-chart-shell">
+  <div class="gsc-chart-head">
+    <h4 class="gsc-chart-title">Top zoekopdrachten — klikken per periode</h4>
+    <p class="gsc-chart-sub">Groepstaafdiagram: nulmeting vs vervolg (SE Ranking / agency-vergelijkingspatroon)</p>
+  </div>
+  <div class="gsc-legend"><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-0"></span>Nulmeting</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-1"></span>30 dagen</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-2"></span>90 dagen</span></div>
+  <div class="gsc-chart-body"><svg class="gsc-svg gsc-svg-compare" viewBox="0 0 520 192" role="img" aria-label="Top zoekopdrachten — klikken per periode">
+    <line class="gsc-axis" x1="132" y1="164" x2="504" y2="164"/>
+    <text class="gsc-compare-label" x="124" y="40.0" text-anchor="end">camperplaats kampen</text><rect class="gsc-bar-compare" x="132" y="23.0" width="0.0" height="7.3" rx="1" style="opacity:0.45"/><rect class="gsc-bar-compare" x="132" y="32.3" width="10.6" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="146.6" y="38.7" text-anchor="start">14</text><rect class="gsc-bar-compare" x="132" y="41.7" width="39.5" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="175.5" y="48.0" text-anchor="start">52</text><text class="gsc-compare-label" x="124" y="74.0" text-anchor="end">camperplaatsen in dr…</text><rect class="gsc-bar-compare" x="132" y="57.0" width="1.5" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="137.5" y="63.3" text-anchor="start">2</text><rect class="gsc-bar-compare" x="132" y="66.3" width="3.0" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="139.0" y="72.7" text-anchor="start">4</text><rect class="gsc-bar-compare" x="132" y="75.7" width="28.9" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="164.9" y="82.0" text-anchor="start">38</text><text class="gsc-compare-label" x="124" y="108.0" text-anchor="end">camperplaatsen neder…</text><rect class="gsc-bar-compare" x="132" y="91.0" width="141.4" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="277.4" y="97.3" text-anchor="start">186</text><rect class="gsc-bar-compare" x="132" y="100.3" width="150.5" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="286.5" y="106.7" text-anchor="start">198</text><rect class="gsc-bar-compare" x="132" y="109.7" width="170.2" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="306.2" y="116.0" text-anchor="start">224</text><text class="gsc-compare-label" x="124" y="142.0" text-anchor="end">camperstaan</text><rect class="gsc-bar-compare" x="132" y="125.0" width="313.1" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="449.1" y="131.3" text-anchor="start">412</text><rect class="gsc-bar-compare" x="132" y="134.3" width="325.3" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="461.3" y="140.7" text-anchor="start">428</text><rect class="gsc-bar-compare" x="132" y="143.7" width="338.2" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="474.2" y="150.0" text-anchor="start">445</text>
+  </svg></div>
+  <p class="gsc-chart-note">fictief / voorbeeld</p>
+</div>
+<div class="gsc-chart-shell">
+  <div class="gsc-chart-head">
+    <h4 class="gsc-chart-title">Top pagina's — klikken per periode</h4>
+    <p class="gsc-chart-sub">Landingpage-vergelijking over rapportmomenten</p>
+  </div>
+  <div class="gsc-legend"><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-0"></span>Nulmeting</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-1"></span>30 dagen</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-2"></span>90 dagen</span></div>
+  <div class="gsc-chart-body"><svg class="gsc-svg gsc-svg-compare" viewBox="0 0 520 192" role="img" aria-label="Top pagina's — klikken per periode">
+    <line class="gsc-axis" x1="132" y1="164" x2="504" y2="164"/>
+    <text class="gsc-compare-label" x="124" y="40.0" text-anchor="end">/</text><rect class="gsc-bar-compare" x="132" y="23.0" width="314.2" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="450.2" y="29.3" text-anchor="start">892</text><rect class="gsc-bar-compare" x="132" y="32.3" width="320.6" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="456.6" y="38.7" text-anchor="start">910</text><rect class="gsc-bar-compare" x="132" y="41.7" width="338.2" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="474.2" y="48.0" text-anchor="start">960</text><text class="gsc-compare-label" x="124" y="74.0" text-anchor="end">/plaatsen</text><rect class="gsc-bar-compare" x="132" y="57.0" width="219.8" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="355.8" y="63.3" text-anchor="start">624</text><rect class="gsc-bar-compare" x="132" y="66.3" width="239.5" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="375.5" y="72.7" text-anchor="start">680</text><rect class="gsc-bar-compare" x="132" y="75.7" width="250.1" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="386.1" y="82.0" text-anchor="start">710</text><text class="gsc-compare-label" x="124" y="108.0" text-anchor="end">/provincie/drenthe</text><rect class="gsc-bar-compare" x="132" y="91.0" width="1.1" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="137.1" y="97.3" text-anchor="start">3</text><rect class="gsc-bar-compare" x="132" y="100.3" width="2.1" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="138.1" y="106.7" text-anchor="start">6</text><rect class="gsc-bar-compare" x="132" y="109.7" width="30.3" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="166.3" y="116.0" text-anchor="start">86</text><text class="gsc-compare-label" x="124" y="142.0" text-anchor="end">/listing Kampen</text><rect class="gsc-bar-compare" x="132" y="125.0" width="0.0" height="7.3" rx="1" style="opacity:0.45"/><rect class="gsc-bar-compare" x="132" y="134.3" width="4.9" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="140.9" y="140.7" text-anchor="start">14</text><rect class="gsc-bar-compare" x="132" y="143.7" width="18.3" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="154.3" y="150.0" text-anchor="start">52</text>
+  </svg></div>
+  <p class="gsc-chart-note">fictief / voorbeeld</p>
+</div>
 <div class="gsc-shell"><p><strong>Periode:</strong> 14 november – 12 december 2026 (28 dagen) · <strong>Property:</strong> <code>https://www.camperstaan.nl/</code> · <strong>Label:</strong> fictief / voorbeeld</p>
 <h3>Prestaties (totaal) — vergelijking</h3>
 <table class="data-table"><thead><tr><th>Meting</th><th>Nulmeting (fictief)</th><th>90 dagen (fictief)</th><th>Verschil</th><th>Label</th></tr></thead><tbody><tr><td>Klikken</td><td>2.847</td><td>3.890</td><td>+1.043</td><td>fictief / voorbeeld</td></tr><tr><td>Vertoningen</td><td>48.130</td><td>58.400</td><td>+10.270</td><td>fictief / voorbeeld</td></tr><tr><td>CTR</td><td>5,91%</td><td>6,66%</td><td>+0,75 pp</td><td>fictief / voorbeeld</td></tr><tr><td>Gemiddelde positie</td><td>24,4</td><td>19,6</td><td>−4,8</td><td>fictief / voorbeeld</td></tr></tbody></table>

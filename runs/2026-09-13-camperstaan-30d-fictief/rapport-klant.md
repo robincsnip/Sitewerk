@@ -37,6 +37,36 @@ In GSC zou je dat zien als: meer vertoningen op listing-URL's, stabielere merk-q
 
 ## Search Console — 30 dagen vs nulmeting (fictief / voorbeeld)
 
+:::gsc-trend
+W1 15–21 sep|710|12.200
+W2 22–28 sep|748|12.850
+W3 29 sep–5 okt|782|13.400
+W4 6–13 okt|884|14.350
+:::
+
+:::gsc-metrics
+W1|5,9|23,8
+W2|6,0|23,2
+W3|6,0|23,0
+W4|6,0|22,8
+:::
+
+:::gsc-compare-queries
+# periods: Nulmeting|30 dagen
+camperplaats kampen|0|14
+camperplaatsen in drenthe|2|4
+camperplaatsen nederland|186|198
+gratis camperplaats nederland|94|102
+:::
+
+:::gsc-compare-pages
+# periods: Nulmeting|30 dagen
+/|892|910
+/plaatsen|624|680
+/provincie/drenthe|3|6
+/listing Kampen|0|14
+:::
+
 :::gsc
 **Periode:** 15 september – 13 oktober 2026 (28 dagen) · **Property:** `https://www.camperstaan.nl/` · **Label:** fictief / voorbeeld
 
