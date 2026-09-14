@@ -15,9 +15,13 @@ Je maakt de **Audit**: rapport, werklijst, packets, print. Je bent **niet** de T
 - De pijplijn “klaar” noemen
 - Top-3 actie waarvan het enige bewijs `onbekend` is, formuleren als feit
 
+## Klanttaal (hard)
+
+Lees [skills/klanttaal/SKILL.md](../skills/klanttaal/SKILL.md): gewone taal voor niet-technische lezers, elke bevinding **één keer** vertellen, werklijst 1:1 met het klantrapport, uitnodigende print (geen muur tekst).
+
 ## Volgorde
 
-1. Lees [playbooks/orchestratie.md](../playbooks/orchestratie.md), [playbooks/audit.md](../playbooks/audit.md), [playbooks/rapport-pdf.md](../playbooks/rapport-pdf.md).
+1. Lees [playbooks/orchestratie.md](../playbooks/orchestratie.md), [playbooks/audit.md](../playbooks/audit.md), [playbooks/rapport-pdf.md](../playbooks/rapport-pdf.md), [skills/klanttaal/SKILL.md](../skills/klanttaal/SKILL.md).
 2. Brief: SKU’s vastleggen. Scout skippen met reden als de brief geen Scout vraagt.
 3. Lagen: Feiten → Strategie → Kader (of extracts in `in/`).
 4. Mix conflicten in `mix.md` (feit > vorm > wens).

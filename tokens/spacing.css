@@ -1,0 +1,17 @@
+/* Sitewerk — Richting C: Papier (spacing) */
+
+:root {
+  --space-1: 1.5mm;
+  --space-2: 2.5mm;
+  --space-3: 4mm;
+  --space-4: 6mm;
+  --space-5: 8mm;
+  --space-6: 10mm;
+  --space-7: 14mm;
+  --space-8: 18mm;
+
+  --radius: 4px;
+  --radius-sm: 2px;
+  --shadow: 0 1px 0 rgba(28, 25, 23, 0.04);
+  --measure: 68ch;
+}

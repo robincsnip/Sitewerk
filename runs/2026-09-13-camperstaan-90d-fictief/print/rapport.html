@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Camperstaan — GSC na 90 dagen (fictief voorbeeld)</title>
+  <style>
+/* Sitewerk — Richting C: Papier (typography) */
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap");
+
+:root {
+  --font-display: "Libre Baskerville", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-body: "Literata", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-ui: "Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-xs: 8pt;
+  --text-sm: 9pt;
+  --text-base: 10.5pt;
+  --text-lg: 12pt;
+  --text-xl: 14pt;
+  --text-2xl: 18pt;
+  --text-3xl: 28pt;
+}
+
+/* Sitewerk — Richting C: Papier (colors) */
+
+:root {
+  --ink: #1c1917;
+  --paper: #faf8f5;
+  --panel: #ffffff;
+  --muted: #78716c;
+  --line: #d6d3d1;
+  --accent: #2d5a4a;
+  --accent-soft: #e8e4dc;
+  --accent-muted: #c9c4bb;
+  --warn: #9a5b14;
+  --warn-soft: #f5efe6;
+  --danger: #9b3d32;
+  --danger-soft: #f8ecea;
+  --ok: #2d5a4a;
+  --ok-soft: #e8efe9;
+}
+
+/* Sitewerk — Richting C: Papier (spacing) */
+
+:root {
+  --space-1: 1.5mm;
+  --space-2: 2.5mm;
+  --space-3: 4mm;
+  --space-4: 6mm;
+  --space-5: 8mm;
+  --space-6: 10mm;
+  --space-7: 14mm;
+  --space-8: 18mm;
+
+  --radius: 4px;
+  --radius-sm: 2px;
+  --shadow: 0 1px 0 rgba(28, 25, 23, 0.04);
+  --measure: 68ch;
+}
+
+/* Sitewerk — Richting C: Papier (shared component hooks) */
+
+:root {
+  --display: var(--font-display);
+  --body: var(--font-body);
+  --sans: var(--font-ui);
+}
+
+/* Sitewerk rapport theme — Richting C: Papier (print-first A4) */
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 14mm 12mm 16mm 12mm;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Cover (Papier) ──────────────────────────────────── */
+
+.cover {
+  position: relative;
+  min-height: 250mm;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  page-break-after: always;
+}
+
+.cover-rule {
+  height: 2px;
+  background: var(--accent);
+  width: 100%;
+}
+
+.cover-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(250mm - 2px);
+  padding: var(--space-7) var(--space-8) var(--space-8);
+}
+
+.brand {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 auto;
+}
+
+.cover-center {
+  text-align: center;
+  margin: auto 0;
+  padding: var(--space-6) 0;
+}
+
+.cover h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
+  color: var(--ink);
+}
+
+.cover-date {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--space-4);
+}
+
+.cover-belofte {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--muted);
+  margin: 0;
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.45;
+}
+
+.cover-kpi {
+  width: 100%;
+  max-width: 150mm;
+  margin: auto 0 0;
+  border-collapse: collapse;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.cover-kpi td {
+  text-align: center;
+  padding: var(--space-3) var(--space-2);
+  border: 0;
+  vertical-align: top;
+}
+
+.cover-kpi-values td {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--accent);
+  padding-bottom: var(--space-1);
+}
+
+.cover-kpi-labels td {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding-top: 0;
+}
+
+.cover-kpi-notes td {
+  font-family: var(--font-body);
+  font-size: 7.5pt;
+  color: var(--muted);
+  font-style: italic;
+  padding-top: 0;
+}
+
+/* ── Report body ─────────────────────────────────────── */
+
+.report {
+  padding: 0 var(--space-5) var(--space-6);
+}
+
+.report-section {
+  margin: 0 0 var(--space-4);
+}
+
+.report h2.section-head {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin: var(--space-6) 0 var(--space-3);
+  padding: 0 0 var(--space-2);
+  border-bottom: 1px solid var(--line);
+  border-top: 0;
+  line-height: 1.2;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.report-section > h2.section-head:first-child {
+  margin-top: var(--space-4);
+}
+
+.report h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  margin: var(--space-4) 0 var(--space-2);
+  color: var(--accent);
+  font-weight: 700;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.report p {
+  margin: 0 0 var(--space-2);
+  max-width: var(--measure);
+  orphans: 3;
+  widows: 3;
+}
+
+.report hr.section-break {
+  border: 0;
+  height: 0;
+  margin: var(--space-5) 0;
+}
+
+.lead-block {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.lead-block p {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.55;
+}
+
+.section-intro {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  margin: 0 0 var(--space-3) !important;
+}
+
+/* ── Priority cards ──────────────────────────────────── */
+
+.prio-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.prio-card {
+  display: grid;
+  grid-template-columns: 11mm 1fr;
+  gap: var(--space-3);
+  align-items: start;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.prio-card:last-child {
+  margin-bottom: 0;
+}
+
+.prio-num {
+  width: 9mm;
+  height: 9mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.prio-title {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: var(--space-1);
+}
+
+.prio-done {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  padding: var(--space-2);
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Good-grid ───────────────────────────────────────── */
+
+.good-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+  column-count: 2;
+  column-gap: var(--space-3);
+}
+
+.good-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--ok-soft);
+  border: 1px solid var(--accent-muted);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.35;
+  margin-bottom: var(--space-2);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ── Finding cards ───────────────────────────────────── */
+
+.prio-shell,
+.measure-shell {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.good-shell {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-shell,
+.werklijst-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  display: block;
+  width: 100%;
+}
+
+.finding-card {
+  display: block;
+  margin: 0 0 var(--space-3);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 1mm 2.5mm;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+}
+
+.finding-p0 .finding-badge {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.finding-p1 .finding-badge {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.finding-p2 .finding-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.finding-content h3 {
+  margin-top: 0;
+}
+
+.finding-content p {
+  font-size: var(--text-base);
+}
+
+.mini-kpi-row {
+  display: flex;
+  gap: var(--space-3);
+  margin: var(--space-2) 0 var(--space-1);
+  flex-wrap: wrap;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.mini-kpi {
+  flex: 1;
+  min-width: 20mm;
+  text-align: center;
+  padding: var(--space-2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.mini-kpi-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--danger);
+  line-height: 1.1;
+}
+
+.mini-kpi-label {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Callout & decisions ─────────────────────────────── */
+
+/* ── GSC charts (SVG) ─────────────────────────────────── */
+
+.gsc-chart-shell {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.gsc-chart-head {
+  margin-bottom: var(--space-2);
+}
+
+.gsc-chart-title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin: 0 0 var(--space-1);
+  color: var(--ink);
+}
+
+.gsc-chart-sub {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.gsc-chart-note {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  color: var(--muted);
+  font-style: italic;
+  margin: var(--space-2) 0 0;
+  text-align: right;
+}
+
+.gsc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 7.5pt;
+  color: var(--muted);
+}
+
+.gsc-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5mm;
+}
+
+.gsc-legend-swatch {
+  display: inline-block;
+  width: 4mm;
+  height: 1.5mm;
+  border-radius: 1mm;
+}
+
+.swatch-clicks,
+.gsc-bar-clicks {
+  fill: var(--accent);
+}
+
+.swatch-impressions,
+.gsc-line-impressions,
+.gsc-dot-impressions {
+  stroke: #6b5b95;
+  fill: #6b5b95;
+}
+
+.gsc-line-impressions {
+  fill: none;
+  stroke-width: 2;
+}
+
+.gsc-dot-impressions {
+  stroke: none;
+}
+
+.swatch-ctr,
+.gsc-line-ctr {
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+.swatch-position,
+.gsc-line-position {
+  stroke: var(--warn);
+  fill: none;
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+.swatch-period-0 {
+  background: color-mix(in srgb, var(--accent) 45%, var(--paper));
+}
+
+.swatch-period-1 {
+  background: color-mix(in srgb, var(--accent) 72%, var(--paper));
+}
+
+.swatch-period-2 {
+  background: var(--accent);
+}
+
+.gsc-bar-compare {
+  fill: var(--accent);
+}
+
+.gsc-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gsc-grid {
+  stroke: var(--line);
+  stroke-width: 0.5;
+}
+
+.gsc-axis {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.gsc-axis-label,
+.gsc-axis-tick,
+.gsc-compare-label,
+.gsc-bar-value {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  fill: var(--muted);
+}
+
+.gsc-bar-value {
+  font-size: 6pt;
+  fill: var(--ink);
+  font-weight: 600;
+}
+
+.gsc-axis-title {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  fill: var(--muted);
+}
+
+.gsc-axis-tick-right,
+.gsc-axis-title-right {
+  fill: var(--muted);
+}
+
+.baseline-chart-shell {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr 14mm;
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.chart-row:last-child {
+  margin-bottom: 0;
+}
+
+.chart-label {
+  color: var(--ink);
+}
+
+.chart-bar {
+  height: 3mm;
+  background: var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.chart-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.chart-value {
+  text-align: right;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.callout-fictief {
+  margin: var(--space-3) 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--warn-soft);
+  border: 1px solid var(--warn);
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.callout-fictief p {
+  margin: 0;
+}
+
+.callout-decision {
+  margin: var(--space-4) 0 var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.callout-decision p {
+  margin: 0;
+  font-size: var(--text-base);
+}
+
+.decision-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.decision-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.decision-card:last-child {
+  margin-bottom: 0;
+}
+
+.decision-card h3 {
+  margin-top: 0;
+  font-size: var(--text-base);
+}
+
+.decision-card p {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+/* ── Measure timeline ────────────────────────────────── */
+
+.measure-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+  column-count: 2;
+  column-gap: var(--space-3);
+}
+
+.measure-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.measure-when {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: var(--space-1);
+}
+
+.measure-label {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.measure-text {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+/* ── GSC report tables ───────────────────────────────── */
+
+.gsc-shell {
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.gsc-shell .gsc-meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0 0 var(--space-2);
+}
+
+.gsc-shell table,
+.report table.gsc-table {
+  font-size: 8pt;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.gsc-shell table thead,
+.report table.gsc-table thead {
+  display: table-header-group;
+}
+
+.gsc-shell table th,
+.report table.gsc-table th {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gsc-shell h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+
+.report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-3) 0 var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.report table.scope-table,
+.report table.werklijst-table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.report table.scope-table thead,
+.report table.werklijst-table thead {
+  display: table-header-group;
+}
+
+.report table.scope-table tr,
+.report table.werklijst-table tr,
+.report table.appendix-table tr,
+.report table.gsc-table tr,
+.gsc-shell table tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.report table.appendix-table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.report table.appendix-table thead {
+  display: table-header-group;
+}
+
+.report th,
+.report td {
+  border-bottom: 1px solid var(--line);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  vertical-align: top;
+}
+
+.report th {
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.report tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.scope-table td:nth-child(2) {
+  font-weight: 600;
+}
+
+.werklijst-table td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  width: 8mm;
+}
+
+.appendix-table {
+  font-size: 7pt;
+}
+
+.appendix-table th,
+.appendix-table td {
+  padding: 1.5mm 2mm;
+}
+
+.appendix-table th {
+  background: var(--accent-soft);
+}
+
+.report strong {
+  font-weight: 600;
+}
+
+.report ul,
+.report ol {
+  margin: var(--space-2) 0 var(--space-3);
+  padding-left: 5mm;
+  max-width: var(--measure);
+}
+
+.colophon {
+  padding: var(--space-3) var(--space-5) var(--space-6);
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  border-top: 1px solid var(--line);
+  margin-top: var(--space-5);
+}
+
+@media print {
+  html,
+  body {
+    background: var(--paper);
+    font-size: var(--text-base);
+  }
+
+  .cover {
+    background: var(--paper) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cover-kpi {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .report hr.section-break {
+    display: none;
+    margin: 0;
+    height: 0;
+  }
+
+  .report h2.section-head {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .report h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Keep headings with the block that follows */
+  .report h2.section-head + *,
+  .report h3 + * {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .report-section > h2.section-head:first-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .report-section--appendix {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .report-section--appendix + .report-section--appendix {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  .good-shell,
+  .finding-shell,
+  .werklijst-block,
+  .prio-shell,
+  .measure-shell,
+  .prio-card,
+  .finding-card,
+  .decision-card,
+  .measure-card,
+  .callout-decision,
+  .callout-fictief,
+  .gsc-shell,
+  .gsc-chart-shell,
+  .lead-block {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .prio-grid,
+  .decision-grid,
+  .good-grid,
+  .measure-grid {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .prio-card,
+  .finding-card,
+  .decision-card,
+  .measure-card {
+    display: table;
+    width: 100%;
+  }
+
+  .good-grid {
+    display: block;
+  }
+
+  .good-item {
+    display: block;
+    width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .measure-grid {
+    display: block;
+    column-count: 2;
+    column-gap: var(--space-3);
+  }
+
+  .measure-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    column-break-inside: avoid;
+  }
+
+  .report table.scope-table tr,
+  .report table.appendix-table tr,
+  .report table.werklijst-table tr,
+  .report table.werklijst-tabel tr,
+  .report table.gsc-table tr,
+  .gsc-shell table tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .table-shell {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/rapport-theme.css" />
+</head>
+<body>
+  <header class="cover cover-papier">
+    <div class="cover-rule" aria-hidden="true"></div>
+    <div class="cover-inner">
+      <p class="brand">Sitewerk</p>
+      <div class="cover-center">
+        <h1>Camperstaan</h1>
+        <p class="cover-date">12 december 2026</p>
+        <p class="cover-belofte">GSC na 90 dagen (fictief voorbeeld)</p>
+      </div>
+      <table class="cover-kpi"><tr class="cover-kpi-values"><td>3.890</td><td>58.400</td><td>6,7%</td><td>19,6</td></tr><tr class="cover-kpi-labels"><td>Klikken (28d)</td><td>Vertoningen</td><td>CTR</td><td>Gem. positie</td></tr><tr class="cover-kpi-notes"><td>fictief / voorbeeld</td><td>fictief / voorbeeld</td><td>fictief / voorbeeld</td><td>fictief / voorbeeld</td></tr></table>
+    </div>
+  </header>
+  <main class="report">
+<section class="report-section"><p><strong>Peildatum:</strong> 12 december 2026 <strong>Status:</strong> <strong>FICTIEF / VOORBEELD</strong> — geen echte nameting <strong>Opgesteld door:</strong> Sitewerk</p>
+<hr class="section-break" />
+<div class="callout-fictief"><p><strong>FICTIEF / VOORBEELD</strong> — Illustratie van een 90-dagen GSC-nameting <strong>als</strong> de werklijst uit de audit is uitgevoerd. Alle Search Console-cijfers zijn verzonnen. Baseline: nulmeting <code>2026-09-13-camperstaan-nulmeting</code>.</p></div>
+</section>
+<section class="report-section"><h2 class="section-head">In het kort</h2>
+<div class="lead-block"><p>Na 90 dagen verwacht je in GSC vooral beweging op provincie-intentie (Drenthe) en listing-URL's — dezelfde meetpunten als in het audit-meetplan. Dit voorbeeld vult die nameting in zonder dat er echt gemeten is.</p></div>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Wat het meetplan na 90 dagen vroeg</h2>
+<div class="measure-shell"><div class="measure-grid"><div class="measure-card"><div class="measure-when">90 dagen</div><div class="measure-label">Nameting</div><div class="measure-text">provincie-zoekopdracht; nameting-run met baseline</div></div></div></div>
+<p>In GSC: stijging op <code>/provincie/drenthe</code> en <code>camperplaatsen in drenthe</code>; listing Kampen met structurele klikken; merk en catalogus stabiel.</p>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Search Console — 90 dagen vs nulmeting (fictief / voorbeeld)</h2>
+<div class="gsc-chart-shell">
+  <div class="gsc-chart-head">
+    <h4 class="gsc-chart-title">Klikken en vertoningen over tijd</h4>
+    <p class="gsc-chart-sub">GSC Performance-patroon: staafdiagram klikken + lijn vertoningen (wekelijks)</p>
+  </div>
+  <div class="gsc-legend"><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-clicks"></span>Klikken</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-impressions"></span>Vertoningen</span></div>
+  <div class="gsc-chart-body"><svg class="gsc-svg" viewBox="0 0 520 210" role="img" aria-label="Klikken en vertoningen over tijd">
+    <text class="gsc-axis-tick" x="38" y="177.0" text-anchor="end">0</text><text class="gsc-axis-tick" x="38" y="141.7" text-anchor="end">1</text><line class="gsc-grid" x1="44" y1="138.7" x2="476.0" y2="138.7"/><text class="gsc-axis-tick" x="38" y="106.4" text-anchor="end">2</text><line class="gsc-grid" x1="44" y1="103.4" x2="476.0" y2="103.4"/><text class="gsc-axis-tick" x="38" y="71.0" text-anchor="end">3</text><line class="gsc-grid" x1="44" y1="68.0" x2="476.0" y2="68.0"/><text class="gsc-axis-tick" x="38" y="35.7" text-anchor="end">4</text><line class="gsc-grid" x1="44" y1="32.7" x2="476.0" y2="32.7"/>
+    <line class="gsc-axis" x1="44" y1="174" x2="476" y2="174"/>
+    <polyline class="gsc-line-impressions" points="98.0,60.8 206.0,52.1 314.0,44.1 422.0,36.6"/>
+    <circle class="gsc-dot-impressions" cx="98.0" cy="60.8" r="2.5"/><circle class="gsc-dot-impressions" cx="206.0" cy="52.1" r="2.5"/><circle class="gsc-dot-impressions" cx="314.0" cy="44.1" r="2.5"/><circle class="gsc-dot-impressions" cx="422.0" cy="36.6" r="2.5"/>
+    <rect class="gsc-bar-clicks" x="74.2" y="73.4" width="47.5" height="100.6" rx="1"/><text class="gsc-axis-label" x="98.0" y="202" text-anchor="middle">Sep</text><rect class="gsc-bar-clicks" x="182.2" y="63.7" width="47.5" height="110.3" rx="1"/><text class="gsc-axis-label" x="206.0" y="202" text-anchor="middle">Okt</text><rect class="gsc-bar-clicks" x="290.2" y="49.7" width="47.5" height="124.3" rx="1"/><text class="gsc-axis-label" x="314.0" y="202" text-anchor="middle">Nov</text><rect class="gsc-bar-clicks" x="398.2" y="36.6" width="47.5" height="137.4" rx="1"/><text class="gsc-axis-label" x="422.0" y="202" text-anchor="middle">Dec</text>
+    <text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="177.0" text-anchor="start">0</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="137.0" text-anchor="start">17</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="97.0" text-anchor="start">34</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="59.4" text-anchor="start">50</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="19.4" text-anchor="start">67</text>
+    <text class="gsc-axis-title" x="8" y="95.0" transform="rotate(-90 8 95.0)">Klikken</text>
+    <text class="gsc-axis-title gsc-axis-title-right" x="512" y="95.0" transform="rotate(90 512 95.0)">Vertoningen</text>
+  </svg></div>
+  <p class="gsc-chart-note">fictief / voorbeeld</p>
+</div>
+<div class="gsc-chart-shell">
+  <div class="gsc-chart-head">
+    <h4 class="gsc-chart-title">CTR en gemiddelde positie over tijd</h4>
+    <p class="gsc-chart-sub">Twee lijnen, dubbele as — zoals GSC metric-toggle en agency dashboards</p>
+  </div>
+  <div class="gsc-legend"><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-ctr"></span>CTR</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-position"></span>Gem. positie</span></div>
+  <div class="gsc-chart-body"><svg class="gsc-svg" viewBox="0 0 520 210" role="img" aria-label="CTR en gemiddelde positie over tijd">
+    <line class="gsc-grid" x1="44" y1="174.0" x2="476.0" y2="174.0"/><text class="gsc-axis-tick" x="38" y="177.0" text-anchor="end">0.0%</text><line class="gsc-grid" x1="44" y1="115.0" x2="476.0" y2="115.0"/><text class="gsc-axis-tick" x="38" y="118.0" text-anchor="end">3.0%</text><line class="gsc-grid" x1="44" y1="75.7" x2="476.0" y2="75.7"/><text class="gsc-axis-tick" x="38" y="78.7" text-anchor="end">5.0%</text><line class="gsc-grid" x1="44" y1="16.8" x2="476.0" y2="16.8"/><text class="gsc-axis-tick" x="38" y="19.8" text-anchor="end">8.0%</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="177.0" text-anchor="start">16.7</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="124.3" text-anchor="start">20.1</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="71.7" text-anchor="start">23.4</text><text class="gsc-axis-tick gsc-axis-tick-right" x="482.0" y="19.0" text-anchor="start">26.8</text>
+    <line class="gsc-axis" x1="44" y1="174" x2="476" y2="174"/>
+    <polyline class="gsc-line-ctr" points="98.0,58.1 206.0,56.1 314.0,48.2 422.0,42.3"/>
+    <polyline class="gsc-line-position" points="98.0,53.9 206.0,78.7 314.0,103.5 422.0,128.4"/>
+    <text class="gsc-axis-label" x="98.0" y="202" text-anchor="middle">Sep</text><text class="gsc-axis-label" x="206.0" y="202" text-anchor="middle">Okt</text><text class="gsc-axis-label" x="314.0" y="202" text-anchor="middle">Nov</text><text class="gsc-axis-label" x="422.0" y="202" text-anchor="middle">Dec</text>
+    <text class="gsc-axis-title" x="8" y="95.0" transform="rotate(-90 8 95.0)">CTR %</text>
+    <text class="gsc-axis-title gsc-axis-title-right" x="512" y="95.0" transform="rotate(90 512 95.0)">Gem. positie</text>
+  </svg></div>
+  <p class="gsc-chart-note">fictief / voorbeeld</p>
+</div>
+<div class="gsc-chart-shell">
+  <div class="gsc-chart-head">
+    <h4 class="gsc-chart-title">Top zoekopdrachten — klikken per periode</h4>
+    <p class="gsc-chart-sub">Groepstaafdiagram: nulmeting vs vervolg (SE Ranking / agency-vergelijkingspatroon)</p>
+  </div>
+  <div class="gsc-legend"><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-0"></span>Nulmeting</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-1"></span>30 dagen</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-2"></span>90 dagen</span></div>
+  <div class="gsc-chart-body"><svg class="gsc-svg gsc-svg-compare" viewBox="0 0 520 192" role="img" aria-label="Top zoekopdrachten — klikken per periode">
+    <line class="gsc-axis" x1="132" y1="164" x2="504" y2="164"/>
+    <text class="gsc-compare-label" x="124" y="40.0" text-anchor="end">camperplaats kampen</text><rect class="gsc-bar-compare" x="132" y="23.0" width="0.0" height="7.3" rx="1" style="opacity:0.45"/><rect class="gsc-bar-compare" x="132" y="32.3" width="10.6" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="146.6" y="38.7" text-anchor="start">14</text><rect class="gsc-bar-compare" x="132" y="41.7" width="39.5" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="175.5" y="48.0" text-anchor="start">52</text><text class="gsc-compare-label" x="124" y="74.0" text-anchor="end">camperplaatsen in dr…</text><rect class="gsc-bar-compare" x="132" y="57.0" width="1.5" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="137.5" y="63.3" text-anchor="start">2</text><rect class="gsc-bar-compare" x="132" y="66.3" width="3.0" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="139.0" y="72.7" text-anchor="start">4</text><rect class="gsc-bar-compare" x="132" y="75.7" width="28.9" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="164.9" y="82.0" text-anchor="start">38</text><text class="gsc-compare-label" x="124" y="108.0" text-anchor="end">camperplaatsen neder…</text><rect class="gsc-bar-compare" x="132" y="91.0" width="141.4" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="277.4" y="97.3" text-anchor="start">186</text><rect class="gsc-bar-compare" x="132" y="100.3" width="150.5" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="286.5" y="106.7" text-anchor="start">198</text><rect class="gsc-bar-compare" x="132" y="109.7" width="170.2" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="306.2" y="116.0" text-anchor="start">224</text><text class="gsc-compare-label" x="124" y="142.0" text-anchor="end">camperstaan</text><rect class="gsc-bar-compare" x="132" y="125.0" width="313.1" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="449.1" y="131.3" text-anchor="start">412</text><rect class="gsc-bar-compare" x="132" y="134.3" width="325.3" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="461.3" y="140.7" text-anchor="start">428</text><rect class="gsc-bar-compare" x="132" y="143.7" width="338.2" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="474.2" y="150.0" text-anchor="start">445</text>
+  </svg></div>
+  <p class="gsc-chart-note">fictief / voorbeeld</p>
+</div>
+<div class="gsc-chart-shell">
+  <div class="gsc-chart-head">
+    <h4 class="gsc-chart-title">Top pagina's — klikken per periode</h4>
+    <p class="gsc-chart-sub">Landingpage-vergelijking over rapportmomenten</p>
+  </div>
+  <div class="gsc-legend"><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-0"></span>Nulmeting</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-1"></span>30 dagen</span><span class="gsc-legend-item"><span class="gsc-legend-swatch swatch-period-2"></span>90 dagen</span></div>
+  <div class="gsc-chart-body"><svg class="gsc-svg gsc-svg-compare" viewBox="0 0 520 192" role="img" aria-label="Top pagina's — klikken per periode">
+    <line class="gsc-axis" x1="132" y1="164" x2="504" y2="164"/>
+    <text class="gsc-compare-label" x="124" y="40.0" text-anchor="end">/</text><rect class="gsc-bar-compare" x="132" y="23.0" width="314.2" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="450.2" y="29.3" text-anchor="start">892</text><rect class="gsc-bar-compare" x="132" y="32.3" width="320.6" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="456.6" y="38.7" text-anchor="start">910</text><rect class="gsc-bar-compare" x="132" y="41.7" width="338.2" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="474.2" y="48.0" text-anchor="start">960</text><text class="gsc-compare-label" x="124" y="74.0" text-anchor="end">/plaatsen</text><rect class="gsc-bar-compare" x="132" y="57.0" width="219.8" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="355.8" y="63.3" text-anchor="start">624</text><rect class="gsc-bar-compare" x="132" y="66.3" width="239.5" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="375.5" y="72.7" text-anchor="start">680</text><rect class="gsc-bar-compare" x="132" y="75.7" width="250.1" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="386.1" y="82.0" text-anchor="start">710</text><text class="gsc-compare-label" x="124" y="108.0" text-anchor="end">/provincie/drenthe</text><rect class="gsc-bar-compare" x="132" y="91.0" width="1.1" height="7.3" rx="1" style="opacity:0.45"/><text class="gsc-bar-value" x="137.1" y="97.3" text-anchor="start">3</text><rect class="gsc-bar-compare" x="132" y="100.3" width="2.1" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="138.1" y="106.7" text-anchor="start">6</text><rect class="gsc-bar-compare" x="132" y="109.7" width="30.3" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="166.3" y="116.0" text-anchor="start">86</text><text class="gsc-compare-label" x="124" y="142.0" text-anchor="end">/listing Kampen</text><rect class="gsc-bar-compare" x="132" y="125.0" width="0.0" height="7.3" rx="1" style="opacity:0.45"/><rect class="gsc-bar-compare" x="132" y="134.3" width="4.9" height="7.3" rx="1" style="opacity:0.72"/><text class="gsc-bar-value" x="140.9" y="140.7" text-anchor="start">14</text><rect class="gsc-bar-compare" x="132" y="143.7" width="18.3" height="7.3" rx="1" style="opacity:1"/><text class="gsc-bar-value" x="154.3" y="150.0" text-anchor="start">52</text>
+  </svg></div>
+  <p class="gsc-chart-note">fictief / voorbeeld</p>
+</div>
+<div class="gsc-shell"><p><strong>Periode:</strong> 14 november – 12 december 2026 (28 dagen) · <strong>Property:</strong> <code>https://www.camperstaan.nl/</code> · <strong>Label:</strong> fictief / voorbeeld</p>
+<h3>Prestaties (totaal) — vergelijking</h3>
+<table class="data-table"><thead><tr><th>Meting</th><th>Nulmeting (fictief)</th><th>90 dagen (fictief)</th><th>Verschil</th><th>Label</th></tr></thead><tbody><tr><td>Klikken</td><td>2.847</td><td>3.890</td><td>+1.043</td><td>fictief / voorbeeld</td></tr><tr><td>Vertoningen</td><td>48.130</td><td>58.400</td><td>+10.270</td><td>fictief / voorbeeld</td></tr><tr><td>CTR</td><td>5,91%</td><td>6,66%</td><td>+0,75 pp</td><td>fictief / voorbeeld</td></tr><tr><td>Gemiddelde positie</td><td>24,4</td><td>19,6</td><td>−4,8</td><td>fictief / voorbeeld</td></tr></tbody></table>
+<h3>Top zoekopdrachten — delta t.o.v. nulmeting</h3>
+<table class="data-table"><thead><tr><th>Zoekopdracht</th><th>Klikken nul</th><th>Klikken 90d</th><th>Vertoningen 90d</th><th>CTR 90d</th><th>Pos. 90d</th><th>Label</th></tr></thead><tbody><tr><td>camperstaan</td><td>412</td><td>445</td><td>940</td><td>47,3%</td><td>1,0</td><td>fictief / voorbeeld</td></tr><tr><td>camperplaatsen nederland</td><td>186</td><td>224</td><td>4.820</td><td>4,6%</td><td>16,2</td><td>fictief / voorbeeld</td></tr><tr><td>camperplaatsen in drenthe</td><td>2</td><td>38</td><td>1.480</td><td>2,6%</td><td>18,4</td><td>fictief / voorbeeld</td></tr><tr><td>camperplaats kampen</td><td>0</td><td>52</td><td>620</td><td>8,4%</td><td>14,2</td><td>fictief / voorbeeld</td></tr><tr><td>gratis camperplaats nederland</td><td>94</td><td>118</td><td>2.340</td><td>5,0%</td><td>19,8</td><td>fictief / voorbeeld</td></tr></tbody></table>
+<h3>Top pagina's — delta t.o.v. nulmeting</h3>
+<table class="data-table"><thead><tr><th>Pagina</th><th>Klikken nul</th><th>Klikken 90d</th><th>Vertoningen 90d</th><th>CTR 90d</th><th>Pos. 90d</th><th>Label</th></tr></thead><tbody><tr><td><code>/</code></td><td>892</td><td>960</td><td>3.680</td><td>26,1%</td><td>7,8</td><td>fictief / voorbeeld</td></tr><tr><td><code>/plaatsen</code></td><td>624</td><td>710</td><td>9.800</td><td>7,2%</td><td>12,8</td><td>fictief / voorbeeld</td></tr><tr><td><code>/provincie/drenthe</code></td><td>3</td><td>86</td><td>1.420</td><td>6,1%</td><td>15,6</td><td>fictief / voorbeeld</td></tr><tr><td><code>/plaatsen/kampen-burgemeester-berghuisplein</code></td><td>0</td><td>52</td><td>580</td><td>9,0%</td><td>12,4</td><td>fictief / voorbeeld</td></tr><tr><td><code>/plaats/kampen</code></td><td>28</td><td>41</td><td>480</td><td>8,5%</td><td>16,1</td><td>fictief / voorbeeld</td></tr></tbody></table></div>
+<p><strong>Meetplan-koppeling (fictief):</strong> provincie-hub Drenthe en listing Kampen bewegen — in lijn met werklijst #3 en #6; schema/cache-acties (F-004, F-005) zouden CTR op listings ondersteunen.</p>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Nameting per finding (fictief / voorbeeld)</h2>
+<table class="data-table"><thead><tr><th>ID</th><th>GSC-signal (fictief)</th><th>Oordeel</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>BE/DE niet meer in NL-toppagina's in GSC-voorbeeld</td><td>opgelost</td><td>fictief / voorbeeld</td></tr><tr><td>F-002</td><td>Drenthe-query klikt naar <code>/provincie/drenthe</code></td><td>opgelost</td><td>fictief / voorbeeld</td></tr><tr><td>F-003</td><td>Listing Kampen 52 klikken vs 0 nulmeting</td><td>deels</td><td>fictief / voorbeeld</td></tr><tr><td>F-004</td><td><code>/plaatsen</code> lichter; meer vertoningen</td><td>opgelost</td><td>fictief / voorbeeld</td></tr><tr><td>F-005</td><td>— (niet direct in GSC)</td><td>opgelost</td><td>fictief / voorbeeld</td></tr><tr><td>F-006</td><td>Drenthe-query positie 18,4 vs 34,8</td><td>deels</td><td>fictief / voorbeeld</td></tr><tr><td>F-007</td><td>links</td><td>niet gemeten</td><td>onbekend</td></tr><tr><td>F-008</td><td>AI</td><td>niet herhaald</td><td>fictief / voorbeeld</td></tr></tbody></table>
+<hr class="section-break" />
+</section>
+<section class="report-section report-section--chapter"><h2 class="section-head">Werklijst 90 dagen (fictief / voorbeeld)</h2>
+<div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Status in voorbeeld</th><th>Label</th></tr></thead><tbody><tr><td>1–6</td><td>Zie audit werklijst</td><td>afgerond of deels</td><td>fictief / voorbeeld</td></tr></tbody></table></div>
+<hr class="section-break" />
+</section>
+<section class="report-section"><h2 class="section-head">Geen claims</h2>
+<p>Geen %-winst aan klant zonder echte GSC-export. Geen mail naar eigenaren. Dit document is een <strong>vormvoorbeeld</strong> — geen klantdelivery.</p></section>
+  </main>
+  <footer class="colophon">
+    <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>
+  </footer>
+</body>
+</html>

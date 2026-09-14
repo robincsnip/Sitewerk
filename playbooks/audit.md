@@ -54,3 +54,15 @@ afhankelijk_van: F-###[] | []
 ## Output
 
 Zie [docs/PIJPLIJN.md](../docs/PIJPLIJN.md). Verplicht: `next.md` → Toetser ([toets.md](toets.md)). Bouwer stopt; de pijplijn niet.
+
+## Amend — Klanttaal & single-telling (sep 2026)
+
+Bron: eigenaar-feedback Camperstaan v2. Skill: [skills/klanttaal/SKILL.md](../skills/klanttaal/SKILL.md).
+
+**Lezer:** ondernemer zonder website-kennis. Vakterm alleen met uitleg in gewone woorden.
+
+**Single-telling:** elke bevinding één keer uitgewerkt in `## Bevindingen` (of gelijkwaardig). “In het kort” en top 3 geven geen herhaalde cijfers of technische uitleg — alleen overzicht, prioriteit en “klaar als”. Keuzes verwijzen naar bevindingen; metingen niet opnieuw.
+
+**Werklijst-sync:** `werklijst.md` en `rapport-klant.md` (werklijst-sectie) delen dezelfde rijen (#, Wat, Wie, Klaar als). Geen herordenen op tijdlijn die rijnummers verschuift (zie Naslag Camperstaan).
+
+**Verboden in klantproza:** onverklaarde sitemap/canonical/cache/JSON-LD/SERP; legacy-generatornamen; %-beloften zonder baseline.

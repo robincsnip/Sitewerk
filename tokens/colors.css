@@ -1,0 +1,18 @@
+/* Sitewerk — Richting C: Papier (colors) */
+
+:root {
+  --ink: #1c1917;
+  --paper: #faf8f5;
+  --panel: #ffffff;
+  --muted: #78716c;
+  --line: #d6d3d1;
+  --accent: #2d5a4a;
+  --accent-soft: #e8e4dc;
+  --accent-muted: #c9c4bb;
+  --warn: #9a5b14;
+  --warn-soft: #f5efe6;
+  --danger: #9b3d32;
+  --danger-soft: #f8ecea;
+  --ok: #2d5a4a;
+  --ok-soft: #e8efe9;
+}

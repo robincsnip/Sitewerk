@@ -8,103 +8,166 @@
 
 ## In het kort
 
-Camperstaan is al een echte directory: honderden plekpagina's, stadspagina's en provinciepagina's, met een bronlink per plek. Dat is sterker dan een brochure-site. De zaak hapert op drie meetbare punten die we vandaag opnieuw hebben gemeten.
+:::lead
+Camperstaan is al een echte plekkengids: honderden plekpagina's, stadspagina's en provinciepagina's, elk met een bronlink. Dat is sterker dan een simpele brochure-site. We zien vier punten die bezoekers en vindbaarheid in Google nu remmen, plus twee verbeteringen die minder urgent zijn.
+:::
 
-De homepage zegt **306 plekken**. De zoekpagina toont **293** unieke Nederlandse listings. Het verschil zit in dertien Belgische en Duitse URL's die wél in de sitemap staan en live zijn, terwijl de Nederlandse lijst ze weglaat. Jullie eigen copy zegt nog "later België en Duitsland".
+:::kpi
+3|Prioriteiten|deze maand
+6|Acties|90 dagen
+577|Pagina's|in overzicht
+4|Urgent|bevindingen
+:::
 
-Wie "camperplaats Kampen" of "camperplaatsen in Drenthe" zoekt, landt in onze steekproef bij de gemeente, Visit-sites of Campercontact — niet op jullie listing of provinciepagina. Op de plekpagina zelf is het claimformulier (€ 99) het grootste blok; de reiziger krijgt één alinea plus chips (~132 woorden in het hoofdblok).
+:::callout-decision
+**Besluit dat we vragen:** akkoord op de drie prioriteiten hieronder. Daarna Toets, dan pas bouwen op een preview — nog niets live.
+:::
 
-Technisch: elke HTML-pagina komt als `private, no-store` van de origin. De zoekindex weegt **1,41 MB**. Dat is onnodig zwaar voor een openbare catalogus.
+### Drie prioriteiten
 
-**Eerste besluit dat we vragen:** akkoord op de drie acties hieronder (scope/telling, plekpagina voor de gast, cache + lichtere zoekpagina). Daarna Toets, dan pas bouwen op een preview.
-
-### Drie dingen die het meeste opleveren
-
-1. **Eén telling, één land in de NL-sitemap** — gast en crawler zien nu twee waarheden (306 vs 293, plus live BE/DE) — klaar als home, `/plaatsen` en sitemap-NL hetzelfde aantal NL-plekken tonen en BE/DE niet in de NL-sitemap staan (of achter een land-hub).
-2. **Plekpagina eerst voor de reiziger** — claimformulier staat nu boven het nut van de pagina — klaar als prijs, max nachten, voorzieningen, bron en kaart boven de claim staan, en JSON-LD coördinaten + prijsrange uit bestaande velden heeft.
-3. **HTML cachebaar, zoekpagina lichter** — nu no-store + 1,41 MB `/plaatsen` — klaar als anonieme HTML `public` is (CDN-hit) en `/plaatsen` onder een afgesproken gewicht zit zonder listings uit de sitemap te halen.
+:::prio-cards
+1|Eén aantal plekken, één land in het Nederlandse overzicht|Klaar als: homepage, zoekpagina en het Nederlandse pagina-overzicht voor Google hetzelfde aantal Nederlandse plekken tonen, en Belgische/Duitse plekken daar niet tussen staan (of pas als er landpagina's zijn).
+2|Plekpagina eerst voor de reiziger|Klaar als: prijs, maximaal aantal nachten, voorzieningen, bron en kaart boven het claimformulier staan.
+3|Provincie-keuze leidt naar de provinciepagina|Klaar als: iemand op Drenthe filtert en op de Drenthe-overzichtspagina landt (niet op een algemene zoekpagina die Google als hoofdpagina ziet).
+:::
 
 ### Wat al goed staat (niet kapotmaken)
 
-- Apex redirect naar `www`
-- `robots.txt` houdt dashboard, login, api en betalen buiten de index
-- 404 is `noindex`
-- Canonicals op hubs en listings (behalve regio-filter op `/plaatsen`)
-- Bronlink + `sameAs` naar gemeente of eigenaar
-- Provincie- en stadshubs met echte aantallen (voorbeeld Drenthe: 19 plekken)
-- Server-HTML: de plektekst staat in de bron, niet alleen in JavaScript
-- Merkquery "Camperstaan" toont home en zoekpagina
+:::good-grid
+Bezoekers komen automatisch op www terecht
+Inloggen, betalen en dashboard staan buiten Google
+Pagina's die niet bestaan worden niet geïndexeerd
+Plekpagina's hebben een vaste hoofdadres in Google
+Bronlink naar gemeente of eigenaar op de plekpagina
+Provincie- en stadspagina's tonen echte aantallen
+Plektekst staat in de pagina zelf (niet alleen via JavaScript)
+Zoeken op Camperstaan toont homepage en zoekpagina
+:::
 
 ---
 
 ## Wat we hebben bekeken
 
-Openbare HTML, headers, `robots.txt`, `sitemap.xml`, drie listings, een provincie, een stad, `/over`, en een zoeksteekproef. Geen Search Console-export. Geen betaalde linkdata.
+:::section-intro
+Openbare pagina's, technische koppen, robots-bestand, pagina-overzicht voor Google, drie plekpagina's, een provincie, een stad, de over-pagina en een steekproef in Google. Geen Search Console-export. Geen betaalde linkdata.
+:::
 
 | Onderwerp | Status | Opmerking |
 | --- | --- | --- |
-| Techniek & indexatie | bekeken | Sitemap 577 URL's; telling botst; HTML no-store |
-| Pagina-opbouw & links | bekeken | IA klopt; listing-template is eigenaar-eerst |
-| Teksten & zoekintentie | bekeken | Hubs bestaan; listings dun t.o.v. de bronpagina |
-| Snelheid op kernpagina's | deels | Geen Lighthouse; lab: `/plaatsen` 1,41 MB, TTFB ~0,3–0,5 s |
-| Google-bedrijfsprofiel | n.v.t. | Landelijke directory, geen lokale zaak |
+| Techniek & vindbaarheid | bekeken | Pagina-overzicht met 577 adressen; tellingen botsen; pagina's niet tussen opgeslagen |
+| Pagina-opbouw & links | bekeken | Structuur klopt; plekpagina richt zich nu op de eigenaar |
+| Teksten & zoekintentie | bekeken | Overzichtspagina's bestaan; plekpagina's zijn dun t.o.v. de bron |
+| Snelheid | deels | Geen Lighthouse; zoekpagina weegt 1,41 MB |
+| Google-bedrijfsprofiel | n.v.t. | Landelijke gids, geen lokale winkel |
 | Reviews & reputatie | n.v.t. hier | Geen sterren verzinnen; Campercontact wint reviews |
 | Concurrenten in zoekresultaten | steekproef | Gemeente, Visit, Campercontact, Park4Night |
 | AI-vindbaarheid | steekproef | Categorie-bronnen noemen Camperstaan niet |
 
 ---
 
-## Het verhaal op één lijn
+## Bevindingen
 
-### De sitemap is al internationaal, de winkel nog Nederlands
+:::finding p0
+@kpi
+306|Homepage
+293|Zoekpagina NL
+13|BE/DE extra
+@end
+### 1. Homepage en zoekpagina tellen verschillend — en er staan buitenlandse plekken tussen
 
-Dertien plekken in België en Duitsland zijn live en staan in dezelfde sitemap als Kampen en Groningen. De Nederlandse zoekpagina toont ze niet. De homepage telt ze wél. Gevolg: Google mag BE/DE indexeren alsof het bij "camperplaatsen in Nederland" hoort, terwijl de gast een andere catalogus ziet. Keuze: NL zuiver houden tot er land-hubs zijn, of die hubs nu serieus nemen. Niet "later" blijven zeggen.
+Het verschil zit in dertien plekken in België en Duitsland die live staan en in het pagina-overzicht voor Google, maar niet op de Nederlandse zoekpagina. Jullie copy zegt nog dat België en Duitsland "later" komen.
 
-### De plek-URL vecht met de gemeente — en met jullie eigen claimformulier
+**Gevolg:** bezoekers en Google zien niet hetzelfde aanbod. Google kan buitenlandse plekken tonen alsof ze bij "camperplaatsen in Nederland" horen.
 
-De gemeente Kampen en Visit Kampen winnen "camperplaats Kampen". Dat is logisch: zij zijn de bron. Jullie listing moet de vergelijking zijn (prijs 2026, max 72 uur, voorzieningen, bronlink), niet een inschrijfformulier. Zolang het wachtwoordveld het scherm deelt met de enige alinea, is er weinig reden om jullie URL te kiezen boven kampen.nl.
+**Voorstel:** één telling voor Nederland; buitenlandse plekken uit het Nederlandse overzicht tot er landpagina's zijn — of die landpagina's nu serieus maken.
+:::
 
-### Techniek remt wat al goed staat
+:::finding p0
+### 2. De plekpagina helpt de reiziger te weinig
 
-De site is snel genoeg in TTFB (~0,16–0,33 s op kernpagina's), maar `/plaatsen` dwingt 1,41 MB door de lijn. Combineer dat met `no-store` en elke hit gaat opnieuw naar origin. Voor een catalogus die grotendeels statisch is, is dat vermijdbaar.
+Wie "camperplaats Kampen" zoekt, vindt vooral de gemeente, Visit Kampen of Campercontact — niet jullie plekpagina. Logisch: zij zijn de bron.
+
+Op jullie Kampen-pagina is het claimformulier (€ 99) het grootste blok. De reiziger krijgt één korte alinea met chips — ongeveer 132 woorden in het hoofdblok.
+
+**Gevolg:** weinig reden om jullie pagina te openen in plaats van kampen.nl.
+
+**Voorstel:** prijs (2026), max 72 uur, voorzieningen, bronlink en kaart bovenaan; claim onderaan of op een aparte URL.
+:::
+
+:::finding p1
+### 3. Provincie-filter wijst Google naar de verkeerde pagina
+
+Filter je op Drenthe op de zoekpagina, dan heet de pagina "Camperplaatsen in Drenthe". Google ziet als hoofdadres nog steeds de algemene zoekpagina — niet `/provincie/drenthe`.
+
+**Gevolg:** bij "camperplaatsen in Drenthe" verschijnt jullie Drenthe-overzichtspagina niet in onze steekproef.
+
+**Voorstel:** provincie-filter stuurt door naar de provinciepagina (bijv. `/provincie/drenthe`).
+:::
+
+:::finding p1
+### 4. Zoekpagina is zwaar; pagina's worden niet tussen opgeslagen
+
+Elke HTML-pagina wordt met "niet opslaan" geleverd: elke bezoeker haalt alles opnieuw van de server. De zoekpagina weegt **1,41 MB** omdat alle 293 kaarten in één pagina staan.
+
+**Gevolg:** onnodig zwaar voor een catalogus die grotendeels hetzelfde blijft.
+
+**Voorstel:** anonieme pagina's mogen tussen opgeslagen worden; zoekpagina verlichten (bijv. paginering) zonder plekken uit het overzicht te halen.
+:::
+
+:::finding p2
+### 5. Google mist locatie en prijs op de plekpagina
+
+Op Kampen staan coördinaten en prijs in de pagina, maar niet in de extra gegevens die Google leest (gestructureerde data).
+
+**Voorstel:** locatie, prijsklasse en voorzieningen toevoegen aan die gegevens — velden bestaan al in jullie systeem.
+:::
+
+:::finding p2
+### 6. Drenthe-overzichtspagina wint nog niet op zoekintentie
+
+De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "camperplaatsen in Drenthe".
+
+**Voorstel:** intern versterken (tekst, links) en steekproef herhalen — gedeeld jullie en wij.
+:::
 
 ---
 
-## Keuzes (wij geven een voorkeur)
+## Beslissingen die we van jullie nodig hebben
 
-### Keuze 1 — BE/DE in de NL-sitemap laten, of eruit tot er land-hubs zijn?
+:::decisions
+### Beslissing 1 — Buitenlandse plekken in het Nederlandse overzicht?
 
-**Voorstel:** uit de NL-sitemap tot `/belgie` en `/duitsland` (of gelijk) bestaan en de homepage per land telt.  
-**Waarom:** 13 URL's zijn geen markt, wel ruis.  
-**Alternatief:** nu land-hubs + filter, en 306 uitleggen als "NL+BE+DE".  
+**Voorstel:** eruit tot `/belgie` en `/duitsland` (of gelijkwaardig) bestaan en de homepage per land telt.  
+**Alternatief:** nu landpagina's maken en 306 uitleggen als NL+BE+DE.  
 **Opnieuw bekijken als:** jullie BE/DE deze maand actief willen claimen.
 
-### Keuze 2 — claimen op de plekpagina of op een eigen URL?
+### Beslissing 2 — Claimen op de plekpagina of apart?
 
-**Voorstel:** gastfeiten bovenaan; claim onderaan of `/plaatsen/{slug}/claim`.  
-**Waarom:** dezelfde URL kan niet én reiziger én KvK-upgrade als eerste taak hebben.  
+**Voorstel:** gastinformatie bovenaan; claim onderaan of op `/plaatsen/{slug}/claim`.  
 **Alternatief:** claim blijft, maar ingeklapt tot "Beheer je deze plek?"  
-**Opnieuw bekijken als:** conversie claim > bezoekers per listing gemeten is.
+**Opnieuw bekijken als:** claim-conversie vs. bezoekers per plek gemeten is.
 
-### Keuze 3 — regio-filter op `/plaatsen` of doorverwijzen naar provincie-hub?
+### Beslissing 3 — Provincie-filter of direct naar provinciepagina?
 
-**Voorstel:** filter op provincie leidt naar `/provincie/{slug}` (301 of canonical).  
-**Waarom:** "camperplaatsen in Drenthe" hoort op de hub, niet op een querystring die canonical `/plaatsen` blijft.  
-**Alternatief:** filter alleen op `/plaatsen` houden, maar dan canonical mee laten variëren.  
-**Opnieuw bekijken als:** jullie filter UX belangrijker vinden dan hub-ranking.
+**Voorstel:** filter op provincie leidt naar `/provincie/{slug}`.  
+**Alternatief:** filter op zoekpagina houden, maar dan moet Google de juiste URL zien per provincie.  
+**Opnieuw bekijken als:** filter-ervaring belangrijker is dan provincie-ranking.
+:::
 
 ---
 
 ## Werklijst — eerste 90 dagen
 
-Zie `werklijst.md` in deze run. Samenvatting:
+:::section-intro
+Zie `werklijst.md` in deze run. Zelfde lijst, geen tweede waarheid.
+:::
 
 ### Deze maand
 
 | # | Wat | Wie | Klaar als |
 | --- | --- | --- | --- |
-| 1 | NL-telling + BE/DE uit NL-sitemap | jullie besluit, wij bouwen | home = /plaatsen = sitemap-NL |
-| 2 | Listing-template gast-eerst | wij + jullie copy | Kampen-template herhaald |
+| 1 | NL-telling harmoniseren; BE/DE uit NL-sitemap | jullie | home = /plaatsen = sitemap-NL count |
+| 2 | Listing-template gast-eerst | wij | prijs/voorzieningen/bron boven claim |
 | 3 | Regio-filter → provincie-hub | wij | Drenthe-filter op /provincie/drenthe |
 
 ### Maand twee / drie
@@ -115,16 +178,18 @@ Zie `werklijst.md` in deze run. Samenvatting:
 | 5 | JSON-LD geo + priceRange + amenities | wij | Rich Results Test |
 | 6 | Hub Drenthe intern versterken | gedeeld | steekproef herhalen |
 
-**Buiten scope deze ronde:** linkdisavow, GBP, live deploy, mail naar eigenaren, %-trafficbelofte.
+**Buiten scope deze ronde:** linkdisavow, Google-bedrijfsprofiel, live deploy, mail naar eigenaren, %-trafficbelofte.
 
 ---
 
 ## Hoe we weten of het werkt
 
-- **Nu bekend:** tellingen, headers, sitemap-structuur, steekproef Kampen/Drenthe, lab-gewichten.
-- **Nog niet bekend:** GSC-impressies per template, inkomende links, claim-conversie.
-- **Over 30 dagen:** steekproef Kampen opnieuw; `/plaatsen` gewicht; cache-hit ratio op listing.
-- **Over 90 dagen:** provincie-intent steekproef; Nameting-run met baseline.
+:::measure
+Nu bekend|Baseline|tellingen, technische koppen, pagina-overzicht, steekproef Kampen/Drenthe, gewicht zoekpagina
+Nog niet bekend|Open|Search Console per paginatype, inkomende links, claim-conversie
+30 dagen|Hercontrole|steekproef Kampen; gewicht zoekpagina; cache op plekpagina's
+90 dagen|Nameting|provincie-zoekopdracht; nameting-run met baseline
+:::
 
 ---
 
