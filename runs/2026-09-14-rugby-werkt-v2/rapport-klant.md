@@ -182,18 +182,18 @@ Zie `werklijst.md` in deze run. Zelfde lijst, geen tweede waarheid.
 
 | # | Wat | Wie | Klaar als |
 | --- | --- | --- | --- |
-| 1 | Nature Sports crawlbaar | jullie | H1 + canonical + robots + body in HTML |
-| 2 | Vier Rugby dienst-URL's | wij | 4 URLs in pagina-overzicht |
-| 3 | H1 + meta home Rugby | wij | 1 H1 + meta description |
-| 4 | Klikbaar contact Rugby | wij | tel: + mailto: live |
+| 1 | Nature Sports crawlbaar maken | jullie | H1 + canonical + robots + body in HTML |
+| 2 | Vier Rugby Werkt dienst-URL's | wij | 4 URLs in pagina-overzicht |
+| 3 | H1 + meta + koppen home Rugby | wij | 1 H1 + meta description |
+| 4 | Klikbaar contact Rugby Werkt | wij | tel: + mailto: live |
 
 ### Maand twee / drie
 
 | # | Wat | Wie | Klaar als |
 | --- | --- | --- | --- |
-| 5 | Scrum College één pad | jullie | één primaire URL in sitemap |
-| 6 | Alt + Organization schema | wij | 0 lege alt; schema test |
-| 7 | APG-case slug | jullie | 301 naar /cases/apg/ |
+| 5 | Scrum College één verkooppad | jullie | besluit + één primaire URL |
+| 6 | Alt-teksten + Organization schema | wij | 0 lege alt; schema test |
+| 7 | APG-case slug opruimen | jullie | 301 naar /cases/apg/ |
 
 **Buiten scope deze ronde:** GBP-wijzigingen, live deploy, paid, mail, linkdisavow, GSC-grafieken zonder export.
 
