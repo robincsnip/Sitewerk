@@ -11,10 +11,10 @@ Gelijkwaardig aanbod naast Uitvoer, geen bijlage achter de audit.
 
 ## Flow
 
-1. `atelier/design-brief.md` — stijl + rationale  
-2. IA volgt hubbesluiten uit het rapport (of brief als geen audit)  
+1. `atelier/design-brief.md` — **eerst** functies (type + jobs), **dan** stijl + rationale  
+2. IA volgt hubbesluiten uit het rapport (of brief als geen audit) — jobs uit stap 1 niet schrappen  
 3. `atelier/werklijst-design.md` met dezelfde packetvelden als Uitvoer  
-4. Bouw → preview  
+4. Skills kiezen (ná 1–2) → bouw → preview  
 5. Toets 2 → Eigenaren live → Nameting (Toets 3)
 
 ## In klantrapport
