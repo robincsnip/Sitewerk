@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maickels Broodjes — wat er speelt online, en wat we eerst doen</title>
+  <style>
+/* Sitewerk — Richting C: Papier (typography) */
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap");
+
+:root {
+  --font-display: "Libre Baskerville", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-body: "Literata", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-ui: "Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-xs: 8pt;
+  --text-sm: 9pt;
+  --text-base: 10.5pt;
+  --text-lg: 12pt;
+  --text-xl: 14pt;
+  --text-2xl: 18pt;
+  --text-3xl: 28pt;
+}
+
+/* Sitewerk — Richting C: Papier (colors) */
+
+:root {
+  --ink: #1c1917;
+  --paper: #faf8f5;
+  --panel: #ffffff;
+  --muted: #78716c;
+  --line: #d6d3d1;
+  --accent: #2d5a4a;
+  --accent-soft: #e8e4dc;
+  --accent-muted: #c9c4bb;
+  --warn: #9a5b14;
+  --warn-soft: #f5efe6;
+  --danger: #9b3d32;
+  --danger-soft: #f8ecea;
+  --ok: #2d5a4a;
+  --ok-soft: #e8efe9;
+}
+
+/* Sitewerk — Richting C: Papier (spacing) */
+
+:root {
+  --space-1: 1.5mm;
+  --space-2: 2.5mm;
+  --space-3: 4mm;
+  --space-4: 6mm;
+  --space-5: 8mm;
+  --space-6: 10mm;
+  --space-7: 14mm;
+  --space-8: 18mm;
+
+  --radius: 4px;
+  --radius-sm: 2px;
+  --shadow: 0 1px 0 rgba(28, 25, 23, 0.04);
+  --measure: 68ch;
+}
+
+/* Sitewerk — Richting C: Papier (shared component hooks) */
+
+:root {
+  --display: var(--font-display);
+  --body: var(--font-body);
+  --sans: var(--font-ui);
+}
+
+/* Sitewerk rapport theme — Richting C: Papier (print-first A4) */
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 14mm 12mm 16mm 12mm;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Cover (Papier) ──────────────────────────────────── */
+
+.cover {
+  position: relative;
+  min-height: 250mm;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  page-break-after: always;
+}
+
+.cover-rule {
+  height: 2px;
+  background: var(--accent);
+  width: 100%;
+}
+
+.cover-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(250mm - 2px);
+  padding: var(--space-7) var(--space-8) var(--space-8);
+}
+
+.brand {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 auto;
+}
+
+.cover-center {
+  text-align: center;
+  margin: auto 0;
+  padding: var(--space-6) 0;
+}
+
+.cover h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
+  color: var(--ink);
+}
+
+.cover-date {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--space-4);
+}
+
+.cover-belofte {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--muted);
+  margin: 0;
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.45;
+}
+
+.cover-kpi {
+  width: 100%;
+  max-width: 150mm;
+  margin: auto 0 0;
+  border-collapse: collapse;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.cover-kpi td {
+  text-align: center;
+  padding: var(--space-3) var(--space-2);
+  border: 0;
+  vertical-align: top;
+}
+
+.cover-kpi-values td {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--accent);
+  padding-bottom: var(--space-1);
+}
+
+.cover-kpi-labels td {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding-top: 0;
+}
+
+.cover-kpi-notes td {
+  font-family: var(--font-body);
+  font-size: 7.5pt;
+  color: var(--muted);
+  font-style: italic;
+  padding-top: 0;
+}
+
+/* ── Report body ─────────────────────────────────────── */
+
+.report {
+  padding: 0 var(--space-5) var(--space-6);
+}
+
+.report-section {
+  margin: 0 0 var(--space-4);
+}
+
+.report h2.section-head {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin: var(--space-6) 0 var(--space-3);
+  padding: 0 0 var(--space-2);
+  border-bottom: 1px solid var(--line);
+  border-top: 0;
+  line-height: 1.2;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.report-section > h2.section-head:first-child {
+  margin-top: var(--space-4);
+}
+
+.report h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  margin: var(--space-4) 0 var(--space-2);
+  color: var(--accent);
+  font-weight: 700;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.report p {
+  margin: 0 0 var(--space-2);
+  max-width: var(--measure);
+  orphans: 3;
+  widows: 3;
+}
+
+.report hr.section-break {
+  border: 0;
+  height: 0;
+  margin: var(--space-5) 0;
+}
+
+.lead-block {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.lead-block p {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.55;
+}
+
+.section-intro {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  margin: 0 0 var(--space-3) !important;
+}
+
+/* ── Priority cards ──────────────────────────────────── */
+
+.prio-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.prio-card {
+  display: grid;
+  grid-template-columns: 11mm 1fr;
+  gap: var(--space-3);
+  align-items: start;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.prio-card:last-child {
+  margin-bottom: 0;
+}
+
+.prio-num {
+  width: 9mm;
+  height: 9mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.prio-title {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: var(--space-1);
+}
+
+.prio-done {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  padding: var(--space-2);
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Good-grid ───────────────────────────────────────── */
+
+.good-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+  column-count: 2;
+  column-gap: var(--space-3);
+}
+
+.good-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--ok-soft);
+  border: 1px solid var(--accent-muted);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.35;
+  margin-bottom: var(--space-2);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ── Finding cards ───────────────────────────────────── */
+
+.prio-shell,
+.measure-shell {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.good-shell {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-shell,
+.werklijst-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  display: block;
+  width: 100%;
+}
+
+/* Heading + intro + first following block stay together in print */
+.heading-keep {
+  display: block;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-card {
+  display: block;
+  margin: 0 0 var(--space-3);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 1mm 2.5mm;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+}
+
+.finding-p0 .finding-badge {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.finding-p1 .finding-badge {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.finding-p2 .finding-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.finding-content h3 {
+  margin-top: 0;
+}
+
+.finding-content p {
+  font-size: var(--text-base);
+}
+
+.mini-kpi-row {
+  display: flex;
+  gap: var(--space-3);
+  margin: var(--space-2) 0 var(--space-1);
+  flex-wrap: wrap;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.mini-kpi {
+  flex: 1;
+  min-width: 20mm;
+  text-align: center;
+  padding: var(--space-2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.mini-kpi-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--danger);
+  line-height: 1.1;
+}
+
+.mini-kpi-label {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Callout & decisions ─────────────────────────────── */
+
+/* ── GSC charts (SVG) ─────────────────────────────────── */
+
+.gsc-chart-shell {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.gsc-chart-head {
+  margin-bottom: var(--space-2);
+}
+
+.gsc-chart-title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin: 0 0 var(--space-1);
+  color: var(--ink);
+}
+
+.gsc-chart-sub {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.gsc-chart-note {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  color: var(--muted);
+  font-style: italic;
+  margin: var(--space-2) 0 0;
+  text-align: right;
+}
+
+.gsc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 7.5pt;
+  color: var(--muted);
+}
+
+.gsc-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5mm;
+}
+
+.gsc-legend-swatch {
+  display: inline-block;
+  width: 4mm;
+  height: 1.5mm;
+  border-radius: 1mm;
+}
+
+.swatch-clicks,
+.gsc-bar-clicks {
+  fill: var(--accent);
+}
+
+.swatch-impressions,
+.gsc-line-impressions,
+.gsc-dot-impressions {
+  stroke: #6b5b95;
+  fill: #6b5b95;
+}
+
+.gsc-line-impressions {
+  fill: none;
+  stroke-width: 2;
+}
+
+.gsc-dot-impressions {
+  stroke: none;
+}
+
+.swatch-ctr,
+.gsc-line-ctr {
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+.swatch-position,
+.gsc-line-position {
+  stroke: var(--warn);
+  fill: none;
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+.swatch-period-0 {
+  background: color-mix(in srgb, var(--accent) 45%, var(--paper));
+}
+
+.swatch-period-1 {
+  background: color-mix(in srgb, var(--accent) 72%, var(--paper));
+}
+
+.swatch-period-2 {
+  background: var(--accent);
+}
+
+.gsc-bar-compare {
+  fill: var(--accent);
+}
+
+.gsc-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gsc-grid {
+  stroke: var(--line);
+  stroke-width: 0.5;
+}
+
+.gsc-axis {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.gsc-axis-label,
+.gsc-axis-tick,
+.gsc-compare-label,
+.gsc-bar-value {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  fill: var(--muted);
+}
+
+.gsc-bar-value {
+  font-size: 6pt;
+  fill: var(--ink);
+  font-weight: 600;
+}
+
+.gsc-axis-title {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  fill: var(--muted);
+}
+
+.gsc-axis-tick-right,
+.gsc-axis-title-right {
+  fill: var(--muted);
+}
+
+.baseline-chart-shell {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 32mm 1fr 14mm;
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.chart-row:last-child {
+  margin-bottom: 0;
+}
+
+.chart-label {
+  color: var(--ink);
+}
+
+.chart-bar {
+  height: 3mm;
+  background: var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.chart-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.chart-value {
+  text-align: right;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.callout-fictief {
+  margin: var(--space-3) 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--warn-soft);
+  border: 1px solid var(--warn);
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.callout-fictief p {
+  margin: 0;
+}
+
+.callout-decision {
+  margin: var(--space-4) 0 var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.callout-decision p {
+  margin: 0;
+  font-size: var(--text-base);
+}
+
+.decision-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.decision-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.decision-card:last-child {
+  margin-bottom: 0;
+}
+
+.decision-card h3 {
+  margin-top: 0;
+  font-size: var(--text-base);
+}
+
+.decision-card p {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+/* ── Measure timeline ────────────────────────────────── */
+
+.measure-grid {
+  display: block;
+  margin: var(--space-3) 0 var(--space-4);
+  column-count: 2;
+  column-gap: var(--space-3);
+}
+
+.measure-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.measure-when {
+  font-family: var(--font-ui);
+  font-size: 7pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: var(--space-1);
+}
+
+.measure-label {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.measure-text {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+/* ── GSC report tables ───────────────────────────────── */
+
+.gsc-shell {
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.gsc-shell .gsc-meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0 0 var(--space-2);
+}
+
+.gsc-shell table,
+.report table.gsc-table {
+  font-size: 8pt;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.gsc-shell table thead,
+.report table.gsc-table thead {
+  display: table-header-group;
+}
+
+.gsc-shell table th,
+.report table.gsc-table th {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gsc-shell h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+
+.report table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-3) 0 var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.report table.scope-table,
+.report table.context-table,
+.report table.werklijst-table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.report table.scope-table thead,
+.report table.context-table thead,
+.report table.werklijst-table thead {
+  display: table-header-group;
+}
+
+.report table.scope-table tr,
+.report table.context-table tr,
+.report table.werklijst-table tr,
+.report table.appendix-table tr,
+.report table.gsc-table tr,
+.gsc-shell table tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.report table.appendix-table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.report table.appendix-table thead {
+  display: table-header-group;
+}
+
+.report th,
+.report td {
+  border-bottom: 1px solid var(--line);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  vertical-align: top;
+}
+
+.report th {
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.report tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.scope-table td:nth-child(2) {
+  font-weight: 600;
+}
+
+.werklijst-table td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  width: 8mm;
+}
+
+.appendix-table {
+  font-size: 7pt;
+}
+
+.appendix-table th,
+.appendix-table td {
+  padding: 1.5mm 2mm;
+}
+
+.appendix-table th {
+  background: var(--accent-soft);
+}
+
+.report strong {
+  font-weight: 600;
+}
+
+.report ul,
+.report ol {
+  margin: var(--space-2) 0 var(--space-3);
+  padding-left: 5mm;
+  max-width: var(--measure);
+}
+
+.colophon {
+  padding: var(--space-3) var(--space-5) var(--space-6);
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  border-top: 1px solid var(--line);
+  margin-top: var(--space-5);
+}
+
+@media print {
+  html,
+  body {
+    background: var(--paper);
+    font-size: var(--text-base);
+  }
+
+  .cover {
+    background: var(--paper) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cover-kpi {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .report hr.section-break {
+    display: none;
+    margin: 0;
+    height: 0;
+  }
+
+  .report h2.section-head {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .report h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Keep headings with the block that follows */
+  .report h2.section-head + *,
+  .report h3 + * {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .heading-keep {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    display: block;
+  }
+
+  .heading-keep > h2.section-head,
+  .heading-keep > h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .heading-keep > h2.section-head + *,
+  .heading-keep > h3 + *,
+  .heading-keep > .section-intro + * {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .report-section > h2.section-head:first-child,
+  .heading-keep > h2.section-head:first-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .report-section--appendix {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .report-section--appendix + .report-section--appendix {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  .good-shell,
+  .finding-shell,
+  .werklijst-block,
+  .prio-shell,
+  .measure-shell,
+  .prio-card,
+  .finding-card,
+  .decision-card,
+  .measure-card,
+  .callout-decision,
+  .callout-fictief,
+  .gsc-shell,
+  .gsc-chart-shell,
+  .lead-block,
+  .table-shell,
+  .heading-keep {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .prio-grid,
+  .decision-grid,
+  .good-grid,
+  .measure-grid {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .prio-card,
+  .finding-card,
+  .decision-card,
+  .measure-card {
+    display: table;
+    width: 100%;
+  }
+
+  .good-grid {
+    display: block;
+  }
+
+  .good-item {
+    display: block;
+    width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .measure-grid {
+    display: block;
+    column-count: 2;
+    column-gap: var(--space-3);
+  }
+
+  .measure-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    column-break-inside: avoid;
+  }
+
+  .report table.scope-table tr,
+  .report table.context-table tr,
+  .report table.appendix-table tr,
+  .report table.werklijst-table tr,
+  .report table.werklijst-tabel tr,
+  .report table.gsc-table tr,
+  .gsc-shell table tr,
+  .table-shell tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .table-shell {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="../../../assets/rapport-theme.css" />
+</head>
+<body>
+  <header class="cover cover-papier">
+    <div class="cover-rule" aria-hidden="true"></div>
+    <div class="cover-inner">
+      <p class="brand">Sitewerk</p>
+      <div class="cover-center">
+        <h1>Maickels Broodjes</h1>
+        <p class="cover-date">14 september 2026</p>
+        <p class="cover-belofte">wat er speelt online, en wat we eerst doen</p>
+      </div>
+      <table class="cover-kpi"><tr class="cover-kpi-values"><td>3</td><td>7</td><td>1</td><td>2</td></tr><tr class="cover-kpi-labels"><td>Prioriteiten</td><td>Acties</td><td>Pagina</td><td>Urgent</td></tr><tr class="cover-kpi-notes"><td>deze maand</td><td>90 dagen</td><td>in Google-overzicht</td><td>eerst doen</td></tr></table>
+    </div>
+  </header>
+  <main class="report">
+<section class="report-section"><p><strong>Peildatum:</strong> 14 september 2026 <strong>Status:</strong> concept — er is nog niets live gezet <strong>Opgesteld door:</strong> Sitewerk</p>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">In het kort</h2>
+<div class="lead-block"><p>Maickels Broodjes heeft één nette pagina: hero, sauzen, een schemasectie en een boekingsformulier. Apex wijst naar www, de verbinding is in orde. Wat ontbreekt, is wat een zoeker nodig heeft om te handelen: waar de truck <strong>deze week</strong> staat, hoe je belt, en welke broodjes er zijn. Die feiten staan nu op een plaatje, in directories, of helemaal niet op de eigen site.</p></div>
+</div>
+<div class="callout-decision"><p><strong>Besluit dat we vragen:</strong> akkoord op de drie prioriteiten hieronder — eerst het weekschema als tekst, dan titel en regio, dan bellen/mailen vanaf de site. Daarna een onafhankelijke check, dan pas bouwen op een preview.</p></div>
+<div class="heading-keep">
+<h3>Drie prioriteiten</h3>
+<div class="prio-shell"><div class="prio-grid"><div class="prio-card"><div class="prio-num">1</div><div class="prio-body"><div class="prio-title">Weekschema leesbaar zonder plaatje</div><div class="prio-done">Klaar als: de broncode de actuele standplaatsen en tijden als tekst bevat — zie bevinding 1</div></div></div><div class="prio-card"><div class="prio-num">2</div><div class="prio-body"><div class="prio-title">Zoeksnippet met broodjes en streek</div><div class="prio-done">Klaar als: titelbalk en hoofdkop de streek noemen — zie bevinding 2</div></div></div><div class="prio-card"><div class="prio-num">3</div><div class="prio-body"><div class="prio-title">Bellen en mailen vanaf de homepage</div><div class="prio-done">Klaar als: nummer en mail aanklikbaar zijn — zie bevinding 3</div></div></div></div></div>
+</div>
+<div class="heading-keep">
+<h3>Wat al goed staat (niet kapotmaken)</h3>
+<div class="good-shell"><div class="good-grid"><div class="good-item">Bezoekers komen automatisch op www terecht</div><div class="good-item">De verbinding is beveiligd (HTTPS)</div><div class="good-item">Eén merk, één domein — geen wirwar</div><div class="good-item">H1 zegt al “verse broodjes op vaste plekken”</div><div class="good-item">Sauzen hebben naam, foto en korte tekst</div><div class="good-item">Boekingsformulier (naam, mail, tel, bericht) staat klaar</div><div class="good-item">Links naar Instagram, Facebook en TikTok</div><div class="good-item">Deelbeeld voor socials aanwezig</div></div></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Wat we hebben bekeken</h2>
+<p class="section-intro">Openbare HTML van www.maickelsbroodjes.nl, technische koppen, ontbrekende overzichtsbestanden, extra paden, het weekschema-beeld ná laden, directories en een zoeksteekproef. Geen Search Console. Geen inlog in Google Maps. Geen verzonnen grafieken.</p>
+<div class="table-shell"><table class="data-table scope-table"><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; vindbaarheid</td><td>bekeken</td><td>Geen pagina-overzicht, geen vast hoofdadres; extra paden bestaan niet</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>Alleen de homepage; menu is ankers</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Bio in de samenvatting; aanbod in de H1; rooster niet als tekst</td></tr><tr><td>Snelheid</td><td>deels</td><td>Geen Lighthouse; het weekschema-beeld is zwaar</td></tr><tr><td>Google-bedrijfsprofiel</td><td>relevant, niet ingezien</td><td>Geen sterren of posities</td></tr><tr><td>Reviews &amp; reputatie</td><td>niet gemeten</td><td>Alleen social-links op de eigen site</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>steekproef</td><td>Broodjes enzo, boekingsdirectories, regiogids</td></tr><tr><td>AI-vindbaarheid</td><td>niet</td><td>Eerst lokale basis</td></tr></tbody></table></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Markt &amp; concurrenten</h2>
+<p class="section-intro">Wie concurreert op dezelfde zoekintentie — steekproef 14 september. Elke gap staat op de werklijst of heeft een reden waarom niet.</p>
+<div class="table-shell"><table class="data-table context-table"><thead><tr><th>Speler</th><th>Rol</th><th>Gap t.o.v. jullie</th><th>Label</th><th>Actie</th></tr></thead><tbody><tr><td>Broodjes enzo</td><td>Vaste lunchzaak Beek en Donk</td><td>Plaats, telefoon en mail in de HTML; wint “broodjes Beek en Donk” in deze steekproef</td><td>gemeten</td><td>#2 — titel en regio</td></tr><tr><td>Foodtruckbooking</td><td>Boekingsdirectory</td><td>Menu, prijsindicatie en boekingsformulier voor events</td><td>gemeten</td><td>#5 + #6 — menu en boekingen</td></tr><tr><td>FestiFood Group</td><td>Event-boekingspartner</td><td>Catering-copy en een boektelefoon op hun domein</td><td>gemeten</td><td>#6 — eigen boekpad</td></tr><tr><td>Land van de Peel</td><td>Regiogids</td><td>Adres, belnummer en mail die de eigen site niet toont</td><td>gemeten</td><td>#3 — bel en mail</td></tr><tr><td>het-menu.nl / Bottin</td><td>Aggregators</td><td>Openingstijden (niet gecontroleerd tegen jullie rooster)</td><td>gemeten</td><td>Geen actie: aggregators niet bijhouden; eerst #1–#3</td></tr><tr><td>Wendy's Broodjes / Loaded Flats</td><td>Andere foodtrucks in de regio</td><td>Ander aanbod; zelfde soort zoeker</td><td>afgeleid</td><td>Geen actie: buiten de eerste 90 dagen</td></tr><tr><td>Maickels Broodjes</td><td>Jullie site</td><td>—</td><td>gemeten</td><td>Geen actie: HTTPS, www, sauzen en socials behouden</td></tr></tbody></table></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Zoektermen die ertoe doen</h2>
+<p class="section-intro">Openbare zoeksteekproef 14 september (zelfde dag als de technische metingen). Geen Search Console — dus geen klikken of exacte posities.</p>
+<div class="table-shell"><table class="data-table context-table"><thead><tr><th>Zoekopdracht</th><th>Wat de zoeker wil</th><th>Zichtbaar voor jullie?</th><th>Label</th></tr></thead><tbody><tr><td>Maickels Broodjes</td><td>Merk vinden</td><td>Ja — eigen site in de getoonde hits, naast directories</td><td>gemeten</td></tr><tr><td>broodjes Beek en Donk</td><td>Lunch in de buurt</td><td>Nee — Broodjes enzo en directories; eigen home niet als winnaar in deze steekproef</td><td>gemeten</td></tr><tr><td>Maickels Broodjes foodtruck boeken</td><td>Truck huren / event</td><td>Deels — boekingsdirectories; eigen site niet het sterke boekingspad</td><td>gemeten</td></tr><tr><td>site:maickelsbroodjes.nl</td><td>Wat Google van het domein toont</td><td>Alleen de homepage in de getoonde hits</td><td>gemeten</td></tr><tr><td>broodje Gate 54 / foodtruck Eindhoven</td><td>Standplaats deze week</td><td>Niet nagekeken deze run</td><td>onbekend</td></tr></tbody></table></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section report-section--chapter"><div class="heading-keep">
+<h2 class="section-head">Bevindingen</h2>
+<div class="finding-shell"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><div class="mini-kpi-row"><div class="mini-kpi"><div class="mini-kpi-value">Schema laden…</div><div class="mini-kpi-label">in de broncode</div></div><div class="mini-kpi"><div class="mini-kpi-value">8–12 sep</div><div class="mini-kpi-label">op het weekbeeld</div></div><div class="mini-kpi"><div class="mini-kpi-value">1,6 MB</div><div class="mini-kpi-label">alleen het roosterplaatje</div></div></div><h3>1. Het weekschema is een plaatje — en het is vorige week</h3>
+<p>Wie de broncode opent, ziet bij het rooster alleen “Schema laden…”. Daarna haalt de pagina een JPEG op (zoals op socials). Op 14 september toonde dat beeld nog de dagen <strong>8 tot 12 september</strong>.</p>
+<p><strong>Gevolg:</strong> Google en een deel van de previews lezen geen plekken of tijden. Een zoeker die “waar staat Maickel vandaag?” wil weten, krijgt op de eigen site geen tekstueel antwoord. Zie markttabel: dat is precies de intentie die een lunchzoeker heeft.</p>
+<p><strong>Voorstel:</strong> de week (dag, plek, adres, tijd) als gewone tekst in de pagina. Het plaatje mag eronder blijven. Jullie leveren de actuele week; wij zetten de HTML. Zie werklijst #1.</p></div></div></div>
+</div>
+<div class="finding-shell"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><h3>2. Titel en samenvatting vertellen wie Maickel is — niet waar je een broodje haalt</h3>
+<p>De titelbalk is alleen de merknaam. De korte tekst voor Google is een persoonlijke bio (woonachtig in Beek en Donk, horeca als passie). De hoofdkop is wél goed (“verse broodjes op vaste plekken in de stad”) maar noemt geen plaats of regio.</p>
+<p><strong>Gevolg:</strong> wie het merk al kent, herkent de pagina. Wie “broodjes Beek en Donk” typt, landt in onze steekproef eerder bij Broodjes enzo. Zie zoektermen-tabel.</p>
+<p><strong>Voorstel:</strong> titel, korte samenvatting en hoofdkop noemen broodjes én een plaats of regio. De bio mag op de pagina blijven, niet als enige tekst in de zoeksnippet. Zie werklijst #2.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>3. Bellen en mailen kan niet vanaf de eigen site</h3>
+<p>Op de homepage staat een formulier, geen klikbaar nummer en geen zichtbaar mailadres. Regiogids Land van de Peel toont wél een 06-nummer en <code>info@mbfoodpassion.nl</code>. Die gegevens zijn <strong>niet</strong> bevestigd als jullie officiële zaakadres: het weekbeeld noemt andere standplaatsen dan Auwerstraat.</p>
+<p><strong>Gevolg:</strong> op mobiel moet je het nummer ergens anders vandaan halen. Directories vertellen meer dan de eigen site.</p>
+<p><strong>Voorstel:</strong> na jullie bevestiging (beslissing 1) een klikbaar nummer en een zichtbaar mailadres op de pagina. Geen wijziging in Google Maps in deze ronde. Zie werklijst #3.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>4. Google krijgt geen overzicht van jullie pagina’s</h3>
+<p>Er is geen bestand met pagina-adressen voor Google, en de homepage zegt niet welk adres de echte is. Paden als <code>/menu</code> of <code>/locaties</code> bestaan niet (foutpagina). Dat is geen ramp zolang de home de feiten draagt — wél een gap t.o.v. Broodjes enzo, die wél een overzicht heeft.</p>
+<p><strong>Voorstel:</strong> een klein overzicht (nu: één homepage) en één vast hoofdadres op de home. Geen neppagina’s aanmaken om het overzicht voller te maken. Zie werklijst #4.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>5. Het aanbod staat bij anderen, niet bij jullie</h3>
+<p>Op de eigen site staan drie sauzen. Op Foodtruckbooking en een festivalpagina staan broodjesnamen (onder meer Pulled Pork, Smokey Chicken, Chicken Truffle). Die lijsten kunnen verouderd zijn — we nemen ze niet over zonder jullie check.</p>
+<p><strong>Gevolg:</strong> wie wil weten wat erin zit, moet een directory geloven. De eigen site verkoopt sauzen, niet het broodje.</p>
+<p><strong>Voorstel:</strong> kernbroodjes met naam (en korte regel) in de HTML op de homepage. Zie werklijst #5.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>6. Wie de truck wil boeken, landt bij een directory</h3>
+<p>Op “Maickels Broodjes foodtruck boeken” tonen de hits Foodtruckbooking en FestiFood. Jullie hebben een formulier zonder uitleg (geen prijsindicatie, geen regio, geen “zo werken boekingen”).</p>
+<p><strong>Gevolg:</strong> de boekingsintentie hoort bij jullie merk, maar het verhaal staat op andermans domein.</p>
+<p><strong>Voorstel:</strong> een eigen blok of pagina met hoe je boekt. Partnerlinks mogen blijven. Zie werklijst #6.</p></div></div></div>
+<div class="finding-shell"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>7. Extra gegevens voor Google ontbreken — ná het adres-besluit</h3>
+<p>In de pagina staan geen extra gegevens die Google helpen (naam, adres, telefoon als machineleesbare velden). Hero-foto’s heten in de code “Slide 0” tot “Slide 2”.</p>
+<p><strong>Voorstel:</strong> die extra gegevens pas zetten als beslissing 1 (welk adres) rond is. Geen sterren in die gegevens. Zie werklijst #7.</p></div></div></div>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Beslissingen die we van jullie nodig hebben</h2>
+<div class="decision-grid"><div class="decision-card"><h3>Beslissing 1 — Welk adres is de zaak?</h3><p><strong>Voorstel:</strong> niet blind Auwerstraat 4a van directories overnemen. Bevestig: thuis/base, serveerplek, of “geen vast adres, alleen het weekschema”. <strong>Alternatief:</strong> Auwerstraat wél als bezoekadres als dat klopt met hoe jullie Maps willen. <strong>Opnieuw bekijken als:</strong> het weekschema een vaste kernplek in Beek en Donk krijgt.</p></div><div class="decision-card"><h3>Beslissing 2 — Extra URL’s voor standplaatsen of één sterke home?</h3><p><strong>Voorstel:</strong> eerst home compleet (#1–#5). Geen <code>/eindhoven</code> of <code>/locaties</code> tot het rooster als tekst staat. <strong>Alternatief:</strong> meteen stadspagina’s als jullie wekelijks dezelfde steden doen. <strong>Opnieuw bekijken als:</strong> twee of meer standplaatsen een eigen zoekvraag houden (bijv. elke week Gate 54).</p></div><div class="decision-card"><h3>Beslissing 3 — Boeken via FestiFood, zelf, of allebei?</h3><p><strong>Voorstel:</strong> eigen tekst + formulier op jullie site; FestiFood als partnernoot als die afspraak loopt. <strong>Alternatief:</strong> FestiFood als enig boekingspad — dan op de eigen site duidelijk doorlinken, niet zwijgen. <strong>Opnieuw bekijken als:</strong> jullie de partnerovereenkomst wijzigen.</p></div></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Keuze — bestaande site of nieuw</h2>
+<p><strong>Voorstel:</strong> Uitvoer op de bestaande site. <strong>Waarom:</strong> de pagina is al een productpagina; de gaten zijn tekst en lokale feiten, geen nieuwe huisstijl. <strong>Alternatief:</strong> later een nieuw platform — alleen als het weekschema niet als tekst in deze stack kan.</p>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section report-section--chapter"><div class="heading-keep">
+<h2 class="section-head">Werklijst — eerste 90 dagen</h2>
+<p class="section-intro">Zie <code>werklijst.md</code> in deze run. Zelfde lijst, geen tweede waarheid.</p>
+<div class="werklijst-block"><h3>Deze maand</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>Weekschema als tekst in de HTML</td><td>gedeeld</td><td>view-source toont deze week plekken en tijden als tekst, niet alleen "Schema laden…"</td></tr><tr><td>2</td><td>Titel, meta en H1 met broodjes + regio</td><td>wij</td><td>title en H1 noemen broodjes én een plaats of regio</td></tr><tr><td>3</td><td>Klikbaar telefoonnummer en zichtbaar mailadres</td><td>wij</td><td>tel: en mailto: in de broncode</td></tr><tr><td>4</td><td>Pagina-overzicht en hoofdadres voor Google</td><td>wij</td><td>overzicht van pagina-adressen geeft 200; homepage heeft één vast hoofdadres</td></tr></tbody></table></div></div>
+</div>
+<div class="werklijst-block"><h3>Maand twee / drie</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>5</td><td>Menu en aanbod in tekst op de homepage</td><td>wij</td><td>kernbroodjes met naam in de HTML</td></tr><tr><td>6</td><td>Boekingen op de eigen site</td><td>wij</td><td>eigen blok of pagina met hoe je de truck boekt</td></tr><tr><td>7</td><td>Extra gegevens voor Google (naam, adres, telefoon)</td><td>wij</td><td>naam, adres en telefoon staan in de extra gegevens die Google leest</td></tr></tbody></table></div></div>
+<p><strong>Buiten scope deze ronde:</strong> live zetten, Google-bedrijfsprofiel wijzigen, ads, mail naar gasten, %-belofte, grafieken zonder Search Console.</p>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Hoe we weten of het werkt</h2>
+<div class="measure-shell"><div class="measure-grid"><div class="measure-card"><div class="measure-when">Nu bekend</div><div class="measure-label">Baseline</div><div class="measure-text">HTML-fetch home, ontbrekende overzichtsbestanden, weekschema-JPEG 8–12 sep, zoeksteekproef 14 sep</div></div><div class="measure-card"><div class="measure-when">Nog niet bekend</div><div class="measure-label">Open</div><div class="measure-text">Search Console, Maps-positie, of het nieuwe rooster geïndexeerd wordt</div></div><div class="measure-card"><div class="measure-when">30 dagen</div><div class="measure-label">Hercontrole</div><div class="measure-text">view-source: week als tekst; title/H1 met regio; tel: aanwezig</div></div><div class="measure-card"><div class="measure-when">90 dagen</div><div class="measure-label">Nameting</div><div class="measure-text">hersteekproef “broodjes Beek en Donk” + merkquery; nameting-run</div></div></div></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section report-section--appendix"><div class="heading-keep">
+<h2 class="section-head">Bijlage A — Bewijs</h2>
+<div class="table-shell"><table class="data-table appendix-table"><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>Schema laden…; JPEG 8–12 sep; 1,6 MB</td><td>home HTML + /api/weekschema-version + blob JPEG 14 sep</td><td>gemeten</td></tr><tr><td>F-002</td><td>Title alleen merk; meta = bio; H1 zonder plaats</td><td>view-source www 14 sep</td><td>gemeten</td></tr><tr><td>F-003</td><td>Geen tel:/mailto:; directories wel nummer/mail</td><td>home HTML; Land van de Peel</td><td>gemeten</td></tr><tr><td>F-004</td><td>geen pagina-overzicht, geen vast hoofdadres; extra paden 404</td><td>curl 14 sep</td><td>gemeten</td></tr><tr><td>F-005</td><td>Eigen site alleen sauzen; derden hebben broodjesnamen</td><td>home HTML; Foodtruckbooking; Intents</td><td>gemeten</td></tr><tr><td>F-006</td><td>Boek-zoek toont directories</td><td>zoeksteekproef 14 sep</td><td>gemeten</td></tr><tr><td>F-007</td><td>geen extra gegevens voor Google; hero-alt Slide 0–2</td><td>view-source</td><td>gemeten</td></tr><tr><td>F-008</td><td>Broodjes enzo wint lokale lunchquery in steekproef</td><td>zoeksteekproef “broodjes Beek en Donk”</td><td>gemeten</td></tr><tr><td>F-009</td><td>Google-bedrijfsprofiel niet ingezien</td><td>deze run</td><td>onbekend</td></tr><tr><td>F-010</td><td>Inkomende links niet geëxporteerd</td><td>—</td><td>onbekend</td></tr><tr><td>F-011</td><td>AI-overzichten niet bemonsterd</td><td>—</td><td>onbekend</td></tr><tr><td>F-012</td><td>HTML ~21 kB; CDN-HIT age ~23 dagen</td><td>curl headers</td><td>gemeten</td></tr></tbody></table></div>
+</div></section>
+<section class="report-section report-section--appendix"><div class="heading-keep">
+<h2 class="section-head">Bijlage B — Afgewezen automatische tips</h2>
+<div class="table-shell"><table class="data-table appendix-table"><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>Sterren / beoordelingen op de site</td><td>Geen dossier; geen Maps-login</td></tr><tr><td>Tien blogposts over broodjes</td><td>Lost rooster, titel en contact niet op</td></tr><tr><td>Google-bedrijfsprofiel “claim en posts” als eerste actie</td><td>Theater zonder hermeten Maps; eerst eigen HTML</td></tr><tr><td>Lege <code>/locaties</code> en <code>/menu</code> aanmaken</td><td>404 is geen gemis tot home de feiten draagt</td></tr><tr><td>LocalBusiness weglaten “want directory-sites doen dat niet”</td><td>Dit ís een lokale zaak</td></tr><tr><td>GSC-grafieken</td><td>Geen export van Robin deze ronde</td></tr></tbody></table></div>
+</div></section>
+  </main>
+  <footer class="colophon">
+    <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>
+  </footer>
+</body>
+</html>
