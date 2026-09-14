@@ -145,6 +145,10 @@ body {
   padding: 0 var(--space-5) var(--space-6);
 }
 
+.report-section {
+  margin: 0 0 var(--space-4);
+}
+
 .report h2.section-head {
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -154,21 +158,29 @@ body {
   border-bottom: 1px solid var(--line);
   border-top: 0;
   line-height: 1.2;
+  break-after: avoid;
   page-break-after: avoid;
+}
+
+.report-section > h2.section-head:first-child {
+  margin-top: var(--space-4);
 }
 
 .report h3 {
   font-family: var(--font-display);
   font-size: var(--text-lg);
-  margin: 0 0 var(--space-2);
+  margin: var(--space-4) 0 var(--space-2);
   color: var(--accent);
   font-weight: 700;
+  break-after: avoid;
   page-break-after: avoid;
 }
 
 .report p {
   margin: 0 0 var(--space-2);
   max-width: var(--measure);
+  orphans: 3;
+  widows: 3;
 }
 
 .report hr.section-break {
@@ -183,6 +195,8 @@ body {
   background: var(--panel);
   border-radius: var(--radius);
   border: 1px solid var(--line);
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .lead-block p {
@@ -200,9 +214,7 @@ body {
 /* ── Priority cards ──────────────────────────────────── */
 
 .prio-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-3);
+  display: block;
   margin: var(--space-3) 0 var(--space-4);
 }
 
@@ -215,7 +227,13 @@ body {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-3);
   break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.prio-card:last-child {
+  margin-bottom: 0;
 }
 
 .prio-num {
@@ -251,10 +269,10 @@ body {
 /* ── Good-grid ───────────────────────────────────────── */
 
 .good-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2);
+  display: block;
   margin: var(--space-3) 0 var(--space-4);
+  column-count: 2;
+  column-gap: var(--space-3);
 }
 
 .good-item {
@@ -268,7 +286,9 @@ body {
   font-family: var(--font-ui);
   font-size: var(--text-sm);
   line-height: 1.35;
+  margin-bottom: var(--space-2);
   break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .good-icon {
@@ -295,33 +315,33 @@ body {
 
 /* ── Finding cards ───────────────────────────────────── */
 
+.finding-shell {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
 .finding-card {
-  display: grid;
-  grid-template-columns: 12mm 1fr;
-  gap: var(--space-3);
+  display: block;
   margin: 0 0 var(--space-3);
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: var(--space-3);
+  padding: var(--space-3) var(--space-4);
   break-inside: avoid;
   page-break-inside: avoid;
 }
 
 .finding-badge {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  text-align: center;
+  display: inline-block;
   font-family: var(--font-ui);
   font-size: 7pt;
   font-weight: 600;
   letter-spacing: 0.08em;
-  padding: var(--space-2) 0;
+  padding: 1mm 2.5mm;
   border-radius: var(--radius-sm);
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: var(--space-2);
 }
 
 .finding-p0 .finding-badge {
@@ -352,6 +372,8 @@ body {
   gap: var(--space-3);
   margin: var(--space-2) 0 var(--space-1);
   flex-wrap: wrap;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .mini-kpi {
@@ -390,6 +412,7 @@ body {
   border-left: 3px solid var(--accent);
   border-radius: var(--radius);
   break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .callout-decision p {
@@ -398,9 +421,7 @@ body {
 }
 
 .decision-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-3);
+  display: block;
   margin: var(--space-3) 0 var(--space-4);
 }
 
@@ -410,7 +431,13 @@ body {
   border-left: 3px solid var(--accent);
   border-radius: var(--radius);
   padding: var(--space-3);
+  margin-bottom: var(--space-3);
   break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.decision-card:last-child {
+  margin-bottom: 0;
 }
 
 .decision-card h3 {
@@ -426,10 +453,10 @@ body {
 /* ── Measure timeline ────────────────────────────────── */
 
 .measure-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-3);
+  display: block;
   margin: var(--space-3) 0 var(--space-4);
+  column-count: 2;
+  column-gap: var(--space-3);
 }
 
 .measure-card {
@@ -437,7 +464,9 @@ body {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: var(--space-3);
+  margin-bottom: var(--space-3);
   break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .measure-when {
@@ -472,7 +501,33 @@ body {
   font-size: var(--text-sm);
   background: var(--panel);
   border: 1px solid var(--line);
+}
+
+.report table.scope-table,
+.report table.werklijst-table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.report table.scope-table thead,
+.report table.werklijst-table thead {
+  display: table-header-group;
+}
+
+.report table.scope-table tr,
+.report table.werklijst-table tr,
+.report table.appendix-table tr {
   break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.report table.appendix-table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.report table.appendix-table thead {
+  display: table-header-group;
 }
 
 .report th,
@@ -549,19 +604,101 @@ body {
     print-color-adjust: exact;
   }
 
+  .cover-kpi {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .report hr.section-break {
+    display: none;
+    margin: 0;
+    height: 0;
+  }
+
+  .report h2.section-head {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .report h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Keep headings with the block that follows */
+  .report h2.section-head + *,
+  .report h3 + * {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .report-section--chapter,
+  .report-section--appendix {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .report-section > h2.section-head:first-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .finding-shell,
   .prio-card,
   .finding-card,
   .decision-card,
   .good-item,
   .measure-card,
-  .report table,
+  .mini-kpi-row,
   .callout-decision,
-  .lead-block,
-  .cover-kpi {
-    break-inside: avoid;
-    page-break-inside: avoid;
+  .lead-block {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  .prio-grid,
+  .decision-grid,
+  .good-grid,
+  .measure-grid {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .finding-shell {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+  }
+
+  .prio-card,
+  .finding-card,
+  .decision-card,
+  .measure-card {
+    display: table;
+    width: 100%;
+  }
+
+  .good-grid {
+    display: block;
+    column-count: 1;
+  }
+
+  .good-item {
+    display: block;
+    width: 100%;
+    -webkit-column-break-inside: avoid;
+    column-break-inside: avoid;
+  }
+
+  .measure-grid {
+    column-count: 2;
+  }
+
+  .report h3 + table {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   a {

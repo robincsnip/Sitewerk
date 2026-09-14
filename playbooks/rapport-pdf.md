@@ -46,6 +46,14 @@ Het PDF moet **leesbaar** zijn, niet een blok zwarte tekst.
 
 Na CSS-wijziging: altijd `npm run audit:finish -- <run-id>` en visueel controleren vóór Toetser.
 
+## Amend — Paginering (sep 2026)
+
+- Hoofdstuk-secties (`report-section--chapter`, bijlagen) starten op nieuwe pagina; “In het kort” + scope mogen samen doorlopen.
+- Kaarten (finding-shell, prio, decision, measure): `break-inside: avoid`; geen grid-split in print.
+- Koppen: `break-after: avoid` + eerste blok `break-before: avoid`.
+- Scope/werklijst-tabellen: rijniveau avoid, `thead` herhaalt.
+- `hr.section-break` verborgen in print; `preferCSSPageSize: true` in html-to-pdf.
+
 ## Amend — Grafische modules (sep 2026)
 
 Inspiratie (patronen, geen assets gekopieerd): SE Ranking modulaire rapporten, CrawlRaven severity-kaarten, dashboard KPI-scorecards.

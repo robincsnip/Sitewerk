@@ -138,7 +138,7 @@ function renderFindingCard(level, inner, renderFragment) {
     bodyInner = inner.replace(kpiMatch[0], "");
   }
   const body = `${kpiHtml}${renderFragment(bodyInner)}`;
-  return `<div class="finding-card finding-${level}"><div class="finding-badge">${badge}</div><div class="finding-content">${body}</div></div>`;
+  return `<div class="finding-shell" style="break-inside: avoid; page-break-inside: avoid;"><div class="finding-card finding-${level}"><div class="finding-content"><div class="finding-badge">${badge}</div>${body}</div></div></div>`;
 }
 
 function renderFindingKpi(lines) {
@@ -368,11 +368,26 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
   return restoreFences(out.join("\n"), rendered);
 }
 
+function sectionClass(part) {
+  const head = part.slice(0, 160);
+  if (/Bijlage/.test(head)) return "report-section report-section--appendix";
+  if (/Bevindingen|Beslissingen|Werklijst/.test(head)) return "report-section report-section--chapter";
+  return "report-section";
+}
+
+function wrapReportSections(html) {
+  const parts = html.split(/(?=<h2 class="section-head">)/).filter((p) => p.trim());
+  if (parts.length <= 1) return html;
+  return parts
+    .map((part) => `<section class="${sectionClass(part)}">${part}</section>`)
+    .join("\n");
+}
+
 function mdToHtml(src, { skipFirstH1 = false } = {}) {
   const { stripped, placeholders } = extractFences(src);
   const fragment = (inner) => renderMarkdown(inner, { rendered: new Map() });
   const rendered = materializeFences(placeholders, fragment);
-  return renderMarkdown(stripped, { skipFirstH1, rendered });
+  return wrapReportSections(renderMarkdown(stripped, { skipFirstH1, rendered }));
 }
 
 function extractCoverKpis(src) {
