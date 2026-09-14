@@ -1,0 +1,19 @@
+{
+  "name": "",
+  "domain": "",
+  "kind": "directory | local | brochure",
+  "peildatum": "",
+  "bron": "runs/<id>/in/feiten.md",
+  "tagline": "",
+  "listings_nl": null,
+  "province_hubs": null,
+  "services": [],
+  "pages_known": ["/", "/over", "/contact"],
+  "hubs": [],
+  "specimen_place": null,
+  "unknown": ["adres", "telefoon", "uren", "GBP"],
+  "preview": {
+    "banner": "Sitewerk-preview · niet live · geen publicatie · geen mail",
+    "robots": "noindex, nofollow"
+  }
+}

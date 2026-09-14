@@ -13,7 +13,7 @@ Eén voordeur: brief in → rapport + werklijst + PDF uit.
 | **Toetser** | Aparte QC-run; mag niet in dezelfde run als Bouwer “akkoord” zetten |
 | **Uitvoer** | PRs/taken ná Toets 1 akkoord |
 | **Naslag** | Leert van afkeur/metingen (append-only) |
-| **Atelier** | Optioneel webdesign ná redesign-gate |
+| **Atelier** | Drie preview-huiden (lab) of nieuwe site ná redesign-gate |
 | **Eigenaren** | Live / mail / geld |
 
 ## Snel starten
@@ -24,6 +24,10 @@ npm run audit:finish -- <run-id>
 
 # Opnieuw bouwen na edits
 npm run pdf:run -- <run-id>
+
+# Atelier-preview (niet live)
+npm run atelier:preview -- 2026-09-14-camperstaan-atelier
+# http://127.0.0.1:4173/
 ```
 
 Output: `runs/<run-id>/print/rapport.pdf` (automatisch via `audit:finish`)
@@ -37,10 +41,12 @@ AGENTS.md                 # enige voordeur
 docs/PIJPLIJN.md
 agents/bouwer.md
 agents/toetser.md
+agents/atelier.md
 playbooks/                # audit, toets, naslag, uitvoer, atelier, rapport-pdf
 templates/
 assets/rapport-theme.css
-scripts/                  # md→html→pdf
+scripts/                  # md→html→pdf · atelier-preview
+assets/atelier/           # screen-CSS drie huiden
 lessons/
 runs/<id>/
 ```

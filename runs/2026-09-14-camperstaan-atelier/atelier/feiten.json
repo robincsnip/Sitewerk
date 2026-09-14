@@ -1,0 +1,38 @@
+{
+  "name": "Camperstaan",
+  "domain": "www.camperstaan.nl",
+  "kind": "directory",
+  "peildatum": "13 september 2026",
+  "bron": "runs/2026-09-14-camperstaan-v3/in/feiten.md",
+  "tagline": "Gids voor camperplaatsen in Nederland",
+  "listings_nl": 293,
+  "province_hubs": 12,
+  "city_pages": 253,
+  "services": [
+    "Overzicht van camperplaatsen",
+    "Provincie-overzichten",
+    "Stadspagina's",
+    "Plekpagina's met bronlink"
+  ],
+  "pages_known": ["/", "/plaatsen", "/over", "/contact", "/privacy", "/voorwaarden"],
+  "hubs": [
+    { "slug": "drenthe", "name": "Drenthe", "count": 19 },
+    { "slug": "overijssel", "name": "Overijssel", "count": null }
+  ],
+  "specimen_place": {
+    "name": "Kampen",
+    "city": "Kampen",
+    "listing": "Camperplaats Kampen",
+    "province": "Overijssel",
+    "claim_label": "Dit is van mij",
+    "claim_price": "€ 99"
+  },
+  "adres": null,
+  "telefoon": null,
+  "uren": null,
+  "unknown": ["adres", "telefoon", "uren", "GBP"],
+  "preview": {
+    "banner": "Sitewerk-preview · niet live · geen publicatie · geen mail",
+    "robots": "noindex, nofollow"
+  }
+}

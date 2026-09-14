@@ -8,7 +8,10 @@
     "pdf:run": "node scripts/build-run.js",
     "pdf:demo": "npm run audit:finish -- demo-2026-09-13",
     "build:demo": "npm run pdf:demo",
-    "test:pagination": "node scripts/check-pagination.selftest.js"
+    "test:pagination": "node scripts/check-pagination.selftest.js",
+    "atelier:build": "node scripts/atelier-build.js",
+    "atelier:preview": "node scripts/atelier-serve.js",
+    "test:atelier": "node scripts/atelier-preview.selftest.js"
   },
   "dependencies": {
     "pdf-parse": "^2.4.5",
