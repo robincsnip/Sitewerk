@@ -545,6 +545,46 @@ body {
   color: var(--muted);
 }
 
+/* ── GSC report tables ───────────────────────────────── */
+
+.gsc-shell {
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.gsc-shell .gsc-meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0 0 var(--space-2);
+}
+
+.gsc-shell table,
+.report table.gsc-table {
+  font-size: 8pt;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.gsc-shell table thead,
+.report table.gsc-table thead {
+  display: table-header-group;
+}
+
+.gsc-shell table th,
+.report table.gsc-table th {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gsc-shell h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
 /* ── Tables ──────────────────────────────────────────── */
 
 .report table {
@@ -570,7 +610,9 @@ body {
 
 .report table.scope-table tr,
 .report table.werklijst-table tr,
-.report table.appendix-table tr {
+.report table.appendix-table tr,
+.report table.gsc-table tr,
+.gsc-shell table tr {
   break-inside: avoid;
   page-break-inside: avoid;
 }
@@ -717,7 +759,7 @@ body {
   .measure-card,
   .callout-decision,
   .callout-fictief,
-  .baseline-chart-shell,
+  .gsc-shell,
   .lead-block {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
@@ -768,7 +810,9 @@ body {
   .report table.scope-table tr,
   .report table.appendix-table tr,
   .report table.werklijst-table tr,
-  .report table.werklijst-tabel tr {
+  .report table.werklijst-tabel tr,
+  .report table.gsc-table tr,
+  .gsc-shell table tr {
     break-inside: avoid;
     page-break-inside: avoid;
   }

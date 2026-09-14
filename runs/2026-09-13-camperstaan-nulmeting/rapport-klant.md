@@ -1,7 +1,7 @@
-# Camperstaan — nulmeting (baseline audit)
+# Camperstaan — nulmeting (baseline)
 
 **Peildatum:** 13 september 2026  
-**Status:** baseline — cijfers uit audit-run `2026-09-13-camperstaan-v2`  
+**Status:** nulmeting — GSC-voorbeeld **fictief / voorbeeld**; technische baseline uit audit **gemeten**  
 **Opgesteld door:** Sitewerk
 
 ---
@@ -9,22 +9,65 @@
 ## In het kort
 
 :::lead
-Dit is de **nulmeting**: de meetpunten uit de audit, één keer op een rij. Geen Search Console-export beschikbaar in de baseline-run — alleen wat we openbaar en in de sitemap hebben gemeten. Dit rapport is geen fictie en geen belofte over resultaten.
+De **nulmeting** legt vast waar we later verandering meten: Search Console (hier een fictief exportvoorbeeld in GSC-vorm) plus de technische meetpunten uit audit `2026-09-13-camperstaan-v2`. Geen belofte over resultaten.
 :::
 
 :::kpi
-306|Homepage plekken|baseline
-293|Zoekpagina NL|baseline
-577|Pagina's sitemap|baseline
-13|BE/DE extra|baseline
+2.847|Klikken (28d)|fictief / voorbeeld
+48.130|Vertoningen|fictief / voorbeeld
+5,9%|CTR|fictief / voorbeeld
+24,4|Gem. positie|fictief / voorbeeld
 :::
 
 ---
 
-## Wat we meten (uit het meetplan)
+## Search Console — nulmeting (fictief / voorbeeld)
+
+:::callout-fictief
+**FICTIEF / VOORBEELD** — Geen echte GSC-export in de baseline-audit. Onderstaande tabellen tonen hoe we Search Console **zouden** presenteren na koppeling. Cijfers zijn verzonnen ter illustratie.
+:::
+
+:::gsc
+**Periode:** 16 augustus – 13 september 2026 (28 dagen) · **Property:** `https://www.camperstaan.nl/` · **Label:** fictief / voorbeeld
+
+### Prestaties (totaal)
+
+| Meting | Waarde | Label |
+| --- | --- | --- |
+| Klikken | 2.847 | fictief / voorbeeld |
+| Vertoningen | 48.130 | fictief / voorbeeld |
+| CTR | 5,91% | fictief / voorbeeld |
+| Gemiddelde positie | 24,4 | fictief / voorbeeld |
+
+### Top zoekopdrachten
+
+| Zoekopdracht | Klikken | Vertoningen | CTR | Gem. positie | Label |
+| --- | --- | --- | --- | --- | --- |
+| camperstaan | 412 | 890 | 46,3% | 1,2 | fictief / voorbeeld |
+| camperplaatsen nederland | 186 | 4.210 | 4,4% | 18,6 | fictief / voorbeeld |
+| gratis camperplaats nederland | 94 | 2.140 | 4,4% | 22,1 | fictief / voorbeeld |
+| camperplaats kampen | 0 | 320 | 0,0% | 41,2 | fictief / voorbeeld |
+| camperplaatsen in drenthe | 2 | 980 | 0,2% | 34,8 | fictief / voorbeeld |
+
+### Top pagina's
+
+| Pagina | Klikken | Vertoningen | CTR | Gem. positie | Label |
+| --- | --- | --- | --- | --- | --- |
+| `/` | 892 | 3.400 | 26,2% | 8,4 | fictief / voorbeeld |
+| `/plaatsen` | 624 | 8.900 | 7,0% | 15,2 | fictief / voorbeeld |
+| `/plaats/kampen` | 28 | 410 | 6,8% | 19,4 | fictief / voorbeeld |
+| `/plaatsen/kampen-burgemeester-berghuisplein` | 0 | 310 | 0,0% | 38,5 | fictief / voorbeeld |
+| `/provincie/drenthe` | 3 | 620 | 0,5% | 31,2 | fictief / voorbeeld |
+:::
+
+**Leeswijzer:** listing Kampen en provincie Drenthe hebben in dit fictieve beeld weinig of geen klikken — in lijn met de audit-steekproef (F-003, F-006).
+
+---
+
+## Technische baseline (uit audit — gemeten)
 
 :::section-intro
-Zelfde meetpunten als in de audit: tellingen, technische koppen, pagina-overzicht, steekproef Kampen/Drenthe, gewicht zoekpagina. Search Console per paginatype, inkomende links en claim-conversie staan op **nog niet bekend**.
+Openbare metingen uit `2026-09-13-camperstaan-v2`. Geen GSC nodig voor deze rijen.
 :::
 
 | Meetpunt | Baseline (13 sep 2026) | Methode | Label |
@@ -34,63 +77,26 @@ Zelfde meetpunten als in de audit: tellingen, technische koppen, pagina-overzich
 | Gewicht zoekpagina | 1,41 MB | curl size | gemeten |
 | Cache listing | `no-store` op alle HTML | response headers | gemeten |
 | Listing Kampen (gasttekst) | ~132 woorden in hoofdblok | HTML-telling | gemeten |
-| Steekproef `camperplaats Kampen` | geen Camperstaan-listing in hits | openbare zoeksteekproef | gemeten |
-| Steekproef `camperplaatsen in Drenthe` | geen `/provincie/drenthe` in hits | openbare zoeksteekproef | afgeleid |
-| JSON-LD geo/prijs Kampen | afwezig | HTML bron | gemeten |
-| GSC dekking | niet geëxporteerd | google-site-verification aanwezig | onbekend |
-| Inkomende links | niet gemeten | — | onbekend |
-
----
-
-## Tellingen (grafiek)
-
-:::chart
-306|Homepage plekken|577
-293|Zoekpagina NL (uniek)|577
-13|BE/DE niet op /plaatsen|577
-577|Sitemap URL's totaal|577
-:::
-
-:::section-intro
-Schaal: 577 = 100% (totaal sitemap). Waarden zijn **gemeten** op peildatum audit — geen trend, geen doelstelling.
-:::
-
----
-
-## GSC en gerelateerde signalen (baseline)
-
-| Signaal | Baseline | Label |
-| --- | --- | --- |
-| `google-site-verification` | aanwezig in HTML | gemeten |
-| GSC-export klikken/impressies | niet beschikbaar deze run | onbekend |
-| Indexeerbaarheid robots | Allow `/`; dashboard/api uitgesloten | gemeten |
-| Canonical listing Kampen | vaste URL `/plaatsen/{slug}` | gemeten |
-| Canonical filter Drenthe | blijft `/plaatsen` (conflict) | gemeten |
-
-**Geen GSC-cijfers verzonnen.** Na koppeling GSC kan dezelfde nulmeting-tabellen met echte export worden gevuld.
+| `google-site-verification` | aanwezig | HTML | gemeten |
 
 ---
 
 ## Koppeling naar findings
 
-| ID | Meetpunt baseline | Waarde |
+| ID | Meetpunt | Nulmeting |
 | --- | --- | --- |
-| F-001 | Tellingen NL vs BE/DE | 306 / 293 / 13 |
-| F-002 | Filter canonical | `/plaatsen` bij Drenthe-filter |
-| F-003 | Kampen SERP + gasttekst | niet in steekproef; ~132 woorden |
-| F-004 | Cache + gewicht /plaatsen | no-store; 1,41 MB |
-| F-005 | Schema Kampen | geen geo/priceRange |
-| F-006 | Drenthe-hub SERP | niet in steekproef |
-| F-007 | Links | onbekend |
-| F-008 | AI-categorie | gap in steekproef |
+| F-001 | Tellingen NL vs BE/DE | 306 / 293 / 13 (gemeten) |
+| F-003 | Kampen in GSC (fictief) | 0 klikken op listing-URL |
+| F-006 | Drenthe in GSC (fictief) | 3 klikken; positie 31,2 |
+| F-004 | Gewicht /plaatsen | 1,41 MB (gemeten) |
 
 ---
 
-## Volgende stappen (uit audit, geen fictie)
+## Volgende meetmomenten (uit audit)
 
 :::measure
-30 dagen|Hercontrole|steekproef Kampen; gewicht zoekpagina; cache op plekpagina's
-90 dagen|Nameting|provincie-zoekopdracht; nameting-run met baseline
+30 dagen|Hercontrole GSC|zelfde tabellen; vergelijk met nulmeting — steekproef Kampen, gewicht zoekpagina, cache
+90 dagen|Nameting GSC|provincie-zoekopdracht; finding-status + GSC-delta
 :::
 
 Zie audit `2026-09-13-camperstaan-v2` voor werklijst en beslissingen.

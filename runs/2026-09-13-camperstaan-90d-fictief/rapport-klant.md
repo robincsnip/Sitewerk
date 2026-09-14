@@ -1,25 +1,26 @@
-# Camperstaan — nameting na 90 dagen (fictief voorbeeld)
+# Camperstaan — GSC na 90 dagen (fictief voorbeeld)
 
 **Peildatum:** 12 december 2026  
-**Status:** **FICTIEF / VOORBEELD** — geen echte nameting, geen live resultaten  
+**Status:** **FICTIEF / VOORBEELD** — geen echte nameting  
 **Opgesteld door:** Sitewerk
 
 ---
 
 :::callout-fictief
-**FICTIEF / VOORBEELD** — Dit rapport toont hoe een 90-dagen nameting eruit kan zien **als** de werklijst uit de audit is uitgevoerd. Alle uitkomsten zijn verzonnen. Vergelijk altijd met de echte nulmeting (`2026-09-13-camperstaan-nulmeting`) en echte metingen vóór je iets deelt.
+**FICTIEF / VOORBEELD** — Illustratie van een 90-dagen GSC-nameting **als** de werklijst uit de audit is uitgevoerd. Alle Search Console-cijfers zijn verzonnen. Baseline: nulmeting `2026-09-13-camperstaan-nulmeting`.
 :::
 
 ## In het kort
 
 :::lead
-Na 90 dagen zou je de provincie-intentie, schema en de zware zoekpagina opnieuw meten — dezelfde IDs als in de baseline. Dit voorbeeld vult die nameting in zonder dat er echt gemeten is.
+Na 90 dagen verwacht je in GSC vooral beweging op provincie-intentie (Drenthe) en listing-URL's — dezelfde meetpunten als in het audit-meetplan. Dit voorbeeld vult die nameting in zonder dat er echt gemeten is.
 :::
 
 :::kpi
-4|Findings opgelost|fictief
-2|Deels|fictief
-2|Open|fictief
+3.890|Klikken (28d)|fictief / voorbeeld
+58.400|Vertoningen|fictief / voorbeeld
+6,7%|CTR|fictief / voorbeeld
+19,6|Gem. positie|fictief / voorbeeld
 :::
 
 ---
@@ -30,58 +31,72 @@ Na 90 dagen zou je de provincie-intentie, schema en de zware zoekpagina opnieuw 
 90 dagen|Nameting|provincie-zoekopdracht; nameting-run met baseline
 :::
 
+In GSC: stijging op `/provincie/drenthe` en `camperplaatsen in drenthe`; listing Kampen met structurele klikken; merk en catalogus stabiel.
+
 ---
 
-## Nameting per finding (fictief)
+## Search Console — 90 dagen vs nulmeting (fictief / voorbeeld)
 
-| ID | Baseline (13 sep) | Fictief 90d (12 dec) | Oordeel | Label |
+:::gsc
+**Periode:** 14 november – 12 december 2026 (28 dagen) · **Property:** `https://www.camperstaan.nl/` · **Label:** fictief / voorbeeld
+
+### Prestaties (totaal) — vergelijking
+
+| Meting | Nulmeting (fictief) | 90 dagen (fictief) | Verschil | Label |
 | --- | --- | --- | --- | --- |
-| F-001 | 306/293/13 | 293 overal NL; BE/DE apart | opgelost | **fictief** |
-| F-002 | canonical /plaatsen | filter → `/provincie/drenthe` | opgelost | **fictief** |
-| F-003 | SERP gap Kampen | listing positie 5 (voorbeeld) | deels | **fictief** |
-| F-004 | 1,41 MB + no-store | 0,72 MB + public cache | opgelost | **fictief** |
-| F-005 | geen geo/prijs JSON-LD | Rich Results OK (voorbeeld) | opgelost | **fictief** |
-| F-006 | Drenthe niet in SERP | hub positie 4 (voorbeeld) | deels | **fictief** |
-| F-007 | links onbekend | nog niet gemeten | niet | onbekend |
-| F-008 | AI gap | nog niet herhaald | niet | **fictief** |
+| Klikken | 2.847 | 3.890 | +1.043 | fictief / voorbeeld |
+| Vertoningen | 48.130 | 58.400 | +10.270 | fictief / voorbeeld |
+| CTR | 5,91% | 6,66% | +0,75 pp | fictief / voorbeeld |
+| Gemiddelde positie | 24,4 | 19,6 | −4,8 | fictief / voorbeeld |
 
----
+### Top zoekopdrachten — delta t.o.v. nulmeting
 
-## Fictieve provincie-steekproef
+| Zoekopdracht | Klikken nul | Klikken 90d | Vertoningen 90d | CTR 90d | Pos. 90d | Label |
+| --- | --- | --- | --- | --- | --- | --- |
+| camperstaan | 412 | 445 | 940 | 47,3% | 1,0 | fictief / voorbeeld |
+| camperplaatsen nederland | 186 | 224 | 4.820 | 4,6% | 16,2 | fictief / voorbeeld |
+| camperplaatsen in drenthe | 2 | 38 | 1.480 | 2,6% | 18,4 | fictief / voorbeeld |
+| camperplaats kampen | 0 | 52 | 620 | 8,4% | 14,2 | fictief / voorbeeld |
+| gratis camperplaats nederland | 94 | 118 | 2.340 | 5,0% | 19,8 | fictief / voorbeeld |
 
-| Zoekopdracht | Baseline | Fictief 90d | Label |
-| --- | --- | --- | --- |
-| `camperplaatsen in Drenthe` | geen `/provincie/drenthe` | hub op positie 4 | **fictief** |
-| `camperplaats Kampen` | geen listing | listing positie 5 | **fictief** |
+### Top pagina's — delta t.o.v. nulmeting
 
----
-
-## Fictieve voortgang werklijst (90 dagen)
-
-| # | Wat | Fictieve status | Label |
-| --- | --- | --- | --- |
-| 1 | NL-telling | afgerond | **fictief** |
-| 2 | Listing gast-eerst | afgerond | **fictief** |
-| 3 | Regio-filter → hub | afgerond | **fictief** |
-| 4 | Cache + /plaatsen | afgerond | **fictief** |
-| 5 | JSON-LD | afgerond | **fictief** |
-| 6 | Hub Drenthe | deels; steekproef verbeterd | **fictief** |
-
----
-
-## Grafiek (fictief — tellingen na harmonisatie)
-
-:::chart
-293|Homepage NL|306
-293|Zoekpagina NL|306
-293|Sitemap NL listings|306
-0|BE/DE in NL-index|306
+| Pagina | Klikken nul | Klikken 90d | Vertoningen 90d | CTR 90d | Pos. 90d | Label |
+| --- | --- | --- | --- | --- | --- | --- |
+| `/` | 892 | 960 | 3.680 | 26,1% | 7,8 | fictief / voorbeeld |
+| `/plaatsen` | 624 | 710 | 9.800 | 7,2% | 12,8 | fictief / voorbeeld |
+| `/provincie/drenthe` | 3 | 86 | 1.420 | 6,1% | 15,6 | fictief / voorbeeld |
+| `/plaatsen/kampen-burgemeester-berghuisplein` | 0 | 52 | 580 | 9,0% | 12,4 | fictief / voorbeeld |
+| `/plaats/kampen` | 28 | 41 | 480 | 8,5% | 16,1 | fictief / voorbeeld |
 :::
 
-Baseline homepage was 306; fictief voorbeeld toont één NL-telling — **niet gemeten in werkelijkheid**.
+**Meetplan-koppeling (fictief):** provincie-hub Drenthe en listing Kampen bewegen — in lijn met werklijst #3 en #6; schema/cache-acties (F-004, F-005) zouden CTR op listings ondersteunen.
+
+---
+
+## Nameting per finding (fictief / voorbeeld)
+
+| ID | GSC-signal (fictief) | Oordeel | Label |
+| --- | --- | --- | --- |
+| F-001 | BE/DE niet meer in NL-toppagina's in GSC-voorbeeld | opgelost | fictief / voorbeeld |
+| F-002 | Drenthe-query klikt naar `/provincie/drenthe` | opgelost | fictief / voorbeeld |
+| F-003 | Listing Kampen 52 klikken vs 0 nulmeting | deels | fictief / voorbeeld |
+| F-004 | `/plaatsen` lichter; meer vertoningen | opgelost | fictief / voorbeeld |
+| F-005 | — (niet direct in GSC) | opgelost | fictief / voorbeeld |
+| F-006 | Drenthe-query positie 18,4 vs 34,8 | deels | fictief / voorbeeld |
+| F-007 | links | niet gemeten | onbekend |
+| F-008 | AI | niet herhaald | fictief / voorbeeld |
+
+---
+
+## Werklijst 90 dagen (fictief / voorbeeld)
+
+| # | Wat | Status in voorbeeld | Label |
+| --- | --- | --- | --- |
+| 1–6 | Zie audit werklijst | afgerond of deels | fictief / voorbeeld |
 
 ---
 
 ## Geen claims
 
-Geen %-winst, geen GSC-cijfers, geen mail naar eigenaren. Dit document is een **vormvoorbeeld** voor Toets 3 / nameting-playbook — geen klantdelivery.
+Geen %-winst aan klant zonder echte GSC-export. Geen mail naar eigenaren. Dit document is een **vormvoorbeeld** — geen klantdelivery.

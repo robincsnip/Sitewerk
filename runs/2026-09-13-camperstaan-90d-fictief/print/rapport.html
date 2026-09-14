@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Camperstaan — nameting na 90 dagen (fictief voorbeeld)</title>
+  <title>Camperstaan — GSC na 90 dagen (fictief voorbeeld)</title>
   <style>
 /* Sitewerk — Richting C: Papier (typography) */
 
@@ -610,6 +610,46 @@ body {
   color: var(--muted);
 }
 
+/* ── GSC report tables ───────────────────────────────── */
+
+.gsc-shell {
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+.gsc-shell .gsc-meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin: 0 0 var(--space-2);
+}
+
+.gsc-shell table,
+.report table.gsc-table {
+  font-size: 8pt;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+.gsc-shell table thead,
+.report table.gsc-table thead {
+  display: table-header-group;
+}
+
+.gsc-shell table th,
+.report table.gsc-table th {
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gsc-shell h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
 /* ── Tables ──────────────────────────────────────────── */
 
 .report table {
@@ -635,7 +675,9 @@ body {
 
 .report table.scope-table tr,
 .report table.werklijst-table tr,
-.report table.appendix-table tr {
+.report table.appendix-table tr,
+.report table.gsc-table tr,
+.gsc-shell table tr {
   break-inside: avoid;
   page-break-inside: avoid;
 }
@@ -782,7 +824,7 @@ body {
   .measure-card,
   .callout-decision,
   .callout-fictief,
-  .baseline-chart-shell,
+  .gsc-shell,
   .lead-block {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
@@ -833,7 +875,9 @@ body {
   .report table.scope-table tr,
   .report table.appendix-table tr,
   .report table.werklijst-table tr,
-  .report table.werklijst-tabel tr {
+  .report table.werklijst-tabel tr,
+  .report table.gsc-table tr,
+  .gsc-shell table tr {
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -860,43 +904,46 @@ body {
       <div class="cover-center">
         <h1>Camperstaan</h1>
         <p class="cover-date">12 december 2026</p>
-        <p class="cover-belofte">nameting na 90 dagen (fictief voorbeeld)</p>
+        <p class="cover-belofte">GSC na 90 dagen (fictief voorbeeld)</p>
       </div>
-      <table class="cover-kpi"><tr class="cover-kpi-values"><td>4</td><td>2</td><td>2</td></tr><tr class="cover-kpi-labels"><td>Findings opgelost</td><td>Deels</td><td>Open</td></tr><tr class="cover-kpi-notes"><td>fictief</td><td>fictief</td><td>fictief</td></tr></table>
+      <table class="cover-kpi"><tr class="cover-kpi-values"><td>3.890</td><td>58.400</td><td>6,7%</td><td>19,6</td></tr><tr class="cover-kpi-labels"><td>Klikken (28d)</td><td>Vertoningen</td><td>CTR</td><td>Gem. positie</td></tr><tr class="cover-kpi-notes"><td>fictief / voorbeeld</td><td>fictief / voorbeeld</td><td>fictief / voorbeeld</td><td>fictief / voorbeeld</td></tr></table>
     </div>
   </header>
   <main class="report">
-<section class="report-section"><p><strong>Peildatum:</strong> 12 december 2026 <strong>Status:</strong> <strong>FICTIEF / VOORBEELD</strong> — geen echte nameting, geen live resultaten <strong>Opgesteld door:</strong> Sitewerk</p>
+<section class="report-section"><p><strong>Peildatum:</strong> 12 december 2026 <strong>Status:</strong> <strong>FICTIEF / VOORBEELD</strong> — geen echte nameting <strong>Opgesteld door:</strong> Sitewerk</p>
 <hr class="section-break" />
-<div class="callout-fictief"><p><strong>FICTIEF / VOORBEELD</strong> — Dit rapport toont hoe een 90-dagen nameting eruit kan zien <strong>als</strong> de werklijst uit de audit is uitgevoerd. Alle uitkomsten zijn verzonnen. Vergelijk altijd met de echte nulmeting (<code>2026-09-13-camperstaan-nulmeting</code>) en echte metingen vóór je iets deelt.</p></div>
+<div class="callout-fictief"><p><strong>FICTIEF / VOORBEELD</strong> — Illustratie van een 90-dagen GSC-nameting <strong>als</strong> de werklijst uit de audit is uitgevoerd. Alle Search Console-cijfers zijn verzonnen. Baseline: nulmeting <code>2026-09-13-camperstaan-nulmeting</code>.</p></div>
 </section>
 <section class="report-section"><h2 class="section-head">In het kort</h2>
-<div class="lead-block"><p>Na 90 dagen zou je de provincie-intentie, schema en de zware zoekpagina opnieuw meten — dezelfde IDs als in de baseline. Dit voorbeeld vult die nameting in zonder dat er echt gemeten is.</p></div>
+<div class="lead-block"><p>Na 90 dagen verwacht je in GSC vooral beweging op provincie-intentie (Drenthe) en listing-URL's — dezelfde meetpunten als in het audit-meetplan. Dit voorbeeld vult die nameting in zonder dat er echt gemeten is.</p></div>
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Wat het meetplan na 90 dagen vroeg</h2>
 <div class="measure-shell"><div class="measure-grid"><div class="measure-card"><div class="measure-when">90 dagen</div><div class="measure-label">Nameting</div><div class="measure-text">provincie-zoekopdracht; nameting-run met baseline</div></div></div></div>
+<p>In GSC: stijging op <code>/provincie/drenthe</code> en <code>camperplaatsen in drenthe</code>; listing Kampen met structurele klikken; merk en catalogus stabiel.</p>
 <hr class="section-break" />
 </section>
-<section class="report-section"><h2 class="section-head">Nameting per finding (fictief)</h2>
-<table class="data-table"><thead><tr><th>ID</th><th>Baseline (13 sep)</th><th>Fictief 90d (12 dec)</th><th>Oordeel</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>306/293/13</td><td>293 overal NL; BE/DE apart</td><td>opgelost</td><td><strong>fictief</strong></td></tr><tr><td>F-002</td><td>canonical /plaatsen</td><td>filter → <code>/provincie/drenthe</code></td><td>opgelost</td><td><strong>fictief</strong></td></tr><tr><td>F-003</td><td>SERP gap Kampen</td><td>listing positie 5 (voorbeeld)</td><td>deels</td><td><strong>fictief</strong></td></tr><tr><td>F-004</td><td>1,41 MB + no-store</td><td>0,72 MB + public cache</td><td>opgelost</td><td><strong>fictief</strong></td></tr><tr><td>F-005</td><td>geen geo/prijs JSON-LD</td><td>Rich Results OK (voorbeeld)</td><td>opgelost</td><td><strong>fictief</strong></td></tr><tr><td>F-006</td><td>Drenthe niet in SERP</td><td>hub positie 4 (voorbeeld)</td><td>deels</td><td><strong>fictief</strong></td></tr><tr><td>F-007</td><td>links onbekend</td><td>nog niet gemeten</td><td>niet</td><td>onbekend</td></tr><tr><td>F-008</td><td>AI gap</td><td>nog niet herhaald</td><td>niet</td><td><strong>fictief</strong></td></tr></tbody></table>
+<section class="report-section"><h2 class="section-head">Search Console — 90 dagen vs nulmeting (fictief / voorbeeld)</h2>
+<div class="gsc-shell"><p><strong>Periode:</strong> 14 november – 12 december 2026 (28 dagen) · <strong>Property:</strong> <code>https://www.camperstaan.nl/</code> · <strong>Label:</strong> fictief / voorbeeld</p>
+<h3>Prestaties (totaal) — vergelijking</h3>
+<table class="data-table"><thead><tr><th>Meting</th><th>Nulmeting (fictief)</th><th>90 dagen (fictief)</th><th>Verschil</th><th>Label</th></tr></thead><tbody><tr><td>Klikken</td><td>2.847</td><td>3.890</td><td>+1.043</td><td>fictief / voorbeeld</td></tr><tr><td>Vertoningen</td><td>48.130</td><td>58.400</td><td>+10.270</td><td>fictief / voorbeeld</td></tr><tr><td>CTR</td><td>5,91%</td><td>6,66%</td><td>+0,75 pp</td><td>fictief / voorbeeld</td></tr><tr><td>Gemiddelde positie</td><td>24,4</td><td>19,6</td><td>−4,8</td><td>fictief / voorbeeld</td></tr></tbody></table>
+<h3>Top zoekopdrachten — delta t.o.v. nulmeting</h3>
+<table class="data-table"><thead><tr><th>Zoekopdracht</th><th>Klikken nul</th><th>Klikken 90d</th><th>Vertoningen 90d</th><th>CTR 90d</th><th>Pos. 90d</th><th>Label</th></tr></thead><tbody><tr><td>camperstaan</td><td>412</td><td>445</td><td>940</td><td>47,3%</td><td>1,0</td><td>fictief / voorbeeld</td></tr><tr><td>camperplaatsen nederland</td><td>186</td><td>224</td><td>4.820</td><td>4,6%</td><td>16,2</td><td>fictief / voorbeeld</td></tr><tr><td>camperplaatsen in drenthe</td><td>2</td><td>38</td><td>1.480</td><td>2,6%</td><td>18,4</td><td>fictief / voorbeeld</td></tr><tr><td>camperplaats kampen</td><td>0</td><td>52</td><td>620</td><td>8,4%</td><td>14,2</td><td>fictief / voorbeeld</td></tr><tr><td>gratis camperplaats nederland</td><td>94</td><td>118</td><td>2.340</td><td>5,0%</td><td>19,8</td><td>fictief / voorbeeld</td></tr></tbody></table>
+<h3>Top pagina's — delta t.o.v. nulmeting</h3>
+<table class="data-table"><thead><tr><th>Pagina</th><th>Klikken nul</th><th>Klikken 90d</th><th>Vertoningen 90d</th><th>CTR 90d</th><th>Pos. 90d</th><th>Label</th></tr></thead><tbody><tr><td><code>/</code></td><td>892</td><td>960</td><td>3.680</td><td>26,1%</td><td>7,8</td><td>fictief / voorbeeld</td></tr><tr><td><code>/plaatsen</code></td><td>624</td><td>710</td><td>9.800</td><td>7,2%</td><td>12,8</td><td>fictief / voorbeeld</td></tr><tr><td><code>/provincie/drenthe</code></td><td>3</td><td>86</td><td>1.420</td><td>6,1%</td><td>15,6</td><td>fictief / voorbeeld</td></tr><tr><td><code>/plaatsen/kampen-burgemeester-berghuisplein</code></td><td>0</td><td>52</td><td>580</td><td>9,0%</td><td>12,4</td><td>fictief / voorbeeld</td></tr><tr><td><code>/plaats/kampen</code></td><td>28</td><td>41</td><td>480</td><td>8,5%</td><td>16,1</td><td>fictief / voorbeeld</td></tr></tbody></table></div>
+<p><strong>Meetplan-koppeling (fictief):</strong> provincie-hub Drenthe en listing Kampen bewegen — in lijn met werklijst #3 en #6; schema/cache-acties (F-004, F-005) zouden CTR op listings ondersteunen.</p>
 <hr class="section-break" />
 </section>
-<section class="report-section"><h2 class="section-head">Fictieve provincie-steekproef</h2>
-<table class="data-table"><thead><tr><th>Zoekopdracht</th><th>Baseline</th><th>Fictief 90d</th><th>Label</th></tr></thead><tbody><tr><td><code>camperplaatsen in Drenthe</code></td><td>geen <code>/provincie/drenthe</code></td><td>hub op positie 4</td><td><strong>fictief</strong></td></tr><tr><td><code>camperplaats Kampen</code></td><td>geen listing</td><td>listing positie 5</td><td><strong>fictief</strong></td></tr></tbody></table>
+<section class="report-section"><h2 class="section-head">Nameting per finding (fictief / voorbeeld)</h2>
+<table class="data-table"><thead><tr><th>ID</th><th>GSC-signal (fictief)</th><th>Oordeel</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>BE/DE niet meer in NL-toppagina's in GSC-voorbeeld</td><td>opgelost</td><td>fictief / voorbeeld</td></tr><tr><td>F-002</td><td>Drenthe-query klikt naar <code>/provincie/drenthe</code></td><td>opgelost</td><td>fictief / voorbeeld</td></tr><tr><td>F-003</td><td>Listing Kampen 52 klikken vs 0 nulmeting</td><td>deels</td><td>fictief / voorbeeld</td></tr><tr><td>F-004</td><td><code>/plaatsen</code> lichter; meer vertoningen</td><td>opgelost</td><td>fictief / voorbeeld</td></tr><tr><td>F-005</td><td>— (niet direct in GSC)</td><td>opgelost</td><td>fictief / voorbeeld</td></tr><tr><td>F-006</td><td>Drenthe-query positie 18,4 vs 34,8</td><td>deels</td><td>fictief / voorbeeld</td></tr><tr><td>F-007</td><td>links</td><td>niet gemeten</td><td>onbekend</td></tr><tr><td>F-008</td><td>AI</td><td>niet herhaald</td><td>fictief / voorbeeld</td></tr></tbody></table>
 <hr class="section-break" />
 </section>
-<section class="report-section"><h2 class="section-head">Fictieve voortgang werklijst (90 dagen)</h2>
-<table class="data-table"><thead><tr><th>#</th><th>Wat</th><th>Fictieve status</th><th>Label</th></tr></thead><tbody><tr><td>1</td><td>NL-telling</td><td>afgerond</td><td><strong>fictief</strong></td></tr><tr><td>2</td><td>Listing gast-eerst</td><td>afgerond</td><td><strong>fictief</strong></td></tr><tr><td>3</td><td>Regio-filter → hub</td><td>afgerond</td><td><strong>fictief</strong></td></tr><tr><td>4</td><td>Cache + /plaatsen</td><td>afgerond</td><td><strong>fictief</strong></td></tr><tr><td>5</td><td>JSON-LD</td><td>afgerond</td><td><strong>fictief</strong></td></tr><tr><td>6</td><td>Hub Drenthe</td><td>deels; steekproef verbeterd</td><td><strong>fictief</strong></td></tr></tbody></table>
-<hr class="section-break" />
-</section>
-<section class="report-section"><h2 class="section-head">Grafiek (fictief — tellingen na harmonisatie)</h2>
-<div class="baseline-chart-shell"><div class="chart-row"><span class="chart-label">Homepage NL</span><div class="chart-bar" aria-hidden="true"><div class="chart-fill" style="width:96%"></div></div><span class="chart-value">293</span></div><div class="chart-row"><span class="chart-label">Zoekpagina NL</span><div class="chart-bar" aria-hidden="true"><div class="chart-fill" style="width:96%"></div></div><span class="chart-value">293</span></div><div class="chart-row"><span class="chart-label">Sitemap NL listings</span><div class="chart-bar" aria-hidden="true"><div class="chart-fill" style="width:96%"></div></div><span class="chart-value">293</span></div><div class="chart-row"><span class="chart-label">BE/DE in NL-index</span><div class="chart-bar" aria-hidden="true"><div class="chart-fill" style="width:0%"></div></div><span class="chart-value">0</span></div></div>
-<p>Baseline homepage was 306; fictief voorbeeld toont één NL-telling — <strong>niet gemeten in werkelijkheid</strong>.</p>
+<section class="report-section report-section--chapter"><h2 class="section-head">Werklijst 90 dagen (fictief / voorbeeld)</h2>
+<div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Status in voorbeeld</th><th>Label</th></tr></thead><tbody><tr><td>1–6</td><td>Zie audit werklijst</td><td>afgerond of deels</td><td>fictief / voorbeeld</td></tr></tbody></table></div>
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Geen claims</h2>
-<p>Geen %-winst, geen GSC-cijfers, geen mail naar eigenaren. Dit document is een <strong>vormvoorbeeld</strong> voor Toets 3 / nameting-playbook — geen klantdelivery.</p></section>
+<p>Geen %-winst aan klant zonder echte GSC-export. Geen mail naar eigenaren. Dit document is een <strong>vormvoorbeeld</strong> — geen klantdelivery.</p></section>
   </main>
   <footer class="colophon">
     <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>

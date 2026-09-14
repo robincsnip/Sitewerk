@@ -196,6 +196,9 @@ function renderFence(type, inner, renderFragment) {
   if (kind === "callout-fictief") {
     return `<div class="callout-fictief">${renderFragment(inner)}</div>`;
   }
+  if (kind === "gsc") {
+    return `<div class="gsc-shell">${renderFragment(inner)}</div>`;
+  }
   if (kind === "section-intro") {
     return `<p class="section-intro">${inlineFormat(inner.trim())}</p>`;
   }
@@ -327,6 +330,7 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
       if (lastH2.includes("bekeken")) tableClass += " scope-table";
       else if (lastH2.includes("Werklijst")) tableClass += " werklijst-table";
       else if (lastH2.includes("Bijlage")) tableClass += " appendix-table";
+      else if (/Search Console/i.test(lastH2)) tableClass += " gsc-table";
       const tableHtml = html.replace("<table>", `<table class="${tableClass}">`);
       if (tableClass.includes("werklijst-table") && pendingWerklijstH3) {
         out.push(`<div class="werklijst-block">${pendingWerklijstH3}<div class="table-shell">${tableHtml}</div></div>`);
