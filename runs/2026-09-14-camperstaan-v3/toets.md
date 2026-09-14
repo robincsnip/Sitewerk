@@ -1,8 +1,9 @@
 # Toets — 2026-09-14-camperstaan-v3
 
 **Fase:** Toets 1 (rapport)  
-**Toetser-run:** bc-b5096606-0cca-5b1a-864b-6142f754a2e4 · 2026-09-14  
-**Bouwer-run:** cursor/audit-depth-camperstaan-816d (PR #10, commit cc4e0c5 P-badge bevinding 6 p2→p1)
+**Toetser-run:** bc-86f077d2-f599-5d4f-9f95-ffbfa32ab5a9 · 2026-09-14  
+**Bouwer-run:** cursor/harden-pagination-gate-6dd1 (PR #11, commit cb19e52 wees-header-gate)  
+**Base:** PR #10 (`cursor/audit-depth-camperstaan-816d`) — inhoud al Toets-1-akkoord; deze run keurt print-gate + herprint
 
 ## Oordeel
 
@@ -13,49 +14,46 @@
 
 | Check | OK? | Notitie |
 | --- | --- | --- |
-| Finding-contract / KEEP-gat | ja | F-001–F-011 in `rapport-intern.md`; bevindingen 1–7 met observatie/voorstel; 1–4 en 7 ook gevolg |
-| Bewijslabels eerlijk | ja | F-007 onbekend (stop-rij #8); zoekrij “gratis…” onbekend; top-3 op gemeten (F-001, F-003, F-002) |
-| Packets compleet (T1) | ja | T-1 t/m T-5 voor code=ja (rijen 1–5); #6/#7 code=deels — geen packet vereist |
-| Geen %-belofte zonder baseline | ja | Expliciet buiten scope; meetpunten zonder %-winst |
+| Finding-contract / KEEP-gat | ja | F-001–F-011 intern; bevindingen 1–7 met observatie/voorstel |
+| Bewijslabels eerlijk | ja | F-007 onbekend (stop-rij); zoekrij “gratis…” onbekend; top-3 op gemeten |
+| Packets compleet (T1) | ja | T-1 t/m T-5 voor code=ja (rijen 1–5); #6/#7 code=deels |
+| Geen %-belofte zonder baseline | ja | Expliciet buiten scope |
 | Geen GBP/LocalBusiness-theater | ja | n.v.t. + afgewezen in Bijlage B |
-| Dieptenorm (T1) | ja | Canonical/filter-architectuur; gast-eerst rewrite + thema-hubs (prune/hub) |
-| Concurrent-gaps → werklijst | ja | Actie-kolom: elke gap → #n of “Geen actie:” + reden; KampeerHub → #7 |
-| Conflict Feiten↔Strategie | ja | `mix.md` expliciet; vier conflicten met besluit |
+| Dieptenorm (T1) | ja | Canonical/filter-architectuur; gast-eerst + thema-hubs |
+| Concurrent-gaps → werklijst | ja | Elke gap → #n of “Geen actie:” |
+| Conflict Feiten↔Strategie | ja | `mix.md` vier conflicten met besluit |
 | Taal / denylist | ja | Geen leverage/unlock/visibility boost/game-changer/synergie/“Google houdt van…” |
-| Klanttaal / single-telling | ja | 306/293/13 alleen in mini-KPI bevinding 1 |
-| P0/P1/P2 vs lead vs KPI | ja | Zie telling hieronder; badge #6 = werklijst = F-006 = P1 |
-| Print / bijlagen (T1) | ja | `print/rapport.pdf` bestaat (PDF 1.4, cover Sitewerk + Camperstaan + 14 sep 2026); Bijlage A/B achteraan |
-| Bijlage B | ja | Vier afgewezen tips met reden |
-| Werklijst = klantrapport | ja | Rij 1–7: zelfde #, Wat, Wie, Klaar als; prio via finding-badge = werklijst-Prio |
-| Fictieve follow-up runs | ja | 30d/90d apart gelabeld; geen live meting |
+| P0/P1/P2 vs lead vs KPI | ja | Badges P0/P0/P1/P1/P2/P1/P2; #6 = P1 = werklijst = F-006 |
+| Print / bijlagen (T1) | ja | PDF 10 pag.; cover Sitewerk + Camperstaan + 14 sep 2026; A+B p.10 |
+| Wees-koppen (deze PR) | ja | Zie spot-check; gate fail-closed |
+| Werklijst = klantrapport | ja | Rij 1–7: zelfde #, Wat, Wie, Klaar als; md ongewijzigd t.o.v. PR #10 |
+| Inhoud 1:1 | ja | Alleen `print/rapport.html` + `print/rapport.pdf` in de run-diff |
 
-## P-telling (cc4e0c5)
+## Wees-koppen (PDF geopend)
 
-| Bron | P0 | P1 | P2 |
-| --- | ---: | ---: | ---: |
-| Finding-badges rapport | 2 (1, 2) | 3 (3, 4, **6**) | 2 (5, 7) |
-| Werklijst #1–7 | 2 | 3 (#3, #4, **#6**) | 2 (#5, #7) |
-| Intern | F-001/F-003 | F-002/F-004/**F-006** | F-005/F-011 |
+Gecommitte PDF (`pdfinfo`: 10 pagina's). Base-PDF (PR #10) had de wees-koppen; deze print niet.
 
-Lead “twee verbeteringen die minder urgent” = P2-bevindingen **5 en 7**.  
-KPI: 3 prioriteiten = prio-kaarten; 7 acties = werklijstrijen 1–7; 577 pagina’s = sitemap; **4 urgent** = lead “vier punten” = bevindingen 1–4 (2×P0 + 2×P1, code=ja). Bevinding 6 is extra P1 (code=deels, hub-versterking) en zit niet in die cover-4 — zelfde definitie als Bouwer-commit; geen tweede waarheid op P2.
+| Punt | Verwacht | Gecontroleerd |
+| --- | --- | --- |
+| Markt-kop + tabel | zelfde pagina | p.4 kop + intro + hele tabel (base: kop p.3, tabel p.4) |
+| Zoektermen-kop + tabel | zelfde pagina | p.5 kop + intro + tabel (base: kop p.4, tabel p.5) |
+| Bevindingen H2 + eerste kaart | zelfde pagina | p.5 “Bevindingen” + P0-kaart 1 |
+| Finding H3 2–7 | kop + body in dezelfde kaart | p.6: 2/3/4; p.7: 5=P2, 6=P1, 7=P2 — geen split |
+| Geen hoofdstuk-per-pagina | secties mogen delen | p.3 twee secties; p.5 zoektermen+bevindingen; p.8 beslissingen+werklijst |
+| Beslissingen doorlopend | drie kaarten, geen eigen pagina | p.8 alle drie + werklijst-h2 + “Deze maand” |
+| “Maand twee / drie” | h3 + tabel samen | p.9 kop bovenaan mét tabel (niet wees onderaan p.8) |
+| Bijlage A+B | samen, achteraan | p.10 beide tabellen |
+| Gate op deze HTML | 0 failures | `check-pagination.js` → OK (10 pages) |
+| Self-test fixture | moet blijven falen | `npm run test:pagination` → `selftest OK: checker fails closed on orphan heading` |
 
-Triple-check bevinding 6: `:::finding p1` = werklijst #6 P1 = intern F-006 P1.
+CSS/pipeline (gedeeld, niet Camperstaan-only): `.heading-keep` om h2/h3 + intro + eerste blok; `.table-shell`; pdf.js-geometrie; intro telt niet als body.
 
-## Naslag-lesson (PR #6)
-
-| Vorig punt | Status |
-| --- | --- |
-| Werklijst #3 ≠ rapport | niet herhaald |
-| `taken/T-5.md` ontbrak | niet herhaald — packet compleet |
-| P2-badge op Drenthe-hub vs werklijst P1 | niet herhaald — badge P1 |
-
-## Spot-check
+## Spot-check (standaard T1)
 
 - Werklijst-sync: 7/7 actierijen identiek (#, Wat, Wie, Klaar als)
 - Packets T-1..T-5: URL, huidige/gewenste staat, herstel, acceptatie
 - Denylist / GBP / %-belofte: schoon
-- PDF: aanwezig
+- PDF: aanwezig (A4, 10 pag.)
 
 ## Afkeurzin (verplicht bij afkeur)
 
@@ -63,7 +61,7 @@ Triple-check bevinding 6: `:::finding p1` = werklijst #6 P1 = intern F-006 P1.
 
 ## Vrijgave
 
-Toetser bevestigt: dit bestand is **niet** in dezelfde agent-run als `rapport-klant.md` / de P-badge-fix (cc4e0c5) geschreven.
+Toetser bevestigt: dit bestand is **niet** in dezelfde agent-run als `rapport-klant.md` / de paginatie-fix (cb19e52) geschreven. Rapport, werklijst en packets zijn niet herschreven om te winnen.
 
 ## Volgende
 
