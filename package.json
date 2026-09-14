@@ -7,10 +7,12 @@
     "audit:finish": "node scripts/finish-audit.js",
     "pdf:run": "node scripts/build-run.js",
     "pdf:demo": "npm run audit:finish -- demo-2026-09-13",
-    "build:demo": "npm run pdf:demo"
+    "build:demo": "npm run pdf:demo",
+    "test:pagination": "node scripts/check-pagination.selftest.js"
   },
   "dependencies": {
     "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "5.4.296",
     "playwright-core": "^1.55.0"
   }
 }
