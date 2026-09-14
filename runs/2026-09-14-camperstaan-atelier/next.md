@@ -1,8 +1,8 @@
-klaar_fase: atelier
-volgende_rol: Toetser
-toets_run_id:
+klaar_fase: toets-2
+volgende_rol: Eigenaren
+toets_run_id: bc-7631d291-0247-5d82-860d-2fe85e50019e
 reden_stop:
 
 ## Notitie
 
-Afkeurzin uit Toets 2 geadresseerd: interne copy van de drie huiden gehaald; `/redactie/`, `/gids/`, `/compact/` geven 200. Geen `toets.md` met akkoord. Parent start een **nieuwe** Toetser-run (Toets 2). Geen live, geen mail.
+Toets 2 hertoets **akkoord** (aparte Toetser-run). Lab-preview Camperstaan: drie huiden, slash-routes 200, geen interne labels op klant-UI. Geen Uitvoer, geen live, geen mail. Klant-Atelier blijft dicht. Parent start geen Bouwer-her-run.
