@@ -25,17 +25,19 @@ Een sterke bestaande site (bijv. Next.js-directory met honderden URL's) houdt **
 3. Elke pagina: `noindex` + zichtbare preview-banner.  
 4. `next.md` → Toetser **Toets 2** (niet Toets 1). Maker schrijft geen `toets.md` met akkoord.
 
-Harvest van voorbeelden (`atelier-voorbeelden.md` in de projectstore) mag leeg zijn. Niet blokkeren; later bijsturen. Geen nieuwe skill tot **≥3 echte herhalingen én een test**.
+Harvest: project-store `docs/atelier-voorbeelden.md` + `internal/website-craft-extract.md`. Skill niet kopiëren. Geen nieuwe skill tot **≥3 echte herhalingen én een test**.
 
 ## Drie varianten (hard)
 
-Patroon: **Floryn drie skins** — dezelfde feiten, andere huid. Tokens blijven Papier (`--ink`, `--paper`, `--accent`, Libre Baskerville / Literata / Libre Franklin). Geen Camperstaan-product-UI nabootsen (dat is een Next-directory, geen merk-atelier).
+Patroon: **Floryn drie skins** — dezelfde feiten, andere huid. Per huid **één** maker-richting, niet mashen. Tokens blijven Papier. Geen Camperstaan-product-UI nabootsen.
 
-| Id | Huid | Layout / IA | Toon |
+Hard (website-craft): één primary style, max één accent; content → static → motion → (optioneel) WebGL; geen WebGL vóór CTA; brand first, full-bleed; geen card-soup; geen Inter/Roboto; `prefers-reduced-motion`.
+
+| Id | Huid | Maker (één) | Layout |
 | --- | --- | --- | --- |
-| `redactie` | terras | Magazine: masthead, gids als inhoudsopgave | Lucht, typewriter, één primaire CTA op home |
-| `gids` | keuken | Hub-eerst: rail + provinciekaarten | Werkende gids |
-| `compact` | allday | Landingsstroken, één CTA | Conversie; geen WebGL; geen `tel:` zonder dossier |
+| `redactie` | terras | Immersive Garden (sfeer) | Full-bleed masthead, typewriter, één CTA |
+| `gids` | keuken | Obys (type/grid) | Rail + typografische index — geen kaarten, geen zoek-UI |
+| `compact` | allday | Build in Amsterdam | Stroken + één CTA; geen WebGL; geen `tel:` zonder dossier |
 
 Chooser = scène 0 (Gavelia: atelier, typewriter). Geen R3F/WebGL (Biolune blijft referentie, niet dit spoor). Tap-to-call alleen als het dossier een telefoon heeft (Garage Tanis). Craft-skill `website-craft` leeft op de Mac mini-vault, niet in deze VM — niet kopiëren, geen nieuwe skill tot ≥3 echte herhalingen + test.
 
@@ -71,7 +73,7 @@ Eerste echte mal in repo. Camperstaan: Toets 1 akkoord, SKU Nieuw **dicht** (bes
 
 ## Amend — second-brain refs (sep 2026)
 
-Mac mini, niet Notion (pad ontoegankelijk in cloud-VM). Volledige harvest-doc volgt later; tot die tijd:
+Mac mini, niet Notion. Harvest in de project-store (`docs/atelier-voorbeelden.md`, `internal/website-craft-extract.md`):
 
 - `website-craft` (style-route + craft-brief) — vault, geen repo-skill
 - Gavelia: scène 0 = atelier + typewriter + één CTA-richting
@@ -81,3 +83,4 @@ Mac mini, niet Notion (pad ontoegankelijk in cloud-VM). Volledige harvest-doc vo
 - Garage Tanis: conversie, geen WebGL; tap-to-call alleen met dossier-tel
 - Camperstaan-repo: product-UI, niet nabootsen als Sitewerk Papier
 - Makers (Immersive Garden, Obys, Lusion, Build in Amsterdam): craft-lat, geen kopie
+- TypeUI MCP / betaald design-MCP: **niet**. Robin: website-craft + Floryn-skins + gratis HTML.

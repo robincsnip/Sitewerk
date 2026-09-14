@@ -35,19 +35,19 @@ Lab-preview (geen live):
 
 ## Stijlrichting
 
-- Doelgevoel (één zin): redactionele gids op papier — rust, geen dashboard.
-- Wat we níet willen (generiek AI-look, stock-ruis, SaaS-dashboard): geen stockfoto's, geen gradient, geen extra merkpalet naast Papier.
-- Typografie / kleur: Papier-tokens (Libre Baskerville, Literata, Libre Franklin; `--ink` / `--paper` / `--accent`).
+- Doelgevoel (één zin): redactionele gids op papier — rust, geen dashboard, geen listing-product-UI.
+- Wat we níet willen: Inter/Roboto, card-soup, WebGL vóór CTA, stock, Camperstaan-app nabootsen.
+- Typografie / kleur: Papier-tokens (Libre Baskerville, Literata, Libre Franklin).
 
 Second-brain (Mac mini, niet in deze VM): Floryn drie skins; Gavelia scène 0 typewriter; Tanis geen WebGL; Camperstaan-repo = product-UI, niet nabootsen. `website-craft` niet gekopieerd (geen nieuwe skill).
 
 ## Drie varianten
 
-| Id | Huid | IA-verschil | Zelfde feiten |
-| --- | --- | --- | --- |
-| redactie | terras | Essay-home, typewriter, één CTA de gids in | ja |
-| gids | keuken | Rail + zoek + provinciekaarten | ja |
-| compact | allday | Dienststroken + één sticky CTA | ja |
+| Id | Huid | Maker (één) | IA-verschil | Zelfde feiten |
+| --- | --- | --- | --- | --- |
+| redactie | terras | Immersive Garden | Full-bleed, typewriter, één CTA | ja |
+| gids | keuken | Obys | Type/grid-index, geen kaarten, geen zoek-UI | ja |
+| compact | allday | Build in Amsterdam | Stroken + één sticky CTA | ja |
 
 ## IA volgt SEO
 

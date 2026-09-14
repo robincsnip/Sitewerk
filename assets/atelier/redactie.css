@@ -5,20 +5,25 @@ body[data-atelier-variant="redactie"] {
 }
 
 body[data-atelier-variant="redactie"] .masthead {
-  text-align: center;
-  padding: var(--space-7) var(--space-4) var(--space-5);
-  border-bottom: 1px solid var(--line);
+  text-align: left;
+  min-height: 52vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-8) var(--space-5) var(--space-5);
+  border-bottom: 1px solid var(--ink);
 }
 
 body[data-atelier-variant="redactie"] .masthead .mark {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--text-2xl);
-  letter-spacing: -0.02em;
+  font-size: clamp(2.6rem, 9vw, 5.8rem);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
   color: var(--ink);
   text-decoration: none;
   display: block;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 body[data-atelier-variant="redactie"] .masthead nav {

@@ -222,18 +222,12 @@ ${unknownNote()}
     gids: {
       index: `
 <h1>Camperplaatsen in Nederland</h1>
-<form class="find" action="${href("plaatsen")}" method="get" role="search">
-  <label class="skip" for="q">Zoeken</label>
-  <input id="q" name="q" placeholder="Plek of provincie" value="">
-  <button type="submit">Open overzicht</button>
-</form>
-<p>Hubs eerst. ${escapeHtml(facts.listings_nl)} plekken in Nederland, ${escapeHtml(String(facts.province_hubs))} provincie-overzichten.</p>
+<p>${escapeHtml(String(facts.listings_nl))} plekken · ${escapeHtml(String(facts.province_hubs))} provincie-overzichten. Geen zoekfilter: de provincie is de ingang.</p>
 <ul class="hubs">
-  <li><a href="${href("provincie-drenthe")}"><span>Provincie</span><strong>${escapeHtml(drenthe.name)}</strong><span>${escapeHtml(String(drenthe.count))} plekken</span></a></li>
-  <li><a href="${href("plek-kampen")}"><span>Provincie</span><strong>${escapeHtml(overijssel.name)}</strong><span>specimen: ${escapeHtml(place.city)}</span></a></li>
+  <li><a href="${href("provincie-drenthe")}"><span class="nr">01</span><strong>${escapeHtml(drenthe.name)}</strong><span>${escapeHtml(String(drenthe.count))}</span></a></li>
+  <li><a href="${href("plek-kampen")}"><span class="nr">02</span><strong>${escapeHtml(overijssel.name)}</strong><span>${escapeHtml(place.city)}</span></a></li>
 </ul>
-<p>Overige provincie-overzichten staan in het pagina-overzicht (${escapeHtml(String(facts.province_hubs))} in totaal). Namen zonder meting ontbreken hier.</p>
-<p><a class="btn" href="${href("plaatsen")}">Alle ${escapeHtml(String(facts.listings_nl))} plekken</a></p>`,
+<p><a class="btn" href="${href("plaatsen")}">${escapeHtml(String(facts.listings_nl))} plekken</a></p>`,
       plaatsen: `
 <h1>Alle plekken</h1>
 <p>Nederlandse index: ${escapeHtml(String(facts.listings_nl))} plekpagina’s. Geen buitenland in dit overzicht.</p>
@@ -276,11 +270,7 @@ ${unknownNote()}`,
     <h1>${escapeHtml(facts.tagline)}</h1>
     <p>${escapeHtml(facts.services.join(" · "))}</p>
   </div>
-  <div class="panel">
-    <p>Nederland</p>
-    <strong>${escapeHtml(String(facts.listings_nl))}</strong>
-    <p>${escapeHtml(String(facts.province_hubs))} provincie-overzichten</p>
-  </div>
+  <p class="count"><span>Nederland</span> ${escapeHtml(String(facts.listings_nl))}</p>
 </section>
 <div class="strips">
   <a class="strip" href="${href("plaatsen")}"><span class="label">Plekken</span><h2>Nederlandse index</h2><span>${escapeHtml(String(facts.listings_nl))}</span></a>
@@ -350,7 +340,7 @@ ${banner(facts)}
   <p class="lead typewriter" data-typewriter="${escapeHtml(line)}"></p>
   <div class="variants">
     <a href="redactie/index.html"><strong>Redactie</strong><span>Huid terras — magazine, typewriter, één CTA de gids in.</span></a>
-    <a href="gids/index.html"><strong>Gids</strong><span>Huid keuken — hubs eerst, rail, provinciekaarten.</span></a>
+    <a href="gids/index.html"><strong>Gids</strong><span>Huid keuken — type/grid, geen kaarten.</span></a>
     <a href="compact/index.html"><strong>Compact</strong><span>Huid allday — één CTA, geen WebGL, geen verzonnen belknop.</span></a>
   </div>
   <p class="note">Papier-tokens. Geen publicatie, geen mail. Bron: ${escapeHtml(facts.bron)} · ${escapeHtml(facts.peildatum)}. <code>npm run atelier:preview -- ${escapeHtml(facts.run_id || "")}</code></p>

@@ -47,39 +47,34 @@ body[data-atelier-variant="compact"] .cta {
 
 body[data-atelier-variant="compact"] .hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: var(--space-6);
-  padding: var(--space-6) var(--space-4);
-  max-width: 72rem;
-  margin: 0 auto;
-  align-items: center;
+  padding: var(--space-7) var(--space-5);
+  align-items: end;
+  border-bottom: 1px solid var(--ink);
 }
 
 body[data-atelier-variant="compact"] .hero h1 {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   margin: 0 0 var(--space-3);
 }
 
-body[data-atelier-variant="compact"] .hero .panel {
-  background: var(--accent-soft);
-  padding: var(--space-5);
-  min-height: 12rem;
+body[data-atelier-variant="compact"] .count {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.9;
+  margin: 0;
 }
 
-body[data-atelier-variant="compact"] .hero .panel p {
+body[data-atelier-variant="compact"] .count span {
+  display: block;
   font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  margin: 0 0 var(--space-2);
-  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
-}
-
-body[data-atelier-variant="compact"] .hero .panel strong {
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
-  display: block;
+  margin-bottom: var(--space-2);
 }
 
 body[data-atelier-variant="compact"] .strips {

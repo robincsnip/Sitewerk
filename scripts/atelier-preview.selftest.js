@@ -87,6 +87,12 @@ function main() {
     assert(redactie.includes("class=\"masthead\""));
     assert(gids.includes("class=\"shell\""));
     assert(compact.includes("class=\"topbar\""));
+    assert(!gids.includes("class=\"find\""), "gids mag geen zoek-UI (product)");
+    assert(!/min-height:\s*8\.5rem/.test(fs.readFileSync(path.join(out, "_assets", "gids.css"), "utf8")));
+    const cssBundle = ["redactie", "gids", "compact", "chooser"]
+      .map((n) => fs.readFileSync(path.join(out, "_assets", `${n}.css`), "utf8"))
+      .join("\n");
+    assert(!/Inter|Roboto/.test(cssBundle), "geen Inter/Roboto");
     assert(redactie.includes('data-atelier-skin="terras"'));
     assert(gids.includes('data-atelier-skin="keuken"'));
     assert(compact.includes('data-atelier-skin="allday"'));
