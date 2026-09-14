@@ -49,7 +49,7 @@ afhankelijk_van: F-###[] | []
 - Conflict Feiten↔Strategie expliciet in `mix.md`  
 - Top 3 acties gekoppeld aan gevolg voor de zaak; niet alleen `onbekend`  
 - **Markt & concurrenten:** compacte tabel (5–8 spelers max.) — rol, gap, bewijs-label, **Actie** (`#n` of `Geen actie: …`). Geen volledige crawl-dump (geen 500+ URL-lijst).  
-- **Zoektermen:** compacte query-tabel — intentie, zichtbaarheid Camperstaan/klant, bewijs-label per rij. Geen posities of klikken zonder GSC-export; label `onbekend` waar niet gemeten.  
+- **Zoektermen:** compacte query-tabel — intentie, zichtbaarheid van de klant, bewijs-label per rij. Geen posities of klikken zonder GSC-export; label `onbekend` waar niet gemeten.  
 - Bijlage B: afgewezen scanner-tips  
 - Elke Uitvoer-kandidaat (code=ja) heeft een packet: URL, huidige/gewenste staat, herstel, acceptatie  
 
