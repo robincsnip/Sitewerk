@@ -8,15 +8,17 @@
 
 ## In het kort
 
-{{8_TOT_12_REGELS}}
+{{4_TOT_8_ZINNEN_OVERZICHT_GEEN_DETAILS}}
 
-**Eerste besluit dat we vragen:** {{EEN_ZIN}}
+**Besluit dat we vragen:** {{EEN_ZIN}}
 
-### Drie dingen die het meeste opleveren
+### Drie prioriteiten
 
-1. **{{ACTIE_1}}** — {{waarom}} — klaar als {{klaar}}
-2. **{{ACTIE_2}}** — {{waarom}} — klaar als {{klaar}}
-3. **{{ACTIE_3}}** — {{waarom}} — klaar als {{klaar}}
+1. **{{ACTIE_1}}** — klaar als {{klaar_1}}
+2. **{{ACTIE_2}}** — klaar als {{klaar_2}}
+3. **{{ACTIE_3}}** — klaar als {{klaar_3}}
+
+Geen herhaling van cijfers of techniek hier — die staan één keer onder Bevindingen.
 
 ### Wat al goed staat (niet kapotmaken)
 
@@ -30,10 +32,10 @@
 
 | Onderwerp | Status | Opmerking |
 | --- | --- | --- |
-| Techniek & indexatie | | |
+| Techniek & vindbaarheid | | |
 | Pagina-opbouw & links | | |
 | Teksten & zoekintentie | | |
-| Snelheid op kernpagina’s | | |
+| Snelheid | | |
 | Google-bedrijfsprofiel | relevant / n.v.t. | |
 | Reviews & reputatie | | |
 | Concurrenten in zoekresultaten | | |
@@ -41,24 +43,25 @@
 
 ---
 
-## Het verhaal op één lijn
+## Bevindingen
 
-### {{CONCLUSIEKOP_1}}
+Elke bevinding **één keer**: observatie → gevolg → voorstel. Zie [skills/klanttaal/SKILL.md](../skills/klanttaal/SKILL.md).
 
-{{situatie → bewijs → gevolg → keuze}}
+### 1. {{BEVINDING_KOP_1}}
 
-### {{CONCLUSIEKOP_2}}
+{{volledige_uitleg_een_keer}}
+
+### 2. {{BEVINDING_KOP_2}}
 
 {{…}}
 
 ---
 
-## Keuzes (wij geven een voorkeur)
+## Beslissingen die we van jullie nodig hebben
 
-### Keuze 1 — {{vraag}}
+### Beslissing 1 — {{vraag}}
 
 **Voorstel:** …  
-**Waarom:** …  
 **Alternatief:** …  
 **Opnieuw bekijken als:** …
 
@@ -76,7 +79,7 @@ Alleen invullen als de brief beide open laat. Anders weglaten.
 
 ## Werklijst — eerste 90 dagen
 
-Dit is de opdracht. Packets: `taken/T-<n>.md`. `werklijst.md` is dezelfde lijst, geen tweede waarheid.
+Zelfde lijst als `werklijst.md` — geen tweede waarheid. Packets: `taken/T-<n>.md`.
 
 ### Deze maand
 

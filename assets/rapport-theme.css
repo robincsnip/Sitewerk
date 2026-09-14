@@ -1,6 +1,5 @@
-/* Sitewerk rapport theme — print-first A4, no AI-slop look */
+/* Sitewerk rapport theme — print-first A4, readable for non-technical clients */
 
-/* Print-safe: system stacks first; optional webfonts when online */
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
 
 :root {
@@ -11,9 +10,11 @@
   --line: #c9d2cc;
   --accent: #0f5c4c;
   --accent-soft: #e4efe9;
+  --accent-muted: #d6e8df;
   --warn: #8a4b12;
   --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --body: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --measure: 68ch;
 }
 
 * {
@@ -22,7 +23,7 @@
 
 @page {
   size: A4;
-  margin: 18mm 16mm 18mm 16mm;
+  margin: 16mm 14mm 18mm 14mm;
 }
 
 html,
@@ -32,45 +33,56 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--body);
-  font-size: 11.5pt;
-  line-height: 1.45;
+  font-size: 11pt;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
 .cover {
-  padding: 28mm 8mm 14mm;
-  border-bottom: 2px solid var(--accent);
-  margin-bottom: 10mm;
-  background:
-    linear-gradient(180deg, #eef5f1 0%, var(--paper) 70%);
+  padding: 22mm 10mm 16mm;
+  border-bottom: 3px solid var(--accent);
+  margin-bottom: 12mm;
+  background: linear-gradient(165deg, #eef5f1 0%, var(--paper) 55%, #f8faf9 100%);
+  page-break-after: always;
 }
 
 .brand {
   font-family: var(--display);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-size: 10pt;
+  font-size: 9.5pt;
   color: var(--accent);
-  margin: 0 0 8mm;
+  margin: 0 0 10mm;
 }
 
 .cover h1 {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 28pt;
-  line-height: 1.15;
-  margin: 0 0 4mm;
-  max-width: 28ch;
+  font-size: 26pt;
+  line-height: 1.12;
+  margin: 0 0 5mm;
+  max-width: 22ch;
+  color: var(--ink);
 }
 
 .meta {
   color: var(--muted);
   margin: 0;
-  font-size: 10.5pt;
+  font-size: 10pt;
 }
 
 .report {
-  padding: 0 8mm 16mm;
-  max-width: 180mm;
+  padding: 0 10mm 14mm;
+  max-width: 190mm;
+}
+
+/* First section after cover: executive summary feel */
+.report > h2:first-child,
+.report > h2:first-of-type {
+  font-size: 15pt;
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .report h1,
@@ -78,40 +90,54 @@ body {
 .report h3 {
   font-family: var(--display);
   font-weight: 560;
-  line-height: 1.2;
+  line-height: 1.22;
   page-break-after: avoid;
+  color: var(--ink);
 }
 
 .report h1 {
-  font-size: 18pt;
-  margin: 0 0 6mm;
+  font-size: 17pt;
+  margin: 0 0 5mm;
 }
 
 .report h2 {
-  font-size: 14pt;
-  margin: 9mm 0 3mm;
-  padding-top: 2mm;
+  font-size: 13.5pt;
+  margin: 11mm 0 4mm;
+  padding-top: 3mm;
   border-top: 1px solid var(--line);
 }
 
 .report h3 {
-  font-size: 12.5pt;
-  margin: 6mm 0 2mm;
+  font-size: 11.5pt;
+  margin: 7mm 0 2.5mm;
   color: var(--accent);
+  font-weight: 600;
 }
 
 .report p {
-  margin: 0 0 3mm;
+  margin: 0 0 3.5mm;
+  max-width: var(--measure);
 }
 
 .report ul,
 .report ol {
-  margin: 0 0 4mm;
+  margin: 2mm 0 5mm;
   padding-left: 5mm;
+  max-width: var(--measure);
 }
 
 .report li {
-  margin-bottom: 1.5mm;
+  margin-bottom: 2.5mm;
+}
+
+/* Priority list: numbered items with breathing room */
+.report ol > li {
+  margin-bottom: 4mm;
+  padding-left: 1mm;
+}
+
+.report ol > li strong {
+  color: var(--accent);
 }
 
 .report strong {
@@ -121,16 +147,19 @@ body {
 .report table {
   width: 100%;
   border-collapse: collapse;
-  margin: 3mm 0 5mm;
-  font-size: 10pt;
+  margin: 4mm 0 6mm;
+  font-size: 9.5pt;
   background: var(--panel);
   break-inside: avoid;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 var(--line);
 }
 
 .report th,
 .report td {
   border: 1px solid var(--line);
-  padding: 2.2mm 2.5mm;
+  padding: 2.5mm 3mm;
   text-align: left;
   vertical-align: top;
 }
@@ -139,33 +168,77 @@ body {
   background: var(--accent-soft);
   font-family: var(--display);
   font-weight: 560;
+  font-size: 9pt;
+  letter-spacing: 0.02em;
+}
+
+.report tbody tr:nth-child(even) td {
+  background: #fafbfa;
 }
 
 .report blockquote {
-  margin: 4mm 0;
-  padding: 3mm 4mm;
-  border-left: 3px solid var(--accent);
+  margin: 5mm 0;
+  padding: 4mm 5mm;
+  border-left: 4px solid var(--accent);
   background: var(--accent-soft);
   color: var(--ink);
+  border-radius: 0 3px 3px 0;
+  max-width: var(--measure);
+}
+
+.report blockquote p {
+  margin: 0;
 }
 
 .report hr {
   border: 0;
   border-top: 1px solid var(--line);
-  margin: 8mm 0;
+  margin: 10mm 0;
+}
+
+/* Appendix sections: lighter treatment */
+.report h2:has(+ table),
+.report h2 + table {
+  /* tables after h2 in appendix */
+}
+
+.report h2:nth-last-of-type(-n+2),
+.report h2:nth-last-of-type(-n+2) ~ * {
+  /* appendix area — slightly smaller tables already via font-size */
 }
 
 .colophon {
-  padding: 4mm 8mm 10mm;
+  padding: 5mm 10mm 12mm;
   color: var(--muted);
-  font-size: 9pt;
+  font-size: 8.5pt;
   border-top: 1px solid var(--line);
+  margin-top: 8mm;
+}
+
+/* Callout class for md-to-html blockquotes marked as summary */
+.callout {
+  margin: 5mm 0 7mm;
+  padding: 5mm 6mm;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-muted);
+  border-radius: 4px;
+  max-width: var(--measure);
+}
+
+.callout p {
+  margin: 0;
+  font-size: 10.5pt;
+}
+
+.callout strong {
+  color: var(--accent);
 }
 
 @media print {
   html,
   body {
     background: white;
+    font-size: 10.5pt;
   }
 
   .cover {
@@ -174,6 +247,16 @@ body {
 
   .report h2 {
     break-before: auto;
+  }
+
+  .report h3 {
+    break-after: avoid;
+  }
+
+  .report table,
+  .report blockquote,
+  .callout {
+    break-inside: avoid;
   }
 
   a {

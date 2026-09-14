@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Camperstaan — wat er speelt online, en wat we eerst doen</title>
   <style>
-/* Sitewerk rapport theme — print-first A4, no AI-slop look */
+/* Sitewerk rapport theme — print-first A4, readable for non-technical clients */
 
-/* Print-safe: system stacks first; optional webfonts when online */
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
 
 :root {
@@ -18,9 +17,11 @@
   --line: #c9d2cc;
   --accent: #0f5c4c;
   --accent-soft: #e4efe9;
+  --accent-muted: #d6e8df;
   --warn: #8a4b12;
   --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --body: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --measure: 68ch;
 }
 
 * {
@@ -29,7 +30,7 @@
 
 @page {
   size: A4;
-  margin: 18mm 16mm 18mm 16mm;
+  margin: 16mm 14mm 18mm 14mm;
 }
 
 html,
@@ -39,45 +40,56 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--body);
-  font-size: 11.5pt;
-  line-height: 1.45;
+  font-size: 11pt;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
 .cover {
-  padding: 28mm 8mm 14mm;
-  border-bottom: 2px solid var(--accent);
-  margin-bottom: 10mm;
-  background:
-    linear-gradient(180deg, #eef5f1 0%, var(--paper) 70%);
+  padding: 22mm 10mm 16mm;
+  border-bottom: 3px solid var(--accent);
+  margin-bottom: 12mm;
+  background: linear-gradient(165deg, #eef5f1 0%, var(--paper) 55%, #f8faf9 100%);
+  page-break-after: always;
 }
 
 .brand {
   font-family: var(--display);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-size: 10pt;
+  font-size: 9.5pt;
   color: var(--accent);
-  margin: 0 0 8mm;
+  margin: 0 0 10mm;
 }
 
 .cover h1 {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 28pt;
-  line-height: 1.15;
-  margin: 0 0 4mm;
-  max-width: 28ch;
+  font-size: 26pt;
+  line-height: 1.12;
+  margin: 0 0 5mm;
+  max-width: 22ch;
+  color: var(--ink);
 }
 
 .meta {
   color: var(--muted);
   margin: 0;
-  font-size: 10.5pt;
+  font-size: 10pt;
 }
 
 .report {
-  padding: 0 8mm 16mm;
-  max-width: 180mm;
+  padding: 0 10mm 14mm;
+  max-width: 190mm;
+}
+
+/* First section after cover: executive summary feel */
+.report > h2:first-child,
+.report > h2:first-of-type {
+  font-size: 15pt;
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .report h1,
@@ -85,40 +97,54 @@ body {
 .report h3 {
   font-family: var(--display);
   font-weight: 560;
-  line-height: 1.2;
+  line-height: 1.22;
   page-break-after: avoid;
+  color: var(--ink);
 }
 
 .report h1 {
-  font-size: 18pt;
-  margin: 0 0 6mm;
+  font-size: 17pt;
+  margin: 0 0 5mm;
 }
 
 .report h2 {
-  font-size: 14pt;
-  margin: 9mm 0 3mm;
-  padding-top: 2mm;
+  font-size: 13.5pt;
+  margin: 11mm 0 4mm;
+  padding-top: 3mm;
   border-top: 1px solid var(--line);
 }
 
 .report h3 {
-  font-size: 12.5pt;
-  margin: 6mm 0 2mm;
+  font-size: 11.5pt;
+  margin: 7mm 0 2.5mm;
   color: var(--accent);
+  font-weight: 600;
 }
 
 .report p {
-  margin: 0 0 3mm;
+  margin: 0 0 3.5mm;
+  max-width: var(--measure);
 }
 
 .report ul,
 .report ol {
-  margin: 0 0 4mm;
+  margin: 2mm 0 5mm;
   padding-left: 5mm;
+  max-width: var(--measure);
 }
 
 .report li {
-  margin-bottom: 1.5mm;
+  margin-bottom: 2.5mm;
+}
+
+/* Priority list: numbered items with breathing room */
+.report ol > li {
+  margin-bottom: 4mm;
+  padding-left: 1mm;
+}
+
+.report ol > li strong {
+  color: var(--accent);
 }
 
 .report strong {
@@ -128,16 +154,19 @@ body {
 .report table {
   width: 100%;
   border-collapse: collapse;
-  margin: 3mm 0 5mm;
-  font-size: 10pt;
+  margin: 4mm 0 6mm;
+  font-size: 9.5pt;
   background: var(--panel);
   break-inside: avoid;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 var(--line);
 }
 
 .report th,
 .report td {
   border: 1px solid var(--line);
-  padding: 2.2mm 2.5mm;
+  padding: 2.5mm 3mm;
   text-align: left;
   vertical-align: top;
 }
@@ -146,33 +175,77 @@ body {
   background: var(--accent-soft);
   font-family: var(--display);
   font-weight: 560;
+  font-size: 9pt;
+  letter-spacing: 0.02em;
+}
+
+.report tbody tr:nth-child(even) td {
+  background: #fafbfa;
 }
 
 .report blockquote {
-  margin: 4mm 0;
-  padding: 3mm 4mm;
-  border-left: 3px solid var(--accent);
+  margin: 5mm 0;
+  padding: 4mm 5mm;
+  border-left: 4px solid var(--accent);
   background: var(--accent-soft);
   color: var(--ink);
+  border-radius: 0 3px 3px 0;
+  max-width: var(--measure);
+}
+
+.report blockquote p {
+  margin: 0;
 }
 
 .report hr {
   border: 0;
   border-top: 1px solid var(--line);
-  margin: 8mm 0;
+  margin: 10mm 0;
+}
+
+/* Appendix sections: lighter treatment */
+.report h2:has(+ table),
+.report h2 + table {
+  /* tables after h2 in appendix */
+}
+
+.report h2:nth-last-of-type(-n+2),
+.report h2:nth-last-of-type(-n+2) ~ * {
+  /* appendix area — slightly smaller tables already via font-size */
 }
 
 .colophon {
-  padding: 4mm 8mm 10mm;
+  padding: 5mm 10mm 12mm;
   color: var(--muted);
-  font-size: 9pt;
+  font-size: 8.5pt;
   border-top: 1px solid var(--line);
+  margin-top: 8mm;
+}
+
+/* Callout class for md-to-html blockquotes marked as summary */
+.callout {
+  margin: 5mm 0 7mm;
+  padding: 5mm 6mm;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-muted);
+  border-radius: 4px;
+  max-width: var(--measure);
+}
+
+.callout p {
+  margin: 0;
+  font-size: 10.5pt;
+}
+
+.callout strong {
+  color: var(--accent);
 }
 
 @media print {
   html,
   body {
     background: white;
+    font-size: 10.5pt;
   }
 
   .cover {
@@ -181,6 +254,16 @@ body {
 
   .report h2 {
     break-before: auto;
+  }
+
+  .report h3 {
+    break-after: avoid;
+  }
+
+  .report table,
+  .report blockquote,
+  .callout {
+    break-inside: avoid;
   }
 
   a {
@@ -203,63 +286,78 @@ body {
 <p><strong>Peildatum:</strong> 13 september 2026 <strong>Status:</strong> concept — er is nog niets live gezet <strong>Opgesteld door:</strong> Sitewerk</p>
 <hr />
 <h2>In het kort</h2>
-<p>Camperstaan is al een echte directory: honderden plekpagina's, stadspagina's en provinciepagina's, met een bronlink per plek. Dat is sterker dan een brochure-site. De zaak hapert op drie meetbare punten die we vandaag opnieuw hebben gemeten.</p>
-<p>De homepage zegt <strong>306 plekken</strong>. De zoekpagina toont <strong>293</strong> unieke Nederlandse listings. Het verschil zit in dertien Belgische en Duitse URL's die wél in de sitemap staan en live zijn, terwijl de Nederlandse lijst ze weglaat. Jullie eigen copy zegt nog "later België en Duitsland".</p>
-<p>Wie "camperplaats Kampen" of "camperplaatsen in Drenthe" zoekt, landt in onze steekproef bij de gemeente, Visit-sites of Campercontact — niet op jullie listing of provinciepagina. Op de plekpagina zelf is het claimformulier (€ 99) het grootste blok; de reiziger krijgt één alinea plus chips (~132 woorden in het hoofdblok).</p>
-<p>Technisch: elke HTML-pagina komt als <code>private, no-store</code> van de origin. De zoekindex weegt <strong>1,41 MB</strong>. Dat is onnodig zwaar voor een openbare catalogus.</p>
-<p><strong>Eerste besluit dat we vragen:</strong> akkoord op de drie acties hieronder (scope/telling, plekpagina voor de gast, cache + lichtere zoekpagina). Daarna Toets, dan pas bouwen op een preview.</p>
-<h3>Drie dingen die het meeste opleveren</h3>
+<p>Camperstaan is al een echte plekkengids: honderden plekpagina's, stadspagina's en provinciepagina's, elk met een bronlink. Dat is sterker dan een simpele brochure-site.</p>
+<p>We zien <strong>vier punten</strong> die bezoekers en vindbaarheid in Google nu remmen, plus twee verbeteringen die minder urgent zijn. De drie acties hieronder pakken het grootste winstpunt aan.</p>
+<p><strong>Besluit dat we vragen:</strong> akkoord op de drie prioriteiten in de volgende sectie. Daarna Toets, dan pas bouwen op een preview — nog niets live.</p>
+<h3>Drie prioriteiten</h3>
 <ol>
-<li><strong>Eén telling, één land in de NL-sitemap</strong> — gast en crawler zien nu twee waarheden (306 vs 293, plus live BE/DE) — klaar als home, <code>/plaatsen</code> en sitemap-NL hetzelfde aantal NL-plekken tonen en BE/DE niet in de NL-sitemap staan (of achter een land-hub).</li>
-<li><strong>Plekpagina eerst voor de reiziger</strong> — claimformulier staat nu boven het nut van de pagina — klaar als prijs, max nachten, voorzieningen, bron en kaart boven de claim staan, en JSON-LD coördinaten + prijsrange uit bestaande velden heeft.</li>
-<li><strong>HTML cachebaar, zoekpagina lichter</strong> — nu no-store + 1,41 MB <code>/plaatsen</code> — klaar als anonieme HTML <code>public</code> is (CDN-hit) en <code>/plaatsen</code> onder een afgesproken gewicht zit zonder listings uit de sitemap te halen.</li>
+<li><strong>Eén aantal plekken, één land in het Nederlandse overzicht</strong> — klaar als homepage, zoekpagina en het Nederlandse pagina-overzicht voor Google hetzelfde aantal Nederlandse plekken tonen, en Belgische/Duitse plekken daar niet tussen staan (of pas als er landpagina's zijn).</li>
+<li><strong>Plekpagina eerst voor de reiziger</strong> — klaar als prijs, maximaal aantal nachten, voorzieningen, bron en kaart boven het claimformulier staan.</li>
+<li><strong>Provincie-keuze leidt naar de provinciepagina</strong> — klaar als iemand op Drenthe filtert en op de Drenthe-overzichtspagina landt (niet op een algemene zoekpagina die Google als hoofdpagina ziet).</li>
 </ol>
 <h3>Wat al goed staat (niet kapotmaken)</h3>
 <ul>
-<li>Apex redirect naar <code>www</code></li>
-<li><code>robots.txt</code> houdt dashboard, login, api en betalen buiten de index</li>
-<li>404 is <code>noindex</code></li>
-<li>Canonicals op hubs en listings (behalve regio-filter op <code>/plaatsen</code>)</li>
-<li>Bronlink + <code>sameAs</code> naar gemeente of eigenaar</li>
-<li>Provincie- en stadshubs met echte aantallen (voorbeeld Drenthe: 19 plekken)</li>
-<li>Server-HTML: de plektekst staat in de bron, niet alleen in JavaScript</li>
-<li>Merkquery "Camperstaan" toont home en zoekpagina</li>
+<li>Bezoekers komen automatisch op <code>www</code> terecht</li>
+<li>Inloggen, betalen en het dashboard staan buiten Google</li>
+<li>Pagina's die niet bestaan worden niet geïndexeerd</li>
+<li>Plekpagina's hebben een vaste hoofdadres in Google</li>
+<li>Bronlink naar gemeente of eigenaar staat op de plekpagina</li>
+<li>Provincie- en stadspagina's tonen echte aantallen</li>
+<li>De plektekst staat in de pagina zelf (niet alleen via JavaScript)</li>
+<li>Zoeken op "Camperstaan" toont jullie homepage en zoekpagina</li>
 </ul>
 <hr />
 <h2>Wat we hebben bekeken</h2>
-<p>Openbare HTML, headers, <code>robots.txt</code>, <code>sitemap.xml</code>, drie listings, een provincie, een stad, <code>/over</code>, en een zoeksteekproef. Geen Search Console-export. Geen betaalde linkdata.</p>
-<table><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; indexatie</td><td>bekeken</td><td>Sitemap 577 URL's; telling botst; HTML no-store</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>IA klopt; listing-template is eigenaar-eerst</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Hubs bestaan; listings dun t.o.v. de bronpagina</td></tr><tr><td>Snelheid op kernpagina's</td><td>deels</td><td>Geen Lighthouse; lab: <code>/plaatsen</code> 1,41 MB, TTFB ~0,3–0,5 s</td></tr><tr><td>Google-bedrijfsprofiel</td><td>n.v.t.</td><td>Landelijke directory, geen lokale zaak</td></tr><tr><td>Reviews &amp; reputatie</td><td>n.v.t. hier</td><td>Geen sterren verzinnen; Campercontact wint reviews</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>steekproef</td><td>Gemeente, Visit, Campercontact, Park4Night</td></tr><tr><td>AI-vindbaarheid</td><td>steekproef</td><td>Categorie-bronnen noemen Camperstaan niet</td></tr></tbody></table>
+<p>Openbare pagina's, technische koppen, het robots-bestand, het pagina-overzicht voor Google, drie plekpagina's, een provincie, een stad, de over-pagina en een steekproef in Google. Geen Search Console-export. Geen betaalde linkdata.</p>
+<table><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; vindbaarheid</td><td>bekeken</td><td>Pagina-overzicht met 577 adressen; tellingen botsen; pagina's niet tussen opgeslagen</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>Structuur klopt; plekpagina richt zich nu op de eigenaar</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Overzichtspagina's bestaan; plekpagina's zijn dun t.o.v. de bron</td></tr><tr><td>Snelheid</td><td>deels</td><td>Geen Lighthouse; zoekpagina weegt 1,41 MB</td></tr><tr><td>Google-bedrijfsprofiel</td><td>n.v.t.</td><td>Landelijke gids, geen lokale winkel</td></tr><tr><td>Reviews &amp; reputatie</td><td>n.v.t. hier</td><td>Geen sterren verzinnen; Campercontact wint reviews</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>steekproef</td><td>Gemeente, Visit, Campercontact, Park4Night</td></tr><tr><td>AI-vindbaarheid</td><td>steekproef</td><td>Categorie-bronnen noemen Camperstaan niet</td></tr></tbody></table>
 <hr />
-<h2>Het verhaal op één lijn</h2>
-<h3>De sitemap is al internationaal, de winkel nog Nederlands</h3>
-<p>Dertien plekken in België en Duitsland zijn live en staan in dezelfde sitemap als Kampen en Groningen. De Nederlandse zoekpagina toont ze niet. De homepage telt ze wél. Gevolg: Google mag BE/DE indexeren alsof het bij "camperplaatsen in Nederland" hoort, terwijl de gast een andere catalogus ziet. Keuze: NL zuiver houden tot er land-hubs zijn, of die hubs nu serieus nemen. Niet "later" blijven zeggen.</p>
-<h3>De plek-URL vecht met de gemeente — en met jullie eigen claimformulier</h3>
-<p>De gemeente Kampen en Visit Kampen winnen "camperplaats Kampen". Dat is logisch: zij zijn de bron. Jullie listing moet de vergelijking zijn (prijs 2026, max 72 uur, voorzieningen, bronlink), niet een inschrijfformulier. Zolang het wachtwoordveld het scherm deelt met de enige alinea, is er weinig reden om jullie URL te kiezen boven kampen.nl.</p>
-<h3>Techniek remt wat al goed staat</h3>
-<p>De site is snel genoeg in TTFB (~0,16–0,33 s op kernpagina's), maar <code>/plaatsen</code> dwingt 1,41 MB door de lijn. Combineer dat met <code>no-store</code> en elke hit gaat opnieuw naar origin. Voor een catalogus die grotendeels statisch is, is dat vermijdbaar.</p>
+<h2>Bevindingen</h2>
+<h3>1. Homepage en zoekpagina tellen verschillend — en er staan buitenlandse plekken tussen</h3>
+<p>Op de homepage staat <strong>306 plekken</strong>. Op de zoekpagina staan <strong>293</strong> unieke Nederlandse plekken. Het verschil: dertien plekken in België en Duitsland staan live en in het pagina-overzicht voor Google, maar niet op de Nederlandse zoekpagina. Jullie copy zegt nog dat België en Duitsland "later" komen.</p>
+<p><strong>Gevolg:</strong> bezoekers en Google zien niet hetzelfde aanbod. Google kan buitenlandse plekken tonen alsof ze bij "camperplaatsen in Nederland" horen.</p>
+<p><strong>Voorstel:</strong> één telling voor Nederland; buitenlandse plekken uit het Nederlandse overzicht tot er landpagina's zijn — of die landpagina's nu serieus maken.</p>
+<h3>2. De plekpagina helpt de reiziger te weinig</h3>
+<p>Wie "camperplaats Kampen" zoekt, vindt vooral de gemeente, Visit Kampen of Campercontact — niet jullie plekpagina. Logisch: zij zijn de bron.</p>
+<p>Op jullie Kampen-pagina is het claimformulier (€ 99) het grootste blok. De reiziger krijgt één korte alinea met chips — ongeveer 132 woorden in het hoofdblok.</p>
+<p><strong>Gevolg:</strong> weinig reden om jullie pagina te openen in plaats van kampen.nl.</p>
+<p><strong>Voorstel:</strong> prijs (2026), max 72 uur, voorzieningen, bronlink en kaart bovenaan; claim onderaan of op een aparte URL.</p>
+<h3>3. Provincie-filter wijst Google naar de verkeerde pagina</h3>
+<p>Filter je op Drenthe op de zoekpagina, dan heet de pagina "Camperplaatsen in Drenthe". Google ziet als hoofdadres nog steeds de algemene zoekpagina — niet <code>/provincie/drenthe</code>.</p>
+<p><strong>Gevolg:</strong> bij "camperplaatsen in Drenthe" verschijnt jullie Drenthe-overzichtspagina niet in onze steekproef.</p>
+<p><strong>Voorstel:</strong> provincie-filter stuurt door naar de provinciepagina (bijv. <code>/provincie/drenthe</code>).</p>
+<h3>4. Zoekpagina is zwaar; pagina's worden niet tussen opgeslagen</h3>
+<p>Elke HTML-pagina wordt met "niet opslaan" geleverd: elke bezoeker haalt alles opnieuw van de server. De zoekpagina weegt <strong>1,41 MB</strong> omdat alle 293 kaarten in één pagina staan.</p>
+<p><strong>Gevolg:</strong> onnodig zwaar voor een catalogus die grotendeels hetzelfde blijft.</p>
+<p><strong>Voorstel:</strong> anonieme pagina's mogen tussen opgeslagen worden; zoekpagina verlichten (bijv. paginering) zonder plekken uit het overzicht te halen.</p>
+<h3>5. Google mist locatie en prijs op de plekpagina</h3>
+<p>Op Kampen staan coördinaten en prijs in de pagina, maar niet in de extra gegevens die Google leest (gestructureerde data).</p>
+<p><strong>Voorstel:</strong> locatie, prijsklasse en voorzieningen toevoegen aan die gegevens — velden bestaan al in jullie systeem.</p>
+<h3>6. Drenthe-overzichtspagina wint nog niet op zoekintentie</h3>
+<p>De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "camperplaatsen in Drenthe".</p>
+<p><strong>Voorstel:</strong> intern versterken (tekst, links) en steekproef herhalen — gedeeld jullie en wij.</p>
 <hr />
-<h2>Keuzes (wij geven een voorkeur)</h2>
-<h3>Keuze 1 — BE/DE in de NL-sitemap laten, of eruit tot er land-hubs zijn?</h3>
-<p><strong>Voorstel:</strong> uit de NL-sitemap tot <code>/belgie</code> en <code>/duitsland</code> (of gelijk) bestaan en de homepage per land telt. <strong>Waarom:</strong> 13 URL's zijn geen markt, wel ruis. <strong>Alternatief:</strong> nu land-hubs + filter, en 306 uitleggen als "NL+BE+DE". <strong>Opnieuw bekijken als:</strong> jullie BE/DE deze maand actief willen claimen.</p>
-<h3>Keuze 2 — claimen op de plekpagina of op een eigen URL?</h3>
-<p><strong>Voorstel:</strong> gastfeiten bovenaan; claim onderaan of <code>/plaatsen/{slug}/claim</code>. <strong>Waarom:</strong> dezelfde URL kan niet én reiziger én KvK-upgrade als eerste taak hebben. <strong>Alternatief:</strong> claim blijft, maar ingeklapt tot "Beheer je deze plek?" <strong>Opnieuw bekijken als:</strong> conversie claim &gt; bezoekers per listing gemeten is.</p>
-<h3>Keuze 3 — regio-filter op <code>/plaatsen</code> of doorverwijzen naar provincie-hub?</h3>
-<p><strong>Voorstel:</strong> filter op provincie leidt naar <code>/provincie/{slug}</code> (301 of canonical). <strong>Waarom:</strong> "camperplaatsen in Drenthe" hoort op de hub, niet op een querystring die canonical <code>/plaatsen</code> blijft. <strong>Alternatief:</strong> filter alleen op <code>/plaatsen</code> houden, maar dan canonical mee laten variëren. <strong>Opnieuw bekijken als:</strong> jullie filter UX belangrijker vinden dan hub-ranking.</p>
+<h2>Beslissingen die we van jullie nodig hebben</h2>
+<h3>Beslissing 1 — Buitenlandse plekken in het Nederlandse overzicht?</h3>
+<p><strong>Voorstel:</strong> eruit tot <code>/belgie</code> en <code>/duitsland</code> (of gelijkwaardig) bestaan en de homepage per land telt. <strong>Alternatief:</strong> nu landpagina's maken en 306 uitleggen als NL+BE+DE. <strong>Opnieuw bekijken als:</strong> jullie BE/DE deze maand actief willen claimen.</p>
+<h3>Beslissing 2 — Claimen op de plekpagina of apart?</h3>
+<p><strong>Voorstel:</strong> gastinformatie bovenaan; claim onderaan of op <code>/plaatsen/{slug}/claim</code>. <strong>Alternatief:</strong> claim blijft, maar ingeklapt tot "Beheer je deze plek?" <strong>Opnieuw bekijken als:</strong> claim-conversie vs. bezoekers per plek gemeten is.</p>
+<h3>Beslissing 3 — Provincie-filter of direct naar provinciepagina?</h3>
+<p><strong>Voorstel:</strong> filter op provincie leidt naar <code>/provincie/{slug}</code>. <strong>Alternatief:</strong> filter op zoekpagina houden, maar dan moet Google de juiste URL zien per provincie. <strong>Opnieuw bekijken als:</strong> filter-ervaring belangrijker is dan provincie-ranking.</p>
 <hr />
 <h2>Werklijst — eerste 90 dagen</h2>
-<p>Zie <code>werklijst.md</code> in deze run. Samenvatting:</p>
+<p>Zie <code>werklijst.md</code> in deze run. Zelfde lijst, geen tweede waarheid.</p>
 <h3>Deze maand</h3>
-<table><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>NL-telling + BE/DE uit NL-sitemap</td><td>jullie besluit, wij bouwen</td><td>home = /plaatsen = sitemap-NL</td></tr><tr><td>2</td><td>Listing-template gast-eerst</td><td>wij + jullie copy</td><td>Kampen-template herhaald</td></tr><tr><td>3</td><td>Regio-filter → provincie-hub</td><td>wij</td><td>Drenthe-filter op /provincie/drenthe</td></tr></tbody></table>
+<table><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>NL-telling harmoniseren; BE/DE uit NL-sitemap</td><td>jullie</td><td>home = /plaatsen = sitemap-NL count</td></tr><tr><td>2</td><td>Listing-template gast-eerst</td><td>wij</td><td>prijs/voorzieningen/bron boven claim</td></tr><tr><td>3</td><td>Regio-filter → provincie-hub</td><td>wij</td><td>Drenthe-filter op /provincie/drenthe</td></tr></tbody></table>
 <h3>Maand twee / drie</h3>
 <table><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>4</td><td>Cache public + /plaatsen verlichten</td><td>wij</td><td>public cache listing; /plaatsen paginering</td></tr><tr><td>5</td><td>JSON-LD geo + priceRange + amenities</td><td>wij</td><td>Rich Results Test</td></tr><tr><td>6</td><td>Hub Drenthe intern versterken</td><td>gedeeld</td><td>steekproef herhalen</td></tr></tbody></table>
-<p><strong>Buiten scope deze ronde:</strong> linkdisavow, GBP, live deploy, mail naar eigenaren, %-trafficbelofte.</p>
+<p><strong>Buiten scope deze ronde:</strong> linkdisavow, Google-bedrijfsprofiel, live deploy, mail naar eigenaren, %-trafficbelofte.</p>
 <hr />
 <h2>Hoe we weten of het werkt</h2>
 <ul>
-<li><strong>Nu bekend:</strong> tellingen, headers, sitemap-structuur, steekproef Kampen/Drenthe, lab-gewichten.</li>
-<li><strong>Nog niet bekend:</strong> GSC-impressies per template, inkomende links, claim-conversie.</li>
-<li><strong>Over 30 dagen:</strong> steekproef Kampen opnieuw; <code>/plaatsen</code> gewicht; cache-hit ratio op listing.</li>
-<li><strong>Over 90 dagen:</strong> provincie-intent steekproef; Nameting-run met baseline.</li>
+<li><strong>Nu bekend:</strong> tellingen, technische koppen, pagina-overzicht, steekproef Kampen/Drenthe, gewicht zoekpagina.</li>
+<li><strong>Nog niet bekend:</strong> Search Console per paginatype, inkomende links, claim-conversie.</li>
+<li><strong>Over 30 dagen:</strong> steekproef Kampen opnieuw; gewicht zoekpagina; of plekpagina's uit cache komen.</li>
+<li><strong>Over 90 dagen:</strong> provincie-zoekopdracht opnieuw; nameting-run met baseline.</li>
 </ul>
 <hr />
 <h2>Bijlage A — Bewijs</h2>
