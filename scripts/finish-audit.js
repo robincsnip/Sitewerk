@@ -54,4 +54,6 @@ if (!fs.existsSync(rapportPdf)) {
   process.exit(1);
 }
 
+runNode("check-pagination.js", [rapportHtml]);
+
 console.log(`Audit print ready: ${rapportPdf}`);

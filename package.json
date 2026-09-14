@@ -10,6 +10,7 @@
     "build:demo": "npm run pdf:demo"
   },
   "dependencies": {
+    "pdf-parse": "^2.4.5",
     "playwright-core": "^1.55.0"
   }
 }

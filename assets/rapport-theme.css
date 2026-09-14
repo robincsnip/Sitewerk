@@ -315,11 +315,23 @@ body {
 
 /* ── Finding cards ───────────────────────────────────── */
 
-.finding-shell {
-  display: block;
-  width: 100%;
+.prio-shell,
+.measure-shell {
   break-inside: avoid;
   page-break-inside: avoid;
+}
+
+.good-shell {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-shell,
+.werklijst-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  display: block;
+  width: 100%;
 }
 
 .finding-card {
@@ -564,7 +576,12 @@ body {
 }
 
 .appendix-table {
-  font-size: var(--text-xs);
+  font-size: 7pt;
+}
+
+.appendix-table th,
+.appendix-table td {
+  padding: 1.5mm 2mm;
 }
 
 .appendix-table th {
@@ -643,13 +660,15 @@ body {
     page-break-after: avoid;
   }
 
+  .good-shell,
   .finding-shell,
+  .werklijst-block,
+  .prio-shell,
+  .measure-shell,
   .prio-card,
   .finding-card,
   .decision-card,
-  .good-item,
   .measure-card,
-  .mini-kpi-row,
   .callout-decision,
   .lead-block {
     break-inside: avoid !important;
@@ -658,18 +677,17 @@ body {
     print-color-adjust: exact;
   }
 
+  .decision-card + .decision-card {
+    break-before: page;
+    page-break-before: always;
+  }
+
   .prio-grid,
   .decision-grid,
   .good-grid,
   .measure-grid {
     break-inside: auto;
     page-break-inside: auto;
-  }
-
-  .finding-shell {
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
   }
 
   .prio-card,
@@ -682,21 +700,37 @@ body {
 
   .good-grid {
     display: block;
-    column-count: 1;
   }
 
   .good-item {
     display: block;
     width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .measure-grid {
+    display: block;
+    column-count: 2;
+    column-gap: var(--space-3);
+  }
+
+  .measure-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
     -webkit-column-break-inside: avoid;
     column-break-inside: avoid;
   }
 
-  .measure-grid {
-    column-count: 2;
+  .report table.scope-table tr,
+  .report table.appendix-table tr,
+  .report table.werklijst-table tr,
+  .report table.werklijst-tabel tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  .report h3 + table {
+  .table-shell {
     break-inside: avoid;
     page-break-inside: avoid;
   }

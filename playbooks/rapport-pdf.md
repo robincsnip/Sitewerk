@@ -7,8 +7,16 @@
 ## Pipeline
 
 ```bash
+npm run audit:finish -- <run-id>
+# intern: md-to-html → html-to-pdf → check-pagination (gate)
+```
+
+Handmatig:
+
+```bash
 node scripts/md-to-html.js runs/<id>/rapport-klant.md
 node scripts/html-to-pdf.js runs/<id>/print/rapport.html
+node scripts/check-pagination.js runs/<id>/print/rapport.html
 ```
 
 Theme: [assets/rapport-theme.css](../assets/rapport-theme.css) (richting **C — Papier**).  
@@ -49,10 +57,24 @@ Na CSS-wijziging: altijd `npm run audit:finish -- <run-id>` en visueel controler
 ## Amend — Paginering (sep 2026)
 
 - Hoofdstuk-secties (`report-section--chapter`, bijlagen) starten op nieuwe pagina; “In het kort” + scope mogen samen doorlopen.
-- Kaarten (finding-shell, prio, decision, measure): `break-inside: avoid`; geen grid-split in print.
-- Koppen: `break-after: avoid` + eerste blok `break-before: avoid`.
-- Scope/werklijst-tabellen: rijniveau avoid, `thead` herhaalt.
+- Atomische blokken (`finding-shell`, `werklijst-block`, `prio-shell`, `good-shell`, `decision-card`, `measure-card`, `table-shell`): `break-inside: avoid`; geen grid-split in print (grids → block/columns).
+- Meerdere bevindingen in één hoofdstuk mogen op dezelfde pagina doorlopen zolang het blok niet splitst.
+- Besluitkaarten na elkaar: `break-before: page` op `decision-card + decision-card`.
+- Koppen: `break-after: avoid` + direct volgend blok `break-before: avoid`.
+- Tabellen: rijniveau `break-inside: avoid` (scope, bijlage, werklijst); werklijst h3 + tabel in één `werklijst-block`.
 - `hr.section-break` verborgen in print; `preferCSSPageSize: true` in html-to-pdf.
+
+## Paginatie-gate (hard — sep 2026)
+
+`npm run audit:finish` roept **`scripts/check-pagination.js`** aan ná PDF-build. **Faalt de check → geen geslaagde finish** (exit 1).
+
+| Code | Wat |
+| --- | --- |
+| `split-block` | Atomair blok (finding-shell, prio-shell, decision-card, …) over 2+ pagina's |
+| `split-table-row` | Tabelrij over 2+ pagina's |
+| `orphan-heading` | h2/h3 op andere pagina dan direct volgend blok (start/end-snippet op verschillende pagina's) |
+
+Werking: Playwright rendert print-HTML naar PDF (`media: print`, zelfde marges als `html-to-pdf.js`); `pdf-parse` leest per-pagina tekst; start- en eind-snippet van elk atomair blok, tabelrij en kop+volgblok moeten op één pagina vallen. Bij mismatch: exit 1, geen “Audit print ready”. Geen stille success bij slechte paginering.
 
 ## Amend — Grafische modules (sep 2026)
 

@@ -90,7 +90,7 @@ function renderPrioCards(lines) {
       const [num, title, done = ""] = line.split("|").map((s) => s.trim());
       return `<div class="prio-card"><div class="prio-num">${inlineFormat(num)}</div><div class="prio-body"><div class="prio-title">${inlineFormat(title)}</div>${done ? `<div class="prio-done">${inlineFormat(done)}</div>` : ""}</div></div>`;
     });
-  return `<div class="prio-grid">${cards.join("")}</div>`;
+  return `<div class="prio-shell"><div class="prio-grid">${cards.join("")}</div></div>`;
 }
 
 function renderGoodGrid(lines) {
@@ -98,7 +98,7 @@ function renderGoodGrid(lines) {
     .map((line) => line.trim())
     .filter(Boolean)
     .map((line) => `<div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>${inlineFormat(line.replace(/^[-*]\s+/, ""))}</span></div>`);
-  return `<div class="good-grid">${items.join("")}</div>`;
+  return `<div class="good-shell"><div class="good-grid">${items.join("")}</div></div>`;
 }
 
 function renderMeasureRow(lines) {
@@ -109,7 +109,7 @@ function renderMeasureRow(lines) {
       const [when, label, text = ""] = line.split("|").map((s) => s.trim());
       return `<div class="measure-card"><div class="measure-when">${inlineFormat(when)}</div><div class="measure-label">${inlineFormat(label)}</div><div class="measure-text">${inlineFormat(text)}</div></div>`;
     });
-  return `<div class="measure-grid">${items.join("")}</div>`;
+  return `<div class="measure-shell"><div class="measure-grid">${items.join("")}</div></div>`;
 }
 
 function renderDecisionCards(inner, renderFragment) {
@@ -138,7 +138,7 @@ function renderFindingCard(level, inner, renderFragment) {
     bodyInner = inner.replace(kpiMatch[0], "");
   }
   const body = `${kpiHtml}${renderFragment(bodyInner)}`;
-  return `<div class="finding-shell" style="break-inside: avoid; page-break-inside: avoid;"><div class="finding-card finding-${level}"><div class="finding-content"><div class="finding-badge">${badge}</div>${body}</div></div></div>`;
+  return `<div class="finding-shell"><div class="finding-card finding-${level}"><div class="finding-content"><div class="finding-badge">${badge}</div>${body}</div></div></div>`;
 }
 
 function renderFindingKpi(lines) {
@@ -261,6 +261,7 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
   let listType = null;
   let skippedH1 = false;
   let lastH2 = "";
+  let pendingWerklijstH3 = null;
 
   const flushPara = () => {
     if (para.length) {
@@ -302,7 +303,15 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
       if (lastH2.includes("bekeken")) tableClass += " scope-table";
       else if (lastH2.includes("Werklijst")) tableClass += " werklijst-table";
       else if (lastH2.includes("Bijlage")) tableClass += " appendix-table";
-      out.push(html.replace("<table>", `<table class="${tableClass}">`));
+      const tableHtml = html.replace("<table>", `<table class="${tableClass}">`);
+      if (tableClass.includes("werklijst-table") && pendingWerklijstH3) {
+        out.push(`<div class="werklijst-block">${pendingWerklijstH3}<div class="table-shell">${tableHtml}</div></div>`);
+        pendingWerklijstH3 = null;
+      } else if (tableClass.includes("werklijst-table")) {
+        out.push(`<div class="table-shell">${tableHtml}</div>`);
+      } else {
+        out.push(tableHtml);
+      }
       i = next;
       continue;
     }
@@ -318,7 +327,15 @@ function renderMarkdown(src, { skipFirstH1 = false, rendered = new Map() } = {})
         continue;
       }
       const text = h[2];
-      if (level === 2) lastH2 = text;
+      if (level === 2) {
+        lastH2 = text;
+        pendingWerklijstH3 = null;
+      }
+      if (level === 3 && lastH2.includes("Werklijst")) {
+        pendingWerklijstH3 = `<h3>${inlineFormat(text)}</h3>`;
+        i++;
+        continue;
+      }
       const sectionClass = level === 2 ? ' class="section-head"' : "";
       out.push(`<h${level}${sectionClass}>${inlineFormat(text)}</h${level}>`);
       i++;

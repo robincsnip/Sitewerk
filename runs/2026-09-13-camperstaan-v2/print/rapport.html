@@ -380,11 +380,23 @@ body {
 
 /* ── Finding cards ───────────────────────────────────── */
 
-.finding-shell {
-  display: block;
-  width: 100%;
+.prio-shell,
+.measure-shell {
   break-inside: avoid;
   page-break-inside: avoid;
+}
+
+.good-shell {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.finding-shell,
+.werklijst-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  display: block;
+  width: 100%;
 }
 
 .finding-card {
@@ -629,7 +641,12 @@ body {
 }
 
 .appendix-table {
-  font-size: var(--text-xs);
+  font-size: 7pt;
+}
+
+.appendix-table th,
+.appendix-table td {
+  padding: 1.5mm 2mm;
 }
 
 .appendix-table th {
@@ -708,13 +725,15 @@ body {
     page-break-after: avoid;
   }
 
+  .good-shell,
   .finding-shell,
+  .werklijst-block,
+  .prio-shell,
+  .measure-shell,
   .prio-card,
   .finding-card,
   .decision-card,
-  .good-item,
   .measure-card,
-  .mini-kpi-row,
   .callout-decision,
   .lead-block {
     break-inside: avoid !important;
@@ -723,18 +742,17 @@ body {
     print-color-adjust: exact;
   }
 
+  .decision-card + .decision-card {
+    break-before: page;
+    page-break-before: always;
+  }
+
   .prio-grid,
   .decision-grid,
   .good-grid,
   .measure-grid {
     break-inside: auto;
     page-break-inside: auto;
-  }
-
-  .finding-shell {
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
   }
 
   .prio-card,
@@ -747,21 +765,37 @@ body {
 
   .good-grid {
     display: block;
-    column-count: 1;
   }
 
   .good-item {
     display: block;
     width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .measure-grid {
+    display: block;
+    column-count: 2;
+    column-gap: var(--space-3);
+  }
+
+  .measure-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
     -webkit-column-break-inside: avoid;
     column-break-inside: avoid;
   }
 
-  .measure-grid {
-    column-count: 2;
+  .report table.scope-table tr,
+  .report table.appendix-table tr,
+  .report table.werklijst-table tr,
+  .report table.werklijst-tabel tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  .report h3 + table {
+  .table-shell {
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -796,9 +830,9 @@ body {
 <div class="lead-block"><p>Camperstaan is al een echte plekkengids: honderden plekpagina's, stadspagina's en provinciepagina's, elk met een bronlink. Dat is sterker dan een simpele brochure-site. We zien vier punten die bezoekers en vindbaarheid in Google nu remmen, plus twee verbeteringen die minder urgent zijn.</p></div>
 <div class="callout-decision"><p><strong>Besluit dat we vragen:</strong> akkoord op de drie prioriteiten hieronder. Daarna Toets, dan pas bouwen op een preview — nog niets live.</p></div>
 <h3>Drie prioriteiten</h3>
-<div class="prio-grid"><div class="prio-card"><div class="prio-num">1</div><div class="prio-body"><div class="prio-title">Eén aantal plekken, één land in het Nederlandse overzicht</div><div class="prio-done">Klaar als: homepage, zoekpagina en het Nederlandse pagina-overzicht voor Google hetzelfde aantal Nederlandse plekken tonen, en Belgische/Duitse plekken daar niet tussen staan (of pas als er landpagina's zijn).</div></div></div><div class="prio-card"><div class="prio-num">2</div><div class="prio-body"><div class="prio-title">Plekpagina eerst voor de reiziger</div><div class="prio-done">Klaar als: prijs, maximaal aantal nachten, voorzieningen, bron en kaart boven het claimformulier staan.</div></div></div><div class="prio-card"><div class="prio-num">3</div><div class="prio-body"><div class="prio-title">Provincie-keuze leidt naar de provinciepagina</div><div class="prio-done">Klaar als: iemand op Drenthe filtert en op de Drenthe-overzichtspagina landt (niet op een algemene zoekpagina die Google als hoofdpagina ziet).</div></div></div></div>
+<div class="prio-shell"><div class="prio-grid"><div class="prio-card"><div class="prio-num">1</div><div class="prio-body"><div class="prio-title">Eén aantal plekken, één land in het Nederlandse overzicht</div><div class="prio-done">Klaar als: homepage, zoekpagina en het Nederlandse pagina-overzicht voor Google hetzelfde aantal Nederlandse plekken tonen, en Belgische/Duitse plekken daar niet tussen staan (of pas als er landpagina's zijn).</div></div></div><div class="prio-card"><div class="prio-num">2</div><div class="prio-body"><div class="prio-title">Plekpagina eerst voor de reiziger</div><div class="prio-done">Klaar als: prijs, maximaal aantal nachten, voorzieningen, bron en kaart boven het claimformulier staan.</div></div></div><div class="prio-card"><div class="prio-num">3</div><div class="prio-body"><div class="prio-title">Provincie-keuze leidt naar de provinciepagina</div><div class="prio-done">Klaar als: iemand op Drenthe filtert en op de Drenthe-overzichtspagina landt (niet op een algemene zoekpagina die Google als hoofdpagina ziet).</div></div></div></div></div>
 <h3>Wat al goed staat (niet kapotmaken)</h3>
-<div class="good-grid"><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Bezoekers komen automatisch op www terecht</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Inloggen, betalen en dashboard staan buiten Google</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Pagina's die niet bestaan worden niet geïndexeerd</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Plekpagina's hebben een vaste hoofdadres in Google</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Bronlink naar gemeente of eigenaar op de plekpagina</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Provincie- en stadspagina's tonen echte aantallen</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Plektekst staat in de pagina zelf (niet alleen via JavaScript)</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Zoeken op Camperstaan toont homepage en zoekpagina</span></div></div>
+<div class="good-shell"><div class="good-grid"><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Bezoekers komen automatisch op www terecht</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Inloggen, betalen en dashboard staan buiten Google</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Pagina's die niet bestaan worden niet geïndexeerd</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Plekpagina's hebben een vaste hoofdadres in Google</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Bronlink naar gemeente of eigenaar op de plekpagina</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Provincie- en stadspagina's tonen echte aantallen</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Plektekst staat in de pagina zelf (niet alleen via JavaScript)</span></div><div class="good-item"><span class="good-icon" aria-hidden="true"></span><span>Zoeken op Camperstaan toont homepage en zoekpagina</span></div></div></div>
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Wat we hebben bekeken</h2>
@@ -807,27 +841,27 @@ body {
 <hr class="section-break" />
 </section>
 <section class="report-section report-section--chapter"><h2 class="section-head">Bevindingen</h2>
-<div class="finding-shell" style="break-inside: avoid; page-break-inside: avoid;"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><div class="mini-kpi-row"><div class="mini-kpi"><div class="mini-kpi-value">306</div><div class="mini-kpi-label">Homepage</div></div><div class="mini-kpi"><div class="mini-kpi-value">293</div><div class="mini-kpi-label">Zoekpagina NL</div></div><div class="mini-kpi"><div class="mini-kpi-value">13</div><div class="mini-kpi-label">BE/DE extra</div></div></div><h3>1. Homepage en zoekpagina tellen verschillend — en er staan buitenlandse plekken tussen</h3>
+<div class="finding-shell"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><div class="mini-kpi-row"><div class="mini-kpi"><div class="mini-kpi-value">306</div><div class="mini-kpi-label">Homepage</div></div><div class="mini-kpi"><div class="mini-kpi-value">293</div><div class="mini-kpi-label">Zoekpagina NL</div></div><div class="mini-kpi"><div class="mini-kpi-value">13</div><div class="mini-kpi-label">BE/DE extra</div></div></div><h3>1. Homepage en zoekpagina tellen verschillend — en er staan buitenlandse plekken tussen</h3>
 <p>Het verschil zit in dertien plekken in België en Duitsland die live staan en in het pagina-overzicht voor Google, maar niet op de Nederlandse zoekpagina. Jullie copy zegt nog dat België en Duitsland "later" komen.</p>
 <p><strong>Gevolg:</strong> bezoekers en Google zien niet hetzelfde aanbod. Google kan buitenlandse plekken tonen alsof ze bij "camperplaatsen in Nederland" horen.</p>
 <p><strong>Voorstel:</strong> één telling voor Nederland; buitenlandse plekken uit het Nederlandse overzicht tot er landpagina's zijn — of die landpagina's nu serieus maken.</p></div></div></div>
-<div class="finding-shell" style="break-inside: avoid; page-break-inside: avoid;"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><h3>2. De plekpagina helpt de reiziger te weinig</h3>
+<div class="finding-shell"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><h3>2. De plekpagina helpt de reiziger te weinig</h3>
 <p>Wie "camperplaats Kampen" zoekt, vindt vooral de gemeente, Visit Kampen of Campercontact — niet jullie plekpagina. Logisch: zij zijn de bron.</p>
 <p>Op jullie Kampen-pagina is het claimformulier (€ 99) het grootste blok. De reiziger krijgt één korte alinea met chips — ongeveer 132 woorden in het hoofdblok.</p>
 <p><strong>Gevolg:</strong> weinig reden om jullie pagina te openen in plaats van kampen.nl.</p>
 <p><strong>Voorstel:</strong> prijs (2026), max 72 uur, voorzieningen, bronlink en kaart bovenaan; claim onderaan of op een aparte URL.</p></div></div></div>
-<div class="finding-shell" style="break-inside: avoid; page-break-inside: avoid;"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>3. Provincie-filter wijst Google naar de verkeerde pagina</h3>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>3. Provincie-filter wijst Google naar de verkeerde pagina</h3>
 <p>Filter je op Drenthe op de zoekpagina, dan heet de pagina "Camperplaatsen in Drenthe". Google ziet als hoofdadres nog steeds de algemene zoekpagina — niet <code>/provincie/drenthe</code>.</p>
 <p><strong>Gevolg:</strong> bij "camperplaatsen in Drenthe" verschijnt jullie Drenthe-overzichtspagina niet in onze steekproef.</p>
 <p><strong>Voorstel:</strong> provincie-filter stuurt door naar de provinciepagina (bijv. <code>/provincie/drenthe</code>).</p></div></div></div>
-<div class="finding-shell" style="break-inside: avoid; page-break-inside: avoid;"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>4. Zoekpagina is zwaar; pagina's worden niet tussen opgeslagen</h3>
+<div class="finding-shell"><div class="finding-card finding-p1"><div class="finding-content"><div class="finding-badge">P1</div><h3>4. Zoekpagina is zwaar; pagina's worden niet tussen opgeslagen</h3>
 <p>Elke HTML-pagina wordt met "niet opslaan" geleverd: elke bezoeker haalt alles opnieuw van de server. De zoekpagina weegt <strong>1,41 MB</strong> omdat alle 293 kaarten in één pagina staan.</p>
 <p><strong>Gevolg:</strong> onnodig zwaar voor een catalogus die grotendeels hetzelfde blijft.</p>
 <p><strong>Voorstel:</strong> anonieme pagina's mogen tussen opgeslagen worden; zoekpagina verlichten (bijv. paginering) zonder plekken uit het overzicht te halen.</p></div></div></div>
-<div class="finding-shell" style="break-inside: avoid; page-break-inside: avoid;"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>5. Google mist locatie en prijs op de plekpagina</h3>
+<div class="finding-shell"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>5. Google mist locatie en prijs op de plekpagina</h3>
 <p>Op Kampen staan coördinaten en prijs in de pagina, maar niet in de extra gegevens die Google leest (gestructureerde data).</p>
 <p><strong>Voorstel:</strong> locatie, prijsklasse en voorzieningen toevoegen aan die gegevens — velden bestaan al in jullie systeem.</p></div></div></div>
-<div class="finding-shell" style="break-inside: avoid; page-break-inside: avoid;"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>6. Drenthe-overzichtspagina wint nog niet op zoekintentie</h3>
+<div class="finding-shell"><div class="finding-card finding-p2"><div class="finding-content"><div class="finding-badge">P2</div><h3>6. Drenthe-overzichtspagina wint nog niet op zoekintentie</h3>
 <p>De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "camperplaatsen in Drenthe".</p>
 <p><strong>Voorstel:</strong> intern versterken (tekst, links) en steekproef herhalen — gedeeld jullie en wij.</p></div></div></div>
 <hr class="section-break" />
@@ -838,15 +872,13 @@ body {
 </section>
 <section class="report-section report-section--chapter"><h2 class="section-head">Werklijst — eerste 90 dagen</h2>
 <p class="section-intro">Zie <code>werklijst.md</code> in deze run. Zelfde lijst, geen tweede waarheid.</p>
-<h3>Deze maand</h3>
-<table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>NL-telling harmoniseren; BE/DE uit NL-sitemap</td><td>jullie</td><td>home = /plaatsen = sitemap-NL count</td></tr><tr><td>2</td><td>Listing-template gast-eerst</td><td>wij</td><td>prijs/voorzieningen/bron boven claim</td></tr><tr><td>3</td><td>Regio-filter → provincie-hub</td><td>wij</td><td>Drenthe-filter op /provincie/drenthe</td></tr></tbody></table>
-<h3>Maand twee / drie</h3>
-<table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>4</td><td>Cache public + /plaatsen verlichten</td><td>wij</td><td>public cache listing; /plaatsen paginering</td></tr><tr><td>5</td><td>JSON-LD geo + priceRange + amenities</td><td>wij</td><td>Rich Results Test</td></tr><tr><td>6</td><td>Hub Drenthe intern versterken</td><td>gedeeld</td><td>steekproef herhalen</td></tr></tbody></table>
+<div class="werklijst-block"><h3>Deze maand</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>NL-telling harmoniseren; BE/DE uit NL-sitemap</td><td>jullie</td><td>home = /plaatsen = sitemap-NL count</td></tr><tr><td>2</td><td>Listing-template gast-eerst</td><td>wij</td><td>prijs/voorzieningen/bron boven claim</td></tr><tr><td>3</td><td>Regio-filter → provincie-hub</td><td>wij</td><td>Drenthe-filter op /provincie/drenthe</td></tr></tbody></table></div></div>
+<div class="werklijst-block"><h3>Maand twee / drie</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>4</td><td>Cache public + /plaatsen verlichten</td><td>wij</td><td>public cache listing; /plaatsen paginering</td></tr><tr><td>5</td><td>JSON-LD geo + priceRange + amenities</td><td>wij</td><td>Rich Results Test</td></tr><tr><td>6</td><td>Hub Drenthe intern versterken</td><td>gedeeld</td><td>steekproef herhalen</td></tr></tbody></table></div></div>
 <p><strong>Buiten scope deze ronde:</strong> linkdisavow, Google-bedrijfsprofiel, live deploy, mail naar eigenaren, %-trafficbelofte.</p>
 <hr class="section-break" />
 </section>
 <section class="report-section"><h2 class="section-head">Hoe we weten of het werkt</h2>
-<div class="measure-grid"><div class="measure-card"><div class="measure-when">Nu bekend</div><div class="measure-label">Baseline</div><div class="measure-text">tellingen, technische koppen, pagina-overzicht, steekproef Kampen/Drenthe, gewicht zoekpagina</div></div><div class="measure-card"><div class="measure-when">Nog niet bekend</div><div class="measure-label">Open</div><div class="measure-text">Search Console per paginatype, inkomende links, claim-conversie</div></div><div class="measure-card"><div class="measure-when">30 dagen</div><div class="measure-label">Hercontrole</div><div class="measure-text">steekproef Kampen; gewicht zoekpagina; cache op plekpagina's</div></div><div class="measure-card"><div class="measure-when">90 dagen</div><div class="measure-label">Nameting</div><div class="measure-text">provincie-zoekopdracht; nameting-run met baseline</div></div></div>
+<div class="measure-shell"><div class="measure-grid"><div class="measure-card"><div class="measure-when">Nu bekend</div><div class="measure-label">Baseline</div><div class="measure-text">tellingen, technische koppen, pagina-overzicht, steekproef Kampen/Drenthe, gewicht zoekpagina</div></div><div class="measure-card"><div class="measure-when">Nog niet bekend</div><div class="measure-label">Open</div><div class="measure-text">Search Console per paginatype, inkomende links, claim-conversie</div></div><div class="measure-card"><div class="measure-when">30 dagen</div><div class="measure-label">Hercontrole</div><div class="measure-text">steekproef Kampen; gewicht zoekpagina; cache op plekpagina's</div></div><div class="measure-card"><div class="measure-when">90 dagen</div><div class="measure-label">Nameting</div><div class="measure-text">provincie-zoekopdracht; nameting-run met baseline</div></div></div></div>
 <hr class="section-break" />
 </section>
 <section class="report-section report-section--appendix"><h2 class="section-head">Bijlage A — Bewijs</h2>
