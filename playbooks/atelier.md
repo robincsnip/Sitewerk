@@ -20,3 +20,7 @@ Gelijkwaardig aanbod naast Uitvoer, geen bijlage achter de audit.
 ## In klantrapport
 
 Atelier als **keuze** (Uitvoer vs Nieuw), niet als losse marketingzin. Weglaten als redesign-gate dicht is.
+
+## Amend — Toets 2 afkeur, lab-preview (sep 2026)
+
+Huid ≠ mal. Op `redactie` / `gids` / `compact` (niet de chooser): geen mal, specimen, dossier, hubbesluit, «Niet verzonnen», filter-auditcopy, variantnamen in `<title>`. Alleen de verplichte preview-banner is intern merkteken. Serveer `/redactie/`, `/gids/`, `/compact/` als 200 (directory-index), niet 404. Occurrence 1 — geen skill. `test:atelier` groen is geen Toets 2-akkoord.

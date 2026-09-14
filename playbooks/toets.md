@@ -38,6 +38,8 @@ Orchestratie: [orchestratie.md](orchestratie.md).
 - [ ] Geen regressie t.o.v. Toets 1-scope
 - [ ] Herstel getoond of n.v.t. met reden
 - [ ] Locked acties nog steeds geblokkeerd
+- [ ] Geen interne labels op klant-UI (mal, specimen, dossier, hubbesluit, «Niet verzonnen», variant-id in `<title>`); banner mag
+- [ ] Huid-directory-URL’s (`/redactie/` `/gids/` `/compact/`) 200, niet 404 `niet gevonden`
 
 ## Checklist Toets 3 (nameting)
 
