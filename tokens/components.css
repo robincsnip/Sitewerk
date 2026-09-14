@@ -1,0 +1,7 @@
+/* Sitewerk — Richting C: Papier (shared component hooks) */
+
+:root {
+  --display: var(--font-display);
+  --body: var(--font-body);
+  --sans: var(--font-ui);
+}

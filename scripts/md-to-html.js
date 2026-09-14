@@ -375,15 +375,53 @@ function mdToHtml(src, { skipFirstH1 = false } = {}) {
   return renderMarkdown(stripped, { skipFirstH1, rendered });
 }
 
-const body = mdToHtml(md, { skipFirstH1: true });
+function extractCoverKpis(src) {
+  const match = src.match(/:::kpi\n([\s\S]*?)\n:::/);
+  if (!match) {
+    return [];
+  }
+  return match[1]
+    .trim()
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const [value, label, note = ""] = line.split("|").map((s) => s.trim());
+      return { value, label, note };
+    });
+}
+
+function renderCoverKpiTable(kpis) {
+  if (kpis.length === 0) return "";
+  const values = kpis.map((k) => `<td>${escapeHtml(k.value)}</td>`).join("");
+  const labels = kpis.map((k) => `<td>${escapeHtml(k.label)}</td>`).join("");
+  const notes = kpis.some((k) => k.note)
+    ? `<tr class="cover-kpi-notes">${kpis.map((k) => `<td>${escapeHtml(k.note)}</td>`).join("")}</tr>`
+    : "";
+  return `<table class="cover-kpi"><tr class="cover-kpi-values">${values}</tr><tr class="cover-kpi-labels">${labels}</tr>${notes}</table>`;
+}
+
 const titleMatch = md.match(/^#\s+(.+)$/m);
 const title = titleMatch ? titleMatch[1] : "Sitewerk-rapport";
-const klant = title.split("—")[0].trim();
+const titleParts = title.split("—").map((s) => s.trim());
+const klant = titleParts[0] || "Klant";
+const belofte = titleParts[1] || "Wat er speelt online — en wat we eerst doen.";
 const datumMatch = md.match(/\*\*Peildatum:\*\*\s*(.+)/);
 const datum = datumMatch ? datumMatch[1].trim() : "";
+const coverKpis = extractCoverKpis(md);
+const bodyMd = md.replace(/:::kpi\n[\s\S]*?\n:::\s*\n?/, "");
+const body = mdToHtml(bodyMd, { skipFirstH1: true });
 
+const tokenDir = path.join(repoRoot, "tokens");
+const tokenFiles = ["typography.css", "colors.css", "spacing.css", "components.css"];
 const themePath = path.join(repoRoot, "assets/rapport-theme.css");
-const themeCss = fs.readFileSync(themePath, "utf8");
+let themeCss = "";
+for (const file of tokenFiles) {
+  themeCss += fs.readFileSync(path.join(tokenDir, file), "utf8") + "\n";
+}
+themeCss += fs
+  .readFileSync(themePath, "utf8")
+  .replace(/@import url\("\.\.\/tokens\/[^"]+"\);\s*/g, "");
 
 const html = `<!DOCTYPE html>
 <html lang="nl">
@@ -397,19 +435,17 @@ ${themeCss}
   <link rel="stylesheet" href="${themeHref.split(path.sep).join("/")}" />
 </head>
 <body>
-  <header class="cover">
+  <header class="cover cover-papier">
+    <div class="cover-rule" aria-hidden="true"></div>
     <div class="cover-inner">
       <p class="brand">Sitewerk</p>
-      <p class="cover-tag">Website-audit</p>
-      <h1>${escapeHtml(klant)}</h1>
-      <p class="meta">${escapeHtml(datum)} · concept — niets live gezet</p>
-      <div class="cover-pills">
-        <span class="pill">3 prioriteiten</span>
-        <span class="pill">6 acties</span>
-        <span class="pill pill-accent">klanttaal</span>
+      <div class="cover-center">
+        <h1>${escapeHtml(klant)}</h1>
+        <p class="cover-date">${escapeHtml(datum)}</p>
+        <p class="cover-belofte">${escapeHtml(belofte)}</p>
       </div>
+      ${renderCoverKpiTable(coverKpis)}
     </div>
-    <div class="cover-band" aria-hidden="true"></div>
   </header>
   <main class="report">
 ${body}

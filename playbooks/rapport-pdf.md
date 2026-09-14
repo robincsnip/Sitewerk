@@ -11,12 +11,13 @@ node scripts/md-to-html.js runs/<id>/rapport-klant.md
 node scripts/html-to-pdf.js runs/<id>/print/rapport.html
 ```
 
-Theme: [assets/rapport-theme.css](../assets/rapport-theme.css).  
+Theme: [assets/rapport-theme.css](../assets/rapport-theme.css) (richting **C — Papier**).  
+Tokens: [tokens/](../tokens/) (`colors`, `typography`, `spacing`, `components`).  
 Print-skelet: [templates/rapport-print.html](../templates/rapport-print.html).
 
 ## Vormregels
 
-- Cover: merk Sitewerk + klant + peildatum  
+- Cover p.1: merk, klant, datum, belofte (italic), KPI-tabel — geen interne termen  
 - Display-font + body-font (geen Inter/Roboto/Arial als face)  
 - Geen paarse AI-gradients / glow  
 - “In het kort” + top 3 zwaarder dan bijlagen  

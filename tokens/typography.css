@@ -1,0 +1,17 @@
+/* Sitewerk — Richting C: Papier (typography) */
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap");
+
+:root {
+  --font-display: "Libre Baskerville", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-body: "Literata", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-ui: "Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-xs: 8pt;
+  --text-sm: 9pt;
+  --text-base: 10.5pt;
+  --text-lg: 12pt;
+  --text-xl: 14pt;
+  --text-2xl: 18pt;
+  --text-3xl: 28pt;
+}
