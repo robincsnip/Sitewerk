@@ -44,3 +44,21 @@ Het PDF moet **leesbaar** zijn, niet een blok zwarte tekst.
 | Pagina | A4 print-first; secties niet midden in een kop afbreken |
 
 Na CSS-wijziging: altijd `npm run audit:finish -- <run-id>` en visueel controleren vóór Toetser.
+
+## Amend — Grafische modules (sep 2026)
+
+Inspiratie (patronen, geen assets gekopieerd): SE Ranking modulaire rapporten, CrawlRaven severity-kaarten, dashboard KPI-scorecards.
+
+Markdown-fences in `rapport-klant.md` → HTML via `scripts/md-to-html.js`:
+
+| Fence | Gebruik |
+| --- | --- |
+| `::: kpi` | KPI-rij bovenaan (value\|label\|note per regel) |
+| `::: prio-cards` | Top-3 prioriteiten als kaarten |
+| `::: good-grid` | “Wat goed staat” als checklist-grid |
+| `::: finding p0/p1/p2` | Bevinding met severity-badge; optioneel `@kpi`…`@end` |
+| `::: decisions` | Besluitkaarten |
+| `::: measure` | Meetplan als tijdlijn-kaarten |
+| `::: lead` / `::: callout-decision` | Samenvatting + besluitvraag |
+
+Kleuren en typografie: Sitewerk-groen (`assets/rapport-theme.css`). Geen SE Ranking-logo's, geen copyrighted templates.

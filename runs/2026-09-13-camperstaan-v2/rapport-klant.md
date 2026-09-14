@@ -8,34 +8,49 @@
 
 ## In het kort
 
-Camperstaan is al een echte plekkengids: honderden plekpagina's, stadspagina's en provinciepagina's, elk met een bronlink. Dat is sterker dan een simpele brochure-site.
+:::lead
+Camperstaan is al een echte plekkengids: honderden plekpagina's, stadspagina's en provinciepagina's, elk met een bronlink. Dat is sterker dan een simpele brochure-site. We zien vier punten die bezoekers en vindbaarheid in Google nu remmen, plus twee verbeteringen die minder urgent zijn.
+:::
 
-We zien **vier punten** die bezoekers en vindbaarheid in Google nu remmen, plus twee verbeteringen die minder urgent zijn. De drie acties hieronder pakken het grootste winstpunt aan.
+:::kpi
+3|Prioriteiten|deze maand
+6|Acties|90 dagen
+577|Pagina's|in overzicht
+4|Urgent|bevindingen
+:::
 
-**Besluit dat we vragen:** akkoord op de drie prioriteiten in de volgende sectie. Daarna Toets, dan pas bouwen op een preview — nog niets live.
+:::callout-decision
+**Besluit dat we vragen:** akkoord op de drie prioriteiten hieronder. Daarna Toets, dan pas bouwen op een preview — nog niets live.
+:::
 
 ### Drie prioriteiten
 
-1. **Eén aantal plekken, één land in het Nederlandse overzicht** — klaar als homepage, zoekpagina en het Nederlandse pagina-overzicht voor Google hetzelfde aantal Nederlandse plekken tonen, en Belgische/Duitse plekken daar niet tussen staan (of pas als er landpagina's zijn).
-2. **Plekpagina eerst voor de reiziger** — klaar als prijs, maximaal aantal nachten, voorzieningen, bron en kaart boven het claimformulier staan.
-3. **Provincie-keuze leidt naar de provinciepagina** — klaar als iemand op Drenthe filtert en op de Drenthe-overzichtspagina landt (niet op een algemene zoekpagina die Google als hoofdpagina ziet).
+:::prio-cards
+1|Eén aantal plekken, één land in het Nederlandse overzicht|Klaar als: homepage, zoekpagina en het Nederlandse pagina-overzicht voor Google hetzelfde aantal Nederlandse plekken tonen, en Belgische/Duitse plekken daar niet tussen staan (of pas als er landpagina's zijn).
+2|Plekpagina eerst voor de reiziger|Klaar als: prijs, maximaal aantal nachten, voorzieningen, bron en kaart boven het claimformulier staan.
+3|Provincie-keuze leidt naar de provinciepagina|Klaar als: iemand op Drenthe filtert en op de Drenthe-overzichtspagina landt (niet op een algemene zoekpagina die Google als hoofdpagina ziet).
+:::
 
 ### Wat al goed staat (niet kapotmaken)
 
-- Bezoekers komen automatisch op `www` terecht
-- Inloggen, betalen en het dashboard staan buiten Google
-- Pagina's die niet bestaan worden niet geïndexeerd
-- Plekpagina's hebben een vaste hoofdadres in Google
-- Bronlink naar gemeente of eigenaar staat op de plekpagina
-- Provincie- en stadspagina's tonen echte aantallen
-- De plektekst staat in de pagina zelf (niet alleen via JavaScript)
-- Zoeken op "Camperstaan" toont jullie homepage en zoekpagina
+:::good-grid
+Bezoekers komen automatisch op www terecht
+Inloggen, betalen en dashboard staan buiten Google
+Pagina's die niet bestaan worden niet geïndexeerd
+Plekpagina's hebben een vaste hoofdadres in Google
+Bronlink naar gemeente of eigenaar op de plekpagina
+Provincie- en stadspagina's tonen echte aantallen
+Plektekst staat in de pagina zelf (niet alleen via JavaScript)
+Zoeken op Camperstaan toont homepage en zoekpagina
+:::
 
 ---
 
 ## Wat we hebben bekeken
 
-Openbare pagina's, technische koppen, het robots-bestand, het pagina-overzicht voor Google, drie plekpagina's, een provincie, een stad, de over-pagina en een steekproef in Google. Geen Search Console-export. Geen betaalde linkdata.
+:::section-intro
+Openbare pagina's, technische koppen, robots-bestand, pagina-overzicht voor Google, drie plekpagina's, een provincie, een stad, de over-pagina en een steekproef in Google. Geen Search Console-export. Geen betaalde linkdata.
+:::
 
 | Onderwerp | Status | Opmerking |
 | --- | --- | --- |
@@ -52,14 +67,22 @@ Openbare pagina's, technische koppen, het robots-bestand, het pagina-overzicht v
 
 ## Bevindingen
 
+:::finding p0
+@kpi
+306|Homepage
+293|Zoekpagina NL
+13|BE/DE extra
+@end
 ### 1. Homepage en zoekpagina tellen verschillend — en er staan buitenlandse plekken tussen
 
-Op de homepage staat **306 plekken**. Op de zoekpagina staan **293** unieke Nederlandse plekken. Het verschil: dertien plekken in België en Duitsland staan live en in het pagina-overzicht voor Google, maar niet op de Nederlandse zoekpagina. Jullie copy zegt nog dat België en Duitsland "later" komen.
+Het verschil zit in dertien plekken in België en Duitsland die live staan en in het pagina-overzicht voor Google, maar niet op de Nederlandse zoekpagina. Jullie copy zegt nog dat België en Duitsland "later" komen.
 
 **Gevolg:** bezoekers en Google zien niet hetzelfde aanbod. Google kan buitenlandse plekken tonen alsof ze bij "camperplaatsen in Nederland" horen.
 
 **Voorstel:** één telling voor Nederland; buitenlandse plekken uit het Nederlandse overzicht tot er landpagina's zijn — of die landpagina's nu serieus maken.
+:::
 
+:::finding p0
 ### 2. De plekpagina helpt de reiziger te weinig
 
 Wie "camperplaats Kampen" zoekt, vindt vooral de gemeente, Visit Kampen of Campercontact — niet jullie plekpagina. Logisch: zij zijn de bron.
@@ -69,7 +92,9 @@ Op jullie Kampen-pagina is het claimformulier (€ 99) het grootste blok. De rei
 **Gevolg:** weinig reden om jullie pagina te openen in plaats van kampen.nl.
 
 **Voorstel:** prijs (2026), max 72 uur, voorzieningen, bronlink en kaart bovenaan; claim onderaan of op een aparte URL.
+:::
 
+:::finding p1
 ### 3. Provincie-filter wijst Google naar de verkeerde pagina
 
 Filter je op Drenthe op de zoekpagina, dan heet de pagina "Camperplaatsen in Drenthe". Google ziet als hoofdadres nog steeds de algemene zoekpagina — niet `/provincie/drenthe`.
@@ -77,7 +102,9 @@ Filter je op Drenthe op de zoekpagina, dan heet de pagina "Camperplaatsen in Dre
 **Gevolg:** bij "camperplaatsen in Drenthe" verschijnt jullie Drenthe-overzichtspagina niet in onze steekproef.
 
 **Voorstel:** provincie-filter stuurt door naar de provinciepagina (bijv. `/provincie/drenthe`).
+:::
 
+:::finding p1
 ### 4. Zoekpagina is zwaar; pagina's worden niet tussen opgeslagen
 
 Elke HTML-pagina wordt met "niet opslaan" geleverd: elke bezoeker haalt alles opnieuw van de server. De zoekpagina weegt **1,41 MB** omdat alle 293 kaarten in één pagina staan.
@@ -85,23 +112,29 @@ Elke HTML-pagina wordt met "niet opslaan" geleverd: elke bezoeker haalt alles op
 **Gevolg:** onnodig zwaar voor een catalogus die grotendeels hetzelfde blijft.
 
 **Voorstel:** anonieme pagina's mogen tussen opgeslagen worden; zoekpagina verlichten (bijv. paginering) zonder plekken uit het overzicht te halen.
+:::
 
+:::finding p2
 ### 5. Google mist locatie en prijs op de plekpagina
 
 Op Kampen staan coördinaten en prijs in de pagina, maar niet in de extra gegevens die Google leest (gestructureerde data).
 
 **Voorstel:** locatie, prijsklasse en voorzieningen toevoegen aan die gegevens — velden bestaan al in jullie systeem.
+:::
 
+:::finding p2
 ### 6. Drenthe-overzichtspagina wint nog niet op zoekintentie
 
 De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "camperplaatsen in Drenthe".
 
 **Voorstel:** intern versterken (tekst, links) en steekproef herhalen — gedeeld jullie en wij.
+:::
 
 ---
 
 ## Beslissingen die we van jullie nodig hebben
 
+:::decisions
 ### Beslissing 1 — Buitenlandse plekken in het Nederlandse overzicht?
 
 **Voorstel:** eruit tot `/belgie` en `/duitsland` (of gelijkwaardig) bestaan en de homepage per land telt.  
@@ -119,12 +152,15 @@ De Drenthe-hub bestaat (19 plekken) maar verscheen niet in onze steekproef op "c
 **Voorstel:** filter op provincie leidt naar `/provincie/{slug}`.  
 **Alternatief:** filter op zoekpagina houden, maar dan moet Google de juiste URL zien per provincie.  
 **Opnieuw bekijken als:** filter-ervaring belangrijker is dan provincie-ranking.
+:::
 
 ---
 
 ## Werklijst — eerste 90 dagen
 
+:::section-intro
 Zie `werklijst.md` in deze run. Zelfde lijst, geen tweede waarheid.
+:::
 
 ### Deze maand
 
@@ -148,10 +184,12 @@ Zie `werklijst.md` in deze run. Zelfde lijst, geen tweede waarheid.
 
 ## Hoe we weten of het werkt
 
-- **Nu bekend:** tellingen, technische koppen, pagina-overzicht, steekproef Kampen/Drenthe, gewicht zoekpagina.
-- **Nog niet bekend:** Search Console per paginatype, inkomende links, claim-conversie.
-- **Over 30 dagen:** steekproef Kampen opnieuw; gewicht zoekpagina; of plekpagina's uit cache komen.
-- **Over 90 dagen:** provincie-zoekopdracht opnieuw; nameting-run met baseline.
+:::measure
+Nu bekend|Baseline|tellingen, technische koppen, pagina-overzicht, steekproef Kampen/Drenthe, gewicht zoekpagina
+Nog niet bekend|Open|Search Console per paginatype, inkomende links, claim-conversie
+30 dagen|Hercontrole|steekproef Kampen; gewicht zoekpagina; cache op plekpagina's
+90 dagen|Nameting|provincie-zoekopdracht; nameting-run met baseline
+:::
 
 ---
 
