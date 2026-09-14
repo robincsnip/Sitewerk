@@ -20,3 +20,7 @@ Gelijkwaardig aanbod naast Uitvoer, geen bijlage achter de audit.
 ## In klantrapport
 
 Atelier als **keuze** (Uitvoer vs Nieuw), niet als losse marketingzin. Weglaten als redesign-gate dicht is.
+
+## Amend — job-first directory (sep 2026)
+
+Directory-job (zoeken/vinden) is **niet optioneel**. Een huid mag die job niet weglaten — ook niet om card-soup of website-craft te volgen. Eén sterke huid eerst; varianten houden dezelfde jobs. Robin na Camperstaan-lab: eerste huid redelijk maar zonder simpele zoek; de andere twee onbruikbaar. Occurrence 1 — geen skill. Geen herbouw in deze naslag.

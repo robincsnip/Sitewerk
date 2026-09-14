@@ -38,6 +38,7 @@ Orchestratie: [orchestratie.md](orchestratie.md).
 - [ ] Geen regressie t.o.v. Toets 1-scope
 - [ ] Herstel getoond of n.v.t. met reden
 - [ ] Locked acties nog steeds geblokkeerd
+- [ ] Bezoeker kan de directory-job doen (zoeken/vinden: “kan ik een plek vinden?”). Denylist en 404 volstaan niet voor akkoord.
 
 ## Checklist Toets 3 (nameting)
 
