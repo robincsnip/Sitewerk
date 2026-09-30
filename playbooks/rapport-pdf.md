@@ -77,6 +77,8 @@ Na CSS-wijziging: altijd `npm run audit:finish -- <run-id>` en visueel controler
 
 Werking: Playwright rendert print-HTML naar PDF (`media: print`, zelfde marges als `html-to-pdf.js`); `pdf-parse` leest per-pagina tekst; start- en eind-snippet van elk atomair blok, tabelrij en kop+volgblok moeten op één pagina vallen. Bij mismatch: exit 1, geen “Audit print ready”. Geen stille success bij slechte paginering.
 
+- **Wees-kop:** gate moet kop+intro vs het volgende inhoudelijke blok (tabel/kaart, niet `section-intro`) op dezelfde pagina vangen. Script-OK is geen vrijgave; PDF visueel nalopen (Langeveld 30 sep 2026; zelfde klasse als Camperstaan/PR #11).
+
 ## Amend — Grafische modules (sep 2026)
 
 Inspiratie (patronen, geen assets gekopieerd): SE Ranking modulaire rapporten, CrawlRaven severity-kaarten, dashboard KPI-scorecards.
