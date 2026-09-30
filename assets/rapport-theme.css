@@ -162,7 +162,8 @@ body {
   page-break-after: avoid;
 }
 
-.report-section > h2.section-head:first-child {
+.report-section > h2.section-head:first-child,
+.report-section > .heading-keep:first-child > h2.section-head {
   margin-top: var(--space-4);
 }
 
@@ -310,6 +311,13 @@ body {
   page-break-inside: avoid;
   display: block;
   width: 100%;
+}
+
+/* Heading + intro + first following block stay together in print */
+.heading-keep {
+  display: block;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .finding-card {
@@ -757,17 +765,20 @@ body {
 }
 
 .report table.scope-table,
+.report table.context-table,
 .report table.werklijst-table {
   break-inside: auto;
   page-break-inside: auto;
 }
 
 .report table.scope-table thead,
+.report table.context-table thead,
 .report table.werklijst-table thead {
   display: table-header-group;
 }
 
 .report table.scope-table tr,
+.report table.context-table tr,
 .report table.werklijst-table tr,
 .report table.appendix-table tr,
 .report table.gsc-table tr,
@@ -892,7 +903,27 @@ body {
     page-break-before: avoid;
   }
 
-  .report-section > h2.section-head:first-child {
+  .heading-keep {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    display: block;
+  }
+
+  .heading-keep > h2.section-head,
+  .heading-keep > h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .heading-keep > h2.section-head + *,
+  .heading-keep > h3 + *,
+  .heading-keep > .section-intro + * {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .report-section > h2.section-head:first-child,
+  .heading-keep > h2.section-head:first-child {
     break-after: avoid;
     page-break-after: avoid;
   }
@@ -920,7 +951,9 @@ body {
   .callout-fictief,
   .gsc-shell,
   .gsc-chart-shell,
-  .lead-block {
+  .lead-block,
+  .table-shell,
+  .heading-keep {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
     -webkit-print-color-adjust: exact;
@@ -968,6 +1001,7 @@ body {
   }
 
   .report table.scope-table tr,
+  .report table.context-table tr,
   .report table.appendix-table tr,
   .report table.werklijst-table tr,
   .report table.werklijst-tabel tr,

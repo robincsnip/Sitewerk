@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>Orphan heading fixture</title>
+  <style>
+    @page { size: A4; margin: 14mm 12mm 16mm 12mm; }
+    body { margin: 0; font-family: serif; font-size: 11pt; }
+    .report { padding: 0; }
+    .report h2.section-head { break-after: avoid; page-break-after: avoid; }
+    .report h2.section-head + * { break-before: avoid; page-break-before: avoid; }
+    .finding-shell, .table-shell {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .spacer {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      height: 210mm;
+      border: 1px solid #ccc;
+      padding: 8mm;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    td { border: 1px solid #ccc; padding: 4mm; }
+  </style>
+</head>
+<body>
+  <main class="report">
+    <section class="report-section">
+      <div class="finding-shell spacer">
+        Vulblok start uniek qazwsxedcrfvtgbyhnujmikolp. Dit blok vult pagina 1 zodat de volgende kop onderaan belandt. Vulblok einde uniek plokijuhygtfrdeswa.
+      </div>
+      <h2 class="section-head">Wees kop testsectie</h2>
+      <p class="section-intro">Korte inleiding die bij de kop op dezelfde pagina blijft hangen zonder de tabel.</p>
+      <div class="table-shell">
+        <table>
+          <thead><tr><th>Kolom alfa uniek</th><th>Kolom beta uniek</th></tr></thead>
+          <tbody>
+            <tr><td>Rij 1 start mnwqpxzy tabelbody</td><td>cel twee</td></tr>
+            <tr><td>Rij 2 vult de tabel zodat die niet meer op pagina 1 past</td><td>cel</td></tr>
+            <tr><td>Rij 3 extra hoogte voor break-inside avoid</td><td>cel</td></tr>
+            <tr><td>Rij 4 extra hoogte voor break-inside avoid</td><td>cel</td></tr>
+            <tr><td>Rij 5 extra hoogte voor break-inside avoid</td><td>cel</td></tr>
+            <tr><td>Rij 6 extra hoogte voor break-inside avoid</td><td>cel</td></tr>
+            <tr><td>Rij 7 extra hoogte voor break-inside avoid</td><td>cel</td></tr>
+            <tr><td>Rij 8 extra hoogte voor break-inside avoid</td><td>cel</td></tr>
+            <tr><td>Rij 9 extra hoogte voor break-inside avoid</td><td>cel</td></tr>
+            <tr><td>Rij 10 einde uniek lkjhgfds tabelbody</td><td>cel</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
