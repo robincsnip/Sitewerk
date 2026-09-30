@@ -7,4 +7,4 @@ reden_stop:
 
 ## Notitie
 
-Bouwer-run: live fetch 30 september 2026, rapport + werklijst + packets + print. Dit is geen Toets en geen einde van de zaaklijn. Parent start een **nieuwe** agent-run als Toetser (Toets 1) tegen `rapport-klant.md` / werklijst / print. Geen akkoord in deze run. Geen Uitvoer, live, mail of geld.
+Bouwer-herstel ná Toets 1 afkeur: alleen print/paginatie. Kop + intro + tabel blijven bij elkaar (`heading-keep`); `check-pagination.js` faalt nu op kop+intro op pagina N met tabel op N+1. Rapportinhoud, werklijst en packets zijn niet herschreven. Geen `toets.md` met akkoord in deze run. Parent start een **nieuwe** Toetser-run (Toets 1) tegen dezelfde run-map en de nieuwe PDF. Geen Uitvoer, live, mail of geld.

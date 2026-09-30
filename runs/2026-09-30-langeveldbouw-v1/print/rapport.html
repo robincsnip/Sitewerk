@@ -227,7 +227,8 @@ body {
   page-break-after: avoid;
 }
 
-.report-section > h2.section-head:first-child {
+.report-section > h2.section-head:first-child,
+.report-section > .heading-keep:first-child > h2.section-head {
   margin-top: var(--space-4);
 }
 
@@ -375,6 +376,13 @@ body {
   page-break-inside: avoid;
   display: block;
   width: 100%;
+}
+
+/* Heading + intro + first following block stay together in print */
+.heading-keep {
+  display: block;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .finding-card {
@@ -822,17 +830,20 @@ body {
 }
 
 .report table.scope-table,
+.report table.context-table,
 .report table.werklijst-table {
   break-inside: auto;
   page-break-inside: auto;
 }
 
 .report table.scope-table thead,
+.report table.context-table thead,
 .report table.werklijst-table thead {
   display: table-header-group;
 }
 
 .report table.scope-table tr,
+.report table.context-table tr,
 .report table.werklijst-table tr,
 .report table.appendix-table tr,
 .report table.gsc-table tr,
@@ -957,7 +968,27 @@ body {
     page-break-before: avoid;
   }
 
-  .report-section > h2.section-head:first-child {
+  .heading-keep {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    display: block;
+  }
+
+  .heading-keep > h2.section-head,
+  .heading-keep > h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .heading-keep > h2.section-head + *,
+  .heading-keep > h3 + *,
+  .heading-keep > .section-intro + * {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .report-section > h2.section-head:first-child,
+  .heading-keep > h2.section-head:first-child {
     break-after: avoid;
     page-break-after: avoid;
   }
@@ -985,7 +1016,9 @@ body {
   .callout-fictief,
   .gsc-shell,
   .gsc-chart-shell,
-  .lead-block {
+  .lead-block,
+  .table-shell,
+  .heading-keep {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
     -webkit-print-color-adjust: exact;
@@ -1033,6 +1066,7 @@ body {
   }
 
   .report table.scope-table tr,
+  .report table.context-table tr,
   .report table.appendix-table tr,
   .report table.werklijst-table tr,
   .report table.werklijst-tabel tr,
@@ -1071,37 +1105,46 @@ body {
   </header>
   <main class="report">
 <section class="report-section"><p><strong>Peildatum:</strong> 30 september 2026 <strong>Status:</strong> concept — er is nog niets live gezet <strong>Opgesteld door:</strong> Sitewerk</p>
-<hr class="section-break" />
-</section>
-<section class="report-section"><h2 class="section-head">In het kort</h2>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">In het kort</h2>
 <div class="lead-block"><p>Jullie hebben sinds 29 september een mooie, rustige site: eigen projecten, een duidelijke belknop, en Chris als gezicht. Wat ontbreekt is de plek. Nergens staat Alkmaar. Wie in Google een aannemer of interieurbouwer bij hem in de buurt zoekt, komt bij anderen uit — partijen mét plaats in de titel en een eigen pagina per klus.</p></div>
+</div>
 <div class="callout-decision"><p><strong>Besluit dat we vragen:</strong> akkoord op de drie prioriteiten hieronder. Daarna kijkt een andere ronde mee; pas daarna bouwen we op een preview — nog niets live.</p></div>
+<div class="heading-keep">
 <h3>Drie prioriteiten</h3>
 <div class="prio-shell"><div class="prio-grid"><div class="prio-card"><div class="prio-num">1</div><div class="prio-body"><div class="prio-title">Alkmaar zichtbaar maken</div><div class="prio-done">Klaar als: de plaats in de paginatitel of intro staat, en het contactblok telefoon plus e-mail toont (straat alleen als Chris dat wil). Zie bevinding 1.</div></div></div><div class="prio-card"><div class="prio-num">2</div><div class="prio-body"><div class="prio-title">Drie dienstpagina's</div><div class="prio-done">Klaar als: aanbouw, interieur en dakkapel/opbouw elk een eigen adres hebben, met een kop en een link vanaf home. Zie bevinding 2.</div></div></div><div class="prio-card"><div class="prio-num">3</div><div class="prio-body"><div class="prio-title">Het formulier laten aankomen</div><div class="prio-done">Klaar als: een testbericht in de inbox van info@langeveldbouw.nl valt, zonder dat het mailprogramma van de bezoeker opengaat. Zie bevinding 3.</div></div></div></div></div>
+</div>
+<div class="heading-keep">
 <h3>Wat al goed staat (niet kapotmaken)</h3>
 <div class="good-shell"><div class="good-grid"><div class="good-item">Bezoekers komen automatisch op www terecht, via een beveiligde verbinding</div><div class="good-item">De belknop staat in de kop en is direct te tikken</div><div class="good-item">Zeventien echte projecten met duidelijke foto's</div><div class="good-item">KvK- en btw-nummer staan in de voet</div><div class="good-item">De teksten staan in de pagina zelf, niet alleen in een app</div></div></div>
-<hr class="section-break" />
-</section>
-<section class="report-section"><h2 class="section-head">Wat we hebben bekeken</h2>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Wat we hebben bekeken</h2>
 <p class="section-intro">Openbare home en projectenpagina, het overzicht van pagina-adressen voor Google, het contactformulier (testdoorgifte, geen echte klantmail), en een steekproef in Google op merk- en dienstzoeken. Geen Search Console-export. Geen inlog in een bedrijfsprofiel.</p>
-<table class="data-table scope-table"><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; vindbaarheid</td><td>bekeken</td><td>Twee adressen in het overzicht; nieuwe site, oude zoektekst</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>Home + projecten; diensten alleen als onderdelen op home</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Sterk merkverhaal, geen plaats, geen dienstpagina</td></tr><tr><td>Snelheid</td><td>deels</td><td>Geen veldmeting; home-HTML licht, één grote foto</td></tr><tr><td>Google-bedrijfsprofiel</td><td>relevant, niet gevonden</td><td>Geen Maps-hit in de steekproef; geen sterren verzinnen</td></tr><tr><td>Reviews &amp; reputatie</td><td>niet gevonden</td><td>Andere “Langeveld”-bedrijven wel; dit is niet hetzelfde</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>steekproef</td><td>Zie tabel hieronder</td></tr><tr><td>AI-vindbaarheid</td><td>steekproef</td><td>Bij dienst + plaats geen Langeveld in de openbare hits</td></tr></tbody></table>
-<hr class="section-break" />
-</section>
-<section class="report-section"><h2 class="section-head">Markt &amp; concurrenten</h2>
+<div class="table-shell"><table class="data-table scope-table"><thead><tr><th>Onderwerp</th><th>Status</th><th>Opmerking</th></tr></thead><tbody><tr><td>Techniek &amp; vindbaarheid</td><td>bekeken</td><td>Twee adressen in het overzicht; nieuwe site, oude zoektekst</td></tr><tr><td>Pagina-opbouw &amp; links</td><td>bekeken</td><td>Home + projecten; diensten alleen als onderdelen op home</td></tr><tr><td>Teksten &amp; zoekintentie</td><td>bekeken</td><td>Sterk merkverhaal, geen plaats, geen dienstpagina</td></tr><tr><td>Snelheid</td><td>deels</td><td>Geen veldmeting; home-HTML licht, één grote foto</td></tr><tr><td>Google-bedrijfsprofiel</td><td>relevant, niet gevonden</td><td>Geen Maps-hit in de steekproef; geen sterren verzinnen</td></tr><tr><td>Reviews &amp; reputatie</td><td>niet gevonden</td><td>Andere “Langeveld”-bedrijven wel; dit is niet hetzelfde</td></tr><tr><td>Concurrenten in zoekresultaten</td><td>steekproef</td><td>Zie tabel hieronder</td></tr><tr><td>AI-vindbaarheid</td><td>steekproef</td><td>Bij dienst + plaats geen Langeveld in de openbare hits</td></tr></tbody></table></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Markt &amp; concurrenten</h2>
 <p class="section-intro">Zelfde dag als de meting op de site. Elke speler krijgt een werklijstregel of een reden om niets te doen.</p>
-<table class="data-table"><thead><tr><th>Speler</th><th>Rol</th><th>Gap t.o.v. jullie</th><th>Label</th><th>Actie</th></tr></thead><tbody><tr><td>Schaaf</td><td>Aannemer Alkmaar</td><td>Plaats + adres + “aannemer Alkmaar” in de titel</td><td>gemeten</td><td>#1 — plaats op de site</td></tr><tr><td>Kuilboer en de Boer</td><td>Aanbouw regio Alkmaar</td><td>Eigen pagina “aannemer Alkmaar”</td><td>gemeten</td><td>#3 — dienstpagina aanbouw</td></tr><tr><td>De Prefabriek / Prefast</td><td>Prefab aanbouw</td><td>Landings “aanbouw Alkmaar”</td><td>gemeten</td><td>#3 — geen prefab nadoen; wél een aanbouw-URL</td></tr><tr><td>Rubens Interieurbouw</td><td>Maatwerkkasten</td><td>Pagina’s “interieurbouw / kasten Alkmaar”</td><td>gemeten</td><td>#3 — dienstpagina interieur</td></tr><tr><td>HiRas</td><td>Interieur Alkmaar</td><td>Plaats + werkplaatsadres + dienst-URL’s</td><td>gemeten</td><td>#1 en #3</td></tr><tr><td>Dakkapellen.nu / Ard Bruin / Montis</td><td>Dakkapel regio</td><td>Lokale dakkapel-pagina’s</td><td>gemeten</td><td>#3 — alleen als jullie dit werk doen (tekening zegt ja)</td></tr><tr><td>Boersma e.a.</td><td>Reviews op vergelijkssites</td><td>Publieke beoordelingen</td><td>afgeleid</td><td>Geen actie: geen reviews kopen; eerst #6</td></tr><tr><td>Langeveld Bouw (Spijkenisse / Beemster)</td><td>Andere bedrijven, zelfde achternaam</td><td>Naamverwarring zonder plaats</td><td>gemeten</td><td>#1 — “Alkmaar” onderscheidt</td></tr><tr><td>Jullie site</td><td>Merksite + projecten</td><td>—</td><td>gemeten</td><td>Geen actie: deze vorm niet vervangen</td></tr></tbody></table>
-<hr class="section-break" />
-</section>
-<section class="report-section"><h2 class="section-head">Zoektermen die ertoe doen</h2>
+<div class="table-shell"><table class="data-table context-table"><thead><tr><th>Speler</th><th>Rol</th><th>Gap t.o.v. jullie</th><th>Label</th><th>Actie</th></tr></thead><tbody><tr><td>Schaaf</td><td>Aannemer Alkmaar</td><td>Plaats + adres + “aannemer Alkmaar” in de titel</td><td>gemeten</td><td>#1 — plaats op de site</td></tr><tr><td>Kuilboer en de Boer</td><td>Aanbouw regio Alkmaar</td><td>Eigen pagina “aannemer Alkmaar”</td><td>gemeten</td><td>#3 — dienstpagina aanbouw</td></tr><tr><td>De Prefabriek / Prefast</td><td>Prefab aanbouw</td><td>Landings “aanbouw Alkmaar”</td><td>gemeten</td><td>#3 — geen prefab nadoen; wél een aanbouw-URL</td></tr><tr><td>Rubens Interieurbouw</td><td>Maatwerkkasten</td><td>Pagina’s “interieurbouw / kasten Alkmaar”</td><td>gemeten</td><td>#3 — dienstpagina interieur</td></tr><tr><td>HiRas</td><td>Interieur Alkmaar</td><td>Plaats + werkplaatsadres + dienst-URL’s</td><td>gemeten</td><td>#1 en #3</td></tr><tr><td>Dakkapellen.nu / Ard Bruin / Montis</td><td>Dakkapel regio</td><td>Lokale dakkapel-pagina’s</td><td>gemeten</td><td>#3 — alleen als jullie dit werk doen (tekening zegt ja)</td></tr><tr><td>Boersma e.a.</td><td>Reviews op vergelijkssites</td><td>Publieke beoordelingen</td><td>afgeleid</td><td>Geen actie: geen reviews kopen; eerst #6</td></tr><tr><td>Langeveld Bouw (Spijkenisse / Beemster)</td><td>Andere bedrijven, zelfde achternaam</td><td>Naamverwarring zonder plaats</td><td>gemeten</td><td>#1 — “Alkmaar” onderscheidt</td></tr><tr><td>Jullie site</td><td>Merksite + projecten</td><td>—</td><td>gemeten</td><td>Geen actie: deze vorm niet vervangen</td></tr></tbody></table></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Zoektermen die ertoe doen</h2>
 <p class="section-intro">Openbare zoeksteekproef 30 september. Geen Search Console — dus geen klikken of posities.</p>
-<table class="data-table"><thead><tr><th>Zoekopdracht</th><th>Wat de zoeker wil</th><th>Zichtbaar voor jullie?</th><th>Label</th></tr></thead><tbody><tr><td>Langeveld Bouw</td><td>Het bedrijf vinden</td><td>Deels — domein ja, nog de oude titel</td><td>gemeten</td></tr><tr><td>aanbouw Alkmaar</td><td>Lokale aanbouw</td><td>Nee</td><td>gemeten</td></tr><tr><td>aannemer Alkmaar</td><td>Lokale aannemer</td><td>Nee</td><td>gemeten</td></tr><tr><td>interieurbouw Alkmaar</td><td>Maatwerk binnen</td><td>Nee</td><td>gemeten</td></tr><tr><td>kasten op maat Alkmaar</td><td>Kast / wand</td><td>Nee</td><td>gemeten</td></tr><tr><td>dakkapel Alkmaar</td><td>Extra ruimte op zolder</td><td>Nee</td><td>gemeten</td></tr></tbody></table>
-<hr class="section-break" />
-</section>
-<section class="report-section report-section--chapter"><h2 class="section-head">Bevindingen</h2>
+<div class="table-shell"><table class="data-table context-table"><thead><tr><th>Zoekopdracht</th><th>Wat de zoeker wil</th><th>Zichtbaar voor jullie?</th><th>Label</th></tr></thead><tbody><tr><td>Langeveld Bouw</td><td>Het bedrijf vinden</td><td>Deels — domein ja, nog de oude titel</td><td>gemeten</td></tr><tr><td>aanbouw Alkmaar</td><td>Lokale aanbouw</td><td>Nee</td><td>gemeten</td></tr><tr><td>aannemer Alkmaar</td><td>Lokale aannemer</td><td>Nee</td><td>gemeten</td></tr><tr><td>interieurbouw Alkmaar</td><td>Maatwerk binnen</td><td>Nee</td><td>gemeten</td></tr><tr><td>kasten op maat Alkmaar</td><td>Kast / wand</td><td>Nee</td><td>gemeten</td></tr><tr><td>dakkapel Alkmaar</td><td>Extra ruimte op zolder</td><td>Nee</td><td>gemeten</td></tr></tbody></table></div>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section report-section--chapter"><div class="heading-keep">
+<h2 class="section-head">Bevindingen</h2>
 <div class="finding-shell"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><div class="mini-kpi-row"><div class="mini-kpi"><div class="mini-kpi-value">0×</div><div class="mini-kpi-label">Alkmaar in de tekst</div></div><div class="mini-kpi"><div class="mini-kpi-value">KvK</div><div class="mini-kpi-label">wel in de voet</div></div></div><h3>1. De site noemt geen plaats — terwijl dit lokaal werk is</h3>
 <p>Telefoon, e-mail en KvK staan er. Het woord Alkmaar niet, en ook geen straat of postcode. Een directory die het KvK-nummer 83911847 naslaat, noemt Van Houtenkade 27 in Alkmaar. Dat adres publiceren we niet voordat Chris zegt dat het een bezoekadres mag zijn.</p>
 <p><strong>Gevolg:</strong> wie “aannemer Alkmaar” of “interieurbouw Alkmaar” zoekt, heeft geen reden om jullie pagina te kiezen. Er zijn bovendien andere bedrijven met “Langeveld Bouw” in de naam.</p>
 <p><strong>Voorstel:</strong> plaats en werkgebied nú op home (titel of intro + voet). Straat alleen na ja. Zelfde blok houden we daarna gelijk in het Google-bedrijfsprofiel — als dat er is of komt.</p></div></div></div>
+</div>
 <div class="finding-shell"><div class="finding-card finding-p0"><div class="finding-content"><div class="finding-badge">P0</div><div class="mini-kpi-row"><div class="mini-kpi"><div class="mini-kpi-value">8</div><div class="mini-kpi-label">Diensten in de tekening</div></div><div class="mini-kpi"><div class="mini-kpi-value">0</div><div class="mini-kpi-label">Eigen dienstpagina's</div></div></div><h3>2. Acht soorten werk, nul eigen pagina's</h3>
 <p>De tekening op home noemt fundering, aanbouw, dakkapel, verbouw, timmerwerk, kasten, afwerking en verduurzaming. Wie <code>/aanbouw</code> of <code>/interieurbouw</code> opent, krijgt een kale “niet gevonden”-tekst. Concurrenten winnen de steekproef met precies zulke adressen.</p>
 <p><strong>Gevolg:</strong> Google en een zoeker hebben geen plek om “aanbouw in Alkmaar door Chris” te tonen. Alles hangt aan één merksite.</p>
@@ -1118,28 +1161,33 @@ body {
 <p><code>/privacy</code> bestaat niet. Een verzonnen dienst-URL toont de standaardtekst van de host, niet jullie site. <code>/reviews</code> stuurt terug naar home — een rest van een ouder pad.</p>
 <p><strong>Gevolg:</strong> klein, maar slordig als iemand een oude of geraden link volgt.</p>
 <p><strong>Voorstel:</strong> een korte “pagina niet gevonden” in jullie stijl, plus een privacyregel (het formulier belooft al dat gegevens alleen voor de aanvraag zijn).</p></div></div></div>
-<hr class="section-break" />
-</section>
-<section class="report-section"><h2 class="section-head">Beslissingen die we van jullie nodig hebben</h2>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Beslissingen die we van jullie nodig hebben</h2>
 <div class="decision-grid"><div class="decision-card"><h3>Beslissing 1 — Welk adres mag op de site?</h3><p><strong>Voorstel:</strong> nu “Alkmaar en omgeving”; straat alleen als Chris bevestigt dat bezoekers daar mogen langskomen. <strong>Alternatief:</strong> alleen plaats, nooit straat (telefoon blijft het contact). <strong>Opnieuw bekijken als:</strong> het KvK-adres een werkplaats is die jullie willen tonen.</p></div><div class="decision-card"><h3>Beslissing 2 — Welke drie diensten eerst?</h3><p><strong>Voorstel:</strong> aanbouw/verbouw, interieurbouw, dakkapel/opbouw — dat staat al in de tekening en dat zoeken mensen met plaatsnaam. <strong>Alternatief:</strong> dakkapel laten vallen als jullie dat werk niet doen; dan timmerwerk/kozijnen als derde. <strong>Opnieuw bekijken als:</strong> Chris een andere mix als kernzaken ziet.</p></div><div class="decision-card"><h3>Beslissing 3 — Deze site afmaken of een nieuwe bouwen?</h3><p><strong>Voorstel:</strong> deze site houden en de drie prioriteiten erop zetten. <strong>Alternatief:</strong> een nieuwe site — alleen als jullie de hele vorm willen vervangen; dat is een apart besluit. <strong>Opnieuw bekijken als:</strong> de huidige vorm jullie niet bevalt (hij is één dag live).</p></div></div>
-<hr class="section-break" />
-</section>
-<section class="report-section report-section--chapter"><h2 class="section-head">Werklijst — eerste 90 dagen</h2>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section report-section--chapter"><div class="heading-keep">
+<h2 class="section-head">Werklijst — eerste 90 dagen</h2>
 <p class="section-intro">Zelfde lijst als in het werkbestand van deze run. Geen tweede volgorde.</p>
 <div class="werklijst-block"><h3>Deze maand</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Prio</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>1</td><td>P0</td><td>Alkmaar (en na ja: adres) in titel of intro + contactblok</td><td>wij</td><td>plaats zichtbaar op home; tel en mail blijven; straat alleen ná ja</td></tr><tr><td>2</td><td>P0</td><td>Contactformulier koppelen aan de inbox</td><td>gedeeld</td><td>testbericht in info@langeveldbouw.nl, zonder mailprogramma van de bezoeker</td></tr><tr><td>3</td><td>P0</td><td>Drie dienstpagina's + link vanaf home</td><td>wij</td><td>drie adressen met eigen kop; overzicht voor Google bijgewerkt</td></tr></tbody></table></div></div>
+</div>
 <div class="werklijst-block"><h3>Maand twee / drie</h3><div class="table-shell"><table class="data-table werklijst-table"><thead><tr><th>#</th><th>Prio</th><th>Wat</th><th>Wie</th><th>Klaar als</th></tr></thead><tbody><tr><td>4</td><td>P1</td><td>Paginatitels en hoofdadres-tag van de nieuwe site</td><td>wij</td><td>live titel klopt; Google weet welk adres de echte pagina is</td></tr><tr><td>5</td><td>P1</td><td>Zelfde bedrijfsgegevens in de pagina als in de voet</td><td>wij</td><td>testhulpmiddel van Google toont naam, plaats, telefoon</td></tr><tr><td>6</td><td>P1</td><td>Bedrijfsprofiel in Google controleren of aanmaken</td><td>jullie</td><td>ja/nee + link; geen sterren verzinnen</td></tr><tr><td>7</td><td>P2</td><td>Eigen “niet gevonden”-pagina + korte privacytekst</td><td>wij</td><td>verkeerde link toont jullie site; /privacy bestaat</td></tr><tr><td>8</td><td>P2</td><td>Toegang tot Search Console delen</td><td>jullie</td><td>Sitewerk kan impressies per adres zien</td></tr></tbody></table></div></div>
 <p><strong>Buiten scope deze ronde:</strong> nieuwe site, live zetten, mail naar klanten, betaalde ads, reviews kopen, het KvK-adres publiceren zonder ja.</p>
-<hr class="section-break" />
-</section>
-<section class="report-section"><h2 class="section-head">Hoe we weten of het werkt</h2>
+<hr class="section-break" /></section>
+<section class="report-section"><div class="heading-keep">
+<h2 class="section-head">Hoe we weten of het werkt</h2>
 <div class="measure-shell"><div class="measure-grid"><div class="measure-card"><div class="measure-when">Nu bekend</div><div class="measure-label">Baseline</div><div class="measure-text">2 pagina's; 0× Alkmaar; formulier 503; zoeksteekproef zonder jullie op dienst+plaats</div></div><div class="measure-card"><div class="measure-when">Nog niet bekend</div><div class="measure-label">Open</div><div class="measure-text">Search Console, of er een bedrijfsprofiel is, inkomende links</div></div><div class="measure-card"><div class="measure-when">30 dagen</div><div class="measure-label">Hercontrole</div><div class="measure-text">plaats op home; formulier-inbox; drie dienst-URL's; merkszoeken (oude titel weg?)</div></div><div class="measure-card"><div class="measure-when">90 dagen</div><div class="measure-label">Nameting</div><div class="measure-text">zelfde zoekopdrachten als de tabel; impressies per nieuwe URL als Console er is</div></div></div></div>
-<hr class="section-break" />
-</section>
-<section class="report-section report-section--appendix"><h2 class="section-head">Bijlage A — Bewijs</h2>
-<table class="data-table appendix-table"><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>0× Alkmaar; geen straat</td><td>HTML home + projecten, 30 sep 2026</td><td>gemeten</td></tr><tr><td>F-002</td><td>/aanbouw, /interieurbouw, /dakkapel → 404</td><td>padsteekproef</td><td>gemeten</td></tr><tr><td>F-003</td><td>Formulier niet ingesteld</td><td>POST /api/aanvraag → 503 <code>niet-ingesteld</code>; lege mail-sleutel</td><td>gemeten</td></tr><tr><td>F-004</td><td>Zoektitel nog “Bouwbedrijf Langeveld”</td><td>openbare merkszoeken 30 sep</td><td>gemeten</td></tr><tr><td>F-005</td><td>Geen extra bedrijfsgegevens in de pagina</td><td>broncode home + projecten, 30 sep</td><td>gemeten</td></tr><tr><td>F-006</td><td>Kale host-foutpagina</td><td>/privacy en verzonnen pad</td><td>gemeten</td></tr><tr><td>F-007</td><td>Geen Maps-profiel in steekproef</td><td>zoek + Maps-achtige queries</td><td>onbekend</td></tr><tr><td>F-008</td><td>Inkomende links</td><td>—</td><td>onbekend</td></tr><tr><td>F-009</td><td>Andere Langeveld-bouwbedrijven</td><td>Spijkenisse; Middenbeemster KvK 67229433</td><td>gemeten</td></tr><tr><td>F-010</td><td>KvK-adres bij derden</td><td>Compadex, KvK 83911847 (12 feb 2026)</td><td>afgeleid</td></tr></tbody></table>
-</section>
-<section class="report-section report-section--appendix"><h2 class="section-head">Bijlage B — Afgewezen automatische tips</h2>
-<table class="data-table appendix-table"><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>Tien blogposts “voor Google”</td><td>Lost plaats en dienst-URL’s niet op; geen schrijfcapaciteit afgesproken</td></tr><tr><td>Sterren of reviews op de site verzinnen</td><td>Geen dossier; misleidend</td></tr><tr><td>KvK-straat nu al publiceren</td><td>Eenmanszaak; eerst ja van Chris</td></tr><tr><td>Nieuwe site / andere huisstijl</td><td>Live site is van 29 sep; geen redesign-besluit</td></tr><tr><td>Bedrijfsprofiel-berichten zonder profiel</td><td>Eerst #6; geen theater</td></tr><tr><td>Aantal bezoekers beloven</td><td>Geen Search Console-baseline</td></tr></tbody></table></section>
+</div>
+<hr class="section-break" /></section>
+<section class="report-section report-section--appendix"><div class="heading-keep">
+<h2 class="section-head">Bijlage A — Bewijs</h2>
+<div class="table-shell"><table class="data-table appendix-table"><thead><tr><th>ID</th><th>Observatie</th><th>Bewijs</th><th>Label</th></tr></thead><tbody><tr><td>F-001</td><td>0× Alkmaar; geen straat</td><td>HTML home + projecten, 30 sep 2026</td><td>gemeten</td></tr><tr><td>F-002</td><td>/aanbouw, /interieurbouw, /dakkapel → 404</td><td>padsteekproef</td><td>gemeten</td></tr><tr><td>F-003</td><td>Formulier niet ingesteld</td><td>POST /api/aanvraag → 503 <code>niet-ingesteld</code>; lege mail-sleutel</td><td>gemeten</td></tr><tr><td>F-004</td><td>Zoektitel nog “Bouwbedrijf Langeveld”</td><td>openbare merkszoeken 30 sep</td><td>gemeten</td></tr><tr><td>F-005</td><td>Geen extra bedrijfsgegevens in de pagina</td><td>broncode home + projecten, 30 sep</td><td>gemeten</td></tr><tr><td>F-006</td><td>Kale host-foutpagina</td><td>/privacy en verzonnen pad</td><td>gemeten</td></tr><tr><td>F-007</td><td>Geen Maps-profiel in steekproef</td><td>zoek + Maps-achtige queries</td><td>onbekend</td></tr><tr><td>F-008</td><td>Inkomende links</td><td>—</td><td>onbekend</td></tr><tr><td>F-009</td><td>Andere Langeveld-bouwbedrijven</td><td>Spijkenisse; Middenbeemster KvK 67229433</td><td>gemeten</td></tr><tr><td>F-010</td><td>KvK-adres bij derden</td><td>Compadex, KvK 83911847 (12 feb 2026)</td><td>afgeleid</td></tr></tbody></table></div>
+</div></section>
+<section class="report-section report-section--appendix"><div class="heading-keep">
+<h2 class="section-head">Bijlage B — Afgewezen automatische tips</h2>
+<div class="table-shell"><table class="data-table appendix-table"><thead><tr><th>Tip</th><th>Waarom niet</th></tr></thead><tbody><tr><td>Tien blogposts “voor Google”</td><td>Lost plaats en dienst-URL’s niet op; geen schrijfcapaciteit afgesproken</td></tr><tr><td>Sterren of reviews op de site verzinnen</td><td>Geen dossier; misleidend</td></tr><tr><td>KvK-straat nu al publiceren</td><td>Eenmanszaak; eerst ja van Chris</td></tr><tr><td>Nieuwe site / andere huisstijl</td><td>Live site is van 29 sep; geen redesign-besluit</td></tr><tr><td>Bedrijfsprofiel-berichten zonder profiel</td><td>Eerst #6; geen theater</td></tr><tr><td>Aantal bezoekers beloven</td><td>Geen Search Console-baseline</td></tr></tbody></table></div>
+</div></section>
   </main>
   <footer class="colophon">
     <p>Sitewerk · persoonlijk lab · geen live zonder eigenaren-akkoord</p>
