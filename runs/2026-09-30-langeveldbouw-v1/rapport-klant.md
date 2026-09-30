@@ -46,7 +46,7 @@ De teksten staan in de pagina zelf, niet alleen in een app
 ## Wat we hebben bekeken
 
 :::section-intro
-Openbare home en projectenpagina, technische koppen, robots-bestand, pagina-overzicht voor Google, contactformulier (testdoorgifte, geen echte klantmail), en een steekproef in Google op merk- en dienstzoeken. Geen Search Console-export. Geen inlog in een bedrijfsprofiel.
+Openbare home en projectenpagina, het overzicht van pagina-adressen voor Google, het contactformulier (testdoorgifte, geen echte klantmail), en een steekproef in Google op merk- en dienstzoeken. Geen Search Console-export. Geen inlog in een bedrijfsprofiel.
 :::
 
 | Onderwerp | Status | Opmerking |
@@ -77,7 +77,7 @@ Zelfde dag als de meting op de site. Elke speler krijgt een werklijstregel of ee
 | HiRas | Interieur Alkmaar | Plaats + werkplaatsadres + dienst-URL’s | gemeten | #1 en #3 |
 | Dakkapellen.nu / Ard Bruin / Montis | Dakkapel regio | Lokale dakkapel-pagina’s | gemeten | #3 — alleen als jullie dit werk doen (tekening zegt ja) |
 | Boersma e.a. | Reviews op vergelijkssites | Publieke beoordelingen | afgeleid | Geen actie: geen reviews kopen; eerst #6 |
-| Langeveld Bouw (Spijkenisse / Beemster) | Andere bedrijven,zelfde achternaam | Naamverwarring zonder plaats | gemeten | #1 — “Alkmaar” onderscheidt |
+| Langeveld Bouw (Spijkenisse / Beemster) | Andere bedrijven, zelfde achternaam | Naamverwarring zonder plaats | gemeten | #1 — “Alkmaar” onderscheidt |
 | Jullie site | Merksite + projecten | — | gemeten | Geen actie: deze vorm niet vervangen |
 
 ---
