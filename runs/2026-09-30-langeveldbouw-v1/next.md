@@ -1,10 +1,10 @@
 # next — 2026-09-30-langeveldbouw-v1
 
-klaar_fase: audit
-volgende_rol: Toetser
-toets_run_id:
+klaar_fase: toets-1
+volgende_rol: Uitvoer
+toets_run_id: bc-ffb4dfb8-f5b9-5485-a702-1f78f842cbef
 reden_stop:
 
 ## Notitie
 
-Bouwer-herstel ná Toets 1 afkeur: alleen print/paginatie. Kop + intro + tabel blijven bij elkaar (`heading-keep`); `check-pagination.js` faalt nu op kop+intro op pagina N met tabel op N+1. Rapportinhoud, werklijst en packets zijn niet herschreven. Geen `toets.md` met akkoord in deze run. Parent start een **nieuwe** Toetser-run (Toets 1) tegen dezelfde run-map en de nieuwe PDF. Geen Uitvoer, live, mail of geld.
+Toets 1 akkoord ná print-fix: wees-koppen visueel weg (Markt p.4 met tabel; Werklijst p.8 met beide tabellen). Rapport, werklijst en packets zijn niet herschreven. Brief heeft Uitvoer + Nameting — parent start Uitvoer. Deze Toetser start geen Uitvoer, live, mail of geld. Toets 1 is geen live.
